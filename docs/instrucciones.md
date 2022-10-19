@@ -1,12 +1,13 @@
 # Como levantar el entorno y correr el proyecto de forma local
 
-## PARA EL FRONTEND 
+## PARA EL FRONTEND
 
 ### 1. Requisitos
 
-- `node` y `npm`
+- `node`
+- `npm`
 
-### 2. Instalacion
+### 2. Instalación
 
 ```
     # 1. Moverse al directorio client
@@ -19,14 +20,30 @@
 ### 3. Configuración
 ```
     # Hot Reload -> Cada cambio que hagas, va a levantar el servidor para ver los cambios.
-    # 3. Para correr el desarrollo 
+    # 3. Para correr en desarrollo
     npm run dev
 
     # 4. Cuando finalizas el desarrollo, para construir
     npm run build
 ```
-
-## ----------------
+___
 
 ## PARA EL BACKEND
 
+### 1. Requisitos
+
+- `openjdk-18`
+- `maven`
+
+### 2. Ejecución
+
+```
+    # 1. Moverse al directorio del proyecto
+    cd DigitalBooking
+
+    # 2. compilar
+    ./mvnw package
+
+    # 3. correr
+    java -jar DigitalBookin/target/DigitalBooking-0.0.1-SNAPSHOT.jar
+```
