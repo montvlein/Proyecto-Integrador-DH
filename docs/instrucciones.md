@@ -38,9 +38,12 @@ ___
 ### 2. Ejecución
 
 ```
-# compilar el proyecto
-mvn package
+    # 1. Moverse al directorio del proyecto
+    cd DigitalBooking
 
-# correr el proyecto
-java -jar DigitalBookin/target/DigitalBooking-0.0.1-SNAPSHOT.jar
+    # 2. compilar
+    ./mvnw package
+
+    # 3. correr
+    java -jar DigitalBookin/target/DigitalBooking-0.0.1-SNAPSHOT.jar
 ```
