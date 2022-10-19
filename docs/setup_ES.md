@@ -1,6 +1,6 @@
 # Como levantar el entorno y correr el proyecto de forma local
 
-## Fronend
+## Frontend
 
 ### Requisitos
 
