@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS categorias(
+id int PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(255), descripcion VARCHAR(255),
+url_img VARCHAR(255) );
