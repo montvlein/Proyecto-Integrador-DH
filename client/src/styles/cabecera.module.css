@@ -1,0 +1,23 @@
+header {
+    background-color: red;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: #383B58;
+    position: fixed;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a, button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div {
+    /*padding-right: 15px;*/
+    padding: 15px;
+}
