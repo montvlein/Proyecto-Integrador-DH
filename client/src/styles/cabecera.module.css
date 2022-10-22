@@ -1,15 +1,27 @@
 header {
-    background-color: red;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+
+
+/*header {
+    background-color: FFF;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-content: center;
     color: #383B58;
     position: fixed;
-    z-index: 100;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
     box-sizing: border-box;
+    overflow: hidden;
+    top: 0;
+    height: 3.4rem;
 }
 
 a, button {
@@ -18,6 +30,15 @@ a, button {
 }
 
 div {
-    /*padding-right: 15px;*/
-    padding: 15px;
+    padding: 0;
+    margin:0;
+    height: 0;
+    justify-content: center;
+    align-content: center;
+    
 }
+
+div {
+    padding-right: 15px;
+    padding: 15px;
+}*/

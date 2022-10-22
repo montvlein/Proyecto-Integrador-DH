@@ -3,14 +3,15 @@ import './App.css';
 import Cabecera from './components/cabecera';
 import Cuerpo from './components/cuerpo';
 import Footer from './components/footer';
+import SearchBar from './components/searchBar';
 
 
 function App() {
   return (
     <>
-    <Cabecera></Cabecera>
-    <Cuerpo></Cuerpo>
-    <Footer></Footer>
+    <Cabecera/>
+    <Cuerpo/>
+    <Footer/>
     </>
   )
 }
