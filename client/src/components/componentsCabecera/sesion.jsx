@@ -1,32 +1,20 @@
-import { useState } from "react";
+import { useContext } from "react";
+import Contexto from "../../contexto/AppContext"
 import BotonIniciarSesion from "./botonIniciar";
 import BotonRegistrar from "./botonRegistrar";
 import UsuarioIniciado from "./sesionIniciada";
 
-
-
-
 function Sesion() {
-    const [sesion, setSesion] = useState(false);
-    const usuario = {nombre: "Maigualida",
-                    apellido: "Delgado"}
+    const { estaLaSesionIniciada } = useContext(Contexto);
 
-    function iniciarSesion() {
-        setSesion(true);
-    };
-
-    function cerrarSesion() {
-        setSesion(false);
-    };
-
-    if(sesion) {
+    if(estaLaSesionIniciada()) {
         return (
-            <UsuarioIniciado props={cerrarSesion} usuario={usuario}/>
+            <UsuarioIniciado/>
             )
     } else {
         return (
-            <div class="text-end"> 
-            <BotonIniciarSesion props={iniciarSesion}/>
+            <div class="text-end">
+            <BotonIniciarSesion/>
             <BotonRegistrar/>
             </div>
         )
