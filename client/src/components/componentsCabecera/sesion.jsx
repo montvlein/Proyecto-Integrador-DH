@@ -1,5 +1,8 @@
 import { useState } from "react";
+import BotonIniciarSesion from "./botonIniciar";
+import BotonRegistrar from "./botonRegistrar";
 import UsuarioIniciado from "./sesionIniciada";
+
 
 
 
@@ -22,10 +25,10 @@ function Sesion() {
             )
     } else {
         return (
-            <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2" onClick={iniciarSesion}>Inicia sesión</button>
-            <button type="button" class="btn btn-warning">Registrate</button>
-          </div>
+            <div class="text-end"> 
+            <BotonIniciarSesion props={iniciarSesion}/>
+            <BotonRegistrar/>
+            </div>
         )
     }
 

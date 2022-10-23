@@ -7,7 +7,7 @@ import {
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css fil
-import { format } from "date-fns";
+import { format, startOfWeekYear } from "date-fns";
 import { useState } from "react";
 
 function FechaReserva() {
@@ -22,7 +22,7 @@ function FechaReserva() {
       const [openDate, setOpenDate] = useState(false);
 
   return (
-    <div className={styles.headerSearchItem}>
+    <div className={styles.rangoFecha}>
       <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">
         <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />{" "}
         {`Desde ${format(date[0].startDate, "MM/dd/yyyy")}`}{" "}

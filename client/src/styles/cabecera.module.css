@@ -37,3 +37,20 @@ dl {
     padding:0px;
     cursor: pointer;
 }
+
+.navReposive {
+    display: none;
+    
+}
+
+
+@media (max-width: 575.98px)and (orientation:portrait) {
+    header{
+        display: none;
+        visibility: hidden;
+    }
+
+    .navReposive {
+        display: block;
+    }
+ }

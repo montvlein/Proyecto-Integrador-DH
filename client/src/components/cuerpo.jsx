@@ -5,17 +5,16 @@ import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 
 const Cuerpo = () => {
-
-
   return (
     <main>
       <div
         class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
         className={styles.Banner}
       >
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <div class="col-md-5 flex justify-content-center" className={styles.textoBanner}>
           <h1 class="display-4 fw-normal 1h-1">
-            Disfruta la primavera, disfruta el camino.
+            Disfruta la primavera, <br />
+            disfruta el camino.
           </h1>
           <p class="fs-5 fw-normal">
             Busca alquiler de autos baratos en Argentina. Con una flota diversa
@@ -31,23 +30,13 @@ const Cuerpo = () => {
       </div>
 
       <div className="d-flex justify-content-center">
-        <section className={styles.headerSearch}>
-
+        <section>
           <SearchBar />
           <FechaReserva />
-
-          <div className={styles.headerSearchItem}>
-            <FontAwesomeIcon icon={faClock} className={styles.headerIcon} />
-            <span className="headerSearchText">Hora de retiro</span>
-          </div>
-
-          <div className={styles.headerSearchItem}>
-            <FontAwesomeIcon icon={faClock} className={styles.headerIcon} />
-            <span className="headerSearchText">Hora de devolucion</span>
-          </div>
-
-          <div className={styles.headerSearchItem}>
-            <button class="btn btn-outline-light me-2">Buscar</button>
+          <div className={styles.botonNavBuscador}>
+            <button class="btn-sm btn btn-outline-light me-2 w-auto ">
+              Buscar
+            </button>
           </div>
         </section>
       </div>
