@@ -1,0 +1,18 @@
+footer {
+    background-color: #383B58;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: var(--azul);
+}
+
+.redes {
+    display: flex;
+}
+
+p {
+    margin-left: 10px;
+    margin-right: 10px;
+
+}

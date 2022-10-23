@@ -1,0 +1,56 @@
+header {
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+.iconoSesion {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: #FFF solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin-right: 10px;
+    position: relative;
+    
+    
+}
+
+h6 {
+    padding: 0px;
+    margin: 0px;
+    color: var(--amarillo)
+}
+
+dl {
+    margin: 0px;
+    font-size: 0.8em;
+}
+
+.iconoCerrar {
+    margin-bottom: 15px;
+    padding:0px;
+    cursor: pointer;
+}
+
+.navReposive {
+    display: none;
+    
+}
+
+
+@media (max-width: 575.98px)and (orientation:portrait) {
+    header{
+        display: none;
+        visibility: hidden;
+    }
+
+    .navReposive {
+        display: block;
+    }
+ }

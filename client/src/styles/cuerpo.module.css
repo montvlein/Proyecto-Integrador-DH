@@ -1,0 +1,163 @@
+
+
+main{ 
+    /*margin-top: 4.5rem;/* Add a top margin to avoid content overlay */
+    padding: 0;
+    box-sizing: border-box;
+    height: 95vh;
+    
+
+    }
+
+    /*Banner con imagen*/
+
+.Banner {
+    background-image: linear-gradient(rgba(40, 39, 39, 0.5),rgba(255, 255, 255, 0.9)), url("../assets/woman.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 60vh;
+    background-size: cover;
+    position: relative;
+    /*margin-top: 56px ;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ /*NavBar de reserva*/
+
+section {
+    /*height: 50px;*/
+
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    padding: 5px;
+    position: relative;
+    bottom: 25px;
+    border-color: lightgrey;
+    border-radius: 5px;
+    font-size: 1em;
+    flex-wrap: wrap;
+}
+
+/* Barra de rango de fecha*/
+
+.rangoFecha{
+border: #FFF solid 1px;
+background-color: #fff;
+color: gray;
+padding: 0px 5px 0px 5px;
+cursor: pointer;
+width: 400px;
+position:relative;
+
+
+}
+
+.headerIcon {
+    color: var(--amarillo);
+    
+}
+
+.headerSearchItem {
+   
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.headerSearchInput {
+    border: none;
+    outline: none;
+    width: 400px;
+
+}
+
+.date {
+    position: absolute;
+    top:26px;
+    left:0px;
+}
+
+
+
+.prueba3 {
+    position: relative;
+    padding: 10px;
+}
+
+/* Estilos de searchBar*/
+
+.dataResult{
+    width: 300px;
+    max-height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 37px;
+    left: 32px;
+    padding: 0px;
+    font-size: 1em;
+    
+}
+
+.dataResult::-webkit-scrollbar {
+    display: none;
+}
+
+.dataResult .dataItem {
+    width: 300px;
+
+    color: #000;
+    display: flex;
+    
+    
+}
+
+.dataItem {
+   margin:0px;
+   
+ 
+
+}
+
+.prueba:hover {
+    background-color: lightgray;
+}
+
+
+.prueba {
+    display: inline-flex;
+    width: 300px;
+    border-bottom: var(--amarillo) 1px solid;
+    padding: 10px;
+}
+
+.prueba2 {
+    padding: 10px;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Boton buscador*/
+.botonNavBuscador {
+    padding:10px;
+}
+
+
+@media (max-width: 575.98px)and (orientation:portrait) {
+
+    .textoBanner {
+        display:none;
+    }
+
+}
