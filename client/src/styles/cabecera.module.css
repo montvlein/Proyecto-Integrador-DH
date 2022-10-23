@@ -6,39 +6,34 @@ header {
     width: 100%;
 }
 
-
-
-/*header {
-    background-color: FFF;
-    width: 100%;
+.iconoSesion {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: #FFF solid 1px;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    color: #383B58;
-    position: fixed;
-    margin: 0;
-    padding: 10px 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    top: 0;
-    height: 3.4rem;
-}
-
-a, button {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-div {
-    padding: 0;
-    margin:0;
-    height: 0;
+    align-items: center;
     justify-content: center;
-    align-content: center;
+    padding: 0px;
+    margin-right: 10px;
+    position: relative;
+    
     
 }
 
-div {
-    padding-right: 15px;
-    padding: 15px;
-}*/
+h6 {
+    padding: 0px;
+    margin: 0px;
+    color: var(--amarillo)
+}
+
+dl {
+    margin: 0px;
+    font-size: 0.8em;
+}
+
+.iconoCerrar {
+    margin-bottom: 15px;
+    padding:0px;
+    cursor: pointer;
+}

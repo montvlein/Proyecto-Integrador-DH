@@ -4,7 +4,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    color: white;
+    color: var(--azul);
 }
 
 .redes {
@@ -14,4 +14,5 @@ footer {
 p {
     margin-left: 10px;
     margin-right: 10px;
+
 }
