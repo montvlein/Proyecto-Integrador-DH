@@ -2,33 +2,20 @@ import './App.css';
 import Cabecera from './components/cabecera';
 import Cuerpo from './components/cuerpo';
 import Footer from './components/footer';
-
-
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <>
     <Cabecera/>
-    <Cuerpo/>
+      <Routes>
+        <Route path="/" element={<Cuerpo/>}/>
+        <Route path="/iniciarSesion" element={"iniciar sesion"}/>
+        <Route path="/crearCuenta" element={"crear cuenta"}/>
+      </Routes>
     <Footer/>
     </>
   )
 }
 
 export default App
-
-
-/*
-function App() {
-  return (
-    <BrowserRouter>
-      <NavBar title="E-Commerce"/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductContainer/>}/>
-        <Route path="/products/:id" element={<ProductDetail/>}/>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-*/
