@@ -5,7 +5,7 @@ function BotonIniciarSesion() {
     const { iniciarSesion } = useContext(Contexto)
 
     return (
-        <button type="button" class="btn btn-outline-light me-2" onClick={iniciarSesion} >Inicia sesión</button>
+        <a href="/iniciarSesion" class="btn btn-outline-light me-2" onClick={iniciarSesion} >Inicia sesión</a>
     )
 }
 
