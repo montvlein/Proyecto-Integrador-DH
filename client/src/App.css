@@ -12,19 +12,20 @@
 }
 
 .categoria_article {
-    align-items: stretch;
+    align-items: center;
     background-color: var(--grisO);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: rgb(0 0 0/16%) 1px 1px 10px;
     border-radius: 8px;
-    color: wheat;
+    color: var(--amarillo);
     display: flex;
     font-weight: 900;
     font-size: 45px;
     height:200px;
     justify-content: center;
+    transition: .3s;
 }
 
 .categoria_article:hover {
