@@ -1,8 +1,9 @@
 import React, { useState, createContext } from "react";
-
+import categorias from "../data/categorias.json"
 const Contexto = createContext()
 
 export function AppContext({children}) {
+    // usuario y sesion
     const [ sesionIniciada, setSesionIniciada ] = useState(false)
     const [ usuario, setUsuario ] = useState()
 
@@ -18,8 +19,12 @@ export function AppContext({children}) {
         setSesionIniciada(false)
     }
 
+    // categorias
+    const [ listaCategorias, setCategorias ] = useState(categorias)
+    function getListaCategorias() { return listaCategorias }
+
     return(
-        <Contexto.Provider value={{ getUsuario, estaLaSesionIniciada, iniciarSesion, cerrarSesion }}>
+        <Contexto.Provider value={{ getUsuario, estaLaSesionIniciada, iniciarSesion, cerrarSesion, getListaCategorias }}>
             {children}
         </Contexto.Provider>
     )
