@@ -16,26 +16,24 @@ const RegistroForm = (props) => {
       <form className={styles.formularioContainer}>
         <div className={styles.contenidoFormulario}>
           <h3 className={styles.tituloFormulario}>Crear cuenta</h3>
-          <div className="form-group mt-3">
-            <label>Nombre</label>
-            <input
-              type="text"
-              className="form-control mt-1"
-              placeholder=""
-            />
-            <label>Apellido</label>
-            <input
-              type="text"
-              className="form-control mt-1"
-              placeholder=""
-            />
-          </div>
+          
+          <div class="row">
+      <div class="form-group col-6">
+      <label for="inputEmail4">Nombre</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Micaela"/>
+      </div>
+      <div class="form-group col-6">
+      <label for="inputPassword4">Apellido</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Barbero"/>
+      </div>
+      </div>
+          
           <div className="form-group mt-3">
             <label>Correo electrónico</label>
             <input
               type="email"
               className="form-control mt-1"
-              placeholder=""
+              placeholder="mica@digitalhouse.com.ar"
             />
           </div>
           <div className="form-group mt-3">
@@ -43,13 +41,13 @@ const RegistroForm = (props) => {
             <input
               type="password"
               className="form-control mt-1"
-              placeholder=""
+              placeholder="*********"
             />
             <label>Confirmar contraseña</label>
             <input
               type="password"
               className="form-control mt-1"
-              placeholder=""
+              placeholder="*********"
             />
           </div>
           <div className="d-grid gap-2 mt-3">
