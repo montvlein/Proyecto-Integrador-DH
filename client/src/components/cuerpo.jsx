@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
+import Categorias from "./Categorias/categorias";
 
 const Cuerpo = () => {
   return (
@@ -40,6 +41,7 @@ const Cuerpo = () => {
           </div>
         </section>
       </div>
+      <Categorias/>
     </main>
   );
 };
