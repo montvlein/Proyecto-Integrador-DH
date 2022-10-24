@@ -18,13 +18,13 @@ function UsuarioIniciado({ props, usuario }) {
 
       <div>
         <dl>
-          <dt class="nav-link px-2 text-white">Hola,</dt>
-          <dl class="nav-link px-2 text-white fw-bold">{usuario.nombre} {usuario.apellido}</dl>
+          <dt className="nav-link px-2 text-white">Hola,</dt>
+          <dl className="nav-link px-2 text-white fw-bold">{usuario.nombre} {usuario.apellido}</dl>
         </dl>
       </div>
 
       <div className={styles.iconoCerrar}>
-        <FontAwesomeIcon icon={faXmark} onClick={props}></FontAwesomeIcon>
+      <FontAwesomeIcon icon={faXmark} onClick={props}></FontAwesomeIcon>
       </div>
     </div>
   );

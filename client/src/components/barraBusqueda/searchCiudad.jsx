@@ -21,7 +21,7 @@ function SearchBar() {
   return (
     <div className={styles.prueba3}>
       <div className={styles.headerSearchItem}>
-        <FontAwesomeIcon icon={faLocationDot} className={styles.headerIcon} />
+  
         <input
           type="search"
           placeholder="¿A donde quieres ir?"

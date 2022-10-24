@@ -25,7 +25,7 @@ function Sesion() {
             )
     } else {
         return (
-            <div class="text-end"> 
+            <div className="text-end"> 
             <BotonIniciarSesion props={iniciarSesion}/>
             <BotonRegistrar/>
             </div>

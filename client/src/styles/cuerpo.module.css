@@ -11,30 +11,24 @@ main{
 
     /*Banner con imagen*/
 
-.Banner {
-    background-image: linear-gradient(rgba(40, 39, 39, 0.5),rgba(255, 255, 255, 0.9)), url("../assets/woman.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 60vh;
-    background-size: cover;
-    position: relative;
-    /*margin-top: 56px ;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 
  /*NavBar de reserva*/
 
-section {
-    /*height: 50px;*/
+ .contenedorBuscador, 
+ .contenedorFechas, 
+ .botonNavBuscador {
+    margin: 0px;
+    padding: 0px;
+ }
 
+
+
+.barraBusqueda {
     display: flex;
     color: white;
     align-items: center;
     justify-content: center;
-    background-color: grey;
+    background-color: var(--gris);
     padding: 5px;
     position: relative;
     bottom: 25px;
@@ -46,6 +40,7 @@ section {
 
 /* Barra de rango de fecha*/
 
+
 .rangoFecha{
 border: #FFF solid 1px;
 background-color: #fff;
@@ -54,9 +49,12 @@ padding: 0px 5px 0px 5px;
 cursor: pointer;
 width: 400px;
 position:relative;
-
-
+border-radius: 3px;
+font-family: sans-serif;
+font-size: 10;
 }
+
+
 
 .headerIcon {
     color: var(--amarillo);
@@ -74,8 +72,11 @@ position:relative;
     border: none;
     outline: none;
     width: 400px;
+    border-radius: 3px;
 
 }
+
+
 
 .date {
     position: absolute;
@@ -88,6 +89,20 @@ position:relative;
 .prueba3 {
     position: relative;
     padding: 10px;
+}
+
+.botonBarra {
+    width: 300px;
+    border-radius: 3px;
+    border: #FFF 1px solid;
+    background-color: transparent;
+    color: #FFF;
+}
+
+.botonBarra:hover {
+    background-color: #FFF;
+    color:#000;
+    transition: .15s ease-in-out;
 }
 
 /* Estilos de searchBar*/
@@ -104,6 +119,7 @@ position:relative;
     left: 32px;
     padding: 0px;
     font-size: 1em;
+    
     
 }
 
@@ -154,10 +170,17 @@ li {
 }
 
 
-@media (max-width: 575.98px)and (orientation:portrait) {
-
-    .textoBanner {
-        display:none;
+@media screen and (max-width:760px) {
+    .rangoFecha, .botonBarra, .dataResult .dataItem, .headerSearchInput  {
+        width: 350px;
+        border-radius: 3px;
+        
     }
 
+    .barraBusqueda {
+        width: 100%;
+        padding:10px;
+        border-radius: 0px;
+    }
 }
+

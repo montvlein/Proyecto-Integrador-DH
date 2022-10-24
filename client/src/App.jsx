@@ -18,17 +18,3 @@ function App() {
 export default App
 
 
-/*
-function App() {
-  return (
-    <BrowserRouter>
-      <NavBar title="E-Commerce"/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductContainer/>}/>
-        <Route path="/products/:id" element={<ProductDetail/>}/>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-*/
