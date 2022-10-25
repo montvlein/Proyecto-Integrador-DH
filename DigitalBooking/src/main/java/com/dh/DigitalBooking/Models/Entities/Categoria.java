@@ -20,4 +20,5 @@ public class Categoria {
     @Column(name = "url_img")
     private String urlImagen;
 
+
 }
