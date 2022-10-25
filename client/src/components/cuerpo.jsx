@@ -2,6 +2,9 @@ import styles from "../styles/cuerpo.module.css";
 import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe";
+import Categorias from "./Categorias/categorias"
+
+
 
 const Cuerpo = () => {
   return (
@@ -23,6 +26,8 @@ const Cuerpo = () => {
           </div>
         </div>
       </form>
+
+    <Categorias/>
     </main>
   );
 };

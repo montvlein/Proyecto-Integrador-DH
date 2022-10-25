@@ -1,4 +1,4 @@
-section {
+.seccionHeroe {
     width: 100%;
     background-image: linear-gradient(rgba(40, 39, 39, 0.5),rgba(255, 255, 255, 0.9)), url("../assets/woman.jpg");
     height: 500px;
