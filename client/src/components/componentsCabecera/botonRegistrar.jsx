@@ -1,7 +1,7 @@
 
 function BotonRegistrar() {
     return (
-        <button type="button" className="btn btn-warning"  >Registrate</button>
+        <a href="/crearcuenta" class="btn btn-warning">Registrate</a>
     )
 }
 
