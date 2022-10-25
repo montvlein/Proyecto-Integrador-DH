@@ -1,0 +1,42 @@
+section {
+    width: 100%;
+    background-image: linear-gradient(rgba(40, 39, 39, 0.5),rgba(255, 255, 255, 0.9)), url("../assets/woman.jpg");
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.contenidoPadre {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+}
+
+.contenido {
+
+    padding-top: 143;
+}
+
+h2 {
+    font-size: 55px;
+    color: var(--gris);
+}
+
+.descripcion {
+    width: 472;
+    font-size: 20px;
+    color: var(--gris);
+    line-height: 30px;
+}
+
+@media screen and (max-width:760px) { 
+
+
+    h2 {
+        font-size: 40px;
+    }
+}

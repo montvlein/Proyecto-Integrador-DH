@@ -1,11 +1,69 @@
-header {
-    top: 0;
-    overflow: hidden;
-    position: fixed;
-    z-index: 100;
+
+.contenedor {
+    height: 70px;
+    background-color: var(--grisO);
     width: 100%;
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    
 }
 
+.lema {
+    color: #FFF;
+    margin: 0px;
+}
+
+
+
+.navWrap {
+    width: 100%;
+    margin: 0 auto;
+    /* z-index: 20;*/
+    display: flex;
+    /*position: relative;*/
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sesion{
+    margin:0;
+    padding:0
+}
+
+.menuHamburguesa{
+    display:none;
+}
+
+
+
+@media screen and (max-width:760px) {
+    .lema, .sesion {
+        display:none;
+    }
+
+    .menuHamburguesa {
+        display: block;
+        color: #FFF;
+        cursor: pointer;
+        font-size: 30px;
+    }
+}
+
+
+
+/* Componente de Inicio de Sesion*/
 .iconoSesion {
     border-radius: 50%;
     height: 40px;
@@ -33,24 +91,7 @@ dl {
 }
 
 .iconoCerrar {
-    margin-bottom: 15px;
     padding:0px;
     cursor: pointer;
+    color:#FFF;
 }
-
-.navReposive {
-    display: none;
-    
-}
-
-
-@media (max-width: 575.98px)and (orientation:portrait) {
-    header{
-        display: none;
-        visibility: hidden;
-    }
-
-    .navReposive {
-        display: block;
-    }
- }
