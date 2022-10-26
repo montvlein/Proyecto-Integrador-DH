@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
 import categorias from "../data/categorias.json"
+import { Usuario } from "../modelos/usuario.js"
 const Contexto = createContext()
 
 export function AppContext({children}) {
@@ -9,8 +10,8 @@ export function AppContext({children}) {
 
     function getUsuario() { return usuario }
     function estaLaSesionIniciada() {return sesionIniciada}
-    function iniciarSesion() {
-        let usuario = {nombre: "Maigualida",apellido: "Delgado"}
+    function iniciarSesion(mail, pass) {
+        let usuario = new Usuario("Maigualida","Delgado", mail)
         setUsuario(usuario)
         setSesionIniciada(true)
     }
