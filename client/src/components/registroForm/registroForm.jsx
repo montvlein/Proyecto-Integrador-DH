@@ -1,39 +1,60 @@
-import React, { useState } from "react"
-import styles from "../../styles/formularios.module.css"
+import React, { useState } from "react";
+import styles from "../../styles/formularios.module.css";
+import { Usuario } from "../../modelos/usuario.js"
 
 const RegistroForm = (props) => {
-  /*
-    let [authMode, setAuthMode] = useState("signin")
 
-  const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin")
+  function esValido(...args) {
+    return false
   }
 
-  if (authMode === "signin") {
-    */
+  function enviarRegistro(evento) {
+    evento.preventDefault()
+    let [nombre, apellido, mail, pass] = [evento.target.elements.nombre.value, evento.target.elements.apellido.value, evento.target.elements.email.value,evento.target.elements.password.value]
+    let usuario = new Usuario(nombre, apellido, mail)
+    console.table(usuario)
+    console.log(pass)
+  }
+
   return (
     <div className={styles.divContainer}>
-      <form className={styles.formularioContainer}>
+      <form className={styles.formularioContainer} autocomplete="off" onSubmit={enviarRegistro}>
         <div className={styles.contenidoFormulario}>
           <h3 className={styles.tituloFormulario}>Crear cuenta</h3>
-          
+
           <div class="row">
-      <div class="form-group col-6">
-      <label for="inputEmail4">Nombre</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Micaela"/>
-      </div>
-      <div class="form-group col-6">
-      <label for="inputPassword4">Apellido</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Barbero"/>
-      </div>
-      </div>
-          
+            <div class="form-group col-6">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputEmail"
+                placeholder="Micaela"
+                name="nombre"
+                required
+              />
+            </div>
+            <div class="form-group col-6">
+              <label>Apellido</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword"
+                placeholder="Barbero"
+                name="apellido"
+                required
+              />
+            </div>
+          </div>
+
           <div className="form-group mt-3">
             <label>Correo electrónico</label>
             <input
               type="email"
               className="form-control mt-1"
               placeholder="mica@digitalhouse.com.ar"
+              name="email"
+              required
             />
           </div>
           <div className="form-group mt-3">
@@ -42,12 +63,15 @@ const RegistroForm = (props) => {
               type="password"
               className="form-control mt-1"
               placeholder="*********"
+              name="password"
+              required
             />
             <label>Confirmar contraseña</label>
             <input
               type="password"
               className="form-control mt-1"
               placeholder="*********"
+              required
             />
           </div>
           <div className="d-grid gap-2 mt-3">
@@ -61,7 +85,7 @@ const RegistroForm = (props) => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default RegistroForm;
