@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import Contexto from "../../contexto/AppContext"
-import BotonIniciarSesion from "./botonIniciar";
-import BotonRegistrar from "./botonRegistrar";
+import { Link } from 'react-router-dom'
 import UsuarioIniciado from "./sesionIniciada";
 
 function Sesion() {
@@ -14,8 +13,8 @@ function Sesion() {
     } else {
         return (
             <div class="text-end">
-            <BotonIniciarSesion/>
-            <BotonRegistrar/>
+                <Link to="/iniciarSesion" class="btn btn-outline-light me-2">Inicia sesión</Link>
+                <Link to="/crearcuenta" class="btn btn-warning">Registrate</Link>
             </div>
         )
     }
