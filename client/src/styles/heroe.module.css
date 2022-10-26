@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 1rem;
     
 
 }
@@ -24,6 +24,7 @@
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     backdrop-filter:  blur(16px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 10PX;
 
 }
 
@@ -42,6 +43,9 @@ h2 {
 
 @media screen and (max-width:760px) { 
 
+    .contenido {
+        padding: 1rem;
+    }
 
     h2 {
         font-size: 40px;
