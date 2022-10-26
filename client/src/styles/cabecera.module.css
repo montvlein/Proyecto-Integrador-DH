@@ -42,10 +42,27 @@
     padding:0
 }
 
+
+
+/* Menu Hamburguesa Responsive */
+
 .menuHamburguesa{
     display:none;
 }
 
+
+.menuPadre {
+    display: none
+}
+
+.menuPadreMostrar {
+    display: block;
+}
+
+.menuIcon p {
+    margin-left: 10px;
+
+}
 
 
 @media screen and (max-width:760px) {
@@ -59,6 +76,72 @@
         cursor: pointer;
         font-size: 30px;
     }
+
+    
+.menuContenedor {
+    position:fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--grisO);
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    top:0;
+    
+
+    
+    
+}
+
+.iconoCierre {
+    width: 100%;
+    color: #FFF;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menuLista {
+    width: 200px;
+    padding: 0px;
+    margin:0px;
+    color: #FFF;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menuIcon:hover {
+    background-color: var(--amarillo);
+    color: #000;
+}
+
+.menuIcon {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    
+}
+
+a:link, a:visited, a {
+    color: unset;
+    text-decoration: none;
+    background-color: none;
+}
+
 }
 
 

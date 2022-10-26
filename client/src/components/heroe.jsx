@@ -2,7 +2,7 @@ import styles from "../styles/heroe.module.css";
 
 export default function Heroe() {
   return (
-    <section>
+    <section className={styles.heroeContenedor}>
       <div className={styles.contenidoPadre}>
         <div className={styles.contenido}>
         <h2>
@@ -15,7 +15,7 @@ export default function Heroe() {
           19.000 vehículos. <span>Digital Booking</span> los tiene.
         </p>
         <button class="btn btn-warning" href="#">
-          Alquila tu auto
+          ¡Registrate hora!
         </button>
         </div>
       </div>

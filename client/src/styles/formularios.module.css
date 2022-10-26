@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh; 
+    width: 100%;
+    height: 93vh; 
   }
 
   .formularioContainer {
@@ -41,3 +41,11 @@
     border-color: var(--amarillo);
     padding: 0.5rem;
   }
+
+  @media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) { 
+    .divContainer {
+      height: 94vh;
+    }
+  } 

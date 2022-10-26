@@ -8,7 +8,7 @@ const Cuerpo = () => {
     <main>
       <Heroe />
 
-      <form class="d-flex justify-content-center">
+      <form className="d-flex justify-content-center">
         <div className={styles.barraBusqueda}>
           <div className={styles.contenedorBuscador}>
             <SearchBar />

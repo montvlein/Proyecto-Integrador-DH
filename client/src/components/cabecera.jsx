@@ -4,8 +4,17 @@ import logo from "../assets/logo.png";
 import Sesion from "./componentsCabecera/sesion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
+import MenuResponsive from "./componentsCabecera/menuHamburguesa";
+import { useState } from "react";
 
 export default function Cabecera() {
+
+  const [isOpen, setOpen] = useState(false);
+  const toggle = () => {
+    setOpen(!isOpen)
+  }
+
+
   return (
     <div className={styles.contenedor}>
       <div className={styles.navWrap}>
@@ -20,8 +29,9 @@ export default function Cabecera() {
         </div>
 
         <div className={styles.menuHamburguesa}>
-        <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+        <FontAwesomeIcon icon={faBars} onClick={toggle}></FontAwesomeIcon>
         </div>
+        <MenuResponsive isOpen={isOpen} toggle={toggle}/>
 
       </div>
     </div>

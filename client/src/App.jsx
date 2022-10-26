@@ -6,12 +6,16 @@ import Login from './components/usuarioLogin/login';
 import RegistroForm from './components/registroForm/registroForm';
 import { Route, Routes } from 'react-router-dom'
 
+
 function App() {
+
+
+
   return (
     <>
     <Cabecera/>
     <main>
-      <Routes>
+    <Routes>
         <Route path="/" element={<Cuerpo/>}/>
         <Route path="/iniciarSesion" element={<Login/>}/>
         <Route path="/crearCuenta" element={<RegistroForm/>}/>
