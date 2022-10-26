@@ -8,7 +8,7 @@ const Login = () => {
           <div className={styles.contenidoFormulario}>
             <h3 className={styles.tituloFormulario}>Iniciar Sesión</h3>
             <div className="form-group mt-3">
-              <label>Correo electrónico</label>
+              <label className="">Correo electrónico</label>
               <input
                 type="email"
                 className="form-control mt-1"
@@ -29,7 +29,7 @@ const Login = () => {
               </button>
             </div>
             <p className="text-center mt-2">
-                ¿Aún no tenes cuenta? <a href="/crearCuenta">Registrate</a> {/*agregar ruta de registro*/}
+                ¿Aún no tenes cuenta? <a href="/crearCuenta">Registrate</a>
             </p>
           </div>
         </form>

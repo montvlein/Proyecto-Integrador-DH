@@ -3,6 +3,7 @@ import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe";
 import Categorias from "./Categorias/categorias"
+import ListadoDeAutos from "./cardsAutos/listadoDeAutos";
 
 
 
@@ -10,7 +11,6 @@ const Cuerpo = () => {
   return (
     <main>
       <Heroe />
-
       <form class="d-flex justify-content-center">
         <div className={styles.barraBusqueda}>
           <div className={styles.contenedorBuscador}>
@@ -28,6 +28,7 @@ const Cuerpo = () => {
       </form>
 
     <Categorias/>
+    <ListadoDeAutos/>
     </main>
   );
 };
