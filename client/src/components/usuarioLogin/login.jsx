@@ -1,10 +1,17 @@
 import styles from "../../styles/formularios.module.css";
-
+import { useContext } from "react";
+import Contexto from "../../contexto/AppContext"
 
 const Login = () => {
+  const { iniciarSesion } = useContext(Contexto)
+  const handleSubmit = function (e) {
+    e.preventDefault()
+    iniciarSesion(e.target.elements.email.value, e.target.elements.password.value)
+  }
+
     return(
         <div className={styles.divContainer}>
-        <form className={styles.formularioContainer}>
+        <form className={styles.formularioContainer} onSubmit={handleSubmit}>
           <div className={styles.contenidoFormulario}>
             <h3 className={styles.tituloFormulario}>Iniciar Sesión</h3>
             <div className="form-group mt-3">
@@ -13,6 +20,7 @@ const Login = () => {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Ingresa tu e-mail"
+                name="email"
               />
             </div>
             <div className="form-group mt-3">
@@ -21,6 +29,7 @@ const Login = () => {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Ingresa tu contraseña"
+                name="password"
               />
             </div>
             <div className="d-grid gap-2 mt-3">
