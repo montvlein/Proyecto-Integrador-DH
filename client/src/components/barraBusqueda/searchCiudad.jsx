@@ -6,12 +6,6 @@ import { useState } from "react";
 
 function SearchBar() {
   const [filterData, setFilterData] = useState([]);
-  const [ciudadCliqueada, setCiudadCliqueada] = useState();
-
-  const handlerSeleccionCiudad = (event) => {
-    let ciudad = event.target.textContent;
-    setCiudadCliqueada(ciudad);
-  };
 
   const handlerFilter = (event) => {
     const searchWord = event.target.value;
@@ -33,13 +27,17 @@ function SearchBar() {
           placeholder="¿A donde quieres ir?"
           className={styles.headerSearchInput}
           onChange={handlerFilter}
-          value={ciudadCliqueada}
+          id="buscadorInput"
         />
       </div>
 
-      <ul className={styles.dataResult}>
+      <ul className={styles.dataResult} id="listaCiudades">
         {filterData.map((value) => (
-          <div className={styles.prueba}>
+          <div className={styles.prueba} onClick={(e)=>{
+            let input = document.querySelector("#buscadorInput")
+            input.value = value.iso_nombre + ", Argentina"
+            setFilterData([]);
+          }}>
             <div className={styles.prueba2}>
               <FontAwesomeIcon
                 icon={faLocationDot}
@@ -47,7 +45,7 @@ function SearchBar() {
               />
             </div>
             <li className={styles.dataItem} key={value.iso_id}>
-              <p  onClick={handlerSeleccionCiudad} className={styles.ciudad}>{value.iso_nombre}</p> <span class="fw-bold">Argentina</span>
+              <p className={styles.ciudad}>{value.iso_nombre}</p> <span class="fw-bold">Argentina</span>
             </li>
           </div>
         ))}

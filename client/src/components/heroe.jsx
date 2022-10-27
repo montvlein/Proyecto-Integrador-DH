@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "../styles/heroe.module.css";
 
 export default function Heroe() {
@@ -15,9 +16,10 @@ export default function Heroe() {
           Busca alquiler de autos baratos en Argentina. <br/>Con una flota diversa de
           19.000 vehículos. <span>Digital Booking</span> los tiene.
         </p>
-        <button class="btn btn-warning" href="#">
+        <Link to={"/crearcuenta"}
+         class="btn btn-warning">
           ¡Registrate hora!
-        </button>
+        </Link>
         </div>
       </div>
     </section>

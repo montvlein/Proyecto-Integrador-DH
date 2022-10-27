@@ -8,11 +8,16 @@ import ListadoDeAutos from "./cardsAutos/listadoDeAutos";
 
 
 const Cuerpo = () => {
+
+  function handlerSubmit(evento) {
+    evento.preventDefault()
+  }
+
   return (
     <main>
       <Heroe />
 
-      <form className="d-flex justify-content-center">
+      <form className="d-flex justify-content-center" onSubmit={handlerSubmit}>
         <div className={styles.barraBusqueda}>
           <div className={styles.contenedorBuscador}>
             <SearchBar />
