@@ -1,5 +1,7 @@
 import React, { useState, createContext } from "react";
 import categorias from "../data/categorias.json";
+import listado from "../data/AUTOS.json";
+
 const Contexto = createContext();
 
 export function AppContext({ children }) {
@@ -57,6 +59,40 @@ export function AppContext({ children }) {
     return listaCategorias;
   }
 
+  // listado de productos
+  const [listaAutos, setListadoAutos] = useState(listado.autos)
+  const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
+  const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
+  const [criterioFiltro, setCriterioFiltro] = useState()
+
+  function getListaAutos() {
+    return listaAutos
+  }
+
+  function getAutosFiltrados() {
+    return autosFiltrados
+  }
+
+  function filtarAutos(criterio) {
+    let filtrados = listaAutos.filter( auto => auto.categoria === criterio)
+    setAutosFiltrados(filtrados)
+    setEstaFiltadoListadoAutos(true)
+    setCriterioFiltro(criterio)
+  }
+
+  function limpiarFiltro() {
+    setAutosFiltrados(listaAutos)
+    setEstaFiltadoListadoAutos(false)
+  }
+
+  function getEstaFiltadoListadoAutos() {
+    return estaFiltadoListadoAutos
+  }
+
+  function getCriterioFiltro() {
+    return criterioFiltro
+  }
+
   return (
     <Contexto.Provider
       value={{
@@ -67,6 +103,12 @@ export function AppContext({ children }) {
         registrarUsuario,
         validarUsuario,
         getListaCategorias,
+        getListaAutos,
+        getAutosFiltrados,
+        filtarAutos,
+        getEstaFiltadoListadoAutos,
+        getCriterioFiltro,
+        limpiarFiltro
       }}
     >
       {children}

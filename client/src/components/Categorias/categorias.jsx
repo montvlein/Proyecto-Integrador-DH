@@ -3,7 +3,7 @@ import Contexto from "../../contexto/AppContext"
 import styles from "./../../styles/categorias.module.css"
 
 export default function Categorias() {
-    const { getListaCategorias } = useContext(Contexto)
+    const { getListaCategorias, filtarAutos } = useContext(Contexto)
 
     return(
     <section className={styles.contenedorPadre}>
@@ -15,7 +15,7 @@ export default function Categorias() {
         {
             getListaCategorias().map( cat => {
              return(
-                <article className={styles.categoria_article} key={cat.ID}>
+                <article className={styles.categoria_article} key={cat.ID} onClick={(e) => { filtarAutos(cat.TITULO)}}>
                     <figure className={styles.categoria_figure}>
                         <img src={cat.URL_IMG} alt={cat.DESCRIPCION} className={styles.categoria_img}/>
                         <figcaption className={styles.categoria_figcaption}> {cat.TITULO} </figcaption>
