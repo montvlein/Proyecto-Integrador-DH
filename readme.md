@@ -1,5 +1,10 @@
+<<<<<<< readme.md
 # proyecto integrador
-__________________________________
+
+# ENDPOINTs
+
+accede a la documentación mediante `/swagger-ui/index.html#/` 
+
 # Comentarios para Pushear al Repo
 
 ## Historial de Cambios
@@ -20,10 +25,10 @@ git commit -m "[MODIFICADO] #3 - Se agrego propiedad km con bean de getter y set
 git commit -m "[ELIMINADO] #3 - Se eliminó la función buscarPorModelo"
 ```
 
-
 ## Crear ramas
 Para crear una rama nueva se aconseja la nomenclatura:
 Inicial de Spring, numero de spring - numero de tarea
 
 ### Ejemplo
 `git branch S1-1`
+>>>>>>> readme.md

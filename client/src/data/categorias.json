@@ -1,0 +1,38 @@
+[
+  {
+    "ID": 1,
+    "DESCRIPCION": "Toyota Etios o similar",
+    "TITULO": "Compacto",
+    "URL_IMG": "https://i.ibb.co/wzczdV5/Compacto.png"
+  },
+  {
+    "ID": 2,
+    "DESCRIPCION": "Chevrolet Cruze o similar",
+    "TITULO": "Sedán",
+    "URL_IMG": "https://i.ibb.co/syYZcGg/Sedan.png"
+  },
+  {
+    "ID": 3,
+    "DESCRIPCION": "Volkswagen Taos o similar",
+    "TITULO": "SUV",
+    "URL_IMG": "https://i.ibb.co/P1pyrTS/SUV.png"
+  },
+  {
+    "ID": 4,
+    "DESCRIPCION": "Mercedes-Benz Serie E o similar",
+    "TITULO": "Lujo",
+    "URL_IMG": "https://i.ibb.co/BcgYwnh/Lujo.png"
+  },
+  {
+    "ID": 5,
+    "DESCRIPCION": "Toyota Hilux o similar",
+    "TITULO": "Pickup",
+    "URL_IMG": "https://i.ibb.co/0rMj8S9/Pickup.png"
+  },
+  {
+    "ID": 6,
+    "DESCRIPCION": "Toyota Hiace o similar",
+    "TITULO": "Van",
+    "URL_IMG": "https://i.ibb.co/QJhsV3V/Van.png"
+  }
+]
