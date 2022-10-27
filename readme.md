@@ -1,3 +1,7 @@
+# ENDPOINTs
+
+accede a la documentación mediante `/swagger-ui/index.html#/` 
+
 # Comentarios para Pushear al Repo
 
 ## Historial de Cambios
