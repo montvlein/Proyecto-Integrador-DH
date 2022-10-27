@@ -2,7 +2,10 @@ import styles from "../styles/cuerpo.module.css";
 import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe";
-import Categorias from "./Categorias/categorias";
+import Categorias from "./Categorias/categorias"
+import ListadoDeAutos from "./cardsAutos/listadoDeAutos";
+
+
 
 const Cuerpo = () => {
   return (
@@ -23,8 +26,8 @@ const Cuerpo = () => {
         </div>
       </form>
 
-        <Categorias />
-
+    <Categorias/>
+    <ListadoDeAutos/>
     </main>
   );
 };

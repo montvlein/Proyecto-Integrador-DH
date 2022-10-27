@@ -1,0 +1,17 @@
+.caracteristicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.icons{
+    color: var(--amarillo);
+}
+
+img {
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+section {
+    margin-bottom: 2rem;
+}
