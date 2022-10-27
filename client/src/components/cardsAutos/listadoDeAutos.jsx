@@ -13,7 +13,7 @@ const ListadoDeAutos = () => {
           <div>
             <h3>{getCriterioFiltro()}</h3>
           </div>
-          <button onClick={limpiarFiltro} className="btn btn-link">volver</button>
+          <button onClick={limpiarFiltro} className="btn btn-warning">volver</button>
         </div>
         <div className="row gy-4">
           {getAutosFiltrados().map((auto) =>(
