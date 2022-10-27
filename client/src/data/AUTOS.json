@@ -25,18 +25,6 @@
             ]
         },
         {
-            "id": "3",
-            "titulo": "Chevrolet Cruze",
-            "categoria": "Sedán",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/bmyWQGB/Sedan-Cruze-04.jpg",
-                "https://i.ibb.co/1bp01nQ/Sedan-Cruze-03.jpg",
-                "https://i.ibb.co/9YF5rPb/Sedan-Cruze-02.jpg",
-                "https://i.ibb.co/4PJTYDb/Sedan-Cruze-01.jpg"
-            ]
-        },
-        {
             "id": "4",
             "titulo": "Toyota Corolla",
             "categoria": "Sedán",
@@ -58,18 +46,6 @@
                 "https://i.ibb.co/wSdky2p/SUV-Taos-04.jpg",
                 "https://i.ibb.co/Db5HzFB/SUV-Taos-03.jpg",
                 "https://i.ibb.co/V0GxjXN/SUV-Taos-01.jpg"
-            ]
-        },
-        {
-            "id": "6",
-            "titulo": "Toyota Corolla Cross",
-            "categoria": "SUV",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/SVG25xf/SUV-Toyota-Cross-01.jpg",
-                "https://i.ibb.co/pXgKckG/SUV-Toyota-Cross-02.jpg",
-                "https://i.ibb.co/vHstBmh/SUV-Toyota-Cross-04.jpg",
-                "https://i.ibb.co/k1wmL5d/SUV-Toyota-Cross-03.jpg"
             ]
         },
         {
@@ -96,18 +72,7 @@
                 "https://i.ibb.co/WVHNvKK/Pickup-Frontier-01.jpg"
             ]
         },
-        {
-            "id": "9",
-            "titulo": "Mercedes Benz Serie E",
-            "categoria": "Lujo",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/dgCCmr7/Lujo-Mercedes-02.jpg",
-                "https://i.ibb.co/GJpQXWy/Lujo-Mercedes-01.jpg",
-                "https://i.ibb.co/PrTBFVQ/Lujo-Mercedes-04.jpg",
-                "https://i.ibb.co/GTwCvxC/Lujo-Mercedes-03.jpg"
-            ] 
-        },
+
         {
             "id": "10",
             "titulo": "BMW Serie 5",

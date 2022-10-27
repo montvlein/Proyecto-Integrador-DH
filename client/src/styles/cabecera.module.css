@@ -103,6 +103,10 @@
 
 }
 
+.contenedorListaMenu p {
+    margin-bottom:0px;
+}
+
 .menuLista {
     display: flex;
     flex-direction: column;
@@ -142,6 +146,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    margin: 5px;
     /*margin-top: 20px;*/
     
 }

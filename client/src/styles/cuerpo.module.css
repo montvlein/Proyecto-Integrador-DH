@@ -3,7 +3,7 @@
 main{ 
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--grisO);
+    background-color: #FFF;
 
 }
 
@@ -33,7 +33,7 @@ main{
     background-color: var(--amarillo);
     padding: 5px;
     position: relative;
-    bottom: 25px;
+    top: -50px;
     border-color: lightgrey;
     border-radius: 5px;
     font-size: 1em;

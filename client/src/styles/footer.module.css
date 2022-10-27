@@ -10,9 +10,10 @@ footer {
 
 }
 
-.contenedorCopyright {
+.contenedorCopyright, .contenedorCopyright p  {
     margin: 0;
 }
+
 
 .redes {
     display: flex;

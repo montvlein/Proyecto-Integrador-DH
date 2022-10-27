@@ -1,0 +1,24 @@
+.tituloCards {
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: var(--amarillo) solid 1px;
+}
+
+.tituloCards h3 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    /*color: #fff;*/
+    
+}
+
+.tituloCards span {
+    font-size: 0.4em;
+    font-weight: lighter;
+    color: var(--grisC);
+    
+}
+

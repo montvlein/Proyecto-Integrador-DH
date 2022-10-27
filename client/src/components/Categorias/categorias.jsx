@@ -8,7 +8,7 @@ export default function Categorias() {
     return(
     <section className={styles.contenedorPadre}>
     <div className={styles.tituloCategorias}>
-        <h3>Elige tu categoria<br></br> <span>We offer professional car rental & limousine services in our range of high-end vehicles</span></h3>
+    <div><h3>Elige tu categoria</h3></div> <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
     </div>
 
     <div className={styles.categoria_section}>

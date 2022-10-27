@@ -15,3 +15,54 @@ img {
 section {
     margin-bottom: 2rem;
 }
+
+.contenedorPrecio {
+    display: flex;
+    justify-content: center;
+}
+.contenedorPrecio p, .contenedorPrecio span{
+   margin: 0px;
+   padding: 0px;
+}
+
+.tituloCards {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: var(--amarillo) solid 1px;
+}
+
+.tituloCards h3 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--grisO);
+    
+}
+
+.tituloCards span {
+    font-size: 0.4em;
+    font-weight: lighter;
+    color: var(--grisC);
+    
+}
+
+
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .caracteristicas p { 
+        font-size: 14px;
+    }
+
+    .contenedorPrecio {
+        display: none;
+    }
+
+    
+  }
