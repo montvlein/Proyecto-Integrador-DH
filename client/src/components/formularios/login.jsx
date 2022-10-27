@@ -1,7 +1,7 @@
 import styles from "../../styles/formularios.module.css";
 import { useContext, useState } from "react";
 import Contexto from "../../contexto/AppContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Login = () => {
   const redirigir = useNavigate()
@@ -66,7 +66,7 @@ function Formulario({ingresar}) {
               </button>
             </div>
             <p className="text-center mt-2">
-                ¿Aún no tenes cuenta? <a href="/crearCuenta">Registrate</a> {/*agregar ruta de registro*/}
+                ¿Aún no tenes cuenta? <Link to="/crearCuenta">Registrate</Link>
             </p>
           </div>
     </form>

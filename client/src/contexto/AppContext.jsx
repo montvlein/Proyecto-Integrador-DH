@@ -1,6 +1,5 @@
 import React, { useState, createContext } from "react";
 import categorias from "../data/categorias.json";
-import { Usuario } from "../modelos/usuario.js";
 const Contexto = createContext();
 
 export function AppContext({ children }) {

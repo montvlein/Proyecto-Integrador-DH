@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import styles from "../../styles/formularios.module.css";
 import Contexto from "../../contexto/AppContext";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-const RegistroForm = () => {
+const Registro = () => {
   const redirigir = useNavigate()
   const { registrarUsuario } = useContext(Contexto)
   const [esMenorQue5, setEsMenorQue5] = useState(false)
@@ -35,7 +35,7 @@ const RegistroForm = () => {
   );
 };
 
-export default RegistroForm;
+export default Registro;
 
 function Formulario({registrar}) {
 
@@ -103,7 +103,7 @@ function Formulario({registrar}) {
             </button>
           </div>
           <p className="text-center mt-2">
-            ¿Ya tienes una cuenta? <a href="/iniciarSesion">Iniciar sesión</a>
+            ¿Ya tienes una cuenta? <Link to="/iniciarSesion">Iniciar sesión</Link>
           </p>
         </div>
       </form>
