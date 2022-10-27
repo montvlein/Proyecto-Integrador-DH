@@ -3,6 +3,7 @@ import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe";
 import Categorias from "./Categorias/categorias"
+import ListadoDeAutos from "./cardsAutos/listadoDeAutos";
 
 
 
@@ -11,7 +12,7 @@ const Cuerpo = () => {
     <main>
       <Heroe />
 
-      <form class="d-flex justify-content-center">
+      <form className="d-flex justify-content-center">
         <div className={styles.barraBusqueda}>
           <div className={styles.contenedorBuscador}>
             <SearchBar />
@@ -20,14 +21,13 @@ const Cuerpo = () => {
             <FechaReserva />
           </div>
           <div className={styles.botonNavBuscador}>
-            <button className={styles.botonBarra}>
-              Buscar
-            </button>
+            <button className={styles.botonBarra}>Buscar</button>
           </div>
         </div>
       </form>
 
     <Categorias/>
+    <ListadoDeAutos/>
     </main>
   );
 };

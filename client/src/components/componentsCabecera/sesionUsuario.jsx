@@ -9,7 +9,7 @@ function UsuarioIniciado() {
   const { cerrarSesion } = useContext(Contexto)
 
   return (
-    <div class="d-flex align-items-center" className={styles.padreSesion}>
+    <div className={styles.padreSesion}>
       <div>
         <div className={styles.iconoSesion}>
           <h6>
@@ -18,9 +18,9 @@ function UsuarioIniciado() {
         </div>
       </div>
 
-      <div>
+      <div className={styles.contenedorNombreSesion}>
         <dl>
-          <dt class="nav-link px-2 text-white">Hola,</dt>
+          <dt class="px-2 text-white">Hola,</dt>
           <dl class="nav-link px-2 text-white fw-bold">{getUsuario().nombre} {getUsuario().apellido}</dl>
         </dl>
       </div>
