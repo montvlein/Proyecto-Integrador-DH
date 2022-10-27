@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+import RedesSociales from "./redesSociales";
 
 library.add(fab, faCheckSquare, faCoffee);
 
@@ -12,20 +13,7 @@ const Footer = () => {
       <div className={styles.contenedorCopyright}>
         <p>©2021 Digital Booking</p>
       </div>
-      <div className={styles.redes}>
-        <p>
-          <FontAwesomeIcon icon={["fab", "facebook"]} />
-        </p>
-        <p>
-          <FontAwesomeIcon icon={["fab", "linkedin"]} />
-        </p>
-        <p>
-          <FontAwesomeIcon icon={["fab", "twitter"]} />
-        </p>
-        <p>
-          <FontAwesomeIcon icon={["fab", "instagram"]} />
-        </p>
-      </div>
+      <div><RedesSociales/></div>
     </footer>
   );
 };

@@ -2,9 +2,7 @@ import styles from "../styles/cuerpo.module.css";
 import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe";
-import Categorias from "./Categorias/categorias"
-
-
+import Categorias from "./Categorias/categorias";
 
 const Cuerpo = () => {
   return (
@@ -20,14 +18,13 @@ const Cuerpo = () => {
             <FechaReserva />
           </div>
           <div className={styles.botonNavBuscador}>
-            <button className={styles.botonBarra}>
-              Buscar
-            </button>
+            <button className={styles.botonBarra}>Buscar</button>
           </div>
         </div>
       </form>
 
-    <Categorias/>
+        <Categorias />
+
     </main>
   );
 };

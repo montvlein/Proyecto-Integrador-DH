@@ -1,14 +1,11 @@
 
 
 main{ 
-    margin-top: 4.5rem; /* Add a top margin to avoid content overlay */
     padding: 0;
     box-sizing: border-box;
-    height: 95vh;
+    background-color: var(--grisO);
+
 }
-
-    /*Banner con imagen*/
-
 
  /*NavBar de reserva*/
 
@@ -139,7 +136,6 @@ font-size: 10;
 
 .dataResult .dataItem {
     width: 300px;
-
     color: #000;
     display: flex;
     
@@ -172,6 +168,15 @@ font-size: 10;
 li {
     display: flex;
     flex-direction: column;
+}
+
+/*Categorias*/
+.contenedorCategorias {
+    display: inline-flexbox;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* Boton buscador*/

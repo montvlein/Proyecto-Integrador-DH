@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .contenedor {
     height: 70px;
-    background-color: var(--grisO);
+    background-color: rgba(0, 0, 0, 0.863);
     width: 100%;
     z-index: 100;
     position: fixed;
@@ -42,14 +43,16 @@
     padding:0
 }
 
-
+.padreSesion
+ {
+    display:flex;
+ }
 
 /* Menu Hamburguesa Responsive */
 
 .menuHamburguesa{
     display:none;
 }
-
 
 .menuPadre {
     display: none
@@ -64,20 +67,6 @@
 
 }
 
-
-@media screen and (max-width:760px) {
-    .lema, .sesion {
-        display:none;
-    }
-
-    .menuHamburguesa {
-        display: block;
-        color: #FFF;
-        cursor: pointer;
-        font-size: 30px;
-    }
-
-    
 .menuContenedor {
     position:fixed;
     z-index: 999;
@@ -88,8 +77,6 @@
     left: 0;
     transition: 0.3s ease-in-out;
     top:0;
-    
-
     
     
 }
@@ -105,18 +92,43 @@
     cursor: pointer;
 }
 
-.menuLista {
-    width: 200px;
+.contenedorListaMenu {
     padding: 0px;
     margin:0px;
-    color: #FFF;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    height: 80vh;
+    display:flex;
     align-items: center;
     justify-content: center;
+
+}
+
+.menuLista {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
     text-decoration: none;
+    cursor: pointer;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    margin:0px;
+    padding:0px
+}
+
+
+.cerrarSesion {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    text-align: end;
+    border-bottom: var(--amarillo) 1px solid;
+    padding: 10px;
+}
+
+.menuContenedor span{
+    color: var(--amarillo);
     cursor: pointer;
 }
 
@@ -126,25 +138,22 @@
 }
 
 .menuIcon {
-    width: 200px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 20px;
-    font-size: 1.5em;
+    /*margin-top: 20px;*/
     
 }
 
-a:link, a:visited, a {
-    color: unset;
-    text-decoration: none;
-    background-color: none;
+.redes {
+    width: 100%;
+    color:#FFF;
+    font-size: 1.5em;
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-top: 15px;
 }
-
-}
-
-
 
 /* Componente de Inicio de Sesion*/
 .iconoSesion {
@@ -162,7 +171,7 @@ a:link, a:visited, a {
     
 }
 
-h6 {
+.iconoSesion h6 {
     padding: 0px;
     margin: 0px;
     color: var(--amarillo)
@@ -177,4 +186,42 @@ dl {
     padding:0px;
     cursor: pointer;
     color:#FFF;
+}
+
+
+@media screen and (max-width:760px) {
+    .lema, .sesion {
+        display:none;
+    }
+    
+    .menuHamburguesa {
+        display: block;
+        color: #FFF;
+        cursor: pointer;
+        font-size: 30px;
+    }
+    
+    a:link, a:visited, a { 
+        color: unset;
+        text-decoration: none;
+        background-color: none;
+    }
+    
+    .iconoCerrar {
+        display: none;
+    }
+    
+    .contenedorNombreSesion {
+        color: #FFF;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1em;
+    }
+
+    .padreSesion {
+        margin: 0;
+        padding: 0;
+
+    }
+
+
 }

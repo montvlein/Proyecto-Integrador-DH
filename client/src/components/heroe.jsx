@@ -2,6 +2,7 @@ import styles from "../styles/heroe.module.css";
 
 export default function Heroe() {
   return (
+
     <section className={styles.heroeContenedor}>
       <div className={styles.contenidoPadre}>
         <div className={styles.contenido}>
@@ -20,5 +21,6 @@ export default function Heroe() {
         </div>
       </div>
     </section>
+
   );
 }
