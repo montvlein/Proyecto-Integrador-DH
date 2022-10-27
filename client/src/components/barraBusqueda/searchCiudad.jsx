@@ -6,6 +6,12 @@ import { useState } from "react";
 
 function SearchBar() {
   const [filterData, setFilterData] = useState([]);
+  const [ciudadCliqueada, setCiudadCliqueada] = useState();
+
+  const handlerSeleccionCiudad = (event) => {
+    let ciudad = event.target.textContent;
+    setCiudadCliqueada(ciudad);
+  };
 
   const handlerFilter = (event) => {
     const searchWord = event.target.value;
@@ -27,6 +33,7 @@ function SearchBar() {
           placeholder="¿A donde quieres ir?"
           className={styles.headerSearchInput}
           onChange={handlerFilter}
+          value={ciudadCliqueada}
         />
       </div>
 
@@ -40,7 +47,7 @@ function SearchBar() {
               />
             </div>
             <li className={styles.dataItem} key={value.iso_id}>
-              {value.iso_nombre}<span class="fw-bold">Argentina</span>
+              <p  onClick={handlerSeleccionCiudad} className={styles.ciudad}>{value.iso_nombre}</p> <span class="fw-bold">Argentina</span>
             </li>
           </div>
         ))}

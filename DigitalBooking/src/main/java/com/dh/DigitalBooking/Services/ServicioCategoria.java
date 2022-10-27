@@ -49,4 +49,5 @@ public class ServicioCategoria {
     public List<Categoria> listar() throws Exception {
         return repositorio.findAll();
     }
+
 }

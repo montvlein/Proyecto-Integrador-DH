@@ -3,11 +3,9 @@
 main{ 
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--grisO);
 
 }
-
-    /*Banner con imagen*/
-
 
  /*NavBar de reserva*/
 
@@ -18,13 +16,20 @@ main{
     padding: 0px;
  }
 
+.contenedorBuscador {
+    z-index:3;
+}
 
+.contenedorFechas {
+    z-index: 2;
+}
 
 .barraBusqueda {
     display: flex;
-    color: white;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    color: white;
     background-color: var(--amarillo);
     padding: 5px;
     position: relative;
@@ -32,7 +37,6 @@ main{
     border-color: lightgrey;
     border-radius: 5px;
     font-size: 1em;
-    flex-wrap: wrap;
 }
 
 /* Barra de rango de fecha*/
@@ -49,6 +53,7 @@ position:relative;
 border-radius: 3px;
 font-family: sans-serif;
 font-size: 10;
+
 }
 
 
@@ -99,12 +104,14 @@ font-size: 10;
 }
 
 .botonBarra:hover {
-    background-color: transparent ;
+    background-color: transparent;
     color:#000;
     transition: .15s ease-in-out;
 }
 
 /* Estilos de searchBar*/
+
+
 
 .dataResult{
     width: 300px;
@@ -122,13 +129,13 @@ font-size: 10;
     
 }
 
+
 .dataResult::-webkit-scrollbar {
     display: none;
 }
 
 .dataResult .dataItem {
     width: 300px;
-
     color: #000;
     display: flex;
     
@@ -163,11 +170,24 @@ li {
     flex-direction: column;
 }
 
+/*Categorias*/
+.contenedorCategorias {
+    display: inline-flexbox;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
 /* Boton buscador*/
 .botonNavBuscador {
     padding:10px;
 }
 
+.ciudad {
+    margin: 0;
+    padding:0;
+}
 
 @media screen and (max-width:760px) {
     .rangoFecha, .botonBarra, .dataResult .dataItem, .headerSearchInput  {
@@ -183,3 +203,12 @@ li {
     }
 }
 
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .barraBusqueda { 
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+  }

@@ -11,7 +11,8 @@ const Cuerpo = () => {
   return (
     <main>
       <Heroe />
-      <form class="d-flex justify-content-center">
+
+      <form className="d-flex justify-content-center">
         <div className={styles.barraBusqueda}>
           <div className={styles.contenedorBuscador}>
             <SearchBar />
@@ -20,9 +21,7 @@ const Cuerpo = () => {
             <FechaReserva />
           </div>
           <div className={styles.botonNavBuscador}>
-            <button className={styles.botonBarra}>
-              Buscar
-            </button>
+            <button className={styles.botonBarra}>Buscar</button>
           </div>
         </div>
       </form>
