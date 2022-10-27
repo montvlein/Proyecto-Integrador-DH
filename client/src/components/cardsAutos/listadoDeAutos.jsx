@@ -1,5 +1,5 @@
 import Card from "./card";
-import {autos} from "../../AUTOS.json"
+import {autos} from "../../data/AUTOS.json"
 
 const ListadoDeAutos = () => {
     return(

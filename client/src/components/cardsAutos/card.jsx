@@ -2,12 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faPerson, faGauge, faGasPump, faCar
   } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom"
 import style from "../../styles/cards.module.css" 
 
 
 const Card = ({id, titulo, imagen, descripcion}) => {
-    console.log(id, titulo, imagen, descripcion)
+
     return(
         <section className="contenedorTodasLasCards">
         <div className="card">
@@ -21,6 +21,10 @@ const Card = ({id, titulo, imagen, descripcion}) => {
                         <p><FontAwesomeIcon icon={faCar} className={style.icons}/> Automático</p>
                 </div>
                 <p className="card-text text-secondary">{descripcion}</p>
+            </div>
+            <div className="card-footer d-flex justify-content-between align-items-center">
+                <p>$$$ ARS<span>/mensual</span></p>
+                <Link to="" className="btn btn-warning">Alquilar ahora!</Link>
             </div>
         </div>
     </section>
