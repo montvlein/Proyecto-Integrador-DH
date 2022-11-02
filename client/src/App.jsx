@@ -1,6 +1,6 @@
-import Cabecera from './components/cabecera';
-import Cuerpo from './components/cuerpo';
-import Footer from './components/footer';
+import Cabecera from "./components/cabecera/cabecera"
+import Cuerpo from './components/cuerpo/cuerpo';
+import Footer from './components/footer/footer';
 import Login from './components/formularios/login';
 import Registro from './components/formularios/registro';
 import { Route, Routes } from 'react-router-dom'

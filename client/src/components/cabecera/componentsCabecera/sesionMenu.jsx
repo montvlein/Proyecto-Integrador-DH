@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Contexto from "../../contexto/AppContext"
+import Contexto from "../../../contexto/AppContext"
 import { Link, useLocation } from 'react-router-dom'
 import UsuarioIniciado from "./sesionUsuario";
 

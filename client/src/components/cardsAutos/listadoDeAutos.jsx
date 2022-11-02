@@ -1,6 +1,6 @@
 import Card from "./card";
-import style from "../../styles/cards.module.css";
-import { useContext, useState } from "react";
+import style from "./cards.module.css";
+import { useContext } from "react";
 import Contexto from "../../contexto/AppContext";
 
 const ListadoDeAutos = () => {

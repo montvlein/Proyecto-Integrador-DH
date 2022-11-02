@@ -1,7 +1,7 @@
-import styles from ".././../styles/cabecera.module.css";
+import styles from "../cabecera.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import Contexto from "../../contexto/AppContext"
+import Contexto from "../../../contexto/AppContext";
 import { useContext } from "react";
 
 function UsuarioIniciado() {

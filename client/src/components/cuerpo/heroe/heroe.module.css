@@ -3,7 +3,7 @@
 
 .heroeContenedor {
     width: 100%;
-    background-image: url("../assets/woman.jpg");
+    background-image: url("../../../assets/woman.jpg");
     height: 600px;
     background-repeat: no-repeat;
     background-size: cover;

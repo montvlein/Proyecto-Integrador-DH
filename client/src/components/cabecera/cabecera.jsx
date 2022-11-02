@@ -1,20 +1,18 @@
 import React from "react";
-import styles from "../styles/cabecera.module.css";
-import logo from "../assets/logo.png";
-import Sesion from "./componentsCabecera/sesionMenu";
+import styles from "./cabecera.module.css";
+import logo from "../../assets/logo.png";
+import Sesion from "../cabecera/componentsCabecera/sesionMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faBars} from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import MenuResponsive from "./componentsCabecera/menuHamburguesa";
 import { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default function Cabecera() {
-
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
-    setOpen(!isOpen)
-  }
-
+    setOpen(!isOpen);
+  };
 
   return (
     <div className={styles.contenedor}>
@@ -28,12 +26,10 @@ export default function Cabecera() {
         <div className={styles.sesion}>
           <Sesion />
         </div>
-
         <div className={styles.menuHamburguesa}>
-        <FontAwesomeIcon icon={faBars} onClick={toggle}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faBars} onClick={toggle}></FontAwesomeIcon>          
         </div>
-        <MenuResponsive isOpen={isOpen} toggle={toggle}/>
-
+        <MenuResponsive isOpen={isOpen} toggle={toggle} />
       </div>
     </div>
   );

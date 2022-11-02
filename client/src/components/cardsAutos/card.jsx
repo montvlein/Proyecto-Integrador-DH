@@ -6,7 +6,7 @@ import {
   faCar,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import style from "../../styles/cards.module.css";
+import style from "./cards.module.css";
 
 const Card = ({ id, titulo, imagen, descripcion }) => {
   return (

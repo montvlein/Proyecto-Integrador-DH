@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import styles from ".././../styles/cuerpo.module.css";
-import data from "../../data/CIUDADES.json";
+import styles from "../cuerpo.module.css";
+import data from "../../../data/CIUDADES.json";
 import { useState } from "react";
 
 function SearchBar() {

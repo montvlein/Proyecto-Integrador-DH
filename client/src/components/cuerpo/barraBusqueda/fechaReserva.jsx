@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from ".././../styles/cuerpo.module.css";
+import styles from "../cuerpo.module.css";
 import {
   faCalendarDays,
   faArrowRight,

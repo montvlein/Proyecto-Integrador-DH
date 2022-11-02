@@ -1,9 +1,9 @@
-import styles from "../styles/cuerpo.module.css";
+import styles from "./cuerpo.module.css";
 import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
-import Heroe from "./heroe";
-import Categorias from "./Categorias/categorias"
-import ListadoDeAutos from "./cardsAutos/listadoDeAutos";
+import Heroe from "./heroe/heroe";
+import Categorias from "../Categorias/categorias"
+import ListadoDeAutos from "../cardsAutos/listadoDeAutos";
 
 
 

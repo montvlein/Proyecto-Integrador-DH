@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import styles from "../../styles/formularios.module.css";
+import styles from "./formularios.module.css";
 import Contexto from "../../contexto/AppContext";
 import { Link, useNavigate } from "react-router-dom"
 

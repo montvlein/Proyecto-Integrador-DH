@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import Contexto from "../../contexto/AppContext"
-import styles from "./../../styles/categorias.module.css"
+import styles from "./categorias.module.css"
 
 export default function Categorias() {
     const { getListaCategorias, filtarAutos } = useContext(Contexto)

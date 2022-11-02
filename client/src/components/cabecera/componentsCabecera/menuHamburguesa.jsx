@@ -1,4 +1,4 @@
-import styles from "./../../styles/cabecera.module.css";
+import styles from "../cabecera.module.css";
 import SesionResponsive from "./sesionResponsive"
 
 
