@@ -3,7 +3,8 @@ import Cuerpo from './components/cuerpo/cuerpo';
 import Footer from './components/footer/footer';
 import Login from './components/formularios/login';
 import Registro from './components/formularios/registro';
-import { Route, Routes } from 'react-router-dom'
+import Producto from "./components/producto/producto";
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Cuerpo/>}/>
         <Route path="/iniciarSesion" element={<Login/>}/>
         <Route path="/crearCuenta" element={<Registro/>}/>
+        <Route path="/producto" element={<Producto/>}/>
       </Routes>
     </main>
     <Footer/>
@@ -26,3 +28,4 @@ function App() {
 }
 
 export default App
+//
