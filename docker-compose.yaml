@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  DH-back:
+    image: openjdk:18-jdk-alpine3.15
+    restart: always
+    volumes:
+      - ./DigitalBooking/target/DigitalBooking-0.0.1-SNAPSHOT.jar:/DigitalBooking-0.0.1-SNAPSHOT.jar
+    ports:
+      - "8080:8080"
+    entrypoint: ["java", "-jar", "/DigitalBooking-0.0.1-SNAPSHOT.jar"]
