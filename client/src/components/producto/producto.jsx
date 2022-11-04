@@ -1,14 +1,15 @@
 import React from "react";
-import componentsCabecera from "../cabecera" // esto?
-import styles from "./cabeceraProducto.module.css";
+import stylesCabeceraProd from "./cabeceraProducto.module.css";
+import stylesDatosProd from "./datosProducto.module.css";
+import stylesImagenProd from "./imgProducto.module.css";
+import stylesDescripcionProd from "./descripcionProducto.module.css";
+import stylesCaracteristicasProd from "./caracteristicasProducto.module.css";
+import stylesPoliticasProd from "./politicasProducto.module.css";
 
 export default function Producto() {
    return( 
         <article>
             <CabeceraProducto />
-                <div className={styles.CabeceraProducto}></div>
-
-                
             <DatosProducto/>
             <ImgProducto/>
             <DescripcionProducto/>
@@ -20,15 +21,16 @@ export default function Producto() {
 
 function CabeceraProducto(){
     return(
-        <section>
-            CABECERA PRODUCTO
+        <section className={stylesCabeceraProd.seccionCabeceraProducto}>
+           <div>Categoria del producto</div>
+           <div>Título de producto</div>
         </section>
     )
 }
 
 function DatosProducto(){
     return(
-        <section>
+        <section className={stylesDatosProd.seccionDatosProducto}>
             DATOS PRODUCTO
         </section>
     )
@@ -36,7 +38,7 @@ function DatosProducto(){
 
 function ImgProducto(){
     return(
-        <section>
+        <section className={stylesImagenProd.seccionImagenProducto}>
             IMAGEN PRODUCTO
         </section>
     )
@@ -44,7 +46,7 @@ function ImgProducto(){
 
 function DescripcionProducto(){
     return(
-        <section>
+        <section className={stylesDescripcionProd.seccionDescripcionProducto}>
             DESCRIPCION PRODUCTO
         </section>
     )
@@ -52,7 +54,7 @@ function DescripcionProducto(){
 
 function CaracteristicasProducto(){
     return(
-        <section>
+        <section className={stylesCaracteristicasProd.seccionCaracteristicasPorducto}>
             CARACTERISTICAS PRODUCTO
         </section>
     )
@@ -60,7 +62,7 @@ function CaracteristicasProducto(){
 
 function PoliticasPorducto(){
     return(
-        <section>
+        <section className={stylesPoliticasProd.seccionPoliticasPorducto}>
             POLITICAS PRODUCTO
         </section>
     )
