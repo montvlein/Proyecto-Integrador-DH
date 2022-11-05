@@ -3,5 +3,11 @@ import stylesImagenProd from './imgProducto.module.css'
 
 
 export default function ImgProducto() {
-    return <section className={stylesImagenProd.seccionImagenProducto}></section>
+    return (
+    <section className={stylesImagenProd.seccionImagenProducto}>
+
+    Imagen 
+
+    </section>
+    )
   }

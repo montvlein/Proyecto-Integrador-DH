@@ -5,11 +5,12 @@ import ImgProducto from './imgProducto';
 import DescripcionProducto from './descripcionProducto';
 import CaracteristicasProducto from './caracteristicasProducto';
 import PoliticasPorducto from './politicasProducto';
+import stylesArticlulo from './contenedorPorducto.module.css'
 
 
 export default function Producto() {
   return (
-    <article>
+    <article className={stylesArticlulo.productoArticulo}>
       <CabeceraProducto />
       <DatosUbicacionProducto />
       <ImgProducto />

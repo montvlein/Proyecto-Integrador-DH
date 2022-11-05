@@ -6,12 +6,41 @@
 
 .seccionDatosUbicacionProducto{
     display: flex;
-    align-content: center;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding:10px;
     width: 100%;
-    height: 5vh;
+    height: 8vh; 
+    padding: 1rem;
+    margin-bottom: 0;
+    color: black;
+    font-family: 'Poppins', sans-serif;
     background-color: darkgray;
+    border: solid 3px blue;
 }
+
+.divUnoSeccionDatosUbicacionPorducto{
+    display: flex;
+    align-content: center;
+    
+   
+}
+
+.divDosSeccionDatosUbicacionPorducto{
+    display: flex;
+    flex-direction: column;
+    font-size: 8px;
+    border: solid 3px red;
+    padding: 0;
+}
+
+.imgUbicacionSeccionDatosUbicacionPorducto{
+    display: flex;
+    padding-right: 3px;
+ 
+    
+}
+
+
+
+
 

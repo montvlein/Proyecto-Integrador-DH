@@ -7,15 +7,39 @@
 .seccionCabeceraProducto{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 80px;
+    height: 10vh;
+    margin-bottom: 0;
+    padding: 1rem;
     color: black;
     font-family: 'Poppins', sans-serif;
     background-color: var(--amarillo); 
-    margin-bottom: 0;
+  
 }
 
-.opcionVolver{ 
- color: black;
+.divUnoSeccionCabeceraProducto{
+    display: flex;
+    flex-direction: column;
+   
+}
 
+.divDosSeccionCabeceraProducto{ 
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.seccionCabeceraProductoDivUnoParrafoUno{
+    display: flex;
+    padding-top: 15px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.seccionCabeceraProductoDivUnoParrafoDos{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold; 
 }
