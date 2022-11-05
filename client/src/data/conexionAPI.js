@@ -1,7 +1,7 @@
 class API {
 
-    constructor(basepath="http://localhost:8080") {
-        this.basepath = `${basepath}/v1/`
+    constructor(basepath="http://localhost:8080/") {
+        this.basepath = basepath
     }
 
     listarTodos() {
@@ -11,11 +11,11 @@ class API {
 }
 
 class Categoria extends API {
-    constructor(categoriaUri="categoria", basepath) {
+    constructor(categoriaUri="api/v1/categoria", basepath) {
         super(basepath)
         this.categoriaUri = categoriaUri
         this.uri = `${this.basepath}${this.categoriaUri}`
     }
 }
 
-export const API_categoria = new Categoria()
+export const API_categoria = new Categoria("v1/categoria/")
