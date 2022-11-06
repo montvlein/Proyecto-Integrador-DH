@@ -14,8 +14,22 @@ class CategoriaEndPoint {
     }
 
     listarTodos() {
-        return fetch(`${this.uri}/listarTodos`).then(res => res.json()).catch(Error)
+        return handleFetch(`${this.uri}/listarTodos`)
+        .then(res => res.json())
+        .catch(error => {
+            console.error(`CategoriaEndpoint error: ${error.message}`)
+            throw(error)
+        })
     }
+}
+
+function handleFetch(request) {
+    return fetch(request).then(handleError)
+}
+
+function handleError(response) {
+    if (!response.ok) throw Error(response.status)
+    return response
 }
 
 export const DigitalBookingApi = new DigitalBookingAPI()
