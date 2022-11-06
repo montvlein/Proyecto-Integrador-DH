@@ -8,17 +8,17 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="CARACTERISTICAS")
-public class Caracteristicas {
-
+@Table(name = "IMAGEN")
+public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String modelo;
-    private int puertas;
-    private String consumo;
-    private String tipoMotor;
-    private String caja;
+    private String titulo;
+    private String url;
 
+    // Join con Autos
+    @ManyToOne
+    @JoinColumn(name = "autoId" , nullable=false)
+    private Auto auto;
 }

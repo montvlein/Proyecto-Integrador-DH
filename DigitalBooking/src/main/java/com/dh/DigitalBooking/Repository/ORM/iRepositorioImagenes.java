@@ -1,7 +1,7 @@
 package com.dh.DigitalBooking.Repository.ORM;
 
-import com.dh.DigitalBooking.Models.Entities.Imagenes;
+import com.dh.DigitalBooking.Models.Entities.Imagen;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface iRepositorioImagenes extends JpaRepository<Imagenes, Long> {
+public interface iRepositorioImagenes extends JpaRepository<Imagen, Long> {
 }

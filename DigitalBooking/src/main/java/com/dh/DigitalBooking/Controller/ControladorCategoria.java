@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("v1/categoria")
+@RequestMapping("api/v1/categoria")
 @Tag(name="Categoria")
 public class ControladorCategoria {
 

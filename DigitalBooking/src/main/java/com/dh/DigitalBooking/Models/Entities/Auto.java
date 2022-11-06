@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -21,7 +20,7 @@ public class Auto {
     // Join con Imágenes (Un auto tiene muchas imágenes)
     @OneToMany(mappedBy = "auto")
     @JsonIgnore
-    private Set<Imagenes> imagenes;
+    private Set<Imagen> imagenes;
 
     // Join con Categoría (Un auto tiene una Categoría)
     @OneToOne(cascade = CascadeType.ALL)
@@ -39,7 +38,7 @@ public class Auto {
 
     // Join con Características
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="caracteristicas_id")
-    private Caracteristicas caracteristicas;
+    @JoinColumn(name="caracteristica_id")
+    private Caracteristica caracteristica;
 
 }
