@@ -1,7 +1,7 @@
 import React from 'react'
 import stylesDatosUbicacionProd from './datosUbicacionProducto.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function DatosUbicacionProducto() {
   return (
@@ -15,8 +15,8 @@ export default function DatosUbicacionProducto() {
             stylesDatosUbicacionProd.divDosSeccionDatosUbicacionPorducto
           }
         >
-          <p>Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina</p>
-          <p>Sucursal Aeroparque Jorge Newbery</p>
+          <p className={stylesDatosUbicacionProd.parrafoUnoDivDosDatosUbicacionPordCiudad}>Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina</p>
+          <p className={stylesDatosUbicacionProd.parrafoDosDivDosDatosUbicacionPordSucursal}>Sucursal Aeroparque Jorge Newbery</p>
         </div>
       </div>
 
@@ -25,7 +25,16 @@ export default function DatosUbicacionProducto() {
           stylesDatosUbicacionProd.divTresSeccionDatosUbicacionPorducto
         }
       >
-        <p>Muy bueno</p>
+        <p className={stylesDatosUbicacionProd.parrafoDivTresDatosUbicacionPordCalificacionPalabra}>Excelente</p>
+        <span className={stylesDatosUbicacionProd.spanDivTresDatosUbicacionPordCalificacionCalificacionEstrellas}>
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        <FontAwesomeIcon icon={faStar} />
+        </span>
+
+
       </div>
     </section>
   )
