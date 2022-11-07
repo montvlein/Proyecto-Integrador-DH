@@ -2,7 +2,7 @@ class DigitalBookingAPI {
 
     constructor(basepath="http://localhost:8080/") {
         this.basepath = basepath
-        this.categoria = new CategoriaEndPoint(this.basepath, "v1/categoria")
+        this.categoria = new CategoriaEndPoint(this.basepath)
     }
 
 }
@@ -14,7 +14,7 @@ class CategoriaEndPoint {
     }
 
     listarTodos() {
-        return handleFetch(`${this.uri}/listarTodos`)
+        return handleFetch(`${this.uri}/listarTodis`)
         .then(res => res.json())
         .catch(error => {
             console.error(`CategoriaEndpoint error: ${error.message}`)
