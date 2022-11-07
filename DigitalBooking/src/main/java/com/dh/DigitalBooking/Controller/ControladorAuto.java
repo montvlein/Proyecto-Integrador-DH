@@ -37,4 +37,13 @@ public class ControladorAuto {
     public ResponseEntity<?> buscarPorId(@PathVariable Long id){
         return ResponseEntity.ok(servicio.buscarPorId(id));
     }
+
+    @Operation(summary = "Busca todos los autos por parametro")
+    @GetMapping("buscarPor")
+    public ResponseEntity buscarPor(@RequestParam(required = false) String categoria, @RequestParam(required = false) String ciudad) {
+        if (ciudad == null && categoria == null) return ResponseEntity.badRequest().build();
+        if (ciudad != null && categoria == null ) return ResponseEntity.ok(servicio.buscarAutoPorCiudad(ciudad));
+        if (categoria != null && ciudad == null ) return ResponseEntity.ok(servicio.buscarAutoPorCategoria(categoria));
+        return ResponseEntity.ok(servicio.buscarAutoPor(categoria, ciudad));
+    }
 }

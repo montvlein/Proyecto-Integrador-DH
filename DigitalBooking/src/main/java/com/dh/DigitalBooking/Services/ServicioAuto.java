@@ -51,4 +51,16 @@ public class ServicioAuto {
     public List<Auto> listar(){
         return repositorio.findAll();
     }
+
+    public List<Auto> buscarAutoPorCategoria(String parametro) {
+        return repositorio.buscarAutoPorCategoria(parametro);
+    }
+
+    public List<Auto> buscarAutoPorCiudad(String parametro) {
+        return  repositorio.buscarAutoPorCiudad(parametro);
+    }
+
+    public List<Auto> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
+        return  repositorio.buscarAutoPor(tituloCategoria, nombreProvincia);
+    }
 }
