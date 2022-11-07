@@ -19,13 +19,13 @@ public class ControladorCiudad {
     public void setServicio(ServicioCiudad servicio){this.servicio=servicio;}
 
     @Operation(summary = "Lista todas las ciudades")
-    @GetMapping("listarCiudades")
+    @GetMapping("listarTodis")
     public ResponseEntity<?> listarTodos() throws Exception{
         return ResponseEntity.ok(servicio.listarCiudades());
     }
 
     @Operation(summary = "Crea una ciudad y la devuelve")
-    @PostMapping("nuevaCiudad")
+    @PostMapping("nuevi")
     public ResponseEntity<?> nuevaCiudad(@RequestBody Ciudad ciudad) throws Exception{
         return ResponseEntity.ok(servicio.guardar(ciudad));
     }

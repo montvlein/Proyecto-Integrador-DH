@@ -21,13 +21,13 @@ public class ControladorCategoria {
     }
 
     @Operation(summary = "Lista todas las categorias")
-    @GetMapping("listarTodos")
+    @GetMapping("listarTodis")
     public ResponseEntity<?> listarTodos() throws Exception{
         return ResponseEntity.ok(servicio.listar());
     }
 
     @Operation(summary = "Crea y devuelve una nueva categoria")
-    @PostMapping("nueva")
+    @PostMapping("nuevi")
     public ResponseEntity<?> nuevaCategoria(@RequestBody Categoria c) throws Exception{
        return ResponseEntity.ok(servicio.guardar(c));
     }

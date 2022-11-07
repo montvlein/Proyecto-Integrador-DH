@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("auto")
+@RequestMapping("api/v1/auto")
 @Tag(name="AUTO")
 public class ControladorAuto {
 
@@ -20,7 +20,7 @@ public class ControladorAuto {
     }
 
     @Operation(summary = "Lista todos los autos")
-    @GetMapping("listarTodos")
+    @GetMapping("listarTodis")
     public ResponseEntity<?> listarTodos(){
         return ResponseEntity.ok(servicio.listar());
     }

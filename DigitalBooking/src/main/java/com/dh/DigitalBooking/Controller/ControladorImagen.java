@@ -8,20 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("api/v1/imagen")
 public class ControladorImagen {
     private ServicioImagen servicio;
 
     @Autowired
     public void setServicio(ServicioImagen servicio){this.servicio=servicio;}
 
-    @Operation(summary = "Lista todas las imagenes")
-    @GetMapping("listarImagenes")
-    public ResponseEntity<?> listarTodos() throws Exception{
-        return ResponseEntity.ok(servicio.listarImagenes());
-    }
-
     @Operation(summary = "Crea una imagen y la guarda")
-    @PostMapping("nuevaImagen")
+    @PostMapping("nuevi")
     public ResponseEntity<?> nuevaImagen(@RequestBody Imagen imagen) throws Exception{
         return ResponseEntity.ok(servicio.guardar(imagen));
     }
