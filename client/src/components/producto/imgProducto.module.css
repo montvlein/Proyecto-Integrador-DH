@@ -4,10 +4,91 @@
     margin: 0;
 }
 
-.seccionImagenProducto{
-    display: flex;
-    width:100%;
-    height: 60vh;
+.divContenedorSeccionImagenPorducto {  display: grid;
+    grid-template-columns: 0.3fr 1.5fr 1.9fr 0.3fr;
+    grid-template-rows: 0.2fr 2.6fr 0.2fr;
+    grid-auto-columns: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". compartirLikeImgProd compartirLikeImgProd ."
+      ". imgPrincipal cuadriculaImgSec ."
+      ". pieDePagImgProd pieDePagImgProd .";
+      border: solid 3px red;
+  }
+  
+  .compartirLikeImgProd { 
+    grid-area: compartirLikeImgProd;
+    display: grid;
+    flex-direction: row;
     margin-bottom: 0;
-    background-color: blueviolet;
+    border: solid 2px gray;
+ }
+  
+  .cuadriculaImgSec {  
+    display: grid;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    grid-template-columns: 1.2fr 1.1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "ImgUno imgDos"
+      "imgTres imgCuatro";
+    grid-area: cuadriculaImgSec;
+    border: solid 2px green;
+    
+  }
+
+  
+  
+  .imgSecundaria{ 
+    grid-area: ImgUno, ;
+    width: 90%;
+    object-fit: contain;
+    align-content: center;
 }
+
+.imgUno { 
+    grid-area: ImgUno;
+    width: 90%;
+    object-fit: contain;
+    /* align-content: center; */
+}
+  
+  .imgDos { 
+    grid-area: imgDos;
+    width: 90%;
+    object-fit: contain;
+}
+  
+  .imgTres {
+    grid-area: imgTres;
+    align-items: center;
+    width: 90%;
+    object-fit: contain;
+ }
+  
+  .imgCuatro { 
+    grid-area: imgCuatro; 
+    align-items: center;
+    width: 90%;
+    object-fit: contain;
+    
+}
+  
+  .imgPrincipal { 
+    grid-area: imgPrincipal;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+ }
+  
+  .pieDePagImgProd { 
+    grid-area: pieDePagImgProd;
+    border: solid 2px blue;
+ }
+  
