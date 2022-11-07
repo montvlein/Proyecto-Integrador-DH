@@ -3,7 +3,6 @@ import styles from "./imgProducto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareNodes, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function ImgProducto({toggle}) {
   const images = [
     {
@@ -66,10 +65,7 @@ export default function ImgProducto({toggle}) {
           </div>
         </div>
 
-        <div className={styles.pieDePagImgProd}>
-          <p>Renta tu auto en Buenos Aires</p>
-        </div>
-      </section>
+    </section>
     </>
-  );
-}
+    )
+  }
