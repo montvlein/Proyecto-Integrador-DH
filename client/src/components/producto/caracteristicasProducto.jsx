@@ -1,5 +1,5 @@
 import React from "react";
-import style from './caracteristicasProducto.module.css';
+import styles from './caracteristicasProducto.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPerson,
@@ -12,26 +12,26 @@ import {
 export default function CaracteristicasProducto() {
     return (
       <section
-        className={stylesCaracteristicasProd.seccionCaracteristicasPorducto}
+        className={styles.seccionCaracteristicasPorducto}
       >
-       <h3 className={style.tituloDescripcionProd}>
+       <h3 className={styles.tituloDescripcionProd}>
        Encontrá tu auto
       </h3>
 
-      <ul className={style.caracteristicas}>
+      <ul className={styles.caracteristicas}>
             <li>
-              <FontAwesomeIcon icon={faPerson} className={style.icons} /> 4
+              <FontAwesomeIcon icon={faPerson} className={styles.icons} /> 4
               personas
             </li>
             <li>
-              <FontAwesomeIcon icon={faGauge} className={style.icons} /> 50
+              <FontAwesomeIcon icon={faGauge} className={styles.icons} /> 50
               Litros
             </li>
             <li>
-              <FontAwesomeIcon icon={faGasPump} className={style.icons} /> Nafta
+              <FontAwesomeIcon icon={faGasPump} className={styles.icons} /> Nafta
             </li>
             <li>
-              <FontAwesomeIcon icon={faCar} className={style.icons} />{" "}
+              <FontAwesomeIcon icon={faCar} className={styles.icons} />
               Automático
             </li>
           </ul>

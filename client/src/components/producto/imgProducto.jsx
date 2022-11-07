@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./imgProducto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareNodes, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import GaleriaProducto from "./galeriaProducto/galeriaProducto";
+
 
 export default function ImgProducto({toggle}) {
   const images = [
