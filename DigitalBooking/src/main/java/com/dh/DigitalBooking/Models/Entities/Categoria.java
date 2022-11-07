@@ -19,9 +19,8 @@ public class Categoria {
     private String Titulo;
     private String Descripcion ;
 
-    @Lob
     @Column(name = "url_img")
-    private Blob urlImagen;
+    private String urlImagen;
 
 
 }
