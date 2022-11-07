@@ -4,6 +4,8 @@ import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe/heroe";
 import Categorias from "../Categorias/categorias"
 import ListadoDeAutos from "../cardsAutos/listadoDeAutos";
+import GaleriaProducto from "../producto/galeriaProducto/galeriaProducto";
+import Producto from "../producto/producto"
 
 
 
@@ -15,24 +17,7 @@ const Cuerpo = () => {
 
   return (
     <main>
-      <Heroe />
-
-      <form className="d-flex justify-content-center" onSubmit={handlerSubmit}>
-        <div className={styles.barraBusqueda}>
-          <div className={styles.contenedorBuscador}>
-            <SearchBar />
-          </div>
-          <div className={styles.contenedorFechas}>
-            <FechaReserva />
-          </div>
-          <div className={styles.botonNavBuscador}>
-            <button className={styles.botonBarra}>Buscar</button>
-          </div>
-        </div>
-      </form>
-
-    <Categorias/>
-    <ListadoDeAutos/>
+        <Producto></Producto>
     </main>
   );
 };

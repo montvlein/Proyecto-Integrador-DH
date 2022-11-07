@@ -4,3 +4,17 @@
     margin: 0;
  
 }
+
+.seccionDescripcionProducto{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.tituloDescripcionProd{
+    display: flex;
+}
+
+.textoDescripcionProd{
+    display: flex;
+}

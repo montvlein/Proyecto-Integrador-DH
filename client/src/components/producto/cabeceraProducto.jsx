@@ -1,18 +1,18 @@
 import React from 'react'
-import stylesCabeceraProd from './cabeceraProducto.module.css'
+import styles from './cabeceraProducto.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function CabeceraProducto() {
   return (
-    <section className={stylesCabeceraProd.seccionCabeceraProducto}>
-      <div className={stylesCabeceraProd.divUnoSeccionCabeceraProducto}>
-        <p className={stylesCabeceraProd.seccionCabeceraProductoDivUnoParrafoUno}>Categoria del producto</p>
-        <p className={stylesCabeceraProd.seccionCabeceraProductoDivUnoParrafoDos}>Título de producto</p>
+    <section className={styles.cabeceraProducto}>
+      <div className={styles.divUnoSeccionCabeceraProducto}>
+        <h3 className={styles.parrafoUno}>Autos compactos</h3>
+        <h2 className={styles.parrafoDos}>Chevrolet Onix</h2>
       </div>
-      <div className={stylesCabeceraProd.divDosSeccionCabeceraProducto}>
+      <div className={styles.iconIzquierda}>
         <FontAwesomeIcon
-          icon={faArrowLeft}
+          icon={faAngleLeft}
  
         />
       </div>

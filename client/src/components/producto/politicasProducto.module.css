@@ -2,4 +2,25 @@
     padding:0;
     box-sizing: border-box;
     margin: 0;
+    margin-top: 0;
+}
+
+.seccionPoliticasPorducto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+    
+}
+
+.tituloPoliticasProd{
+    display: flex;
+    
+}
+
+.politicasProd{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
 }

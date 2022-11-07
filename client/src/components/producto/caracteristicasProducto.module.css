@@ -4,3 +4,19 @@
     margin: 0;
     margin-bottom: 0;
 }
+
+.seccionCaracteristicasPorducto{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.caracteristicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+   
+}
+
+.icons{
+    color: var(--amarillo);
+}

@@ -1,0 +1,89 @@
+.contenedorPadre {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(29, 29, 29, 0.87);
+
+
+}
+.contenedorSlider {
+    width: 500px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+.imagenContenedor {
+    height: 100%;
+    position: relative;
+}
+
+.botonIzquierdo {
+    background-color: rgba(0, 0, 0, 0.363);
+    height: 30px;
+    width: 30px;
+    color: #FFF;
+    border-radius: 50%;
+    border: 0;
+    transition: .3s ease all;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 22px;
+}
+
+.botonDerecho {
+    background-color: rgba(0, 0, 0, 0.363);
+    height: 30px;
+    width: 30px;
+    color: #FFF;
+    border-radius: 50%;
+    border: 0;
+    transition: .3s ease all;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 22px;
+}
+.controles button:hover {
+    background-color: rgba(255, 255, 255, 0.363);
+    color: #000;
+}
+
+
+.contenedorImgPequenias {
+    display:flex;
+    gap: 10px;
+    margin-top: 10px;
+    
+
+}
+
+.divImagenPequeña {
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+.divImagenPequeña:hover {
+    filter:none;
+}
+
+.iconoCerrar {
+    padding:0px;
+    cursor: pointer;
+    color:#FFF;
+    position: absolute;
+    top: 12px;
+    right:22px;
+    font-size: 1.2em;
+}
+
+
+.galeriaPadreMostrar {
+    display: none
+}
+
+.galeriaPadre {
+    display:block;
+    z-index: 100;
+    
+}
