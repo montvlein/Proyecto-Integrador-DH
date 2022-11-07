@@ -16,8 +16,8 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-    private String Titulo;
-    private String Descripcion ;
+    private String titulo;
+    private String descripcion ;
 
     @Column(name = "url_img")
     private String urlImagen;

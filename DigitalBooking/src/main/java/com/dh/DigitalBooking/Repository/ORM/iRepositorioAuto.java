@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
 
-    @Query("select a from Auto a where a.categoria.Titulo = ?1")
+    @Query("select a from Auto a where a.categoria.titulo = ?1")
     List<Auto> buscarAutoPorCategoria(String parametro);
 
     @Query("select a from Auto a where a.ciudad.provincia = ?1")
