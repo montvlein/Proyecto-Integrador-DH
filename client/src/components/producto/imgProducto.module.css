@@ -14,7 +14,7 @@
       ". compartirLikeImgProd compartirLikeImgProd ."
       ". imgPrincipal cuadriculaImgSec ."
       ". pieDePagImgProd pieDePagImgProd .";
-      border: solid 3px red;
+   
   }
   
   .compartirLikeImgProd { 
@@ -22,7 +22,7 @@
     display: grid;
     flex-direction: row;
     margin-bottom: 0;
-    border: solid 2px gray;
+  
  }
   
   .cuadriculaImgSec {  
@@ -37,7 +37,7 @@
       "ImgUno imgDos"
       "imgTres imgCuatro";
     grid-area: cuadriculaImgSec;
-    border: solid 2px green;
+   
     
   }
 
@@ -89,6 +89,6 @@
   
   .pieDePagImgProd { 
     grid-area: pieDePagImgProd;
-    border: solid 2px blue;
+  
  }
   
