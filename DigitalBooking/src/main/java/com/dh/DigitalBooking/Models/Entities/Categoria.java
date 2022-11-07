@@ -2,13 +2,15 @@ package com.dh.DigitalBooking.Models.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "CATEGORIAS")
+@Table(name = "CATEGORIA")
 public class Categoria {
 
     @Id
