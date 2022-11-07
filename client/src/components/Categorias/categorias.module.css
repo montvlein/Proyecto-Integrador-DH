@@ -115,6 +115,15 @@
     right: 0;
 }
 
+.categoria_loading_font {
+    font-size: 0.5em;
+    font-weight: lighter;
+}
+
+.categoria_loading_height {
+    height: 150px;
+}
+
 .categoria_figcaption:hover {
     display: none;
 }
