@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Cuerpo/>}/>
         <Route path="/iniciarSesion" element={<Login/>}/>
         <Route path="/crearCuenta" element={<Registro/>}/>
-        <Route path="/producto/:idProducto" element={"id"}/>
+        <Route path="/producto/:idProducto" element={<Producto/>}/>
         <Route path="*" element={<h2>Not Found</h2>}/>
       </Routes>
     </main>
