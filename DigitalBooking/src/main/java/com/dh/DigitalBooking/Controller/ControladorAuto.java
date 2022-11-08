@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Controller;
 
+import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Services.ServicioAuto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,20 +22,28 @@ public class ControladorAuto {
 
     @Operation(summary = "Lista todos los autos")
     @GetMapping("listarTodis")
-    public ResponseEntity<?> listarTodos(){
+    public ResponseEntity<?> listarTodos() throws Exception{
         return ResponseEntity.ok(servicio.listar());
     }
 
     @Operation(summary = "Borra un auto por id")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarPorId(@PathVariable Long id){
+    public ResponseEntity<?> eliminarPorId(@PathVariable Long id) throws Exception{
         servicio.eliminarPorId(id);
         return ResponseEntity.noContent().build();
     }
 
+    @Operation(summary = "Crea una auto")
+    @PostMapping("nuevo")
+    public ResponseEntity<?> nuevoAuto(@RequestBody Auto auto) throws Exception{
+        return ResponseEntity.ok(servicio.guardar(auto));
+    }
+
+
+
     @Operation(summary = "Busca un auto por ID")
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable Long id){
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id)throws Exception{
         return ResponseEntity.ok(servicio.buscarPorId(id));
     }
 

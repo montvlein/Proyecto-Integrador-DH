@@ -27,6 +27,7 @@ public class ServicioCiudad {
     public Ciudad actualizar(Ciudad ciudad) throws Exception{
             Ciudad ciu = buscarPorId(ciudad.getId());
             if(ciu != null){
+                ciu.setNombre(ciu.getNombre());
                 ciu.setPais(ciu.getPais());
                 ciu.setProvincia(ciu.getProvincia());
                 guardar(ciu);
