@@ -4,15 +4,6 @@ import listado from "../data/AUTOS.json";
 const Contexto = createContext();
 
 export function AppContext({ children }) {
-  let opciones = (informacion, metodo = "POST", tipo = "application/json") => {
-    return {
-      method: metodo,
-      headers: {
-        "Content-Type": tipo,
-      },
-      body: JSON.stringify(informacion),
-    };
-  };
 
   // usuario y sesion
   const [listaUsuarios, setListaUsuarios] = useState([]);
