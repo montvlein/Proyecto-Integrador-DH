@@ -17,7 +17,7 @@ export default function Heroe() {
           19.000 vehículos. <span>Digital Booking</span> los tiene.
         </p>
         <Link to={"/crearcuenta"}
-         class="btn btn-warning">
+         className="btn btn-warning">
           ¡Registrate hora!
         </Link>
         </div>

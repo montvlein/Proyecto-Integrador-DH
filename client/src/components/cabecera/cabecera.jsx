@@ -27,7 +27,7 @@ export default function Cabecera() {
           <Sesion />
         </div>
         <div className={styles.menuHamburguesa}>
-          <FontAwesomeIcon icon={faBars} onClick={toggle}></FontAwesomeIcon>          
+          <FontAwesomeIcon icon={faBars} onClick={toggle}></FontAwesomeIcon>
         </div>
         <MenuResponsive isOpen={isOpen} toggle={toggle} />
       </div>

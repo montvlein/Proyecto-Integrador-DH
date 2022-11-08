@@ -20,8 +20,8 @@ function UsuarioIniciado() {
 
       <div className={styles.contenedorNombreSesion}>
         <dl>
-          <dt class="px-2 text-white">Hola,</dt>
-          <dl class="nav-link px-2 text-white fw-bold">{getUsuario().nombre} {getUsuario().apellido}</dl>
+          <dt className="px-2 text-white">Hola,</dt>
+          <dl className="nav-link px-2 text-white fw-bold">{getUsuario().nombre} {getUsuario().apellido}</dl>
         </dl>
       </div>
 

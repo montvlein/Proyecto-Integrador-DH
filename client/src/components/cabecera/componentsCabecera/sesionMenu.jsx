@@ -14,7 +14,7 @@ function Sesion() {
             )
     } else {
         return (
-            <div class="text-end">
+            <div className="text-end">
                 <Link to="/iniciarSesion" className={ location.pathname === "/iniciarSesion" ? "d-none btn btn-outline-light me-2":"btn btn-outline-light me-2"}>Inicia sesión</Link>
                 <Link to="/crearcuenta" className={ location.pathname === "/crearcuenta" ? "d-none btn btn-warning":"btn btn-warning"}>Registrate</Link>
             </div>

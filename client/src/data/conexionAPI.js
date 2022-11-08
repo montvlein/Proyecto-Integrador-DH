@@ -7,10 +7,10 @@ class DigitalBookingAPI {
 
 }
 
-class CategoriaEndPoint {
-    constructor(basepath, categoriaUri="api/v1/categoria") {
-        this.categoriaUri = categoriaUri
-        this.uri = `${basepath}${this.categoriaUri}`
+class CRUD {
+    constructor(basepath, endpoint) {
+        this.endpoint = endpoint
+        this.uri = `${basepath}${this.endpoint}`
     }
 
     listar() {
@@ -20,6 +20,12 @@ class CategoriaEndPoint {
             console.error(`CategoriaEndpoint error: ${error.message}`)
             throw(error)
         })
+    }
+}
+
+class CategoriaEndPoint extends CRUD {
+    constructor(basepath, categoriaUri="api/v1/categoria") {
+        super(basepath, categoriaUri)
     }
 }
 
