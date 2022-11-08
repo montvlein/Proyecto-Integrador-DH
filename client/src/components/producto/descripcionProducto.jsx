@@ -5,6 +5,7 @@ export default function DescripcionProducto() {
   return (
     <section className={styles.seccionDescripcionProducto}>
       <h3 className={styles.tituloDescripcionProd}>Encontrá tu auto</h3>
+      <hr></hr>
       <p className={styles.textoDescripcionProd}>
         ¿Qué está incluido con el alquiler? <br></br>
         Nuestras tarifas incluyen vehículos nuevos en excelentes condiciones

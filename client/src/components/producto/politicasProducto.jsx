@@ -4,7 +4,10 @@ import style from './politicasProducto.module.css'
 export default function PoliticasPorducto() {
   return (
     <section className={style.seccionPoliticasPorducto}>
-      <h3 className={style.tituloPoliticasProd}>Lo que tenes que saber</h3>
+      <h3 className={style.tituloPoliticasProd}>
+      Politicas
+      </h3>
+      <hr></hr>
       <div className={style.politicasProd}>
         <div>
           <h4>Requisitos</h4>
@@ -43,7 +46,6 @@ export default function PoliticasPorducto() {
           <div>
           <ul>
             <li>
-            
               Cancelación: El cliente debe contactar a BookingCars para
               solicitar la cancelación de su reserva antes de la fecha y hora
               estipuladas para recoger el vehículo. Una vez cancelada, la
