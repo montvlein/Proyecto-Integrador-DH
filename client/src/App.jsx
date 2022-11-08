@@ -3,7 +3,8 @@ import Cuerpo from './components/cuerpo/cuerpo';
 import Footer from './components/footer/footer';
 import Login from './components/formularios/login';
 import Registro from './components/formularios/registro';
-import { Route, Routes } from 'react-router-dom'
+import Producto from "./components/producto/producto";
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -28,3 +29,4 @@ function App() {
 }
 
 export default App
+//
