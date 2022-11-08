@@ -27,11 +27,13 @@ export default function ImgProducto({toggle}) {
     },
   ];
 
-  const backgroundImagen = {
+  const backgroundImagen = (index) => {
+    return {
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${images[0].url})`,
+    backgroundImage: `url(${images[index].url})`,
+  }
   };
 
   return (
@@ -39,25 +41,25 @@ export default function ImgProducto({toggle}) {
       <section>
         <div className={styles.compartirLikeImgProd}>
           <div className={styles.iconoContenedor}>
-            <FontAwesomeIcon icon={faShareNodes} />
-            <FontAwesomeIcon icon={faHeart} />
+            <FontAwesomeIcon icon={faShareNodes} className={styles.iconoshare}/>
+            <FontAwesomeIcon icon={faHeart} className={styles.iconolike}/>
           </div>
         </div>
 
         <div className={styles.angryGrid}>
-          <div className={styles.item0} style={backgroundImagen}>
+          <div className={styles.item0} style={backgroundImagen(0)}>
             &nbsp;
           </div>
-          <div className={styles.item1} style={backgroundImagen}>
+          <div className={styles.item1} style={backgroundImagen(1)}>
             &nbsp;
           </div>
-          <div className={styles.item2} style={backgroundImagen}>
+          <div className={styles.item2} style={backgroundImagen(2)}>
             &nbsp;
           </div>
-          <div className={styles.item3} style={backgroundImagen}>
+          <div className={styles.item3} style={backgroundImagen(3)}>
             &nbsp;
           </div>
-          <div className={styles.item4} style={backgroundImagen}>
+          <div className={styles.item4} style={backgroundImagen(4)}>
             &nbsp;
           </div>
           <div className={styles.verMas} onClick={toggle}>
