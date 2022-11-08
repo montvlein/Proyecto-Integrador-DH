@@ -6,10 +6,7 @@ import Registro from './components/formularios/registro';
 import Producto from "./components/producto/producto";
 import { Route, Routes } from 'react-router-dom';
 
-
 function App() {
-
-
 
   return (
     <>
@@ -29,4 +26,3 @@ function App() {
 }
 
 export default App
-//
