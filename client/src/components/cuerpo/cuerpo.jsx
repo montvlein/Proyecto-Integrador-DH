@@ -17,7 +17,27 @@ const Cuerpo = () => {
 
   return (
     <main>
-        <Producto></Producto>
+        <Heroe />
+
+<form className="d-flex justify-content-center" onSubmit={handlerSubmit}>
+  <div className={styles.barraBusqueda}>
+    <div className={styles.contenedorBuscador}>
+      <SearchBar />
+    </div>
+    <div className={styles.contenedorFechas}>
+      <FechaReserva />
+    </div>
+    <div className={styles.botonNavBuscador}>
+      <button className={styles.botonBarra}>Buscar</button>
+    </div>
+  </div>
+</form>
+
+<Categorias/>
+<ListadoDeAutos/>
+
+
+
     </main>
   );
 };

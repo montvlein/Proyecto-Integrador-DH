@@ -1,5 +1,5 @@
 .contenedorPadre {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     background-color: rgba(29, 29, 29, 0.87);
@@ -7,8 +7,7 @@
 
 }
 .contenedorSlider {
-    width: 500px;
-    height: 280px;
+    height: 400px;
     margin: 0 auto;
 }
 
@@ -84,6 +83,11 @@
 
 .galeriaPadre {
     display:block;
-    z-index: 100;
+    z-index: 999;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+
+
     
 }
