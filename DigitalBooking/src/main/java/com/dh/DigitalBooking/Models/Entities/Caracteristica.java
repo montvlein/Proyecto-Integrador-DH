@@ -1,14 +1,15 @@
 package com.dh.DigitalBooking.Models.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name="CARACTERISTICA")
 public class Caracteristica {
 
     @Id
@@ -21,4 +22,7 @@ public class Caracteristica {
     private String tipoMotor;
     private String caja;
 
+    @OneToMany(mappedBy = "caracteristica")
+    @JsonIgnore
+    private Set<Auto> autos;
 }
