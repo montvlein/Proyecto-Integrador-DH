@@ -97,3 +97,15 @@
   border-radius: 10px;
   
 }
+
+.verMas {
+  position: absolute;
+  bottom: 32px;
+  right: 42px;
+}
+
+.verMas p {
+  color: #FFF;
+  text-decoration: underline;
+  cursor: pointer;
+}
