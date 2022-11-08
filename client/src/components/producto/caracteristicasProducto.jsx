@@ -17,6 +17,7 @@ export default function CaracteristicasProducto() {
        <h3 className={styles.tituloDescripcionProd}>
        Encontrá tu auto
       </h3>
+      <hr></hr>
 
       <ul className={styles.caracteristicas}>
             <li>
