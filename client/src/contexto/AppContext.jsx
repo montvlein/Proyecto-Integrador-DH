@@ -1,5 +1,4 @@
 import React, { useState, createContext } from "react";
-import categorias from "../data/categorias.json";
 import listado from "../data/AUTOS.json";
 
 const Contexto = createContext();
@@ -53,12 +52,6 @@ export function AppContext({ children }) {
     setSesionIniciada(false);
   }
 
-  // categorias
-  const [listaCategorias, setCategorias] = useState(categorias);
-  function getListaCategorias() {
-    return listaCategorias;
-  }
-
   // listado de productos
   const [listaAutos, setListadoAutos] = useState(listado.autos)
   const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
@@ -102,7 +95,6 @@ export function AppContext({ children }) {
         cerrarSesion,
         registrarUsuario,
         validarUsuario,
-        getListaCategorias,
         getListaAutos,
         getAutosFiltrados,
         filtarAutos,
