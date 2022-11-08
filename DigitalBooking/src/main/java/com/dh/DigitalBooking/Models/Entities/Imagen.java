@@ -17,6 +17,6 @@ public class Imagen {
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "auto_id" , nullable=false)
+    @JoinColumn(name = "auto_id")
     private Auto auto;
 }
