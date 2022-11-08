@@ -13,7 +13,7 @@ class CategoriaEndPoint {
         this.uri = `${basepath}${this.categoriaUri}`
     }
 
-    listarTodos() {
+    listar() {
         return handleFetch(`${this.uri}/listarTodis`)
         .then(res => res.json())
         .catch(error => {

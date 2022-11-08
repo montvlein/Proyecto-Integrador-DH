@@ -9,7 +9,7 @@ export default function Categorias() {
   const { filtarAutos } = useContext(Contexto);
 
   useEffect(() => {
-    DigitalBookingApi.categoria.listarTodos().then((categorias) => {
+    DigitalBookingApi.categoria.listar().then((categorias) => {
       setCategorias(categorias);
       setEstaCargando(false);
     });
