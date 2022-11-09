@@ -31,8 +31,8 @@ INSERT INTO CIUDAD (NOMBRE, PAIS, PROVINCIA) VALUES('BUENOS AIRES','ARGENTINA','
 INSERT INTO CIUDAD (NOMBRE, PAIS, PROVINCIA) VALUES('USHUAIA','ARGENTINA','Tierra del Fuego, Antártida e Islas del Atlántico Sur');
 
 
-INSERT INTO CARACTERISTICA(CAJA, CONSUMO, MODELO, PUERTAS, TIPO_MOTOR) VALUES('MANUAL', 'NAFTA', '2009', 4, 'AUTOMATICO' );
-INSERT INTO AUTO (DESCRIPCION, DISPONIBLE_PARA_ALQUILAR, PRECIO, CARACTERISTICA_ID, CATEGORIA_ID, CIUDAD_ID) VALUES ('DESCRIPCION PRUEBA', TRUE, 5, 1, 1, 1);
+INSERT INTO CARACTERISTICA(CAJA, CONSUMO, MODELO, PUERTAS, TIPO_MOTOR) VALUES('Manual', '9.1 lts/km', '2020', 4, 'Hibrido' );
+INSERT INTO AUTO (NOMBRE, DESCRIPCION, DISPONIBLE_PARA_ALQUILAR, PRECIO, CARACTERISTICA_ID, CATEGORIA_ID, CIUDAD_ID) VALUES ('Chevrolet Onix','Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque eaque iure veniam provident cum nobis nesciunt, illo praesentium, doloremque rem qui sint, quam mollitia? Tempora, sed vitae! Voluptate, laborum fugiat.', TRUE, 5, 1, 1, 1);
 
 INSERT INTO IMAGEN(TITULO, URL) VALUES('modelo_1', 'https://cdn-images.motor.es/image/m/720w/fotos-noticias/2021/08/chevrolet-onix-ventas-sudamerica-202180513-1629451453_3.jpg');
 INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_2', 'https://www.megautos.com/wp-content/uploads/2019/09/chevrolet-onix-plus-premier-2020-delantera.jpg', 1);
