@@ -28,7 +28,7 @@ function GaleriaProducto({isOpen, toggle}) {
 
 
   return (
-    <section className={isOpen ? styles.galeriaPadreMostrar : styles.galeriaPadre } isOpen={isOpen}>
+    <section className={isOpen ? styles.galeriaPadreMostrar : styles.galeriaPadre }>
       <div className={styles.contenedorPadre}>
         <div className={styles.contenedorSlider}>
           <ImageSlider slides={images} toggle={toggle}></ImageSlider>
