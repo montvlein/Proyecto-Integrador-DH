@@ -16,6 +16,6 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
     @Query("select a from Auto a where a.ciudad.provincia = ?1")
     List<Auto> buscarAutoPorCiudad(String parametro);
 
-    @Query("select a from Auto a where a.categoria.Titulo = ?1 and a.ciudad.provincia = ?2")
+    @Query("select a from Auto a where a.categoria.titulo = ?1 and a.ciudad.provincia = ?2")
     List<Auto> buscarAutoPor(String categoria, String ciudad);
 }

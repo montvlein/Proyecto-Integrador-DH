@@ -3,8 +3,6 @@ package com.dh.DigitalBooking.Services;
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
-import com.dh.DigitalBooking.Repository.ORM.iRepositorioCategoria;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +13,9 @@ import java.util.List;
 public class ServicioAuto {
 
     private iRepositorioAuto repositorio;
+
+    @Autowired
+    ServicioImagen imagen;
 
     @Autowired
     public void setRepositorio(iRepositorioAuto repositorio) {
@@ -54,7 +55,6 @@ public class ServicioAuto {
     public List<AutoDTO> listar(){
         List<Auto>  autos = repositorio.findAll();
         List<AutoDTO> listadoDeAutos = new ArrayList<>();
-        ServicioImagen imagen = new ServicioImagen();
         for (Auto auto : autos){
             AutoDTO autoAgregar = new AutoDTO();
             autoAgregar.setId(auto.getId());
@@ -71,18 +71,12 @@ public class ServicioAuto {
         
         return listadoDeAutos;
     }
-    
-
-
-    // hacer un for y por cada auto crear un auto DTO con los datos que queremos,
-    // agregarlos a una lista nueva y devolver una lista con los autos DTO
 
     public List<Auto> buscarAutoPorCategoria(String parametro) {
         return repositorio.buscarAutoPorCategoria(parametro);
     }
 
     public List<Auto> buscarAutoPorCiudad(String parametro) {
-        
         return  repositorio.buscarAutoPorCiudad(parametro);
     }
 
