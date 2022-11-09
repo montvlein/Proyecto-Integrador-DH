@@ -9,7 +9,7 @@ export default function DatosUbicacionProducto() {
       <div className={styles.divUnoSeccionDatosUbicacionPorducto}>
         <FontAwesomeIcon
           icon={faLocationDot}
-          className={styles.imgUbicacionSeccionDatosUbicacionPorducto}
+          className={styles.icon}
         />
         <div className={styles.divDosSeccionDatosUbicacionPorducto}>
           <p className={styles.parrafoUnoDivDosDatosUbicacionPordCiudad}>
@@ -24,11 +24,11 @@ export default function DatosUbicacionProducto() {
       <div className={styles.divTresSeccionDatosUbicacionPorducto}>
         <p className={styles.calificacionPalabra}>Excelente</p>
         <div className={styles.calificacionEstrellas}>
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
         </div>
       </div>
     </section>

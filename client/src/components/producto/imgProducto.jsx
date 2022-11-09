@@ -41,8 +41,8 @@ export default function ImgProducto({toggle}) {
       <section>
         <div className={styles.compartirLikeImgProd}>
           <div className={styles.iconoContenedor}>
-            <FontAwesomeIcon icon={faShareNodes} className={styles.iconoshare}/>
-            <FontAwesomeIcon icon={faHeart} className={styles.iconolike}/>
+            <FontAwesomeIcon icon={faShareNodes} className={styles.icon}/>
+            <FontAwesomeIcon icon={faHeart} className={styles.icon}/>
           </div>
         </div>
 

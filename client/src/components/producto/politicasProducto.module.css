@@ -1,28 +1,59 @@
-*{
-    padding:0;
+* {
+    padding: 0;
     box-sizing: border-box;
     margin: 0;
     margin-top: 0;
 }
 
-.seccionPoliticasPorducto{
+.seccionPoliticasPorducto {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin: 20px;
-    
+
+
 }
 
-.tituloPoliticasProd{
+
+
+.politicasProd {
     display: flex;
-    
+    flex-direction: row;
+    max-width: 100%;
+    flex-wrap: wrap;
 }
 
-.politicasProd{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 50px;
-    font-size: 15px;
-    
+.contenedorRequisitos ul,
+.contenedorSeguridad ul,
+.contenedorCancelacion ul {
+    font-size: 0.8em;
+    word-wrap: break-word;
+    flex: none;
+    list-style-type: disc;
+    padding: 0;
+}
+
+.contenedorRequisitos h4,
+.contenedorSeguridad h4,
+.contenedorCancelacion h4 {
+    font-size: 1em;
+}
+
+.contenedorRequisitos,
+.contenedorSeguridad,
+.contenedorCancelacion {
+    flex: none;
+    width: 50%;
+}
+
+.contenedorRequisitos span,
+.contenedorSeguridad span,
+.contenedorCancelacion span{ 
+    text-decoration: underline;
+    text-decoration-color: var(--amarillo);
+}
+
+hr {
+    background-color:  var(--amarillo);
+    height: 3px;
+    font-weight: 800;
 }

@@ -13,8 +13,9 @@
 
 .tituloDescripcionProd{
     display: flex;
+    
 }
 
-.textoDescripcionProd{
-    display: flex;
+.textoDescripcionProd {
+    font-size: 0.9em;
 }

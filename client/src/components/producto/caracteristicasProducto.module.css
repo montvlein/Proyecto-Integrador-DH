@@ -8,15 +8,32 @@
 .seccionCaracteristicasPorducto{
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    padding: 20px;
+    
 }
 
 .caracteristicas {
-    display: grid;
+    display: grid; 
+
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    
+    gap: 0px;
+    height: 100%;
+    
    
 }
 
 .icons{
     color: var(--amarillo);
+}
+
+
+.caracteristicasDIV {
+    display: flex;
+    gap: 10px;
+}
+
+.caracteristicasDIV p {
+    font-size: 0.9em;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './cabeceraProducto.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { Link } from "react-router-dom";
 
 export default function CabeceraProducto() {
   return (
@@ -10,12 +11,12 @@ export default function CabeceraProducto() {
         <h3 className={styles.parrafoUno}>Autos compactos</h3>
         <h2 className={styles.parrafoDos}>Chevrolet Onix</h2>
       </div>
-      <div className={styles.iconIzquierda}>
+      <Link to="/"><div className={styles.iconIzquierda}>
         <FontAwesomeIcon
           icon={faAngleLeft}
  
         />
-      </div>
+      </div></Link>
     </section>
   )
 }

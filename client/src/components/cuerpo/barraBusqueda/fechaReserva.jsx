@@ -21,9 +21,6 @@ function FechaReserva() {
     
       const [openDate, setOpenDate] = useState(false);
 
-      const fechaInput = () => {
-        
-      }
 
   return (
     <div className={styles.rangoFecha}>

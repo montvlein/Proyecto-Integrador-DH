@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 2em 0.4em 2em;
     margin-bottom: 0;
     color: black;
     font-family: 'Poppins', sans-serif;
@@ -22,9 +22,8 @@
 
 .divUnoSeccionDatosUbicacionPorducto{
     display: flex;
-    align-content: center;
-    
-   
+    align-content: center;   
+
 }
 
 .divDosSeccionDatosUbicacionPorducto{
@@ -35,9 +34,9 @@
     padding: 0;
 }
 
-.imgUbicacionSeccionDatosUbicacionPorducto{
-    display: flex;
+.icon{
     padding-right: 3px; 
+    color: var(--amarillo);
 }
 
 .parrafoUnoDivDosDatosUbicacionPordCiudad{

@@ -35,8 +35,6 @@
 }
  
 .item0 {
-
-  background-color: #AF97BC; 
   grid-row-start: 1;
   grid-column-start: 1;
   grid-row-end: 3;
@@ -47,8 +45,6 @@
 }
 
 .item1 {
-
-  background-color: #C77BFB; 
   grid-row-start: 1;
   grid-column-start: 3;
   grid-row-end: 2;
@@ -58,8 +54,6 @@
 }
 
 .item2 {
-
-  background-color: #D5D7F9; 
   grid-row-start: 1;
   grid-column-start: 2;
   grid-row-end: 2;
@@ -68,8 +62,6 @@
   
 }
 .item3 {
-
-  background-color: #BFA57D; 
   grid-row-start: 2;
   grid-column-start: 3;
   grid-row-end: 3;
@@ -78,8 +70,6 @@
 }
 
 .item4 {
-
-  background-color: #FDD879; 
   grid-row-start: 2;
   grid-column-start: 2;
   grid-row-end: 3;
@@ -98,4 +88,8 @@
   color: #FFF;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.icon {
+  color: var(--grisO);
 }

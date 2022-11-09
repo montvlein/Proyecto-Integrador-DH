@@ -8,6 +8,8 @@ import PoliticasPorducto from './politicasProducto';
 import stylesArticlulo from './contenedorPorducto.module.css'
 import { useState } from 'react';
 import GaleriaProducto from './galeriaProducto/galeriaProducto';
+import BloqueReserva from './bloqueReserva/bloqueReserva';
+import Heroe from './heroe/heroeProductos';
 
 
 export default function Producto() {
@@ -24,7 +26,9 @@ export default function Producto() {
       <GaleriaProducto isOpen={!isOpen} toggle={toggle}></GaleriaProducto>
       <DescripcionProducto />
       <CaracteristicasProducto />
+      <BloqueReserva></BloqueReserva>
       <PoliticasPorducto />
+      <Heroe></Heroe>
     </article>
   )
 }

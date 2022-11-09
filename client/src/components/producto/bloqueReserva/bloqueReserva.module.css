@@ -1,0 +1,60 @@
+.contenedor {
+    padding: 20px;
+    background-color: var(--grisC);
+}
+.contenedorPadre {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    
+
+
+}
+
+.reservaContenedor h3 {
+    font-size: 0.9em;
+    font-weight: bold;
+    
+}
+
+
+.botonReserva {
+    width: 20em;
+    background-color: var(--amarillo);
+    border: 0;
+    border-radius: 5px;
+    height: 2em;
+    font-size: 0.8em;
+}
+
+.botonReserva:hover {
+    background-color: rgb(255, 220, 123);
+
+}
+
+.reservaContenedor {
+
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgb(0,0,0,0.2) 0px 0px 10px;
+}
+
+
+@media screen and (max-width:760px) {
+    .calendario {
+        display: none;
+    }
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+  }
