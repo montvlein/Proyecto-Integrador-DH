@@ -24,14 +24,19 @@ public class ServicioAuto {
 
     public Auto guardar(Auto auto){return repositorio.save(auto);}
 
-    public Auto buscarPorId(Long id){
-        Auto buscado = null;
-        if (repositorio.findById(id).isPresent()) buscado = repositorio.findById(id).get();
-        return buscado;
+    public AutoDTO buscarPorId(Long id){
+        AutoDTO auto = null;
+        if (repositorio.findById(id).isPresent()) {
+            auto = autoToDTO(repositorio.findById(id).get());
+        }
+        return auto;
     }
 
     public Auto actualizar(Auto auto){
-        Auto autoBuscado = buscarPorId(auto.getId());
+        Auto autoBuscado = null;
+        if (repositorio.findById(auto.getId()).isPresent()) {
+            autoBuscado = repositorio.findById(auto.getId()).get();
+        }
         if( autoBuscado != null) {
             autoBuscado.setCategoria(auto.getCategoria());
             autoBuscado.setCaracteristica(auto.getCaracteristica());
@@ -53,34 +58,39 @@ public class ServicioAuto {
     }
 
     public List<AutoDTO> listar(){
-        List<Auto>  autos = repositorio.findAll();
+        return autoToDTO(repositorio.findAll());
+    }
+
+    public List<AutoDTO> buscarAutoPorCategoria(String parametro) {
+        return autoToDTO(repositorio.buscarAutoPorCategoria(parametro));
+    }
+
+    public List<AutoDTO> buscarAutoPorCiudad(String parametro) {
+        return  autoToDTO(repositorio.buscarAutoPorCiudad(parametro));
+    }
+
+    public List<AutoDTO> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
+        return  autoToDTO(repositorio.buscarAutoPor(tituloCategoria, nombreProvincia));
+    }
+
+    private AutoDTO autoToDTO(Auto auto) {
+        AutoDTO autoEntregable = new AutoDTO();
+        autoEntregable.setId(auto.getId());
+        autoEntregable.setImagenes(imagen.imagenesPorAuto(auto.getId()));
+        autoEntregable.setCategoria(auto.getCategoria().getTitulo());
+        autoEntregable.setDescripcion(auto.getDescripcion());
+        autoEntregable.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
+        autoEntregable.setPrecio(auto.getPrecio());
+        autoEntregable.setCiudad(auto.getCiudad());
+        autoEntregable.setCaracteristica(auto.getCaracteristica());
+        return autoEntregable;
+    }
+
+    private List<AutoDTO> autoToDTO(List<Auto> listado) {
         List<AutoDTO> listadoDeAutos = new ArrayList<>();
-        for (Auto auto : autos){
-            AutoDTO autoAgregar = new AutoDTO();
-            autoAgregar.setId(auto.getId());
-            autoAgregar.setCaracteristica(auto.getCaracteristica());
-            autoAgregar.setDescripcion(auto.getDescripcion());
-            autoAgregar.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
-            autoAgregar.setCategoria(auto.getCategoria().getTitulo());
-            autoAgregar.setPrecio(auto.getPrecio());
-            autoAgregar.setCiudad(auto.getCiudad());
-            autoAgregar.setCaracteristica(auto.getCaracteristica());
-            autoAgregar.setImagenes(imagen.imagenesPorAuto(auto.getId()));
-            listadoDeAutos.add(autoAgregar);
+        for (Auto auto : listado){
+            listadoDeAutos.add(autoToDTO(auto));
         }
-        
         return listadoDeAutos;
-    }
-
-    public List<Auto> buscarAutoPorCategoria(String parametro) {
-        return repositorio.buscarAutoPorCategoria(parametro);
-    }
-
-    public List<Auto> buscarAutoPorCiudad(String parametro) {
-        return  repositorio.buscarAutoPorCiudad(parametro);
-    }
-
-    public List<Auto> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
-        return  repositorio.buscarAutoPor(tituloCategoria, nombreProvincia);
     }
 }
