@@ -45,7 +45,7 @@ export default function Producto() {
       <DatosUbicacionProducto ubicacion={producto.ciudad}/>
       <ImgProducto isOpen={isOpen} toggle={toggle}/>
       <GaleriaProducto isOpen={!isOpen} toggle={toggle} imagenes={producto.imagenes}/>
-      <CaracteristicasProducto caracteristicas={producto.caracteristica}/>
+      <CaracteristicasProducto caracteristica={producto.caracteristica}/>
       <DescripcionProducto descripcion={producto.descripcion}/>
       <BloqueReserva/>
       <PoliticasProducto />

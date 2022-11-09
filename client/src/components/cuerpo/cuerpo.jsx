@@ -3,9 +3,9 @@ import SearchBar from "./barraBusqueda/searchCiudad";
 import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe/heroe";
 import Categorias from "../Categorias/categorias";
-import ListadoDeAutos from "../cardsAutos/listadoDeAutos";
+import Recomendados from "../cardsAutos/recomendados";
 
-const Cuerpo = () => {
+const Index = () => {
   function handlerSubmit(evento) {
     evento.preventDefault();
   }
@@ -29,9 +29,9 @@ const Cuerpo = () => {
       </form>
 
       <Categorias />
-      <ListadoDeAutos />
+      <Recomendados />
     </main>
   );
 };
 
-export default Cuerpo;
+export default Index;
