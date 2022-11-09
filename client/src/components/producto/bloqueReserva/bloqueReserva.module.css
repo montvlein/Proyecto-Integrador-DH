@@ -1,7 +1,7 @@
 .contenedor {
     padding: 20px;
-    background-color: var(--grisC);
 }
+
 .contenedorPadre {
     width: 100%;
     display: flex;
@@ -9,25 +9,38 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
-    
+}
 
-
+.fechaContenedor {
+    background-color: var(--grisC);
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://images.pexels.com/photos/1038935/pexels-photo-1038935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .reservaContenedor h3 {
     font-size: 0.9em;
     font-weight: bold;
-    
 }
 
 
 .botonReserva {
-    width: 20em;
+    width: 40%;
     background-color: var(--amarillo);
     border: 0;
     border-radius: 5px;
     height: 2em;
     font-size: 0.8em;
+    font-size: 1rem;
 }
 
 .botonReserva:hover {
@@ -54,7 +67,7 @@
     }
 }
 
-@media screen 
-  and (min-width: 760px) 
+@media screen
+  and (min-width: 760px)
   and (max-width: 1000px) {
   }

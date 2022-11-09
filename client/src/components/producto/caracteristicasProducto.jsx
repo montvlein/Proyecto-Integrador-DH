@@ -5,10 +5,11 @@ import {
   faPerson,
   faGauge,
   faGasPump,
-  faCar,
+  faGear,
+  faCalendar
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function CaracteristicasProducto() {
+export default function CaracteristicasProducto({caracteristicas}) {
   return (
     <section className={styles.seccionCaracteristicasPorducto}>
       <h3 className={styles.tituloDescripcionProd}>Caracteristicas</h3>
@@ -17,19 +18,23 @@ export default function CaracteristicasProducto() {
       <div className={styles.caracteristicas}>
         <div className={styles.caracteristicasDIV}>
           <FontAwesomeIcon icon={faPerson} className={styles.icons} />
-          <p>4 Personas</p>
+          <p>{caracteristicas.puertas} Personas</p>
         </div>
         <div className={styles.caracteristicasDIV}>
           <FontAwesomeIcon icon={faGauge} className={styles.icons} />
-          <p>50 Litros</p>
+          <p>5km/ 1-Litros {caracteristicas.consumo}</p>
         </div>
         <div className={styles.caracteristicasDIV}>
           <FontAwesomeIcon icon={faGasPump} className={styles.icons} />
-          <p>Nafta</p>
+          <p>{caracteristicas.tipoMotor}</p>
         </div>
         <div className={styles.caracteristicasDIV}>
-          <FontAwesomeIcon icon={faCar} className={styles.icons} />
-          <p>Automatico</p>
+          <FontAwesomeIcon icon={faGear} className={styles.icons} />
+          <p>{caracteristicas.caja}</p>
+        </div>
+        <div className={styles.caracteristicasDIV}>
+          <FontAwesomeIcon icon={faCalendar} className={styles.icons} />
+          <p>{caracteristicas.modelo}</p>
         </div>
       </div>
     </section>

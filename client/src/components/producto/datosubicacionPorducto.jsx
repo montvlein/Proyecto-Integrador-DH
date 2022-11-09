@@ -3,7 +3,7 @@ import styles from "./datosUbicacionProducto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function DatosUbicacionProducto() {
+export default function DatosUbicacionProducto({ubicacion}) {
   return (
     <section className={styles.seccionDatosUbicacionProducto}>
       <div className={styles.divUnoSeccionDatosUbicacionPorducto}>
@@ -13,10 +13,7 @@ export default function DatosUbicacionProducto() {
         />
         <div className={styles.divDosSeccionDatosUbicacionPorducto}>
           <p className={styles.parrafoUnoDivDosDatosUbicacionPordCiudad}>
-            Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
-          </p>
-          <p className={styles.parrafoDosDivDosDatosUbicacionPordSucursal}>
-            Sucursal Aeroparque Jorge Newbery
+          {ubicacion.nombre}, {ubicacion.provincia}, {ubicacion.pais}
           </p>
         </div>
       </div>

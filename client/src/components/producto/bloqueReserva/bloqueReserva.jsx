@@ -15,7 +15,8 @@ function BloqueReserva() {
 
   return (
     <section className={styles.contenedor}>
-      <h3 className={styles.titulo}>Fechas disponibles</h3>
+      <h3 className={styles.titulo}>Elegi la fecha de tu viaje</h3>
+      <hr />
       <div className={styles.contenedorPadre}>
         <div className={styles.fechaContenedor}>
           <DateRange
@@ -27,11 +28,7 @@ function BloqueReserva() {
             direction="horizontal"
             className={styles.calendario}
           />
-        </div>
-
-        <div className={styles.reservaContenedor}>
-          <h3>Elegi la fecha de viaje para obtener precios exactos</h3>
-          <button className={styles.botonReserva}>Iniciar Reserva</button>
+        <button className={styles.botonReserva}>Iniciar Reserva</button>
         </div>
       </div>
     </section>

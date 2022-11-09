@@ -12,25 +12,22 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.5rem 2em 0.4em 2em;
-    margin-bottom: 0;
+    padding: 1rem 2em;
     color: black;
     font-family: 'Poppins', sans-serif;
-    box-shadow: rgb(0,0,0,0.3) 1px 1px 10px;
-    /* border: solid 3px blue; */
+    /* box-shadow: rgb(0,0,0,0.3) 1px 1px 10px; */
 }
 
 .divUnoSeccionDatosUbicacionPorducto{
     display: flex;
-    align-content: center;   
+    align-content: center;
 
 }
 
 .divDosSeccionDatosUbicacionPorducto{
     display: flex;
     flex-direction: column;
-    font-size: 0.7em;
-    /*border: solid 3px red;*/
+    font-size: .8em;
     padding: 0;
 }
 
