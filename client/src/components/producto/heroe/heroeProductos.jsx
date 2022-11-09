@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import styles from "./heroeProductos.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Heroe() {
   return (

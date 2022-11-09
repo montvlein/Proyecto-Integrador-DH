@@ -51,7 +51,7 @@ function SearchBar() {
         {filterData.map((value) => (
           <div className={styles.prueba} onClick={(e)=>{
             let input = document.querySelector("#buscadorInput")
-            input.value = value.ciudades + ", Argentina"
+            input.value = value.nombre + ", Argentina"
             setFilterData([]);
           }}>
             <div className={styles.prueba2}>

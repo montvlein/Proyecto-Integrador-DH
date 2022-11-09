@@ -4,6 +4,7 @@ import FechaReserva from "./barraBusqueda/fechaReserva";
 import Heroe from "./heroe/heroe";
 import Categorias from "../Categorias/categorias";
 import Recomendados from "../cardsAutos/recomendados";
+import Destinos from "./destinos/principalesDestinos";
 
 const Index = () => {
   function handlerSubmit(evento) {
@@ -30,6 +31,7 @@ const Index = () => {
 
       <Categorias />
       <Recomendados />
+      <Destinos></Destinos>
     </main>
   );
 };

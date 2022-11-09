@@ -39,14 +39,14 @@ export default function ImgProducto({toggle}) {
   return (
     <>
       <section>
+      
+        <div className={styles.angryGrid}>
         <div className={styles.compartirLikeImgProd}>
           <div className={styles.iconoContenedor}>
             <FontAwesomeIcon icon={faShareNodes} className={styles.icon}/>
             <FontAwesomeIcon icon={faHeart} className={styles.icon}/>
           </div>
         </div>
-
-        <div className={styles.angryGrid}>
           <div className={styles.item0} style={backgroundImagen(0)}>
             &nbsp;
           </div>

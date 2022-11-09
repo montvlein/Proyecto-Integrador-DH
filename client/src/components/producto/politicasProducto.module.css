@@ -17,43 +17,33 @@
 
 .politicasProd {
     display: flex;
-    flex-direction: row;
     max-width: 100%;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-around;
 }
 
-.contenedorRequisitos ul,
-.contenedorSeguridad ul,
-.contenedorCancelacion ul {
+
+
+.contenedorRequisitos ul {
     font-size: 1em;
-    word-wrap: break-word;
-    flex: none;
     list-style-type: disc;
-    padding: 0;
+    padding: 0px;
 }
 
-.contenedorRequisitos h4,
-.contenedorSeguridad h4,
-.contenedorCancelacion h4 {
+.contenedorRequisitos li {
+     padding-left: 0;
+}
+
+.contenedorRequisitos h4 {
     font-size: 1em;
 }
 
-.contenedorRequisitos,
-.contenedorSeguridad,
-.contenedorCancelacion {
-    flex: none;
-    width: 45%;
+.contenedorRequisitos {
+    width: 300px;
     text-align: justify;
 }
 
-.contenedorRequisitos span,
-.contenedorSeguridad span,
-.contenedorCancelacion span{
-    text-decoration: underline;
-    text-decoration-color: var(--amarillo);
-}
 
 hr {
     background-color:  var(--amarillo);

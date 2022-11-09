@@ -31,7 +31,7 @@ export default function PoliticasProducto() {
             <li>Voucher impreso.</li>
           </ul>
         </div>
-        <div className={style.contenedorCancelacion}>
+        <div className={style.contenedorRequisitos}>
           <h4>Politicas de cancelacion</h4>
           <ul>
             <li>
