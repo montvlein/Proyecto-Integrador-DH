@@ -31,8 +31,8 @@ export default function Producto() {
 
   if (cargando) {
     return(
-      <article className={stylesArticlulo.productoArticulo}>
-        <div className="spinner-border" roler="status"></div>
+      <article className={`${stylesArticlulo.productoArticulo} d-flex justify-content-center`}>
+        <div className="spinner-border m-5" roler="status"></div>
       </article>
     )
   }
