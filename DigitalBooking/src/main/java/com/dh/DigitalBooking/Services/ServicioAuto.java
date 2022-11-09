@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Services;
 
+import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioCategoria;
@@ -49,14 +50,22 @@ public class ServicioAuto {
     }
 
     public List<Auto> listar(){
-        return repositorio.findAll();
-    }
+        //for (int i = 0; i < listar().size(); i++) {
+           // Auto auto = listar().get(i);
+           // System.out.println(auto);
+       // }
+
+        return repositorio.findAll();}
+
+    // hacer un for y por cada auto crear un auto DTO con los datos que queremos,
+    // agregarlos a una lista nueva y devolver una lista con los autos DTO
 
     public List<Auto> buscarAutoPorCategoria(String parametro) {
         return repositorio.buscarAutoPorCategoria(parametro);
     }
 
     public List<Auto> buscarAutoPorCiudad(String parametro) {
+        
         return  repositorio.buscarAutoPorCiudad(parametro);
     }
 
