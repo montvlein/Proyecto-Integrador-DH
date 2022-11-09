@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter @Setter
 public class AutoDTO {
     private Long id;
-    private List<Imagen> imagenes;
+    private List<ImagenDTO> imagenes;
     private String categoria;
     private String descripcion;
     private boolean disponibleParaAlquilar;

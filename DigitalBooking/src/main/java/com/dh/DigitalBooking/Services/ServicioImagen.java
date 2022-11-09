@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Services;
 
+import com.dh.DigitalBooking.Models.DTOs.ImagenDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Models.Entities.Imagen;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
@@ -7,6 +8,7 @@ import com.dh.DigitalBooking.Repository.ORM.iRepositorioImagenes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("ServicioImagen")
@@ -48,7 +50,15 @@ public class ServicioImagen {
         return repositorio.findAll();
     }
 
-    public List<Imagen> imagenesPorAuto(Long id){
-        return repositorio.buscarPorAuto(id);
+    public List<ImagenDTO> imagenesPorAuto(Long id){
+        List<ImagenDTO> imagenes = new ArrayList<>();
+        for (Imagen i: repositorio.buscarPorAuto(id)) {
+            ImagenDTO img = new ImagenDTO();
+            img.setId(i.getId());
+            img.setTitulo(i.getTitulo());
+            img.setUrl(i.getUrl());
+            imagenes.add(img);
+        }
+        return imagenes;
     }
 }
