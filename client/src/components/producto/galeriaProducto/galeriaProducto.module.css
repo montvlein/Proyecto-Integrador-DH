@@ -97,3 +97,19 @@
 }
 
 
+
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .contenedorImgPequenias, .iconoCerrar {
+      display: none;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .contenedorImgPequenias, .iconoCerrar {
+        display: none;
+      }
+}

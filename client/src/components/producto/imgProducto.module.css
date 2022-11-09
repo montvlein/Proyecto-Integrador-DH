@@ -46,39 +46,6 @@
   
 }
 
-.item1 {
-  grid-row-start: 1;
-  grid-column-start: 3;
-  grid-row-end: 2;
-  grid-column-end: 4;
-  border-radius: 10px;
-  
-}
-
-.item2 {
-  grid-row-start: 1;
-  grid-column-start: 2;
-  grid-row-end: 2;
-  grid-column-end: 3;
-  border-radius: 10px;
-  
-}
-.item3 {
-  grid-row-start: 2;
-  grid-column-start: 3;
-  grid-row-end: 3;
-  grid-column-end: 4;
-  border-radius: 10px;
-}
-
-.item4 {
-  grid-row-start: 2;
-  grid-column-start: 2;
-  grid-row-end: 3;
-  grid-column-end: 3;
-  border-radius: 10px;
-  
-}
 
 .verMas {
   position: absolute;
@@ -95,3 +62,37 @@
 .icon {
   color: var(--grisO);
 }
+
+.carruselContenedor {
+  display: none;
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .carruselContenedor {
+      display: block;
+      height: 400px;
+    }
+    .contenedorImgPequenias {
+      display: none;
+    }
+      .angryGrid{
+      display:none;
+    }
+  }
+
+  @media screen and (max-width:760px) {
+    .carruselContenedor {
+      display: block;
+      height: 250px;
+      padding: 10px;
+    }
+    .contenedorImgPequenias {
+      display: none;
+    }
+      .angryGrid{
+      display:none;
+    }
+  }

@@ -3,10 +3,11 @@
 
 .heroeContenedor {
     width: 100%;
-    background-image: url("../../../assets/woman.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.158),rgba(0, 0, 0, 0.315)), url("../../../assets/CompactoRoad.jpg");
     height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
 
 }
 
@@ -16,23 +17,15 @@
 .contenidoPadre {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    padding: 1rem;
+    padding: 3rem;
+
     
 
 }
 
-.contenido {
 
-    padding: 2rem;
-    background-color: rgba(12, 30, 45, 0.459);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    backdrop-filter:  blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    border-radius: 10PX;
-
-}
 
 .contenido h2 {
     font-size: 3.5em;
@@ -40,19 +33,25 @@
 }
 
 .descripcion {
-    width: 472;
-    font-size: 20px;
+
+    font-size: 1.1em;
     color: #FFF;
     line-height: 30px;
     padding-bottom: 20px;
+    font-weight: 200;
 }
 
 @media screen and (max-width:760px) { 
 
-    .contenido {
-        padding: 1rem;
+    .contenidoPadre { 
+   
+        justify-content:end;
+        align-items: none;
     }
 
+    .descripcion { 
+        display: none;
+    }
     .contenido h2 {
         font-size: 2.5em;
     }
