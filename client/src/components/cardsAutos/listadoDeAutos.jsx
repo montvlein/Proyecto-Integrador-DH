@@ -8,7 +8,7 @@ const ListadoDeAutos = () => {
   const { getAutosFiltrados, getEstaFiltadoListadoAutos, getCriterioFiltro, limpiarFiltro  } = useContext(Contexto)
   if (getEstaFiltadoListadoAutos()) {
     return (
-      <div className="container">
+      <div className={`container ${style.vp90}`}>
         <div className={style.tituloCards}>
           <div>
             <h3>{getCriterioFiltro()}</h3>
@@ -30,7 +30,7 @@ const ListadoDeAutos = () => {
     )
   }
   return (
-    <div className="container">
+    <div className={`container ${style.vp90}`}>
       <div className={style.tituloCards}>
         <div>
           <h3>Recomendaciones</h3>
