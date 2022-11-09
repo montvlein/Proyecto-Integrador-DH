@@ -1,17 +1,21 @@
 package com.dh.DigitalBooking.Services;
 
+import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
-import com.dh.DigitalBooking.Repository.ORM.iRepositorioCategoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("ServicioAuto")
 public class ServicioAuto {
 
     private iRepositorioAuto repositorio;
+
+    @Autowired
+    ServicioImagen imagen;
 
     @Autowired
     public void setRepositorio(iRepositorioAuto repositorio) {
@@ -48,8 +52,24 @@ public class ServicioAuto {
         repositorio.deleteById(id);
     }
 
-    public List<Auto> listar(){
-        return repositorio.findAll();
+    public List<AutoDTO> listar(){
+        List<Auto>  autos = repositorio.findAll();
+        List<AutoDTO> listadoDeAutos = new ArrayList<>();
+        for (Auto auto : autos){
+            AutoDTO autoAgregar = new AutoDTO();
+            autoAgregar.setId(auto.getId());
+            autoAgregar.setCaracteristica(auto.getCaracteristica());
+            autoAgregar.setDescripcion(auto.getDescripcion());
+            autoAgregar.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
+            autoAgregar.setCategoria(auto.getCategoria().getTitulo());
+            autoAgregar.setPrecio(auto.getPrecio());
+            autoAgregar.setCiudad(auto.getCiudad());
+            autoAgregar.setCaracteristica(auto.getCaracteristica());
+            autoAgregar.setImagenes(imagen.imagenesPorAuto(auto.getId()));
+            listadoDeAutos.add(autoAgregar);
+        }
+        
+        return listadoDeAutos;
     }
 
     public List<Auto> buscarAutoPorCategoria(String parametro) {
