@@ -31,7 +31,13 @@ INSERT INTO CIUDAD (PAIS, PROVINCIA) VALUES('ARGENTINA','Jujuy');
 INSERT INTO CIUDAD (PAIS, PROVINCIA) VALUES('ARGENTINA','Ciudad Autónoma de Buenos Aires');
 INSERT INTO CIUDAD (PAIS, PROVINCIA) VALUES('ARGENTINA','Tierra del Fuego, Antártida e Islas del Atlántico Sur');
 
-
-INSERT INTO CARACTERISTICA(CAJA, CONSUMO, MODELO, PUERTAS, TIPO_MOTOR) VALUES('MANUAL', 'MUCHO', '2009', 4, 'AUTOMATIK' );
+INSERT INTO CARACTERISTICA(CAJA, CONSUMO, MODELO, PUERTAS, TIPO_MOTOR) VALUES('MANUAL', 'NAFTA', '2009', 4, 'AUTOMATICO' );
 INSERT INTO AUTO (DESCRIPCION, DISPONIBLE_PARA_ALQUILAR, PRECIO, CARACTERISTICA_ID, CATEGORIA_ID, CIUDAD_ID) VALUES ('DESCRIPCION PRUEBA', TRUE, 5, 1, 1, 1);
+
+INSERT INTO IMAGEN(TITULO, URL) VALUES('modelo_1', 'https://cdn-images.motor.es/image/m/720w/fotos-noticias/2021/08/chevrolet-onix-ventas-sudamerica-202180513-1629451453_3.jpg');
+INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_2', 'https://www.megautos.com/wp-content/uploads/2019/09/chevrolet-onix-plus-premier-2020-delantera.jpg', 1);
+INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_3', 'https://www.autoweb.com.ar/wp-content/uploads/2020/09/Onix-RS-17.jpg',1);
+INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_4', 'https://www.autoweb.com.ar/wp-content/uploads/2021/12/chevrolet-joy-1024x682.jpeg',1);
+INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_5', 'https://cdn.motor1.com/images/mgl/02LE2/s3/critica-chevrolet-onix-1-0-turbo-ltz-automatico.jpg',1);
+INSERT INTO IMAGEN(TITULO, URL, AUTO_ID) VALUES('modelo_6', 'https://autotest.com.ar/wp-content/uploads/2021/03/CHEVROLET-ONIX-RS-1.jpg',1);
 

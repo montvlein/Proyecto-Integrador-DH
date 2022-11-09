@@ -11,33 +11,27 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "AUTO")
 public class Auto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // Join con Imágenes (Un auto tiene muchas imágenes)
-    @OneToMany(mappedBy = "auto")
-    @JsonIgnore
-    private Set<Imagen> imagenes;
-
-    // Join con Categoría (Un auto tiene una Categoría)
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="categoria_id")
-    private Categoria categoria;
-
     private String descripcion;
     private boolean disponibleParaAlquilar;
     private float precio;
 
-    // Join con Ciudad (Un auto está en una Ciudad)
-    @OneToOne(cascade= CascadeType.ALL)
+    @OneToMany(mappedBy = "auto")
+    @JsonIgnore
+    private Set<Imagen> imagenes;
+
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
+    private Categoria categoria;
+
+    @ManyToOne
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
 
-    // Join con Características
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="caracteristica_id")
     private Caracteristica caracteristica;
 
