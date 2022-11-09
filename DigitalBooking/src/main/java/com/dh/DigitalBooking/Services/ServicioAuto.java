@@ -4,9 +4,11 @@ import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioCategoria;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("ServicioAuto")
@@ -49,13 +51,28 @@ public class ServicioAuto {
         repositorio.deleteById(id);
     }
 
-    public List<Auto> listar(){
-        //for (int i = 0; i < listar().size(); i++) {
-           // Auto auto = listar().get(i);
-           // System.out.println(auto);
-       // }
+    public List<AutoDTO> listar(){
+        List<Auto>  autos = repositorio.findAll();
+        List<AutoDTO> listadoDeAutos = new ArrayList<>();
+        ServicioImagen imagen = new ServicioImagen();
+        for (Auto auto : autos){
+            AutoDTO autoAgregar = new AutoDTO();
+            autoAgregar.setId(auto.getId());
+            autoAgregar.setCaracteristica(auto.getCaracteristica());
+            autoAgregar.setDescripcion(auto.getDescripcion());
+            autoAgregar.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
+            autoAgregar.setCategoria(auto.getCategoria().getTitulo());
+            autoAgregar.setPrecio(auto.getPrecio());
+            autoAgregar.setCiudad(auto.getCiudad());
+            autoAgregar.setCaracteristica(auto.getCaracteristica());
+            autoAgregar.setImagenes(imagen.imagenesPorAuto(auto.getId()));
+            listadoDeAutos.add(autoAgregar);
+        }
+        
+        return listadoDeAutos;
+    }
+    
 
-        return repositorio.findAll();}
 
     // hacer un for y por cada auto crear un auto DTO con los datos que queremos,
     // agregarlos a una lista nueva y devolver una lista con los autos DTO

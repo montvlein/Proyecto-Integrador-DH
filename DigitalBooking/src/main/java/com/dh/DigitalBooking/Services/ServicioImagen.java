@@ -47,4 +47,8 @@ public class ServicioImagen {
     public List<Imagen> listarImagenes(){
         return repositorio.findAll();
     }
+
+    public List<Imagen> imagenesPorAuto(Long id){
+        return repositorio.buscarPorAuto(id);
+    }
 }
