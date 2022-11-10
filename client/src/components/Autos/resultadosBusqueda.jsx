@@ -23,14 +23,14 @@ const ResultadosBusqueda = () => {
 
   if (!cargando) {
     return (
-      <div className={`container`}>
+      <div className={`container ${style.contenedorPadre}`}>
         <div className={style.tituloCards}>
           <div>
-            <h3>Resultado de tu busqueda.</h3>
+            <h3>Resultado de tu búsqueda</h3>
           </div>
-          <Link to={"/"}>Volver</Link>
+          <Link to={"/"}><button className="btn btn-warning">Volver</button></Link>
         </div>
-        <div className="d-flex">
+        <div className={`d-flex ${style.contenedorResultadoPadre}`}>
             <Filtro />
             <section className={`${style.mostrarResultadosFiltro}`}>
                 {filtrados.length == 0 ? (

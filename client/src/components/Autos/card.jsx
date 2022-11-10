@@ -23,7 +23,7 @@ const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => 
             </div>
             <div className={style.caracteristicasDIV}>
               <FontAwesomeIcon icon={faGauge} className={style.icons} />
-              <p>5km/ 1-Litros {caracteristica.consumo}</p>
+              <p>{caracteristica.consumo}</p>
             </div>
             <div className={style.caracteristicasDIV}>
               <FontAwesomeIcon icon={faGasPump} className={style.icons} />

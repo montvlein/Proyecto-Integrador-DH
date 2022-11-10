@@ -22,7 +22,7 @@ export default function CaracteristicasProducto({caracteristica}) {
         </div>
         <div className={styles.caracteristicasDIV}>
           <FontAwesomeIcon icon={faGauge} className={styles.icons} />
-          <p>5km/ 1-Litros {caracteristica.consumo}</p>
+          <p>{caracteristica.consumo}</p>
         </div>
         <div className={styles.caracteristicasDIV}>
           <FontAwesomeIcon icon={faGasPump} className={styles.icons} />
