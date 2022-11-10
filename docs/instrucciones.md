@@ -41,8 +41,12 @@ ___
     # 1. Moverse al directorio del proyecto
     cd DigitalBooking
 
-    # 2. compilar
-    ./mvnw package
+    # 2. compilar para desarrollo
+    ./mvnw clean package
+
+    # 2.1 compilar para produccion
+    # agregar el tag -P
+    ./mvnw clean install -Pprod
 
     # 3. correr
     java -jar DigitalBookin/target/DigitalBooking-0.0.1-SNAPSHOT.jar

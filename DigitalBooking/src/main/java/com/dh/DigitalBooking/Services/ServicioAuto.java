@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service("ServicioAuto")
 public class ServicioAuto {
@@ -93,5 +94,16 @@ public class ServicioAuto {
             listadoDeAutos.add(autoToDTO(auto));
         }
         return listadoDeAutos;
+    }
+
+    public List<AutoDTO> random() {
+        Random random = new Random();
+        List<AutoDTO> recomendados = new ArrayList<>();
+        Long num;
+        for (int i=0; i <6; i++) {
+            num = random.nextLong(0, listar().size());
+            recomendados.add(buscarPorId(num));
+        }
+        return recomendados;
     }
 }
