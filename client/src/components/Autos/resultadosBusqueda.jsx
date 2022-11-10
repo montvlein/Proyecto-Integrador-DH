@@ -23,21 +23,21 @@ const ResultadosBusqueda = () => {
 
   if (!cargando) {
     return (
-      <div className={`container ${style.vp90}`}>
+      <div className={`container`}>
         <div className={style.tituloCards}>
           <div>
-            <h3>Resultados...</h3>
+            <h3>Resultado de tu busqueda.</h3>
           </div>
           <Link to={"/"}>Volver</Link>
         </div>
         <div className="d-flex">
             <Filtro />
-            <section className={`d-flex flex-wrap ${style.mostrarResultadosFiltro}`}>
+            <section className={`${style.mostrarResultadosFiltro}`}>
                 {filtrados.length == 0 ? (
-                    <p className="m-5">No es encontraron resultados</p>
+                    <div className={`${style.vp90}`}><p className="m-5">No es encontraron resultados</p></div>
                 ) : (
                     filtrados.map((auto) => (
-                    <div className="col-md-4" key={auto.id}>
+                    <div className={style.contenedorCard} key={auto.id}>
                         <Card {...auto} />
                     </div>
                     ))

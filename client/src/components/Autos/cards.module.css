@@ -24,6 +24,7 @@
     margin-bottom: 20px;
     padding: 20px;
     border-bottom: var(--amarillo) solid 1px;
+
 }
 
 .tituloCards h3 {
@@ -47,6 +48,15 @@
 
 .mostrarResultadosFiltro {
  max-width: 80%;
+ padding-bottom: 20px;
+ display: flex;
+flex-wrap: wrap;
+gap:10px;
+}
+
+.contenedorCard {
+    max-width: 354px;
+    
 }
 
 @media screen 
