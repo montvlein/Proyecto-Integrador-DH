@@ -14,6 +14,7 @@ import java.util.Set;
 @Getter @Setter
 public class AutoDTO {
     private Long id;
+    private String nombre;
     private List<ImagenDTO> imagenes;
     private String categoria;
     private String descripcion;

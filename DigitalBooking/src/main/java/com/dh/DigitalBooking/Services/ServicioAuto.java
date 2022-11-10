@@ -76,6 +76,7 @@ public class ServicioAuto {
     private AutoDTO autoToDTO(Auto auto) {
         AutoDTO autoEntregable = new AutoDTO();
         autoEntregable.setId(auto.getId());
+        autoEntregable.setNombre(auto.getNombre());
         autoEntregable.setImagenes(imagen.imagenesPorAuto(auto.getId()));
         autoEntregable.setCategoria(auto.getCategoria().getTitulo());
         autoEntregable.setDescripcion(auto.getDescripcion());
