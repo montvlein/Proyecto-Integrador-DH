@@ -1,19 +1,18 @@
-<<<<<<< readme.md
 # proyecto integrador
 
 # ENDPOINTs
 
-accede a la documentación mediante `/swagger-ui/index.html#/` 
+accede a la documentación mediante `/swagger-ui/index.html#/`
 
 # Comentarios para Pushear al Repo
 
 ## Historial de Cambios
-[ESTADO DEL CAMBIO] #NumeroUserStory - "Explicación de que se hizo" 
+[ESTADO DEL CAMBIO] #NumeroUserStory - "Explicación de que se hizo"
 
 ### Estados del cambio
 - [NUEVO] -> Cuando la funcionalidad es completamente nueva y se agrega por primera vez al commit
 - [ARREGLADO] -> Cuando una funcionalidad genera un error y se arregla correctamente.
-- [MODIFICADO] -> Cuando se agrega lógica o más funcionalidades a un componente/función 
+- [MODIFICADO] -> Cuando se agrega lógica o más funcionalidades a un componente/función
 - [ELIMINADO] -> Cuando una funcionalidad deja de ser útil y se elimina
 
 ### Ejemplo
@@ -31,4 +30,3 @@ Inicial de Spring, numero de spring - numero de tarea
 
 ### Ejemplo
 `git branch S1-1`
->>>>>>> readme.md
