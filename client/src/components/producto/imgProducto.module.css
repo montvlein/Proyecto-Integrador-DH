@@ -31,6 +31,7 @@
   height: 100%;
   padding: 0 2em 2em 2em;
   position: relative;
+  border-radius: 10px;
 
   
 }
@@ -46,6 +47,9 @@
   
 }
 
+.item1, .item2, .item3, .item4 {
+  border-radius: 10px;
+} 
 
 .verMas {
   position: absolute;

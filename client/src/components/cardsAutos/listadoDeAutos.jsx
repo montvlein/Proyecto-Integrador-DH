@@ -1,44 +1,46 @@
+import { useState, useEffect } from "react";
+import { DigitalBookingApi } from "../../data/conexionAPI";
 import Card from "./card";
-import style from "./cards.module.css";
-import { useContext } from "react";
-import Contexto from "../../contexto/AppContext";
-import { Link } from "react-router-dom";
 
 const ListadoDeAutos = () => {
-  const { getAutosFiltrados, getEstaFiltadoListadoAutos, getCriterioFiltro, limpiarFiltro  } = useContext(Contexto)
-  if (getEstaFiltadoListadoAutos()) {
+  const [cargando, setEstaCargando] = useState(true);
+  const [recomendados, setRecomendados] = useState([]);
+
+  useEffect(() => {
+      DigitalBookingApi.auto.filtrarPorCategoria("Compacto")
+      .then((autos) => {
+          setRecomendados(autos)
+          setEstaCargando(false);
+      })
+    }, []);
+
+  if (cargando) {
     return (
-      <div className={`container ${style.vp90}`}>
-        <div className={style.tituloCards}>
+      <section className="container">
+        <div className="tituloCards">
           <div>
-            <h3>{getCriterioFiltro()}</h3>
+            <h3>Recomendaciones</h3>
+            <hr></hr>
           </div>
-          <Link to={"/"}>Volver</Link>
         </div>
-        <div className="row gy-4">
-          {getAutosFiltrados().length==0?
-          <p className="m-5">No es encontraron resultados</p>:
-          getAutosFiltrados().map((auto) =>(
-              <div className="col-md-4" key={auto.id}>
-              <Card {...auto} />
-            </div>
-          )
-          )
-        }
+        <div className="row gy-4 d-flex justify-content-center">
+          <div className="spinner-border m-5" roler="status"></div>
         </div>
-      </div>
-    )
+      </section>
+    );
   }
+
   return (
-    <div className={`container ${style.vp90}`}>
-      <div className={style.tituloCards}>
+    <div className="container">
+      <div className="tituloCards">
         <div>
           <h3>Recomendaciones</h3>
+          <hr></hr>
         </div>
       </div>
       <div className="row gy-4">
-        {getAutosFiltrados().map((auto) =>(
-            <div className="col-md-4" key={auto.id}>
+        {recomendados.map((auto) => (
+          <div className="col-md-4" key={auto.id}>
             <Card {...auto} />
           </div>
         ))}
