@@ -73,7 +73,7 @@ export default function Categorias() {
       <div className={styles.categoria_section}>
         {categorias.map((cat) => {
           return (
-            <Link to={`buscarPor/${cat.titulo}`}
+            <Link to={`buscar?categoria=${cat.titulo}`}
               className={styles.categoria_article}
               key={cat.id}
               onClick={(e) => {
