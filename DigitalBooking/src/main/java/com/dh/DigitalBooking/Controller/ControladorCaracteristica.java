@@ -21,13 +21,13 @@ public class ControladorCaracteristica {
     }
 
     @Operation(summary = "Lista todas las caracteristicas")
-    @GetMapping("listarTodas")
+    @GetMapping("listarTodis")
     public ResponseEntity<?> listarTodas() throws Exception {
         return ResponseEntity.ok(servicio.listar());
     }
 
     @Operation(summary = "Crea y devuelve una nueva característica")
-    @PostMapping("nuevaCaracteristica")
+    @PostMapping("nuevi")
     public ResponseEntity<?> nuevaCaracteristica(@RequestBody Caracteristica c) throws Exception {
         return ResponseEntity.ok(servicio.guardar(c));
     }

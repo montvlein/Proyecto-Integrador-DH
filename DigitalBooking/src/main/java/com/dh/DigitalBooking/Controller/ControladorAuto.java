@@ -34,7 +34,7 @@ public class ControladorAuto {
     }
 
     @Operation(summary = "Crea una auto")
-    @PostMapping("nuevo")
+    @PostMapping("nuevi")
     public ResponseEntity<?> nuevoAuto(@RequestBody Auto auto) throws Exception{
         return ResponseEntity.ok(servicio.guardar(auto));
     }
