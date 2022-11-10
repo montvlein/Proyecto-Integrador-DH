@@ -70,13 +70,19 @@ class AutoEndPoint extends CRUD {
     }
 
     filtrarPorCategoria(tituloCategoria){
-        return handleFetch(`${this.uri}/burcarPor?ciudad=${tituloCategoria}`)
+        return handleFetch(`${this.uri}/burcarPor?categoria=${tituloCategoria}`)
         .then(res => res.json())
         .catch(error => { throw(error) })
     }
 
     filtrarPorCategoria_y_Ciudad(tituloCategoria, nombreProvincia){
         return handleFetch(`${this.uri}/burcarPor?categoria=${tituloCategoria}&ciudad=${nombreProvincia}`)
+        .then(res => res.json())
+        .catch(error => { throw(error) })
+    }
+
+    recomendados() {
+        return handleFetch(`${this.uri}/recomendados`)
         .then(res => res.json())
         .catch(error => { throw(error) })
     }

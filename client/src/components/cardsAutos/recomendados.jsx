@@ -7,7 +7,7 @@ export default function Recomendados() {
     const [recomendados, setRecomendados] = useState([]);
 
     useEffect(() => {
-        DigitalBookingApi.auto.listar()
+        DigitalBookingApi.auto.recomendados()
         .then((autos) => {
             setRecomendados(autos)
             setEstaCargando(false);
