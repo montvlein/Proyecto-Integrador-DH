@@ -1,113 +1,185 @@
 {
-    "autos": [
-        {
-            "id": "1",
-            "titulo": "Toyota Etios",
-            "categoria": "Compacto",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/g6zHghX/Compacto-Etios-01.jpg",
-                "https://i.ibb.co/MZ2Dp1B/Compacto-Etios-02.jpg",
-                "https://i.ibb.co/MGcgND9/Compacto-Etios-04.jpg",
-                "https://i.ibb.co/DQxJVPC/Compacto-Etios-03.jpg"
-            ]
-        },
-        {
-            "id": "2",
-            "titulo": "Chevrolet Onix",
-            "categoria": "Compacto",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/RvjVP4s/Compacto-Onix-03.jpg",
-                "https://i.ibb.co/WGVYs7Q/Compacto-Onix-02.jpg",
-                "https://i.ibb.co/N1BKD2s/Compacto-Onix-04.jpg",
-                "https://i.ibb.co/L6t7N8n/Compacto-Onix-01.jpg"
-            ]
-        },
-        {
-            "id": "4",
-            "titulo": "Toyota Corolla",
-            "categoria": "Sedán",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/7bSxG3H/Sedan-Corolla-01.jpg",
-                "https://i.ibb.co/D8DFScv/Sedan-Corolla-04.jpg",
-                "https://i.ibb.co/HFTwbzB/Sedan-Corolla-03.jpg",
-                "https://i.ibb.co/Cn5yb6q/Sedan-Corolla-02.jpg"
-            ]
-        },
-        {
-            "id": "5",
-            "titulo": "VW Taos",
-            "categoria": "SUV",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/8MgFv41/SUV-Taos-02.jpg",
-                "https://i.ibb.co/wSdky2p/SUV-Taos-04.jpg",
-                "https://i.ibb.co/Db5HzFB/SUV-Taos-03.jpg",
-                "https://i.ibb.co/V0GxjXN/SUV-Taos-01.jpg"
-            ]
-        },
-        {
-            "id": "7",
-            "titulo": "Toyota Hilux",
-            "categoria": "Pickup",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/hKVYQVh/Pickup-Hillux-03.jpg",
-                "https://i.ibb.co/QfMDJgC/Pickup-Hillux-02.jpg",
-                "https://i.ibb.co/Y7hP3Q1/Pickup-Hillux-04.jpg",
-                "https://i.ibb.co/MNWR9vv/Pickup-Hillux-01.jpg"
-            ]
-        },
-        {
-            "id": "8",
-            "titulo": "Nissan Frontier",
-            "categoria": "Pickup",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/CB6DnCD/Pickup-Frontier-03.jpg",
-                "https://i.ibb.co/V9XWNcX/Pickup-Frontier-04.jpg",
-                "https://i.ibb.co/W0QP3FH/Pickup-Frontier-02.jpg",
-                "https://i.ibb.co/WVHNvKK/Pickup-Frontier-01.jpg"
-            ]
-        },
+  "autos": [
+    {
+      "id": "1",
+      "nombre": "Toyota Etios",
+      "categoria": "Compacto",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/g6zHghX/Compacto-Etios-01.jpg",
+        "https://i.ibb.co/MZ2Dp1B/Compacto-Etios-02.jpg",
+        "https://i.ibb.co/MGcgND9/Compacto-Etios-04.jpg",
+        "https://i.ibb.co/DQxJVPC/Compacto-Etios-03.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "2",
+      "nombre": "Chevrolet Onix",
+      "categoria": "Compacto",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/RvjVP4s/Compacto-Onix-03.jpg",
+        "https://i.ibb.co/WGVYs7Q/Compacto-Onix-02.jpg",
+        "https://i.ibb.co/N1BKD2s/Compacto-Onix-04.jpg",
+        "https://i.ibb.co/L6t7N8n/Compacto-Onix-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "4",
+      "nombre": "Toyota Corolla",
+      "categoria": "Sedán",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/7bSxG3H/Sedan-Corolla-01.jpg",
+        "https://i.ibb.co/D8DFScv/Sedan-Corolla-04.jpg",
+        "https://i.ibb.co/HFTwbzB/Sedan-Corolla-03.jpg",
+        "https://i.ibb.co/Cn5yb6q/Sedan-Corolla-02.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "5",
+      "nombre": "VW Taos",
+      "categoria": "SUV",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/8MgFv41/SUV-Taos-02.jpg",
+        "https://i.ibb.co/wSdky2p/SUV-Taos-04.jpg",
+        "https://i.ibb.co/Db5HzFB/SUV-Taos-03.jpg",
+        "https://i.ibb.co/V0GxjXN/SUV-Taos-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "7",
+      "nombre": "Toyota Hilux",
+      "categoria": "Pickup",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/hKVYQVh/Pickup-Hillux-03.jpg",
+        "https://i.ibb.co/QfMDJgC/Pickup-Hillux-02.jpg",
+        "https://i.ibb.co/Y7hP3Q1/Pickup-Hillux-04.jpg",
+        "https://i.ibb.co/MNWR9vv/Pickup-Hillux-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "8",
+      "nombre": "Nissan Frontier",
+      "categoria": "Pickup",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/CB6DnCD/Pickup-Frontier-03.jpg",
+        "https://i.ibb.co/V9XWNcX/Pickup-Frontier-04.jpg",
+        "https://i.ibb.co/W0QP3FH/Pickup-Frontier-02.jpg",
+        "https://i.ibb.co/WVHNvKK/Pickup-Frontier-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
 
-        {
-            "id": "10",
-            "titulo": "BMW Serie 5",
-            "categoria": "Lujo",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/Qk9wwS5/LUJO-BMW-04.jpg",
-                "https://i.ibb.co/gSW5W93/LUJO-BMW-02.jpg",
-                "https://i.ibb.co/Y49jMkH/LUJO-BMW-03.jpg",
-                "https://i.ibb.co/6gyktTJ/LUJO-BMW-01.jpg"
-            ]
-        },
-        {
-            "id": "11",
-            "titulo": "Toyota Hiace",
-            "categoria": "Van",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/4YQXHn0/VAN-Toyota-03.jpg",
-                "https://i.ibb.co/Kcn2pK0/VAN-Toyota-01.jpg",
-                "https://i.ibb.co/374Nm5N/VAN-Toyota-04.jpg",
-                "https://i.ibb.co/hLpcY41/VAN-Toyota-02.jpg"
-            ]
-        },
-        {
-            "id": "12",
-            "titulo": "Hyundai H-1",
-            "categoria": "Van",
-            "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "imagen": [
-                "https://i.ibb.co/XbcFsgv/VAN-Hyundai-04.jpg",
-                "https://i.ibb.co/m0ywTgF/VAN-Hyundai-03.jpg",
-                "https://i.ibb.co/qBGhXLJ/VAN-Hyundai-02.jpg",
-                "https://i.ibb.co/8s3S1pF/VAN-Hyundai-01.jpg"
-            ]
-        }
-    ]
+    {
+      "id": "10",
+      "nombre": "BMW Serie 5",
+      "categoria": "Lujo",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/Qk9wwS5/LUJO-BMW-04.jpg",
+        "https://i.ibb.co/gSW5W93/LUJO-BMW-02.jpg",
+        "https://i.ibb.co/Y49jMkH/LUJO-BMW-03.jpg",
+        "https://i.ibb.co/6gyktTJ/LUJO-BMW-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "11",
+      "nombre": "Toyota Hiace",
+      "categoria": "Van",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/4YQXHn0/VAN-Toyota-03.jpg",
+        "https://i.ibb.co/Kcn2pK0/VAN-Toyota-01.jpg",
+        "https://i.ibb.co/374Nm5N/VAN-Toyota-04.jpg",
+        "https://i.ibb.co/hLpcY41/VAN-Toyota-02.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    },
+    {
+      "id": "12",
+      "nombre": "Hyundai H-1",
+      "categoria": "Van",
+      "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imagen": [
+        "https://i.ibb.co/XbcFsgv/VAN-Hyundai-04.jpg",
+        "https://i.ibb.co/m0ywTgF/VAN-Hyundai-03.jpg",
+        "https://i.ibb.co/qBGhXLJ/VAN-Hyundai-02.jpg",
+        "https://i.ibb.co/8s3S1pF/VAN-Hyundai-01.jpg"
+      ],
+      "caracteristica": {
+        "id": 1,
+        "modelo": "2020",
+        "puertas": 4,
+        "consumo": "9.1 lts/km",
+        "tipoMotor": "Hibrido",
+        "caja": "Manual"
+      }
+    }
+  ]
 }

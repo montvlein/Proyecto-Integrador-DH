@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import styles from "./categorias.module.css";
 import Contexto from "../../contexto/AppContext";
 import { DigitalBookingApi } from "../../data/conexionAPI";
-import { Link } from "react-router-dom";
 
 export default function Categorias() {
   const [cargando, setEstaCargando] = useState(true);
@@ -73,7 +72,7 @@ export default function Categorias() {
       <div className={styles.categoria_section}>
         {categorias.map((cat) => {
           return (
-            <Link to={`buscarPor/${cat.titulo}`}
+            <article
               className={styles.categoria_article}
               key={cat.id}
               onClick={(e) => {
@@ -91,7 +90,7 @@ export default function Categorias() {
                   {cat.titulo}{" "}
                 </figcaption>
               </figure>
-            </Link>
+            </article>
           );
         })}
       </div>

@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     background-color: rgba(29, 29, 29, 0.87);
+  
 
 
 }
@@ -88,9 +89,27 @@
     position: fixed;
     top: 70px;
     width: 100%;
+    left: 0;
+
 
 
     
 }
 
 
+
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .contenedorImgPequenias, .iconoCerrar {
+      display: none;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .contenedorImgPequenias, .iconoCerrar {
+        display: none;
+      }
+}

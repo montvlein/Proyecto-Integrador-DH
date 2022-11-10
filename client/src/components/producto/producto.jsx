@@ -31,8 +31,8 @@ export default function Producto() {
 
   if (cargando) {
     return(
-      <article className={stylesArticlulo.productoArticulo}>
-        <div className="spinner-border" roler="status"></div>
+      <article className={`${stylesArticlulo.productoArticulo} d-flex justify-content-center`}>
+        <div className="spinner-border m-5" roler="status"></div>
       </article>
     )
   }
@@ -43,9 +43,9 @@ export default function Producto() {
     <article className={`${stylesArticlulo.productoArticulo} container`}>
       <CabeceraProducto nombre={producto.nombre} categoria={producto.categoria.titulo} />
       <DatosUbicacionProducto ubicacion={producto.ciudad}/>
-      <ImgProducto isOpen={isOpen} toggle={toggle}/>
+      <ImgProducto isOpen={isOpen} toggle={toggle} imagenes={producto.imagenes}/>
       <GaleriaProducto isOpen={!isOpen} toggle={toggle} imagenes={producto.imagenes}/>
-      <CaracteristicasProducto caracteristicas={producto.caracteristica}/>
+      <CaracteristicasProducto caracteristica={producto.caracteristica}/>
       <DescripcionProducto descripcion={producto.descripcion}/>
       <BloqueReserva/>
       <PoliticasProducto />

@@ -14,12 +14,9 @@ export default function Heroe() {
         <p className={styles.descripcion}>
           {" "}
           Busca alquiler de autos baratos en Argentina. <br/>Con una flota diversa de
-          19.000 vehículos. <span>Digital Booking</span> los tiene.
+          19.000 vehículos. <br></br><span>Digital Booking</span> los tiene.
         </p>
-        <Link to={"/crearcuenta"}
-         className="btn btn-warning">
-          ¡Registrate hora!
-        </Link>
+    
         </div>
       </div>
     </section>
