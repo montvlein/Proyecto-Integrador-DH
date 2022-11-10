@@ -39,8 +39,6 @@ public class ControladorAuto {
         return ResponseEntity.ok(servicio.guardar(auto));
     }
 
-
-
     @Operation(summary = "Busca un auto por ID")
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id)throws Exception{
@@ -54,5 +52,11 @@ public class ControladorAuto {
         if (ciudad != null && categoria == null ) return ResponseEntity.ok(servicio.buscarAutoPorCiudad(ciudad));
         if (categoria != null && ciudad == null ) return ResponseEntity.ok(servicio.buscarAutoPorCategoria(categoria));
         return ResponseEntity.ok(servicio.buscarAutoPor(categoria, ciudad));
+    }
+
+    @Operation(summary = "Devuelve listado de autos recomendados")
+    @GetMapping("recomendados")
+    public ResponseEntity<?> recomendados() throws Exception{
+        return ResponseEntity.ok(servicio.random());
     }
 }
