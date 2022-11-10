@@ -38,7 +38,7 @@ export default function ImgProducto({imagenes, toggle}) {
           <div className={styles.item3} style={backgroundImagen(3)}>
             &nbsp;
           </div>
-          <div className={styles.item4} style={backgroundImagen(4)}>
+          <div className={styles.item4} style={backgroundImagen(0)}>
             &nbsp;
           </div>
           <div className={styles.verMas} onClick={toggle}>

@@ -8,9 +8,8 @@ import {
 import { Link } from "react-router-dom";
 import style from "./cards.module.css";
 
-const Card = ({ id, nombre, imagen, descripcion, precio, caracteristica }) => {
-  let portada =
-    "https://cdn-images.motor.es/image/m/720w/fotos-noticias/2021/08/chevrolet-onix-ventas-sudamerica-202180513-1629451453_3.jpg";
+const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => {
+  let portada = imagenes[0].url
   return (
     <section className="contenedorTodasLasCards">
       <div className="card">

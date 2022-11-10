@@ -36,7 +36,6 @@ function ImageSlider({ slides, toggle }) {
     const primeraSlide = indexActual === 0;
     const nuevoIndex = primeraSlide ? slides.length - 1 : indexActual - 1;
     setIndexActual(nuevoIndex);
-    console.log(nuevoIndex);
   };
 
   const irASlide = (slidesIndex) => {
