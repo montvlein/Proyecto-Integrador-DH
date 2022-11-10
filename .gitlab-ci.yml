@@ -1,0 +1,31 @@
+stages:         
+  - build
+  - test
+  - deploy
+
+build:       
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+
+test:   
+  stage: test    
+  script:
+    - echo "Running unit tests... This will take about 60 seconds."
+    - cd DigitalBooking
+    - cd src
+    - cd test
+    - cd java
+    - cd com.dh.DigitalBooking
+    - sh DigitalBookingApplicationTests
+
+deploy:      
+  stage: deploy 
+  script:
+    - echo "Deploying application..."
+    - cd DigitalBooking
+    - cd src
+    - cd main
+    - cd java
+    - sh DigitalBookingApplication
