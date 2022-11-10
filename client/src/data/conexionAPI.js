@@ -63,20 +63,14 @@ class AutoEndPoint extends CRUD {
         super(basepath, categoriaUri)
     }
 
-    filtrarPorCiudad(nombreProvincia) {
-        return handleFetch(`${this.uri}/burcarPor?ciudad=${nombreProvincia}`)
-        .then(res => res.json())
-        .catch(error => { throw(error) })
-    }
-
-    filtrarPorCategoria(tituloCategoria){
-        return handleFetch(`${this.uri}/burcarPor?categoria=${tituloCategoria}`)
-        .then(res => res.json())
-        .catch(error => { throw(error) })
-    }
-
-    filtrarPorCategoria_y_Ciudad(tituloCategoria, nombreProvincia){
-        return handleFetch(`${this.uri}/burcarPor?categoria=${tituloCategoria}&ciudad=${nombreProvincia}`)
+    filtrarPor(parametros) {
+        let filtro = ""
+        if (parametros.hasOwnProperty("categoria")) filtro = `categoria=${parametros.categoria}`
+        if (parametros.hasOwnProperty("ciudad")) filtro = `ciudad=${parametros.ciudad}`
+        if (parametros.hasOwnProperty("categoria") && parametros.hasOwnProperty("ciudad")) {
+            filtro = `categoria=${parametros.categoria}&ciudad=${parametros.ciudad}`
+        }
+        return handleFetch(`${this.uri}/buscarPor?${filtro}`)
         .then(res => res.json())
         .catch(error => { throw(error) })
     }

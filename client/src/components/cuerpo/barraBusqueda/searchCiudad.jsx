@@ -37,19 +37,20 @@ function SearchBar() {
   return (
     <div className={styles.prueba3}>
       <div className={styles.headerSearchItem}>
-  
+
         <input
           type="search"
           placeholder="¿A donde quieres ir?"
           className={styles.headerSearchInput}
           onChange={handlerFilter}
           id="buscadorInput"
+          name="buscadorCiudad"
         />
       </div>
 
       <ul className={styles.dataResult} id="listaCiudades">
         {filterData.map((value) => (
-          <div className={styles.prueba} onClick={(e)=>{
+          <div className={styles.prueba} key={value.id} onClick={(e)=>{
             let input = document.querySelector("#buscadorInput")
             input.value = value.nombre + ", Argentina"
             setFilterData([]);

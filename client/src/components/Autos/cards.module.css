@@ -45,6 +45,9 @@
     height: 90vh;
 }
 
+.mostrarResultadosFiltro {
+ max-width: 80%;
+}
 
 @media screen 
   and (min-width: 760px) 

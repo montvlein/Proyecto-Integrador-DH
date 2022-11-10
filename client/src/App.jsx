@@ -1,30 +1,29 @@
-import Cabecera from "./components/cabecera/cabecera"
-import Index from './components/cuerpo/cuerpo';
-import Footer from './components/footer/footer';
-import Login from './components/formularios/login';
-import Registro from './components/formularios/registro';
+import Cabecera from "./components/cabecera/cabecera";
+import Index from "./components/cuerpo/cuerpo";
+import Footer from "./components/footer/footer";
+import Login from "./components/formularios/login";
+import Registro from "./components/formularios/registro";
 import Producto from "./components/producto/producto";
-import { Route, Routes } from 'react-router-dom';
-import ListadoDeAutos from "./components/cardsAutos/listadoDeAutos";
+import { Route, Routes } from "react-router-dom";
+import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 
 function App() {
-
   return (
     <>
-    <Cabecera/>
-    <main>
-    <Routes>
-        <Route path="/" element={<Index/>}/>
-        <Route path="/iniciarSesion" element={<Login/>}/>
-        <Route path="/crearCuenta" element={<Registro/>}/>
-        <Route path="/producto/:idProducto" element={<Producto/>}/>
-        <Route path="/buscarPor/:tituloCategoria" element={<ListadoDeAutos/>}/>
-        <Route path="*" element={<h2>Not Found</h2>}/>
-      </Routes>
-    </main>
-    <Footer/>
+      <Cabecera />
+      <main>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/iniciarSesion" element={<Login />} />
+          <Route path="/crearCuenta" element={<Registro />} />
+          <Route path="/producto/:idProducto" element={<Producto />} />
+          <Route path={`/buscar`} element={<ResultadosBusqueda />} />
+          <Route path="*" element={<h2>Not Found</h2>} />
+        </Routes>
+      </main>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
