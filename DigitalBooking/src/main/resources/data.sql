@@ -1,4 +1,3 @@
-USE 0521PTC3N1db_GRUPO2;
 INSERT INTO categoria(titulo, descripcion, url_img) VALUES('Compacto', 'Toyota Etios o similar', 'https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/Categorias/Compacto.png');
 INSERT INTO categoria(titulo, descripcion, url_img) VALUES('Sedan' , 'Chevrolet Cruze o similar', 'https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/Categorias/Sedan.png');
 INSERT INTO categoria(titulo, descripcion, url_img) VALUES('SUV', 'Volkswagen Taos o similar', 'https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/Categorias/SUV.png');
