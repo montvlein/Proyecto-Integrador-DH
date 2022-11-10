@@ -101,7 +101,7 @@ public class ServicioAuto {
         List<AutoDTO> recomendados = new ArrayList<>();
         Long num;
         for (int i=0; i <6; i++) {
-            num = random.nextLong(0, listar().size());
+            num = random.nextLong(1, listar().size());
             recomendados.add(buscarPorId(num));
         }
         return recomendados;
