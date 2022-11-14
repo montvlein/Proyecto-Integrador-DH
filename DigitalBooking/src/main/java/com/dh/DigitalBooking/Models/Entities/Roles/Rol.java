@@ -18,7 +18,7 @@ public class Rol {
 
     private String nombre;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "rol")
     @JsonIgnore
     private Set<Usuario> usuarios;
 }

@@ -22,7 +22,7 @@ public class Usuario {
     private String ciudad;
     private boolean verificado;
 
-    @OneToMany(mappedBy = "reserva")
+    @OneToMany(mappedBy = "usuario")
     @JsonIgnore
     private Set<Reserva> reservas;
 

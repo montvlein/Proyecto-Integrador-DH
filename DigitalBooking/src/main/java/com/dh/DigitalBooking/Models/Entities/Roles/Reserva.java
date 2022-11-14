@@ -27,4 +27,8 @@ public class Reserva {
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
 }
