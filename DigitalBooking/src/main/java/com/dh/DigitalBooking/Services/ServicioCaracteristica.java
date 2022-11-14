@@ -1,11 +1,17 @@
 package com.dh.DigitalBooking.Services;
 
+import com.dh.DigitalBooking.Models.DTOs.CaracteristicaDTO;
+import com.dh.DigitalBooking.Models.DTOs.ImagenDTO;
 import com.dh.DigitalBooking.Models.Entities.Caracteristica;
+import com.dh.DigitalBooking.Models.Entities.Imagen;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioCaracteristica;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -30,11 +36,8 @@ public class ServicioCaracteristica {
     public Caracteristica actualizar(Caracteristica caracteristica){
         Caracteristica caractBuscada = buscarPorId(caracteristica.getId());
         if(caractBuscada != null){
-            caractBuscada.setCaja(caracteristica.getCaja());
-            caractBuscada.setConsumo(caracteristica.getConsumo());
-            caractBuscada.setModelo(caracteristica.getModelo());
-            caractBuscada.setPuertas(caracteristica.getPuertas());
-            caractBuscada.setTipoMotor(caractBuscada.getTipoMotor());
+            caractBuscada.setNombre(caracteristica.getNombre());
+            caractBuscada.setDescripcion(caracteristica.getDescripcion());
             guardar(caractBuscada);
         }
         return caractBuscada;
@@ -48,6 +51,18 @@ public class ServicioCaracteristica {
 
     public List<Caracteristica> listar(){
     return repositorio.findAll();
+    }
+
+    public CaracteristicaDTO caracteristicasPorAuto(Set<Caracteristica> caracteristica){
+        CaracteristicaDTO caracteristicas = new CaracteristicaDTO();
+        for (Caracteristica c : caracteristica) {
+            if (c.getNombre().equals("modelo")) { caracteristicas.setModelo(c.getDescripcion());};
+            if (c.getNombre().equals("consumo")) { caracteristicas.setConsumo(c.getDescripcion());};
+            if (c.getNombre().equals("motor")) { caracteristicas.setTipoMotor(c.getDescripcion());};
+            if (c.getNombre().equals("caja")) { caracteristicas.setCaja(c.getDescripcion());};
+            if (c.getNombre().equals("puertas")) { caracteristicas.setPuertas(Integer.parseInt(c.getDescripcion()));};
+        }
+        return caracteristicas;
     }
 }
 

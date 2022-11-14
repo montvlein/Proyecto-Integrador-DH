@@ -19,6 +19,9 @@ public class ServicioAuto {
     ServicioImagen imagen;
 
     @Autowired
+    ServicioCaracteristica caracteristica;
+
+    @Autowired
     public void setRepositorio(iRepositorioAuto repositorio) {
         this.repositorio = repositorio;
     }
@@ -40,7 +43,7 @@ public class ServicioAuto {
         }
         if( autoBuscado != null) {
             autoBuscado.setCategoria(auto.getCategoria());
-            autoBuscado.setCaracteristica(auto.getCaracteristica());
+            autoBuscado.setCaracteristicas(auto.getCaracteristicas());
             autoBuscado.setCiudad(auto.getCiudad());
             autoBuscado.setImagenes(auto.getImagenes());
             autoBuscado.setPrecio(auto.getPrecio());
@@ -84,7 +87,7 @@ public class ServicioAuto {
         autoEntregable.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
         autoEntregable.setPrecio(auto.getPrecio());
         autoEntregable.setCiudad(auto.getCiudad());
-        autoEntregable.setCaracteristica(auto.getCaracteristica());
+        autoEntregable.setCaracteristica(caracteristica.caracteristicasPorAuto(auto.getCaracteristicas()));
         return autoEntregable;
     }
 

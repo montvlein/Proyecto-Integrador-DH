@@ -32,8 +32,12 @@ public class Auto {
     @JoinColumn(name="ciudad_id")
     private Ciudad ciudad;
 
-    @ManyToOne
-    @JoinColumn(name="caracteristica_id")
-    private Caracteristica caracteristica;
+    @ManyToMany
+    @JoinTable(
+            name = "caracteristica_auto",
+            joinColumns = @JoinColumn(name = "auto_id"),
+            inverseJoinColumns = @JoinColumn(name = "caracteristica_id")
+    )
+    private Set<Caracteristica> caracteristicas;
 
 }

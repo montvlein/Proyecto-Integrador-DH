@@ -16,13 +16,10 @@ public class Caracteristica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String modelo;
-    private int puertas;
-    private String consumo;
-    private String tipoMotor;
-    private String caja;
+    private String nombre;
+    private String descripcion;
 
-    @OneToMany(mappedBy = "caracteristica")
     @JsonIgnore
+    @ManyToMany(mappedBy = "caracteristicas",fetch = FetchType.LAZY)
     private Set<Auto> autos;
 }

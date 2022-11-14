@@ -21,5 +21,5 @@ public class AutoDTO {
     private boolean disponibleParaAlquilar;
     private float precio;
     private Ciudad ciudad;
-    private Caracteristica caracteristica;
+    private CaracteristicaDTO caracteristica;
 }
