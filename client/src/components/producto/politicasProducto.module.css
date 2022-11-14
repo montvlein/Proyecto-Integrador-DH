@@ -8,7 +8,8 @@
 .seccionPoliticasPorducto {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 1.25rem;
+    word-spacing: normal;
 
 
 }
@@ -35,18 +36,53 @@
      padding-left: 0;
 }
 
-.contenedorRequisitos h4 {
+.contenedorRequisitos h3 {
     font-size: 1em;
+    word-spacing: normal;
 }
 
 .contenedorRequisitos {
-    width: 300px;
-    text-align: justify;
+    width: 18.75rem;
+
+    
 }
 
 
 hr {
     background-color:  var(--amarillo);
-    height: 3px;
+    height: 0.188rem;
     font-weight: 800;
 }
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .politicasProd {
+        display: grid;
+        justify-content: center;
+        align-content: flex-start;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    .contenedorRequisitos h4 {
+        display: grid;
+        justify-content: center;
+        align-content: flex-start;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        /* height: 100%; */
+    }
+  }
+
+  @media screen and (max-width:760px) {
+    .contenedorRequisitos h4 {
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        /* height: 100%; */
+    }
+  }
