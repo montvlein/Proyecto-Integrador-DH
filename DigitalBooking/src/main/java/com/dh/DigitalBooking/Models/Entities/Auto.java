@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Models.Entities;
 
+import com.dh.DigitalBooking.Models.Entities.Roles.Reserva;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,5 +40,9 @@ public class Auto {
             inverseJoinColumns = @JoinColumn(name = "caracteristica_id")
     )
     private Set<Caracteristica> caracteristicas;
+
+    @OneToMany(mappedBy = "auto")
+    @JsonIgnore
+    private Set<Reserva> reservas;
 
 }
