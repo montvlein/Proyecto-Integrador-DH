@@ -4,6 +4,7 @@ import Footer from "./components/footer/footer";
 import Login from "./components/formularios/login";
 import Registro from "./components/formularios/registro";
 import Producto from "./components/producto/producto";
+import Exito from "./components/Exito/exito";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/crearCuenta" element={<Registro />} />
           <Route path="/producto/:idProducto" element={<Producto />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
+          <Route path={`/exito`} element={<Exito />} />
           <Route path="*" element={<h2>Not Found</h2>} />
         </Routes>
       </main>
