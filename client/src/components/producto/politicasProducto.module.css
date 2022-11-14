@@ -36,7 +36,7 @@
      padding-left: 0;
 }
 
-.contenedorRequisitos h4 {
+.contenedorRequisitos h3 {
     font-size: 1em;
     word-spacing: normal;
 }
@@ -46,8 +46,6 @@
 
     
 }
-
-
 
 
 hr {
@@ -60,21 +58,31 @@ hr {
   and (min-width: 760px) 
   and (max-width: 1000px) {
 
-    .contenedorRequisitos {
+    .politicasProd {
         display: grid;
         justify-content: center;
-        grid-template-rows: 1fr 1fr;
+        align-content: flex-start;
+        grid-template-rows: 1fr;
         grid-template-columns: 1fr 1fr;
-        height: 100%;
+        
+    }
+
+    .contenedorRequisitos h4 {
+        display: grid;
+        justify-content: center;
+        align-content: flex-start;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        /* height: 100%; */
     }
   }
 
   @media screen and (max-width:760px) {
-    .contenedorRequisitos {
+    .contenedorRequisitos h4 {
         display: grid;
         justify-content: center;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
-        height: 100%;
+        /* height: 100%; */
     }
   }
