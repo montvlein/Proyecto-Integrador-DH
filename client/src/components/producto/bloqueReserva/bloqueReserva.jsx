@@ -3,6 +3,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState } from "react";
 import { DateRange, DefinedRange } from "react-date-range";
+import { Link } from "react-router-dom";
 
 function BloqueReserva() {
   const [state, setState] = useState([
@@ -28,7 +29,7 @@ function BloqueReserva() {
             direction="horizontal"
             className={styles.calendario}
           />
-        <button className={styles.botonReserva}>Iniciar Reserva</button>
+          <Link to="reserva" className={styles.botonReserva}>Iniciar Reserva</Link>
         </div>
       </div>
     </section>
