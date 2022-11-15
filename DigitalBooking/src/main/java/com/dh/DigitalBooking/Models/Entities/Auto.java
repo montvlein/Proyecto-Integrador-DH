@@ -40,4 +40,8 @@ public class Auto {
     )
     private Set<Caracteristica> caracteristicas;
 
+    @OneToMany(mappedBy = "auto")
+    @JsonIgnore
+    private Set<Reserva> reservas;
+
 }
