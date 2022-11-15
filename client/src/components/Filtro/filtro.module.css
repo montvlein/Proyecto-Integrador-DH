@@ -1,0 +1,21 @@
+.aside {
+    width: 20%;
+}
+
+
+
+@media screen and (max-width:760px) {
+    .aside {
+        
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+  }
+
+  @media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) { 
+    .aside { margin-bottom: 10px;
+    }
+  }

@@ -1,0 +1,60 @@
+*{
+    padding:0;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.seccionCaracteristicasPorducto{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.caracteristicas {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.icons{
+    color: var(--amarillo);
+    font-size: 1.6rem;
+    margin-right: 0.313rem;
+}
+
+
+.caracteristicasDIV {
+    display: flex;
+    gap: 0.625px;
+   
+}
+
+.caracteristicasDIV p {
+    font-size: 1.1em;
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .caracteristicas {
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+    }
+  }
+
+  @media screen and (max-width:760px) {
+    .caracteristicas {
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+  }

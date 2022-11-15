@@ -1,4 +1,4 @@
-import styles from "../../styles/formularios.module.css";
+import styles from "./formularios.module.css";
 import { useContext, useState } from "react";
 import Contexto from "../../contexto/AppContext"
 import { Link, useNavigate } from "react-router-dom"

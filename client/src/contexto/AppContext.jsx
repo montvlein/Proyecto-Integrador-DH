@@ -1,19 +1,11 @@
 import React, { useState, createContext } from "react";
-import categorias from "../data/categorias.json";
+import { useEffect } from "react";
 import listado from "../data/AUTOS.json";
+import { DigitalBookingApi } from "../data/conexionAPI";
 
 const Contexto = createContext();
 
 export function AppContext({ children }) {
-  let opciones = (informacion, metodo = "POST", tipo = "application/json") => {
-    return {
-      method: metodo,
-      headers: {
-        "Content-Type": tipo,
-      },
-      body: JSON.stringify(informacion),
-    };
-  };
 
   // usuario y sesion
   const [listaUsuarios, setListaUsuarios] = useState([]);
@@ -53,17 +45,16 @@ export function AppContext({ children }) {
     setSesionIniciada(false);
   }
 
-  // categorias
-  const [listaCategorias, setCategorias] = useState(categorias);
-  function getListaCategorias() {
-    return listaCategorias;
-  }
-
   // listado de productos
   const [listaAutos, setListadoAutos] = useState(listado.autos)
   const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
   const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
   const [criterioFiltro, setCriterioFiltro] = useState()
+  useEffect(()=>{
+      DigitalBookingApi.auto
+      .listar()
+      .then( lista => setListadoAutos(lista))
+  },[])
 
   function getListaAutos() {
     return listaAutos
@@ -102,7 +93,6 @@ export function AppContext({ children }) {
         cerrarSesion,
         registrarUsuario,
         validarUsuario,
-        getListaCategorias,
         getListaAutos,
         getAutosFiltrados,
         filtarAutos,

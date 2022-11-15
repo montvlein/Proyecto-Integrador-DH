@@ -41,9 +41,30 @@ ___
     # 1. Moverse al directorio del proyecto
     cd DigitalBooking
 
-    # 2. compilar
-    ./mvnw package
+    # 2. compilar para desarrollo
+    ./mvnw clean package
+
+    # 2.1 compilar para produccion
+    # agregar el tag -P
+    ./mvnw clean install -Pprod
 
     # 3. correr
     java -jar DigitalBookin/target/DigitalBooking-0.0.1-SNAPSHOT.jar
+```
+
+#### 2.1 Ejecución con Docker (para producción)
+
+```
+    # 1. Moverse al directorio del proyecto
+    cd DigitalBooking
+
+    # 2. construir la imagen
+    docker build -t api-digitalbooking:0.0.1 .
+
+    # 3. correr por primera vez
+    docker run -p 8080:8080 -d --name API-DH-v0.0.1 api-digitalbooking:0.0.1
+
+    # 3.1 iniciar o parar el contenedor
+    docker container start API-DH-v.0.0.1
+    docker container stop API-DH-v.0.0.1
 ```

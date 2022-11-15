@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.caracteristicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.icons{
+    color: var(--amarillo);
+}
+
+.contenedorPrecio {
+    display: flex;
+    justify-content: center;
+}
+.contenedorPrecio p, .contenedorPrecio span{
+   margin: 0px;
+   padding: 0px;
+}
+
+.tituloCards {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: var(--amarillo) solid 1px;
+
+}
+
+.tituloCards h3 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--grisO);
+    
+}
+
+.tituloCards span {
+    font-size: 0.4em;
+    font-weight: lighter;
+    color: var(--grisC);
+    
+}
+
+.vp90 {
+    height: 90vh;
+}
+
+.mostrarResultadosFiltro {
+ max-width: 80%;
+ padding-bottom: 20px;
+ display: flex;
+flex-wrap: wrap;
+gap:10px;
+}
+
+.contenedorCard {
+    max-width: 354px;
+    
+}
+
+.caracteristicasDIV {
+    display: flex;
+    justify-content: space-evenly;
+    margin: .5rem;
+}
+
+.caracteristicasDIV p {
+    margin: 0;
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+
+    .caracteristicas p { 
+        font-size: 14px;
+    }
+
+    .contenedorPrecio {
+        display: none;
+    }
+
+    .contenedorResultadoPadre {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contenedorCard {
+        max-width: 250px;
+        
+    }
+
+    .contenedorPadre {
+        height: 95vh;
+    }
+    
+  }
+
+  @media screen and (max-width:760px) {
+    .contenedorResultadoPadre {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+  }

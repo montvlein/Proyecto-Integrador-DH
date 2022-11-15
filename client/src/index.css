@@ -3,14 +3,38 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 :root {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
  }
-/*
-*{
-  outline: 1px solid aqua;
-}*/
+
+.loading_background {
+  position: relative;
+  background-color: whitesmoke;
+  box-shadow: rgb(0 0 0/16%) 1px 1px 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.loading_animation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 1;
+  width: 200%;
+  margin-left: -100%;
+  animation: bgAnimation 1.2s linear infinite;
+  background: linear-gradient(45deg, hsla(0,0%,100%,0) 46%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 54%) 50% 50%;
+}
+
+@keyframes bgAnimation {
+  0% {
+      transform: translate3d(-30%, 0, 0);
+  }
+  to {
+      transform: translate3d(30%, 0, 0);
+  }
+}
