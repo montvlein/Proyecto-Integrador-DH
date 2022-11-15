@@ -1,6 +1,6 @@
-package com.dh.DigitalBooking.Models.Entities.Roles;
+package com.dh.DigitalBooking.Models.Entities;
 
-import com.dh.DigitalBooking.Models.Entities.Auto;
+import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +25,6 @@ public class Reserva {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private Usuario cliente;
 
 }

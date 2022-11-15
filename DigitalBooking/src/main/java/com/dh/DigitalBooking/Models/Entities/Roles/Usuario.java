@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Models.Entities.Roles;
 
+import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,10 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+//@DiscriminatorColumn(name="reservas", discriminatorType = DiscriminatorType.INTEGER)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,11 +26,11 @@ public class Usuario {
     private String ciudad;
     private boolean verificado;
 
-    @OneToMany(mappedBy = "usuario")
-    @JsonIgnore
-    private Set<Reserva> reservas;
-
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
+
+    @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
+    private Set<Reserva> reservas;
 }

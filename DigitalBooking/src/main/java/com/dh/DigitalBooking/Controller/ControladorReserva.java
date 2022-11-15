@@ -1,6 +1,6 @@
 package com.dh.DigitalBooking.Controller;
 
-import com.dh.DigitalBooking.Models.Entities.Roles.Reserva;
+import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.dh.DigitalBooking.Services.Roles.ServicioReserva;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

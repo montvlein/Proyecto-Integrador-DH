@@ -1,6 +1,5 @@
 package com.dh.DigitalBooking.Models.Entities;
 
-import com.dh.DigitalBooking.Models.Entities.Roles.Reserva;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;

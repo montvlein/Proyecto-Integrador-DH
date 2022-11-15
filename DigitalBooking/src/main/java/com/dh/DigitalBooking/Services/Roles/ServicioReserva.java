@@ -1,6 +1,6 @@
 package com.dh.DigitalBooking.Services.Roles;
 
-import com.dh.DigitalBooking.Models.Entities.Roles.Reserva;
+import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioReserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class ServicioReserva {
             res.setAuto(res.getAuto());
             res.setFechaFinalReserva(res.getFechaFinalReserva());
             res.setFechaInicialReserva(res.getFechaInicialReserva());
-            res.setUsuario(res.getUsuario());
+            res.setCliente(res.getCliente());
             res.setHoraComienzoReserva(res.getHoraComienzoReserva());
             guardar(res);
         }

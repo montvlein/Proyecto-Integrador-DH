@@ -199,3 +199,11 @@ INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 14);
 INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 19);
 INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 10);
 INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 21);
+
+INSERT INTO rol(nombre) VALUES ('administrador');
+INSERT INTO rol(nombre) VALUES ('usuario');
+
+INSERT INTO usuario(NOMBRE, APELLIDO, EMAIL, CONTRASENIA, CIUDAD, VERIFICADO, ROL_ID) VALUES( 'Micaela', 'Barbero', 'capa2020@mail.com', '1234', 'que ciudad?', false, 1);
+INSERT INTO usuario(NOMBRE, APELLIDO, EMAIL, CONTRASENIA, CIUDAD, VERIFICADO, ROL_ID) VALUES( 'Fabricio', 'Montivero', 'monti@mail.com', '1234', 'que ciudad?', true, 2);
+
+INSERT INTO reserva( FECHA_FINAL_RESERVA, FECHA_INICIAL_RESERVA, HORA_COMIENZO_RESERVA, AUTO_ID, USUARIO_ID ) VALUES ('2022-12-25', '2022-12-20', '2022-12-20 17:00:00', 1, 2);
