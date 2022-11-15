@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Services.Roles;
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
+import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ public class ServicioUsuario {
     private iRepositorioUsuario repositorio;
 
     @Autowired
+    private ServicioRol rol;
+
+    @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
         this.repositorio = repositorio;
     }
 
     public UsuarioDTO guardar(Usuario usuario) throws Exception{
+        usuario.setRol(rol.buscarPorId(2l));
+        usuario.setVerificado(false);
         return usuarioToDTO(repositorio.save(usuario));
     }
 
@@ -30,6 +36,15 @@ public class ServicioUsuario {
             buscado = usuarioToDTO(repositorio.findById(id).get());
         }
         return buscado;
+    }
+
+    public UsuarioDTO buscarPorEmail(String email) {
+        Usuario buscado = repositorio.findByEmail(email);
+        UsuarioDTO resultado = null;
+        if (buscado != null) {
+            resultado = usuarioToDTO(buscado);
+        }
+        return resultado;
     }
 
     public Usuario actualizar(Usuario usuario) throws Exception{
@@ -58,8 +73,8 @@ public class ServicioUsuario {
         repositorio.deleteById(id);
     }
 
-    public List<UsuarioDTO> listar() {
-        return usuarioToDTO(repositorio.findAll());
+    public List<Usuario> listar() {
+        return repositorio.findAll();
     }
 
     private UsuarioDTO usuarioToDTO(Usuario usuario) {
