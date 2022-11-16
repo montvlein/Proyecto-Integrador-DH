@@ -1,14 +1,15 @@
 package com.dh.DigitalBooking.Services.Roles;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
-import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
-import com.dh.DigitalBooking.Models.DTOs.LoginDTO;
+import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
-import com.dh.DigitalBooking.Models.Entities.Auto;
-import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ServicioUsuario {
+public class ServicioUsuario implements UserDetailsService {
     private iRepositorioUsuario repositorio;
 
     @Autowired
@@ -37,15 +38,6 @@ public class ServicioUsuario {
         String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
         usuario.setContrasenia(contraseniaEncriptada);
         return usuarioToDTO(repositorio.save(usuario));
-    }
-
-    public String authenticar(LoginDTO data) {
-        Usuario usuario = repositorio.findByEmail(data.getEmail());
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if (usuario != null && passwordEncoder.matches(data.getContrasenia(),usuario.getContrasenia())) {
-            return jwtUtil.generarToken(usuario.getEmail());
-        }
-        return null;
     }
 
     public UsuarioDTO authenticar(String token) { //este metodo no funciona. Error JsonParseException
@@ -122,5 +114,21 @@ public class ServicioUsuario {
             listadoDeAutos.add(usuarioToDTO(usuario));
         }
         return listadoDeAutos;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = repositorio.findByEmail(email);
+        if (usuario != null) {
+            return new User(usuario.getEmail(),
+                    usuario.getContrasenia(),
+                    new ArrayList<>());
+        } else {
+            throw new UsernameNotFoundException("No se encontro usuario con mail: " + email);
+        }
+    }
+
+    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
+        return  loadUserByUsername(email);
     }
 }

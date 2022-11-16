@@ -1,7 +1,7 @@
 package com.dh.DigitalBooking.Controller;
 
-import com.dh.DigitalBooking.Excepcion.NotFoundException;
-import com.dh.DigitalBooking.Models.DTOs.LoginDTO;
+import com.dh.DigitalBooking.Config.JWTUtil;
+import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
@@ -10,9 +10,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 
 @RestController
 @RequestMapping("api/v1/usuario")
@@ -20,6 +25,15 @@ import java.net.URI;
 public class ControladorUsuario {
 
     private ServicioUsuario servicio;
+
+//    @Autowired
+//    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JWTUtil jwtUtil;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     public void setServicio(ServicioUsuario servicio){
@@ -59,16 +73,32 @@ public class ControladorUsuario {
 
     @PostMapping("autenticacion")
     @Operation(summary = "Devuelve un token")
-    public ResponseEntity<?> login(@RequestBody LoginDTO usuario) {
-        final String jwt = servicio.authenticar(usuario);
-        if (jwt != null) return ResponseEntity.ok(jwt);
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<?> login(@RequestBody Auth.Request request) throws Exception {
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmail(),
+                            request.getContrasenia())
+            );
+        } catch (DisabledException e) {
+            throw new Exception("USER_DISABLED", e);
+        } catch (BadCredentialsException e) {
+            throw new Exception("INVALID_CREDENTIALS", e);
+        }
+
+        try {
+            final UserDetails user = servicio.loadUserByEmail(request.getEmail());
+            final String jwt = jwtUtil.generarToken(user);
+            return ResponseEntity.ok(new Auth.Response(jwt));
+        } catch (UsernameNotFoundException e) {
+          throw new Exception("Usuario no encontrado", e);
+        }
     }
 
     @PostMapping("validarToken")
     @Operation(summary = "Si el token es valido, devuelve un usuario")
     public ResponseEntity<?> login(@RequestBody String token) {
-        UsuarioDTO usuario = servicio.authenticar(token); //hay que parsear el token. Este metodo ahora esta dando error
+        UsuarioDTO usuario = servicio.authenticar(token);
         if (usuario != null) return ResponseEntity.ok(usuario);
         return ResponseEntity.notFound().build();
     }

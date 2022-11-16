@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -41,6 +42,11 @@ public class JWTUtil {
         return crearToken(claims, infoUsuario);
     }
 
+    public String generarToken(UserDetails infoUsuario) {
+        Map<String, Object> claims = new HashMap<>();
+        return crearToken(claims, infoUsuario.getUsername());
+    }
+
     private String crearToken(Map<String, Object> claims, String usuario) {
         return Jwts.builder()
                 .setClaims(claims)
@@ -55,6 +61,11 @@ public class JWTUtil {
     public Boolean validarToken(String token, String infoUsuario) {
         final String nombreUsuario = extraerNombre(token);
         return (nombreUsuario.equals(infoUsuario) && !isTokenExpired(token));
+    }
+
+    public Boolean validarToken(String token, UserDetails infoUsuario) {
+        final String nombreUsuario = extraerNombre(token);
+        return (nombreUsuario.equals(infoUsuario.getUsername()) && !isTokenExpired(token));
     }
 
     public boolean isTokenExpired(String token) {
