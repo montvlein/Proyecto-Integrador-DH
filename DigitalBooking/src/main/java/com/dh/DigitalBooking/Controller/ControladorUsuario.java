@@ -26,9 +26,6 @@ public class ControladorUsuario {
 
     private ServicioUsuario servicio;
 
-//    @Autowired
-//    private UserDetailsService userDetailsService;
-
     @Autowired
     private JWTUtil jwtUtil;
 
