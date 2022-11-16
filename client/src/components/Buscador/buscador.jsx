@@ -1,13 +1,14 @@
 import styles from "../cuerpo/cuerpo.module.css";
 import SearchBar from "../cuerpo/barraBusqueda/searchCiudad";
 import FechaReserva from "../cuerpo/barraBusqueda/fechaReserva";
-import { Link } from "react-router-dom";
+
 
 export default function Buscador() {
+
   function handlerSubmit(evento) {
     evento.preventDefault();
     if (evento.target.buscadorCiudad.value.split(",").length > 1) {
-        location.href=`buscar?ciudad=${evento.target.buscadorCiudad.value.split(",")[0]}`
+        redirigir(`buscar?ciudad=${evento.target.buscadorCiudad.value.split(",")[0]}`)
     }
   }
 

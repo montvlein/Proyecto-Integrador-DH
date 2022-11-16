@@ -1,10 +1,10 @@
 class DigitalBookingAPI {
 
     constructor(basepath="http://localhost:8080/") {
-        this.basepath = basepath
-        this.categoria = new CategoriaEndPoint(this.basepath)
-        this.ciudad = new CiudadEndPoint(this.basepath)
-        this.auto = new AutoEndPoint(this.basepath)
+        this.categoria = new CategoriaEndPoint(basepath)
+        this.ciudad = new CiudadEndPoint(basepath)
+        this.auto = new AutoEndPoint(basepath)
+        this.usuario = new UsuarioEndPoint(basepath)
     }
 
 }
@@ -82,6 +82,12 @@ class AutoEndPoint extends CRUD {
     }
 }
 
+class UsuarioEndPoint extends CRUD {
+    constructor(basepath, categoriaUri="api/v1/usuario") {
+        super(basepath, categoriaUri)
+    }
+}
+
 function opciones(informacion, metodo = "POST", tipo = "application/json") {
     return {
       method: metodo,
@@ -97,7 +103,7 @@ function handleFetch(request, settings) {
         case 1:
             return fetch(request).then(handleError)
         case 2:
-            return fetch(request, settings)
+            return fetch(request, settings).then(handleError)
     }
 }
 

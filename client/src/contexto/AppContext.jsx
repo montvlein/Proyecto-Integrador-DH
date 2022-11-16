@@ -29,9 +29,15 @@ export function AppContext({ children }) {
   }
 
   function registrarUsuario(usuario) {
-    getListaUsuarios().push(usuario);
-    setUsuario(usuario);
-    setSesionIniciada(true);
+    // getListaUsuarios().push(usuario);
+    DigitalBookingApi.usuario.crear(usuario)
+    .then( respuestaUsuario => {
+      if (respuestaUsuario.status == 201) {
+        setUsuario(usuario);
+        setSesionIniciada(respuestaUsuario.ok);
+      }
+      return respuestaUsuario
+    })
   }
 
   function iniciarSesion(mail) {
