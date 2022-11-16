@@ -200,8 +200,8 @@ INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 19);
 INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 10);
 INSERT INTO caracteristica_auto(auto_id, caracteristica_id) VALUES (12, 21);
 
-INSERT INTO rol(nombre) VALUES ('administrador');
-INSERT INTO rol(nombre) VALUES ('usuario');
+INSERT INTO rol(nombre) VALUES ('ROLE_ADMIN');
+INSERT INTO rol(nombre) VALUES ('ROLE_USER');
 
 INSERT INTO usuario(NOMBRE, APELLIDO, EMAIL, CONTRASENIA, CIUDAD, VERIFICADO, ROL_ID) VALUES( 'Micaela', 'Barbero', 'capa2020@mail.com', '1234', 'que ciudad?', false, 1);
 INSERT INTO usuario(NOMBRE, APELLIDO, EMAIL, CONTRASENIA, CIUDAD, VERIFICADO, ROL_ID) VALUES( 'Fabricio', 'Montivero', 'monti@mail.com', '1234', 'que ciudad?', true, 2);

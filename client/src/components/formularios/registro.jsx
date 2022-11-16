@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./formularios.module.css";
 import Contexto from "../../contexto/AppContext";
 import { Link, useNavigate } from "react-router-dom"
@@ -9,14 +9,23 @@ const Registro = () => {
   const [esMenorQue5, setEsMenorQue5] = useState(false)
   const [sonDiferentes, setSonDiferentes] = useState(false)
 
+  // useEffect(()=>{
+  //   registrarUsuario({ nombre, apellido, email, contrasenia })
+  //   .then((respuestaUsuario)=> {
+  //     respuestaUsuario.ok?redirigir("/"):alert("Lamentablemente no ha podido registrarse. Por favor intente ma's tarde")
+  //     return respuestaUsuario.json()
+  //   })
+  //   .then(datos => console.log(datos))
+  // },[])
+
   function enviarRegistro(evento) {
     evento.preventDefault()
-    let [nombre, apellido, mail, pass, confirmacion] = [evento.target.elements.nombre.value, evento.target.elements.apellido.value, evento.target.elements.email.value, evento.target.elements.password.value, evento.target.elements.confirmacion.value]
-    if (!esMayorDe5(pass)) { setEsMenorQue5(true) } else { setEsMenorQue5(false)}
-    if (!sonIguales(pass, confirmacion)) { setSonDiferentes(true)} else { setSonDiferentes(false)}
-    if (!validarEmail(mail)) {}
-    if (esValido(pass, confirmacion)) {
-      registrarUsuario({ nombre, apellido, mail, pass })
+    let [nombre, apellido, email, contrasenia, confirmacion] = [evento.target.elements.nombre.value, evento.target.elements.apellido.value, evento.target.elements.email.value, evento.target.elements.password.value, evento.target.elements.confirmacion.value]
+    if (!esMayorDe5(contrasenia)) { setEsMenorQue5(true) } else { setEsMenorQue5(false)}
+    if (!sonIguales(contrasenia, confirmacion)) { setSonDiferentes(true)} else { setSonDiferentes(false)}
+    if (!validarEmail(email)) {}
+    if (esValido(contrasenia, confirmacion)) {
+      registrarUsuario({ nombre, apellido, email, contrasenia })
       redirigir("/")
     }
   }
@@ -40,27 +49,27 @@ export default Registro;
 function Formulario({registrar}) {
 
   return(
-    <form className={styles.formularioContainer} autocomplete="off" onSubmit={registrar} method="POST">
+    <form className={styles.formularioContainer} autoComplete="off" onSubmit={registrar} method="POST">
         <div className={styles.contenidoFormulario}>
           <h3 className={styles.tituloFormulario}>Crear cuenta</h3>
 
-          <div class="row">
-            <div class="form-group col-6">
+          <div className="row">
+            <div className="form-group col-6">
               <label>Nombre</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputEmail"
                 placeholder="Micaela"
                 name="nombre"
                 required
               />
             </div>
-            <div class="form-group col-6">
+            <div className="form-group col-6">
               <label>Apellido</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputPassword"
                 placeholder="Barbero"
                 name="apellido"

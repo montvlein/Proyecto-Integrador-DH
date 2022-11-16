@@ -5,10 +5,11 @@ import FormDatos from './formDatos/formDatos'
 import HorarioReserva from './horarioReserva/horarioReserva'
 import CabeceraProducto from '../producto/cabeceraProducto'
 import PoliticasProducto from '../producto/politicasProducto'
+import styles from "../Reserva/reservaContenedor.module.css"
 
 export default function Reserva() {
   return (
-      <section>
+      <section className={`container`}>
         <CabeceraProducto />
         <div>
           <div>

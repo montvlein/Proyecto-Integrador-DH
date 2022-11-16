@@ -1,33 +1,44 @@
 package com.dh.DigitalBooking.Services.Roles;
 
-import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
+import com.dh.DigitalBooking.Config.JWTUtil;
+import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
-import com.dh.DigitalBooking.Models.Entities.Auto;
-import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ServicioUsuario {
+public class ServicioUsuario implements UserDetailsService {
     private iRepositorioUsuario repositorio;
 
     @Autowired
     private ServicioRol rol;
 
     @Autowired
+    private JWTUtil jwtUtil;
+
+    @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
         this.repositorio = repositorio;
     }
 
-    public UsuarioDTO guardar(Usuario usuario) throws Exception{
+    public Auth.Response guardar(Usuario usuario) throws Exception {
         usuario.setRol(rol.buscarPorId(2l));
         usuario.setVerificado(false);
-        return usuarioToDTO(repositorio.save(usuario));
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
+        usuario.setContrasenia(contraseniaEncriptada);
+        repositorio.save(usuario);
+        return new Auth.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{
@@ -94,5 +105,21 @@ public class ServicioUsuario {
             listadoDeAutos.add(usuarioToDTO(usuario));
         }
         return listadoDeAutos;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = repositorio.findByEmail(email);
+        if (usuario != null) {
+            return new User(usuario.getEmail(),
+                    usuario.getContrasenia(),
+                    new ArrayList<>());
+        } else {
+            throw new UsernameNotFoundException("No se encontro usuario con mail: " + email);
+        }
+    }
+
+    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
+        return  loadUserByUsername(email);
     }
 }
