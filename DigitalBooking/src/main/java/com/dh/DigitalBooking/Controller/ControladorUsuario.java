@@ -92,11 +92,4 @@ public class ControladorUsuario {
         }
     }
 
-    @PostMapping("validarToken")
-    @Operation(summary = "Si el token es valido, devuelve un usuario")
-    public ResponseEntity<?> login(@RequestBody String token) {
-        UsuarioDTO usuario = servicio.authenticar(token);
-        if (usuario != null) return ResponseEntity.ok(usuario);
-        return ResponseEntity.notFound().build();
-    }
 }

@@ -41,16 +41,6 @@ public class ServicioUsuario implements UserDetailsService {
         return new Auth.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
     }
 
-    public UsuarioDTO authenticar(String token) { //este metodo no funciona. Error JsonParseException
-        String mail = jwtUtil.extraerNombre(token);
-        Usuario usuario = repositorio.findByEmail(mail);
-        UsuarioDTO user = null;
-        if (usuario != null && jwtUtil.isTokenExpired(token)) {
-            user = usuarioToDTO(usuario);
-        }
-        return user;
-    }
-
     public UsuarioDTO buscarPorId(Long id) throws Exception{
         UsuarioDTO buscado = null;
         if(repositorio.findById(id).isPresent()) {
