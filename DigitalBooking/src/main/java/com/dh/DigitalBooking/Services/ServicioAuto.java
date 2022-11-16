@@ -103,9 +103,12 @@ public class ServicioAuto {
         Random random = new Random();
         List<AutoDTO> recomendados = new ArrayList<>();
         Long num;
-        for (int i=0; i <6; i++) {
-            num = random.nextLong(1, listar().size());
-            recomendados.add(buscarPorId(num));
+        int autosEnDB = listar().size();
+        if (autosEnDB > 0) {
+            for (int i=0; i <6; i++) {
+                num = random.nextLong(1, autosEnDB);
+                recomendados.add(buscarPorId(num));
+            }
         }
         return recomendados;
     }
