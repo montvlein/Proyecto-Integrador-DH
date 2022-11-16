@@ -24,8 +24,4 @@ deploy:
   stage: deploy 
   script:
     - echo "Deploying application..."
-    - cd DigitalBooking
-    - cd src
-    - cd main
-    - cd java
-    - sh DigitalBookingApplication
+ 
