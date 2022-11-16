@@ -1,6 +1,7 @@
 package com.dh.DigitalBooking.Controller;
 
 import com.dh.DigitalBooking.Excepcion.NotFoundException;
+import com.dh.DigitalBooking.Models.DTOs.LoginDTO;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
@@ -54,5 +55,21 @@ public class ControladorUsuario {
         UsuarioDTO usuarioEnDB = servicio.buscarPorId(id);
         if (usuarioEnDB == null ) return ResponseEntity.badRequest().body("No existe un usuario con esa ID");
         return ResponseEntity.ok(usuarioEnDB);
+    }
+
+    @PostMapping("autenticacion")
+    @Operation(summary = "Devuelve un token")
+    public ResponseEntity<?> login(@RequestBody LoginDTO usuario) {
+        final String jwt = servicio.authenticar(usuario);
+        if (jwt != null) return ResponseEntity.ok(jwt);
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("validarToken")
+    @Operation(summary = "Si el token es valido, devuelve un usuario")
+    public ResponseEntity<?> login(@RequestBody String token) {
+        UsuarioDTO usuario = servicio.authenticar(token); //hay que parsear el token. Este metodo ahora esta dando error
+        if (usuario != null) return ResponseEntity.ok(usuario);
+        return ResponseEntity.notFound().build();
     }
 }

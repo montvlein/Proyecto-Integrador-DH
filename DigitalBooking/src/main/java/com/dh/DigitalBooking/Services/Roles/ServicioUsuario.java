@@ -1,6 +1,8 @@
 package com.dh.DigitalBooking.Services.Roles;
 
+import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
+import com.dh.DigitalBooking.Models.DTOs.LoginDTO;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
@@ -21,6 +23,9 @@ public class ServicioUsuario {
     private ServicioRol rol;
 
     @Autowired
+    private JWTUtil jwtUtil;
+
+    @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
         this.repositorio = repositorio;
     }
@@ -32,6 +37,25 @@ public class ServicioUsuario {
         String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
         usuario.setContrasenia(contraseniaEncriptada);
         return usuarioToDTO(repositorio.save(usuario));
+    }
+
+    public String authenticar(LoginDTO data) {
+        Usuario usuario = repositorio.findByEmail(data.getEmail());
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (usuario != null && passwordEncoder.matches(data.getContrasenia(),usuario.getContrasenia())) {
+            return jwtUtil.generarToken(usuario.getEmail());
+        }
+        return null;
+    }
+
+    public UsuarioDTO authenticar(String token) { //este metodo no funciona. Error JsonParseException
+        String mail = jwtUtil.extraerNombre(token);
+        Usuario usuario = repositorio.findByEmail(mail);
+        UsuarioDTO user = null;
+        if (usuario != null && jwtUtil.isTokenExpired(token)) {
+            user = usuarioToDTO(usuario);
+        }
+        return user;
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{

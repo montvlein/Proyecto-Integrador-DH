@@ -3,7 +3,6 @@ package com.dh.DigitalBooking.Config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -23,12 +22,12 @@ public class JWTUtil {
         return extractClaimDate(token);
     }
 
-    public Date extractClaimDate(String token) {
+    private Date extractClaimDate(String token) {
         Claims claims = extractAllClaims(token);
         return claims.getExpiration();
     }
 
-    public String extractClaimUsername(String token) {
+    private String extractClaimUsername(String token) {
         Claims claims = extractAllClaims(token);
         return claims.getSubject();
     }
@@ -37,9 +36,9 @@ public class JWTUtil {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 
-    public String generarToken(UserDetails infoUsuario) {
+    public String generarToken(String infoUsuario) {
         Map<String, Object> claims = new HashMap<>();
-        return crearToken(claims, infoUsuario.getUsername());
+        return crearToken(claims, infoUsuario);
     }
 
     private String crearToken(Map<String, Object> claims, String usuario) {
@@ -53,12 +52,12 @@ public class JWTUtil {
                 .compact();
     }
 
-    public Boolean validarToken(String token, UserDetails infoUsuario) {
+    public Boolean validarToken(String token, String infoUsuario) {
         final String nombreUsuario = extraerNombre(token);
-        return (nombreUsuario.equals(infoUsuario.getUsername()) && !isTokenExpired(token));
+        return (nombreUsuario.equals(infoUsuario) && !isTokenExpired(token));
     }
 
-    private boolean isTokenExpired(String token) {
+    public boolean isTokenExpired(String token) {
         return extraerExpiracion(token).before(new Date());
     }
 }
