@@ -38,7 +38,7 @@ const Registro = () => {
     if (!esMayorDe5(contrasenia)) { setEsMenorQue5(true) } else { setEsMenorQue5(false)}
     if (!sonIguales(contrasenia, confirmacion)) { setSonDiferentes(true)} else { setSonDiferentes(false)}
     if (esEmailValido(email)) { setMailInvalido(false) } else { setMailInvalido(true) }
-    if (esValido(contrasenia, confirmacion)) {
+    if (esValido(contrasenia, confirmacion, email)) {
       registrarUsuario({ nombre, apellido, email, contrasenia })
     }
   }
@@ -129,8 +129,8 @@ function sonIguales(pass, confirmacion) {
   return pass === confirmacion
 }
 
-function esValido(pass, confirmacion) {
-  return esMayorDe5(pass) && sonIguales(pass, confirmacion)
+function esValido(pass, confirmacion, email) {
+  return esMayorDe5(pass) && sonIguales(pass, confirmacion) && esEmailValido(email)
 }
 
 function esEmailValido(email) {
