@@ -22,7 +22,7 @@ class CRUD {
 
     crear(obj) {
         return handleFetch(`${this.uri}/nuevi`, opciones(obj))
-        .then( res => res )
+        .then( res => res.json() )
         .catch(error => { throw(error) })
     }
 
@@ -85,6 +85,12 @@ class AutoEndPoint extends CRUD {
 class UsuarioEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/usuario") {
         super(basepath, categoriaUri)
+    }
+
+    crear(obj) {
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj))
+        .then( res => res )
+        .catch(error => { throw(error) })
     }
 }
 
