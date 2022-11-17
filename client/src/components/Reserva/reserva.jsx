@@ -11,7 +11,7 @@ export default function Reserva() {
   return (
       <section className={`container`}>
         <CabeceraProducto />
-        <div>
+        <div className={styles.contenedorFormularioReserva}>
           <div>
             <FormDatos />
             <Calendario />

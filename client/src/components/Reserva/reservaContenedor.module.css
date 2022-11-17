@@ -3,3 +3,8 @@ padding: 0;
 margin: auto;
 box-sizing: border-box;
 }
+
+.contenedorFormularioReserva {
+    background-color: rgba(214, 214, 214, 0.342);
+    padding: 20px;
+}
