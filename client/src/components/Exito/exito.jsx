@@ -9,9 +9,10 @@ export default function Exito() {
         <section>
             {
 <div>
-    
+    <div> </div>
     <h1> ¡Muchas Gracias! </h1>
     <p>Tu reserva ha sido exitosa</p>
+    <button>Ok</button>
 </div>
 
 
