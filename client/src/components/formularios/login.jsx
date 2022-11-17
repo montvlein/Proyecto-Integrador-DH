@@ -2,44 +2,33 @@ import styles from "./formularios.module.css";
 import { useContext, useState } from "react";
 import Contexto from "../../contexto/AppContext"
 import { Link, useNavigate } from "react-router-dom"
+import { DigitalBookingApi } from "../../data/conexionAPI";
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, validarUsuario } = useContext(Contexto)
+  const { isToken } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
 
   const handleSubmit = function (e) {
     e.preventDefault()
-    let [mail, pass] = [e.target.elements.email.value, e.target.elements.password.value]
-    if (validarUsuario(mail, pass)) {
-      iniciarSesion(mail)
+    let [email, contrasenia] = [e.target.elements.email.value, e.target.elements.password.value]
+    DigitalBookingApi.usuario.login({email,contrasenia})
+    .then( auth => {
+      setUsuario({nombre:"log", apellido: "iando"})
+      localStorage.setItem("DigitalToken", auth.token )
+      isToken(true)
       redirigir("/")
-    } else {
+      })
+    .catch(e => {
       setInvalido(true)
-    }
+    })
   }
-
-  if (invalido) {
     return(
       <div className={styles.divContainer}>
-        <Formulario ingresar={handleSubmit}/>
-        <Errores/>
-      </div>
-    )
-  }
 
-    return(
-      <div className={styles.divContainer}>
-        <Formulario ingresar={handleSubmit}/>
-      </div>
-    )
-  }
+        {invalido?<p className="text-danger">Lamentablemente no ha podido iniciar sesi'on. Por favor, intente más tarde</p>:null}
 
-export default Login;
-
-function Formulario({ingresar}) {
-  return(
-    <form className={styles.formularioContainer} onSubmit={ingresar} method="POST">
+        <form className={styles.formularioContainer} onSubmit={handleSubmit} method="POST">
           <div className={styles.contenidoFormulario}>
             <h3 className={styles.tituloFormulario}>Iniciar Sesión</h3>
             <div className="form-group mt-3">
@@ -69,14 +58,9 @@ function Formulario({ingresar}) {
                 ¿Aún no tenes cuenta? <Link to="/crearCuenta">Registrate</Link>
             </p>
           </div>
-    </form>
-  )
-}
+        </form>
+      </div>
+    )
+  }
 
-function Errores() {
-  return(
-    <ul className={styles.error}>
-        <li >Por favor vuelva a intentarlo, sus credenciales son inválidas</li>
-    </ul>
-  )
-}
+export default Login;
