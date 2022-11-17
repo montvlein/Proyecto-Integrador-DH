@@ -92,6 +92,12 @@ class UsuarioEndPoint extends CRUD {
         .then( res => res )
         .catch(error => { throw(error) })
     }
+
+    login(obj) {
+        return handleFetch(`${this.uri}/autenticacion`, opciones(obj))
+        .then( res => res.json() )
+        .catch(error => { throw(error) })
+    }
 }
 
 function opciones(informacion, metodo = "POST", tipo = "application/json") {
