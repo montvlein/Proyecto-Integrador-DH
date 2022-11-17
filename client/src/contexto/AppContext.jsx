@@ -8,9 +8,19 @@ const Contexto = createContext();
 export function AppContext({ children }) {
 
   // usuario y sesion
+  const [token, isToken] = useState(localStorage.getItem("DigitalToken"))
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [usuario, setUsuario] = useState();
+
+  useEffect(()=>{
+    if (token) {
+      isToken(true)
+      setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
+      setSesionIniciada(true)
+    }
+  },[token])
+
   function getUsuario() {
     return usuario;
   }
@@ -28,18 +38,6 @@ export function AppContext({ children }) {
     return sesionIniciada;
   }
 
-  function registrarUsuario(usuario) {
-    // getListaUsuarios().push(usuario);
-    DigitalBookingApi.usuario.crear(usuario)
-    .then( respuestaUsuario => {
-      if (respuestaUsuario.status == 201) {
-        setUsuario(usuario);
-        setSesionIniciada(respuestaUsuario.ok);
-      }
-      return respuestaUsuario
-    })
-  }
-
   function iniciarSesion(mail) {
     let usuario = getUsuarioPorMail(mail);
     setUsuario(usuario);
@@ -47,6 +45,8 @@ export function AppContext({ children }) {
   }
 
   function cerrarSesion() {
+    localStorage.removeItem("DigitalToken")
+    isToken(false)
     setUsuario({});
     setSesionIniciada(false);
   }
@@ -94,10 +94,12 @@ export function AppContext({ children }) {
     <Contexto.Provider
       value={{
         getUsuario,
+        setUsuario,
+        isToken,
+        setSesionIniciada,
         estaLaSesionIniciada,
         iniciarSesion,
         cerrarSesion,
-        registrarUsuario,
         validarUsuario,
         getListaAutos,
         getAutosFiltrados,
