@@ -9,14 +9,13 @@ export function AppContext({ children }) {
 
   // usuario y sesion
   const [token, isToken] = useState(localStorage.getItem("DigitalToken"))
-  const [listaUsuarios, setListaUsuarios] = useState([]);
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [usuario, setUsuario] = useState();
 
   useEffect(()=>{
     if (token) {
       isToken(true)
-      setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
+      usuario?null:setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
       setSesionIniciada(true)
     }
   },[token])
@@ -24,24 +23,9 @@ export function AppContext({ children }) {
   function getUsuario() {
     return usuario;
   }
-  function getUsuarioPorMail(mail) {
-    return getListaUsuarios().find((usuario) => usuario.mail === mail);
-  }
-  function validarUsuario(mail, pass) {
-    let usuarioIngresando = getUsuarioPorMail(mail);
-    return usuarioIngresando?.pass === pass;
-  }
-  function getListaUsuarios() {
-    return listaUsuarios;
-  }
+
   function estaLaSesionIniciada() {
     return sesionIniciada;
-  }
-
-  function iniciarSesion(mail) {
-    let usuario = getUsuarioPorMail(mail);
-    setUsuario(usuario);
-    setSesionIniciada(true);
   }
 
   function cerrarSesion() {
@@ -98,9 +82,7 @@ export function AppContext({ children }) {
         isToken,
         setSesionIniciada,
         estaLaSesionIniciada,
-        iniciarSesion,
         cerrarSesion,
-        validarUsuario,
         getListaAutos,
         getAutosFiltrados,
         filtarAutos,
