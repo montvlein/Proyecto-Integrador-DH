@@ -9,6 +9,7 @@ import styles from "../Reserva/reservaContenedor.module.css"
 
 export default function Reserva() {
   return (
+      // <section className={styles.reservaContainer}>
       <section className={`container`}>
         <CabeceraProducto />
         <div>

@@ -1,5 +1,12 @@
+
 .reservaArticulo{
 padding: 0;
 margin: auto;
 box-sizing: border-box;
+
 }
+
+/* .reservaContainer{
+    display: flex;
+    flex-direction: column;
+} */
