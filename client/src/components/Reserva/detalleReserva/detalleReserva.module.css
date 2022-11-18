@@ -67,8 +67,10 @@
 
 .iconoGlobo{
     display: flex;
-    align-content: center;
-    padding-right: 10px;
+    justify-content:fle;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
     
 }
 
@@ -82,12 +84,30 @@
     color: var(--grisO);
 }
 
+.horariosReserva{
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.reservaCheckIn, .reservaCheckOut{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botonReservaContainer{
+    display: flex;
+    justify-content: center;
+}
+
 .botonReserva {
     background-color: var(--amarillo);
     border-radius: 8px;
     border-color: var(--amarillo);
     padding: 0.5rem;
+    
   }
+
+
 
 
 

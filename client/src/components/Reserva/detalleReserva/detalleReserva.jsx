@@ -57,10 +57,16 @@ export default function DetalleReserva() {
         />
         <p className={styles.ubicacionReserva}>Aeroparque Jorge Newbery, Buenos Aires, Argentina</p>
         </div>
-        <div className={styles.divDosSeccionDatosUbicacionPorducto}></div>
-        <div>Check in</div>
-        <div>Check out</div>
+        <div className={styles.horariosReserva}>
+        <hr className={styles.lineaCheck}></hr>
+        <div className={styles.reservaCheckIn}>Check in <span className={styles.dataReserva}>__/__/__</span></div>
+        <hr className={styles.lineaCheck}></hr>
+        <div className={styles.reservaCheckOut}>Check out <span className={styles.dataReserva}>__/__/__</span></div>
+        <hr className={styles.lineaCheck}></hr>
+        <div className={styles.botonReservaContainer}>
         <button className={styles.botonReserva}>Confirmar Reserva</button>
+        </div>
+        </div>
       </div>
     </section>
   )
