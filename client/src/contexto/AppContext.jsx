@@ -6,6 +6,7 @@ import { DigitalBookingApi } from "../data/conexionAPI";
 const Contexto = createContext();
 
 export function AppContext({ children }) {
+  // Reserva
 
   // usuario y sesion
   const [listaUsuarios, setListaUsuarios] = useState([]);

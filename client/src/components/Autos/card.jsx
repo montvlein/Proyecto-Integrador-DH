@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import style from "./cards.module.css";
+import estiloBoton from "../producto/bloqueReserva/boton.module.css"
 
 const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => {
   let portada = imagenes[0].url
