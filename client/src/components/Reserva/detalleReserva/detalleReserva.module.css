@@ -7,6 +7,7 @@
 .sectionDetalle{
     display: flex;
     width: 100%;
+    padding: 12px;
    
 }
 
@@ -17,9 +18,7 @@
     margin-top: 0.313px;
     flex-direction: column;
     align-self: flex-end;
-    align-items: center;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
-    padding: 0.625rem;
     border-radius: 8px;
    
  
@@ -28,7 +27,8 @@
 .tituloReserva{
     display: flex;
     margin-bottom: 0;
-    padding: 1.25rem;
+    padding: 0.8rem;
+    font-size: 1.5em;
    
 }
 .imagenReserva{
@@ -44,10 +44,42 @@
    
 }
 
-.detalleCategoria, .detallleNombre{
+.calificaionEstrellas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--amarillo);
+}
+
+.detallleNombre{
     align-self: flex-start;
     padding: 0.625rem;
     
+    
+}
+
+ .detalleCategoria{
+    color: grey;
+    font-weight: bold;
+    padding: 0.625rem;
+    margin-bottom: 0;
+}
+
+.iconoGlobo{
+    display: flex;
+    align-content: center;
+    padding-right: 10px;
+    
+}
+
+.icon{
+    margin-left: 10px;
+    color: var(--amarillo);
+}
+
+.iconUbi{
+    margin-right: 5px;
+    color: var(--grisO);
 }
 
 .botonReserva {
@@ -65,4 +97,4 @@
     display: flex;
     padding: 20px;
     margin-bottom: 0;
-} */
+} */    

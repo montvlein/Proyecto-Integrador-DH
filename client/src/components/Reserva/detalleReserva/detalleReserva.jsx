@@ -1,10 +1,12 @@
 import React from 'react'
 import styles from '../detalleReserva/detalleReserva.module.css'
-import ubicacion from "../../producto/cabeceraProducto"
-import stylesArticlulo from '../../producto/producto'
+import stylesArticlulo from '../../producto/producto'   
 import { useState, useEffect } from 'react'
 import { DigitalBookingApi } from '../../../data/conexionAPI'
 import { useParams } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function DetalleReserva() {
   const { idProducto } = useParams()
@@ -37,13 +39,25 @@ export default function DetalleReserva() {
   return (
     <section className={styles.sectionDetalle}>
       <div className={styles.detalleReserva}>
-        <h3 className={styles.tituloReserva}>Detalle de reserva</h3><hr></hr>
+        <h3 className={styles.tituloReserva}>Detalle de reserva</h3>
         <div className={styles.imagenReserva}></div>
-        <p className={styles.detalleCategoria}>{producto.categoria}</p>
-        <p className={styles.detallleNombre}>{producto.nombre}</p>
-        {/* <p className={styles.descripcionReserva}>{producto.descripcion}</p> */}
-        <p className={styles.ubicacionReserva}>{producto.ubicacion}</p>
-        
+        <p className={styles.detalleCategoria}>{producto.categoria.toUpperCase()}</p>
+        <h5 className={styles.detallleNombre}>{producto.nombre}</h5>
+        <div className={styles.calificacionEstrellas}>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+        </div>
+        <div className={styles.iconoGlobo}>
+        <FontAwesomeIcon
+          icon={faLocationDot}
+          className={styles.iconUbi}
+        />
+        <p className={styles.ubicacionReserva}>Aeroparque Jorge Newbery, Buenos Aires, Argentina</p>
+        </div>
+        <div className={styles.divDosSeccionDatosUbicacionPorducto}></div>
         <div>Check in</div>
         <div>Check out</div>
         <button className={styles.botonReserva}>Confirmar Reserva</button>
