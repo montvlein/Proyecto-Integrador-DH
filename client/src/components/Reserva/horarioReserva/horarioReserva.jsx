@@ -21,12 +21,19 @@ export default function HorarioReserva(){
                     <p>Indica tu horario de retiro:</p>
                     <select className={styles.estiloSelect}>
                         <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
-                        <option>Selecciona tu horario</option>
+                        <option>09:00:00</option>
+                        <option>10:00:00</option>
+                        <option>11:00:00</option>
+                        <option>12:00:00</option>
+                        <option>13:00:00</option>
+                        <option>15:00:00</option>
+                        <option>16:00:00</option>
+                        <option>17:00:00</option>
+                        <option>18:00:00</option>
+                        <option>19:00:00</option>
+                        <option>20:00:00</option>
+                        <option>21:00:00</option>
+                        <option>22:00:00</option>
                     </select>
                 </div>
                 </div>
