@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.*;
 
 @Getter
 @Setter
@@ -15,9 +15,9 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime horaComienzoReserva;
-    private LocalDateTime fechaInicialReserva;
-    private LocalDateTime fechaFinalReserva;
+    private LocalTime horaComienzoReserva;
+    private LocalDate fechaInicialReserva;
+    private LocalDate fechaFinalReserva;
 
     @ManyToOne
     @JoinColumn(name= "auto_id")
