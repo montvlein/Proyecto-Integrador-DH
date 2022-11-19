@@ -3,7 +3,7 @@ package com.dh.DigitalBooking.Models.Entities.Roles;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Auth {
+public class JWT {
 
     @Getter @Setter
     public  static class Request {
