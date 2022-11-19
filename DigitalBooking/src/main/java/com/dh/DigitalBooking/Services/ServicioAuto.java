@@ -65,7 +65,7 @@ public class ServicioAuto {
         return autoToDTO(repositorio.findAll());
     }
 
-    private AutoDTO autoToDTO(Auto auto) {
+    protected AutoDTO autoToDTO(Auto auto) {
         AutoDTO autoEntregable = new AutoDTO();
         autoEntregable.setId(auto.getId());
         autoEntregable.setNombre(auto.getNombre());
