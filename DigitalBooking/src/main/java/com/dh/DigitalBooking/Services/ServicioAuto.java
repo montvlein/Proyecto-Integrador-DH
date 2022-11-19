@@ -65,18 +65,6 @@ public class ServicioAuto {
         return autoToDTO(repositorio.findAll());
     }
 
-    public List<AutoDTO> buscarAutoPorCategoria(String parametro) {
-        return autoToDTO(repositorio.buscarAutoPorCategoria(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPorCiudad(String parametro) {
-        return  autoToDTO(repositorio.buscarAutoPorCiudad(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
-        return  autoToDTO(repositorio.buscarAutoPor(tituloCategoria, nombreProvincia));
-    }
-
     private AutoDTO autoToDTO(Auto auto) {
         AutoDTO autoEntregable = new AutoDTO();
         autoEntregable.setId(auto.getId());
@@ -91,7 +79,7 @@ public class ServicioAuto {
         return autoEntregable;
     }
 
-    private List<AutoDTO> autoToDTO(List<Auto> listado) {
+    protected List<AutoDTO> autoToDTO(List<Auto> listado) {
         List<AutoDTO> listadoDeAutos = new ArrayList<>();
         for (Auto auto : listado){
             listadoDeAutos.add(autoToDTO(auto));
