@@ -1,11 +1,9 @@
 package com.dh.DigitalBooking.Config;
-import com.dh.DigitalBooking.Services.Roles.ServicioRol;
 import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -33,7 +31,7 @@ public class JwtResquetFilter extends OncePerRequestFilter {
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             token = authorizationHeader.substring(7);
-            email = jwtUtil.extraerNombre(token);
+            email = jwtUtil.extraerEmail(token);
         }
 
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
