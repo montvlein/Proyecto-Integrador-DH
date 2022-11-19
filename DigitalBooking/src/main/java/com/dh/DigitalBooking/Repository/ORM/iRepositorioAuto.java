@@ -29,4 +29,15 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
             and reserva.fechaInicialReserva > ?1
             and reserva.fechaFinalReserva < ?2""")
     List<Auto> buscarAutoPorFecha(LocalDate fecha_inicio, LocalDate fecha_final);
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where auto.ciudad.provincia = ?3
+            and reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva > ?1
+            and reserva.fechaFinalReserva < ?2""")
+    List<Auto> buscarAutoPorFecha_Ciudad(LocalDate fecha_inicio, LocalDate fecha_final, String provincia );
 }
