@@ -29,6 +29,6 @@ public class DataLoader implements ApplicationRunner {
         administrador.setEmail("admin@test.com");
         administrador.setNombre("admin");
         administrador.setApellido("dev");
-        repositorio.save(administrador);
+        if ( repositorio.findByEmail(administrador.getEmail()) == null ) repositorio.save(administrador);
     }
 }
