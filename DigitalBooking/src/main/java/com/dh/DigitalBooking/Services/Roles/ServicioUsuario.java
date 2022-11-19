@@ -122,4 +122,12 @@ public class ServicioUsuario implements UserDetailsService {
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         return  loadUserByUsername(email);
     }
+
+    public UsuarioDTO tokenInfo(String token) {
+        String email = jwtUtil.extraerEmail(token);
+        UsuarioDTO usuario = null;
+        Usuario usuarioPorMail = repositorio.findByEmail(email);
+        if (usuarioPorMail != null) usuario = usuarioToDTO(usuarioPorMail);
+        return usuario;
+    }
 }
