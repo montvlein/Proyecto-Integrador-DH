@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.*;
 import java.util.List;
 
 @Repository
@@ -18,4 +19,14 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
 
     @Query("select a from Auto a where a.categoria.titulo = ?1 and a.ciudad.provincia = ?2")
     List<Auto> buscarAutoPor(String categoria, String ciudad);
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva > ?1
+            and reserva.fechaFinalReserva < ?2""")
+    List<Auto> buscarAutoPorFecha(LocalDate fecha_inicio, LocalDate fecha_final);
 }
