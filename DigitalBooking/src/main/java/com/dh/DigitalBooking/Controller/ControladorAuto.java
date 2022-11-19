@@ -54,8 +54,8 @@ public class ControladorAuto {
 
     @Operation(summary = "Busca todos los autos por parametro")
     @GetMapping("buscarPor")
-    public ResponseEntity buscarPor(@RequestParam(required = false) String categoria, @RequestParam(required = false) String ciudad, @RequestParam(required = false) String fechas) {
-        List<AutoDTO> resultarosEncontrados =  buscador.buscarAutoPor(categoria, ciudad, fechas);
+    public ResponseEntity buscarPor(@RequestParam(required = false) String categoria, @RequestParam(required = false) String ciudad, @RequestParam(required = false) String fechaInicio , @RequestParam(required = false) String fechaFinal) {
+        List<AutoDTO> resultarosEncontrados =  buscador.buscarAutoPor(categoria, ciudad, fechaInicio, fechaFinal);
         if (resultarosEncontrados == null) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(resultarosEncontrados);
     }
