@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,10 @@ import java.util.Map;
 @Component
 public class JWTUtil {
 
-    private String SECRET_KEY = "contrasenia_a_eleccion";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
-    public String extraerNombre(String token) {
+    public String extraerEmail(String token) {
         return extractClaimUsername(token);
     }
 
@@ -59,12 +61,12 @@ public class JWTUtil {
     }
 
     public Boolean validarToken(String token, String infoUsuario) {
-        final String nombreUsuario = extraerNombre(token);
+        final String nombreUsuario = extraerEmail(token);
         return (nombreUsuario.equals(infoUsuario) && !isTokenExpired(token));
     }
 
     public Boolean validarToken(String token, UserDetails infoUsuario) {
-        final String nombreUsuario = extraerNombre(token);
+        final String nombreUsuario = extraerEmail(token);
         return (nombreUsuario.equals(infoUsuario.getUsername()) && !isTokenExpired(token));
     }
 

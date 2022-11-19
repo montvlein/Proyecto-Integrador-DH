@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -46,17 +47,21 @@ public class Seguridad {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("*").allowedMethods("GET", "POST", "PUT", "DELETE");
-//                        .allowCredentials(true);
             }
         };
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.headers().frameOptions().sameOrigin().and().cors().and().csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/api/v1/reserva/**").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/", "/api/**").permitAll()
+                .antMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/usuario/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/usuario/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/auto/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/categoria/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/ciudad/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/reserva/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -1,7 +1,7 @@
 package com.dh.DigitalBooking.Controller;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
-import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
+import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
@@ -44,8 +44,7 @@ public class ControladorUsuario {
 
     @Operation(summary = "Borra un usuario x id")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarPorId(@PathVariable Long id) throws Exception{
-//        if (servicio.buscarPorId(id) == null ) throw new NotFoundException("No existe usuario con esa ID para eliminar");
+    public ResponseEntity<?> eliminarPorId(@PathVariable Long id) throws Exception {
         if (servicio.buscarPorId(id) == null ) return ResponseEntity.badRequest().body("No existe usuario con esa ID para eliminar");
         servicio.eliminarPorId(id);
         return ResponseEntity.noContent().build();
@@ -69,7 +68,7 @@ public class ControladorUsuario {
 
     @PostMapping("autenticacion")
     @Operation(summary = "Devuelve un token")
-    public ResponseEntity<?> login(@RequestBody Auth.Request request) throws Exception {
+    public ResponseEntity<?> login(@RequestBody JWT.Request request) throws Exception {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -84,11 +83,19 @@ public class ControladorUsuario {
 
         try {
             final UserDetails user = servicio.loadUserByEmail(request.getEmail());
-            final String jwt = jwtUtil.generarToken(user);
-            return ResponseEntity.ok(new Auth.Response(jwt));
+            final String token = jwtUtil.generarToken(user);
+            return ResponseEntity.ok(new JWT.Response(token));
         } catch (UsernameNotFoundException e) {
           throw new Exception("Usuario no encontrado", e);
         }
+    }
+
+    @GetMapping("tokenInfo")
+    @Operation(summary = "Devuelve la informacion del usuario")
+    public ResponseEntity<?> tokenInfo(@RequestParam String token) throws Exception {
+        UsuarioDTO usuario = servicio.tokenInfo(token);
+        if (usuario != null) return ResponseEntity.ok(usuario);
+        return ResponseEntity.notFound().build();
     }
 
 }

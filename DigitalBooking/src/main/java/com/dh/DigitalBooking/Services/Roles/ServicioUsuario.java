@@ -1,7 +1,7 @@
 package com.dh.DigitalBooking.Services.Roles;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
-import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
+import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
@@ -31,14 +31,14 @@ public class ServicioUsuario implements UserDetailsService {
         this.repositorio = repositorio;
     }
 
-    public Auth.Response guardar(Usuario usuario) throws Exception {
+    public JWT.Response guardar(Usuario usuario) throws Exception {
         usuario.setRol(rol.buscarPorId(2l));
         usuario.setVerificado(false);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
         usuario.setContrasenia(contraseniaEncriptada);
         repositorio.save(usuario);
-        return new Auth.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
+        return new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{
@@ -121,5 +121,13 @@ public class ServicioUsuario implements UserDetailsService {
 
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         return  loadUserByUsername(email);
+    }
+
+    public UsuarioDTO tokenInfo(String token) {
+        String email = jwtUtil.extraerEmail(token);
+        UsuarioDTO usuario = null;
+        Usuario usuarioPorMail = repositorio.findByEmail(email);
+        if (usuarioPorMail != null) usuario = usuarioToDTO(usuarioPorMail);
+        return usuario;
     }
 }

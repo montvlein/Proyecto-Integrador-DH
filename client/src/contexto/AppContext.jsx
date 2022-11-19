@@ -9,45 +9,29 @@ export function AppContext({ children }) {
   // Reserva
 
   // usuario y sesion
-  const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [token, isToken] = useState(localStorage.getItem("DigitalToken"))
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [usuario, setUsuario] = useState();
+
+  useEffect(()=>{
+    if (token) {
+      isToken(true)
+      usuario?null:setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
+      setSesionIniciada(true)
+    }
+  },[token])
+
   function getUsuario() {
     return usuario;
   }
-  function getUsuarioPorMail(mail) {
-    return getListaUsuarios().find((usuario) => usuario.mail === mail);
-  }
-  function validarUsuario(mail, pass) {
-    let usuarioIngresando = getUsuarioPorMail(mail);
-    return usuarioIngresando?.pass === pass;
-  }
-  function getListaUsuarios() {
-    return listaUsuarios;
-  }
+
   function estaLaSesionIniciada() {
     return sesionIniciada;
   }
 
-  function registrarUsuario(usuario) {
-    // getListaUsuarios().push(usuario);
-    DigitalBookingApi.usuario.crear(usuario)
-    .then( respuestaUsuario => {
-      if (respuestaUsuario.status == 201) {
-        setUsuario(usuario);
-        setSesionIniciada(respuestaUsuario.ok);
-      }
-      return respuestaUsuario
-    })
-  }
-
-  function iniciarSesion(mail) {
-    let usuario = getUsuarioPorMail(mail);
-    setUsuario(usuario);
-    setSesionIniciada(true);
-  }
-
   function cerrarSesion() {
+    localStorage.removeItem("DigitalToken")
+    isToken(false)
     setUsuario({});
     setSesionIniciada(false);
   }
@@ -95,11 +79,11 @@ export function AppContext({ children }) {
     <Contexto.Provider
       value={{
         getUsuario,
+        setUsuario,
+        isToken,
+        setSesionIniciada,
         estaLaSesionIniciada,
-        iniciarSesion,
         cerrarSesion,
-        registrarUsuario,
-        validarUsuario,
         getListaAutos,
         getAutosFiltrados,
         filtarAutos,
