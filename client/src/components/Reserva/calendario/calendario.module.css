@@ -9,7 +9,7 @@
 
 .contenedorPadre {
 padding-top: 20px;
-width: 53%;
+width: 55%;
 }
 
 
@@ -27,4 +27,5 @@ width: 53%;
     padding: 10px;
     border-radius: 5px;
     width: 100%;
+    background-color: #FFF;
 }

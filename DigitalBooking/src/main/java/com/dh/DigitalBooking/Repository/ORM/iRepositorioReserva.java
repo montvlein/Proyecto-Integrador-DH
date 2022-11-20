@@ -1,4 +1,4 @@
-package com.dh.DigitalBooking.Repository.ORM.Roles;
+package com.dh.DigitalBooking.Repository.ORM;
 
 import com.dh.DigitalBooking.Models.Entities.Reserva;
 import org.springframework.data.jpa.repository.JpaRepository;

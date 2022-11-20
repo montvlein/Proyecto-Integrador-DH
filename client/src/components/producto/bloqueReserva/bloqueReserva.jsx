@@ -5,6 +5,7 @@ import { useState } from "react";
 import { DateRange, DefinedRange } from "react-date-range";
 import { Link } from "react-router-dom";
 import { addDays } from "date-fns";
+import estilo from "./boton.module.css"
 
 function BloqueReserva() {
   const [state, setState] = useState([]);
@@ -43,9 +44,9 @@ function BloqueReserva() {
 
         <div className={styles.contenedorBoton}>
           <h5>¡Inicia tu reserva ahora!</h5>
-          <Link to="reserva" className={styles.botonReserva}>
-            <button>Iniciar Reserva</button>
-          </Link>
+          <Link to="reserva"><button className={estilo.botonNuevo}><span>Iniciar Reserva</span></button></Link>     
+            
+    
         </div>
 
       </div>

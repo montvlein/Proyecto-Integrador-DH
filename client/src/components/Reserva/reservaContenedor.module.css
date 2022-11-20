@@ -5,11 +5,7 @@ margin: auto;
 box-sizing: border-box;
 }
 
-.detalleContenedor{
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 30 px;
-
+.contenedorFormularioReserva {
+    background-color: rgba(214, 214, 214, 0.342);
+    padding: 20px;
 }

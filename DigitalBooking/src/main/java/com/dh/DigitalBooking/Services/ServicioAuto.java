@@ -65,19 +65,7 @@ public class ServicioAuto {
         return autoToDTO(repositorio.findAll());
     }
 
-    public List<AutoDTO> buscarAutoPorCategoria(String parametro) {
-        return autoToDTO(repositorio.buscarAutoPorCategoria(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPorCiudad(String parametro) {
-        return  autoToDTO(repositorio.buscarAutoPorCiudad(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
-        return  autoToDTO(repositorio.buscarAutoPor(tituloCategoria, nombreProvincia));
-    }
-
-    private AutoDTO autoToDTO(Auto auto) {
+    protected AutoDTO autoToDTO(Auto auto) {
         AutoDTO autoEntregable = new AutoDTO();
         autoEntregable.setId(auto.getId());
         autoEntregable.setNombre(auto.getNombre());
@@ -91,7 +79,7 @@ public class ServicioAuto {
         return autoEntregable;
     }
 
-    private List<AutoDTO> autoToDTO(List<Auto> listado) {
+    protected List<AutoDTO> autoToDTO(List<Auto> listado) {
         List<AutoDTO> listadoDeAutos = new ArrayList<>();
         for (Auto auto : listado){
             listadoDeAutos.add(autoToDTO(auto));
@@ -103,9 +91,12 @@ public class ServicioAuto {
         Random random = new Random();
         List<AutoDTO> recomendados = new ArrayList<>();
         Long num;
-        for (int i=0; i <6; i++) {
-            num = random.nextLong(1, listar().size());
-            recomendados.add(buscarPorId(num));
+        int autosEnDB = listar().size();
+        if (autosEnDB > 0) {
+            for (int i=0; i <6; i++) {
+                num = random.nextLong(1, autosEnDB);
+                recomendados.add(buscarPorId(num));
+            }
         }
         return recomendados;
     }
