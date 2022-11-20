@@ -44,6 +44,12 @@
    
 }
 
+.detalleUbicacion{  
+    display: flex;
+    flex-direction: column;
+    border: solid 3px red;
+}
+
 .calificaionEstrellas{
     display: flex;
     justify-content: center;
