@@ -21,7 +21,6 @@ function App() {
           <Route path="/producto/:idProducto" element={<Producto />} />
           <Route path={`/producto/:idProducto/reserva`} element={<Reserva />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
-          <Route path={`/miyu`} element={<Exito />} />
           <Route path={`/exito`} element={<Exito />} />
           <Route path="*" element={<h2>Not Found</h2>} />
         </Routes>

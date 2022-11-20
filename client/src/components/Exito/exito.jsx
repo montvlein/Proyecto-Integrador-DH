@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCircleCheck
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom'
 
 export default function Exito() {
     return (
-        <section>
+        <section className={styles.contenedorMain}>
 
             <div className={styles.divPadre}>
 
@@ -18,7 +19,7 @@ export default function Exito() {
                 <div className={styles.divIconoCheck}>  <FontAwesomeIcon icon={faCircleCheck} /> </div>
                 <h4 > ¡Muchas Gracias! </h4>
                 <p>Tu reserva ha sido exitosa</p>
-                <button className={styles.divBotonOk}>Ok</button>
+                <Link to="/" className={styles.divBotonOk}>OK</Link>
                 </div>
 
                

@@ -1,19 +1,25 @@
+
+.contenedorMain{
+    height: 94vh;
+}
+
+
 .divPadre {
-height: auto;
+height: inherit;
 background-color: white;
 display: flex;
 justify-content: center;
+align-items: center;
 
 
 }
 
 .divMadre {
-    width: 50vw;
+    width: 40%;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
     padding: 10px;
     border-radius: 8px;
     background-color: white;
-    
     margin: 5em;
 }
 
@@ -25,9 +31,8 @@ h4{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    margin: 2em;
-    padding-top: 1em;
+    justify-content: center;
+    margin: 2em;  
 }
 
 .divIconoCheck{
@@ -41,4 +46,10 @@ h4{
     border-radius: 5px;
     height: 2em;
     font-size: 1rem;
+    text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    color: #4c4e52;
+    font-weight: 500;
 }
