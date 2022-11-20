@@ -1,4 +1,6 @@
-.idea
+.env
+/DigitalBooking/.env
+/client/.env
 
 # Logs
 logs
