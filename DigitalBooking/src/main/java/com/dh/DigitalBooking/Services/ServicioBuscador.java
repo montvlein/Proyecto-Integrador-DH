@@ -38,16 +38,20 @@ public class ServicioBuscador {
         boolean rangoFechasValido = fechaInicio != null && fechaFinal != null;
         boolean provinciaValida = nombreProvincia != null;
         boolean categoriaValida = tituloCategoria != null;
-
-        if ( provinciaValida ) encontrados = repositorio.buscarAutoPorCiudad(nombreProvincia);
-        if ( categoriaValida ) encontrados = buscarAutoPorCategoria_Ciudad(tituloCategoria, nombreProvincia);
         if ( rangoFechasValido ) {
             fInicio = StringToDate(fechaInicio);
             fFinal = StringToDate(fechaFinal);
-            encontrados = buscarAutoPorFecha_Ciudad(fInicio, fFinal, nombreProvincia);
         }
+
+        if ( provinciaValida && categoriaValida && rangoFechasValido ) {
+            encontrados = repositorio.buscarAutoPorFecha_Ciudad_Categoria(fInicio, fFinal, nombreProvincia, tituloCategoria);
+            return  servicioProducto.autoToDTO(encontrados);
+        }
+
+        if ( provinciaValida ) encontrados = repositorio.buscarAutoPorCiudad(nombreProvincia);
+        if ( categoriaValida ) encontrados = buscarAutoPorCategoria_Ciudad(tituloCategoria, nombreProvincia);
+        if ( rangoFechasValido ) encontrados = buscarAutoPorFecha_Ciudad(fInicio, fFinal, nombreProvincia);
         if ( categoriaValida && rangoFechasValido ) encontrados = repositorio.buscarAutoPorFecha_Categoria(fInicio, fFinal, tituloCategoria);
-        if ( provinciaValida && categoriaValida && rangoFechasValido ) encontrados = repositorio.buscarAutoPorFecha_Ciudad_Categoria(fInicio, fFinal, nombreProvincia, tituloCategoria);
 
         return  servicioProducto.autoToDTO(encontrados);
     }
