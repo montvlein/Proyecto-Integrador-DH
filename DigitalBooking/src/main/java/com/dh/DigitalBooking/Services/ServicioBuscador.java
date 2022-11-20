@@ -14,30 +14,45 @@ import java.util.List;
 public class ServicioBuscador {
 
     @Autowired
-    private iRepositorioAuto repositorioProducto;
+    private iRepositorioAuto repositorio;
 
     @Autowired
     private ServicioAuto servicioProducto;
 
-    public List<Auto> buscarAutoPorFecha(String fechaInicio, String fechaFinal) {
-        LocalDate fInicio = LocalDate.parse(fechaInicio , DateTimeFormatter.ISO_LOCAL_DATE);
-        LocalDate fFinal = LocalDate.parse(fechaFinal, DateTimeFormatter.ISO_LOCAL_DATE);
-        return repositorioProducto.buscarAutoPorFecha(fInicio, fFinal);
-    }
 
     public List<Auto> buscarAutoPorCategoria_Ciudad(String tituloCategoria, String nombreProvincia) {
-        List<Auto> encontrados = null;
-        if (nombreProvincia != null && tituloCategoria == null ) encontrados = repositorioProducto.buscarAutoPorCiudad(nombreProvincia);
-        if (tituloCategoria != null && nombreProvincia == null ) encontrados = repositorioProducto.buscarAutoPorCategoria(tituloCategoria);
-        if (nombreProvincia != null && tituloCategoria != null ) encontrados = repositorioProducto.buscarAutoPor(tituloCategoria, nombreProvincia);
-        return  encontrados;
+        if (nombreProvincia != null ) return repositorio.buscarAutoPorCategoria_Ciudad(tituloCategoria, nombreProvincia);
+        return  repositorio.buscarAutoPorCategoria(tituloCategoria);
+    }
+
+    public List<Auto> buscarAutoPorFecha_Ciudad(LocalDate fechaInicio, LocalDate fechaFinal, String nombreProvincia) {
+        if ( nombreProvincia != null ) return repositorio.buscarAutoPorFecha_Ciudad(fechaInicio, fechaFinal, nombreProvincia);
+        return repositorio.buscarAutoPorFecha(fechaInicio, fechaFinal);
     }
 
     public List<AutoDTO> buscarAutoPor(String tituloCategoria, String nombreProvincia, String fechaInicio, String fechaFinal) {
         List<Auto> encontrados = null;
-        if (tituloCategoria != null || nombreProvincia != null ) encontrados = buscarAutoPorCategoria_Ciudad(tituloCategoria, nombreProvincia);
-        if (fechaInicio != null || fechaFinal != null ) encontrados = buscarAutoPorFecha(fechaInicio, fechaFinal);
+
+        LocalDate fInicio = null;
+        LocalDate fFinal = null;
+        boolean rangoFechasValido = fechaInicio != null && fechaFinal != null;
+        boolean provinciaValida = nombreProvincia != null;
+        boolean categoriaValida = tituloCategoria != null;
+
+        if ( provinciaValida ) encontrados = repositorio.buscarAutoPorCiudad(nombreProvincia);
+        if ( categoriaValida ) encontrados = buscarAutoPorCategoria_Ciudad(tituloCategoria, nombreProvincia);
+        if ( rangoFechasValido ) {
+            fInicio = StringToDate(fechaInicio);
+            fFinal = StringToDate(fechaFinal);
+            encontrados = buscarAutoPorFecha_Ciudad(fInicio, fFinal, nombreProvincia);
+        }
+        if ( categoriaValida && rangoFechasValido ) encontrados = repositorio.buscarAutoPorFecha_Categoria(fInicio, fFinal, tituloCategoria);
+        if ( provinciaValida && categoriaValida && rangoFechasValido ) encontrados = repositorio.buscarAutoPorFecha_Ciudad_Categoria(fInicio, fFinal, nombreProvincia, tituloCategoria);
+
         return  servicioProducto.autoToDTO(encontrados);
     }
 
+    private LocalDate StringToDate(String fecha) {
+        return LocalDate.parse(fecha , DateTimeFormatter.ISO_LOCAL_DATE);
+    }
 }
