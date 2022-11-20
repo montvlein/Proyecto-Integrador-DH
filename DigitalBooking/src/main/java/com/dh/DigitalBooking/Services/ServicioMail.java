@@ -12,7 +12,7 @@ public class ServicioMail {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
+    @Value("${mail.cuentaSalida}")
     private String cuenta;
 
     public void enviar(String destino) {
