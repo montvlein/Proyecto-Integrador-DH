@@ -1,12 +1,16 @@
 package com.dh.DigitalBooking.Controller;
 
+import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Services.ServicioAuto;
+import com.dh.DigitalBooking.Services.ServicioBuscador;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/auto")
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class ControladorAuto {
 
     private ServicioAuto servicio;
+
+    @Autowired
+    private ServicioBuscador buscador;
 
     @Autowired
     public void setServicio(ServicioAuto servicio){
@@ -47,11 +54,10 @@ public class ControladorAuto {
 
     @Operation(summary = "Busca todos los autos por parametro")
     @GetMapping("buscarPor")
-    public ResponseEntity buscarPor(@RequestParam(required = false) String categoria, @RequestParam(required = false) String ciudad) {
-        if (ciudad == null && categoria == null) return ResponseEntity.badRequest().build();
-        if (ciudad != null && categoria == null ) return ResponseEntity.ok(servicio.buscarAutoPorCiudad(ciudad));
-        if (categoria != null && ciudad == null ) return ResponseEntity.ok(servicio.buscarAutoPorCategoria(categoria));
-        return ResponseEntity.ok(servicio.buscarAutoPor(categoria, ciudad));
+    public ResponseEntity buscarPor(@RequestParam(required = false) String categoria, @RequestParam(required = false) String ciudad, @RequestParam(required = false) String fechaInicio , @RequestParam(required = false) String fechaFinal) {
+        List<AutoDTO> resultarosEncontrados =  buscador.buscarAutoPor(categoria, ciudad, fechaInicio, fechaFinal);
+        if (resultarosEncontrados == null) return ResponseEntity.badRequest().build();
+        return ResponseEntity.ok(resultarosEncontrados);
     }
 
     @Operation(summary = "Devuelve listado de autos recomendados")
