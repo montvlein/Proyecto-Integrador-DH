@@ -17,7 +17,9 @@ export default function Reserva() {
             <Calendario />
             <HorarioReserva />
           </div>
-            <DetalleReserva />
+           <div> 
+           <DetalleReserva />
+           </div>
         </div>
         <PoliticasProducto />
       </section>
