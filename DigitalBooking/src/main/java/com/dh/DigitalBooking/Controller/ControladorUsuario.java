@@ -98,4 +98,13 @@ public class ControladorUsuario {
         return ResponseEntity.notFound().build();
     }
 
+    @GetMapping("auth")
+    @Operation(summary = "valida el mail del usuario")
+    public ResponseEntity<?> validarMail(@RequestParam String token) throws Exception {
+        if (servicio.validarMail(token)) {
+            return ResponseEntity.ok().body("Validacion exitosa");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }

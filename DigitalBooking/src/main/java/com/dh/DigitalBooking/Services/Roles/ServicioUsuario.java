@@ -136,4 +136,15 @@ public class ServicioUsuario implements UserDetailsService {
         if (usuarioPorMail != null) usuario = usuarioToDTO(usuarioPorMail);
         return usuario;
     }
+
+    public boolean validarMail(String token) {
+        String email = jwtUtil.extraerEmail(token);
+        Usuario usuario = repositorio.findByEmail(email);
+        if (usuario != null) {
+            usuario.setVerificado(true);
+            repositorio.save(usuario);
+            return usuario.isVerificado();
+        }
+        return false;
+    }
 }
