@@ -13,6 +13,8 @@ import { DigitalBookingApi } from '../../data/conexionAPI'
 
 export default function Reserva() {
   const { idProducto } = useParams()
+  const [usuario, setUsuario] = useState({id:1 , nombre:`Maigualida`, apellido:`Delgado`, email:`maigualida.delgado@digitalhouse.com`})
+  const [reserva, setReserva] = useState()
   const [cargando, setEstaCargando] = useState(true)
   const [producto, setProducto] = useState({})
   useEffect(() => {
@@ -35,7 +37,7 @@ export default function Reserva() {
         <CabeceraProducto nombre={producto.nombre}  categoria={producto.categoria}/>
         <div className={styles.contenedorFormularioReserva}>
           <div>
-            <FormDatos />
+            <FormDatos usuario={usuario}/>
             <Calendario />
             <HorarioReserva />
           </div>
