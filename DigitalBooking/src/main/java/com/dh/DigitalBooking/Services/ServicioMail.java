@@ -32,7 +32,7 @@ public class ServicioMail {
 
     public void enviar(String destino, String codigo) throws Exception {
         MimeMessage mail = mailSender.createMimeMessage();
-        mail.setSubject("Test template");
+        mail.setSubject("Verificacion cuenta Digital.App");
         mail.setFrom(cuenta);
 
         MimeBodyPart messageBodyPart = new MimeBodyPart();
@@ -106,7 +106,7 @@ public class ServicioMail {
                                     margin: 1rem;
                                     '
                                 target='_blank'
-                                href='http://localhost:8080/api/v1/auth/
+                                href='http://localhost:8080/api/v1/usuario/auth?token=
                                 """ + codigo + """
                                '>Validar email</a>
                            </div>
