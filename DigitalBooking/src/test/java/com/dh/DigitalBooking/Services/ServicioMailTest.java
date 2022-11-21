@@ -25,7 +25,7 @@ public class ServicioMailTest {
 
     @Test
     void enviarCargandoDatos() throws Exception {
-        servicio.enviar("from@gmail.com", "test@gmail.com", "texto prueba", "test enviarCargandoDatos");
+        servicio.enviar("from@gmail.com", "test@gmail.com", "texto prueba", "test metodo enviarCargandoDatos");
 
         MimeMessage[] mensajesRecibidos = greenMail.getReceivedMessages();
         MimeMessage mensajeRecibido = mensajesRecibidos[0];
@@ -46,8 +46,7 @@ public class ServicioMailTest {
 
         assertEquals("usuario@gmail.com", mensajeRecibido.getFrom()[0].toString());
         assertEquals("test@gmail.com", mensajeRecibido.getAllRecipients()[0].toString());
-        assertEquals("Verificacion de cuenta DigitalBooking", mensajeRecibido.getSubject().trim());
-        assertEquals("Este es tu codigo de seguridad", mensajeRecibido.getContent().toString().trim());
+        assertEquals("Verificacion cuenta Digital.App", mensajeRecibido.getSubject().trim());
 
     }
 }
