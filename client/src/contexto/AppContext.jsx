@@ -1,6 +1,5 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
-import listado from "../data/AUTOS.json";
 import { DigitalBookingApi } from "../data/conexionAPI";
 
 const Contexto = createContext();
@@ -37,7 +36,7 @@ export function AppContext({ children }) {
   }
 
   // listado de productos
-  const [listaAutos, setListadoAutos] = useState(listado.autos)
+  const [listaAutos, setListadoAutos] = useState([])
   const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
   const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
   const [criterioFiltro, setCriterioFiltro] = useState()
