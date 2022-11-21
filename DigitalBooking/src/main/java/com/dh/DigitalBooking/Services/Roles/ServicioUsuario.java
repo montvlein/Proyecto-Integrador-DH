@@ -64,7 +64,7 @@ public class ServicioUsuario implements UserDetailsService {
         return resultado;
     }
 
-    public Usuario actualizar(Usuario usuario) throws Exception{
+    public Usuario actualizar(UsuarioDTO usuario) throws Exception{
         Usuario user = null;
         if (repositorio.findById(usuario.getId()).isPresent()) {
             user = repositorio.findById(usuario.getId()).get();
@@ -73,11 +73,8 @@ public class ServicioUsuario implements UserDetailsService {
             user.setNombre(usuario.getNombre());
             user.setApellido(usuario.getApellido());
             user.setCiudad(usuario.getCiudad());
-            user.setContrasenia(usuario.getContrasenia());
             user.setEmail(usuario.getEmail());
-            user.setRol(usuario.getRol());
-            user.setReservas(usuario.getReservas());
-            guardar(user);
+            repositorio.save(user);
         }
         return user;
     }
