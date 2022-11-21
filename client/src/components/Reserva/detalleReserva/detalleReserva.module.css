@@ -95,7 +95,7 @@
 
 .horariosReserva{
     padding: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .reservaCheckIn, .reservaCheckOut{
@@ -116,14 +116,6 @@
     
   }
 
-
-
-
-
-
-
-/* .descripcionReserva{
-    display: flex;
-    padding: 20px;
-    margin-bottom: 0;
-} */    
+.inputIn, .inputOut{
+    
+}

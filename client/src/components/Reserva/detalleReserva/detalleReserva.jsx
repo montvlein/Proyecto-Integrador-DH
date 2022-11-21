@@ -9,7 +9,7 @@ import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons'
 import ImgProducto from '../../producto/imgProducto'
 import { fromUnixTime } from 'date-fns'
 
-export default function DetalleReserva({producto}) {
+export default function DetalleReserva({ producto }) {
   const backgroundImagen = (producto) => {
     return {
       backgroundPosition: 'center',
@@ -29,31 +29,47 @@ export default function DetalleReserva({producto}) {
         </p>
         <h5 className={styles.detallleNombre}>{producto.nombre}</h5>
         <div className={styles.calificacionEstrellas}>
-          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
-          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
-          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
-          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
-          <FontAwesomeIcon icon={faStar} className={styles.icon}/>
+          <FontAwesomeIcon icon={faStar} className={styles.icon} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon} />
+          <FontAwesomeIcon icon={faStar} className={styles.icon} />
         </div>
         <div className={styles.detalleUbicacion}>
           <div className={styles.iconoGlobo}>
             <FontAwesomeIcon icon={faLocationDot} className={styles.iconoUbi} />
-            
-              <p className={styles.ubicacionReserva}>
-                {producto.ciudad.nombre}, {producto.ciudad.provincia}, {producto.ciudad.pais}
-              </p>
+
+            <p className={styles.ubicacionReserva}>
+              {producto.ciudad.nombre}, {producto.ciudad.provincia},{' '}
+              {producto.ciudad.pais}
+            </p>
           </div>
         </div>
         <div className={styles.horariosReserva}>
-
-         
-          <hr className={styles.lineaCheck}></hr>
-          <div className={styles.reservaCheckIn}>
-            Check in <span className={styles.dataReserva}>__/__/__</span>
+        <div className={styles.reservaCheckIn}>
+          <label for="start">Check in</label>
+          <input 
+          className={styles.inputIn} 
+          disabled
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2018-12-31"
+          />
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckOut}>
-            Check out <span className={styles.dataReserva}>__/__/__</span>
+          <label for="start">Check out</label>
+          <input className={styles.inputOut} disabled
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="2018-01-01"
+            max="2018-12-31"
+          />
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>
@@ -64,5 +80,3 @@ export default function DetalleReserva({producto}) {
     </section>
   )
 }
-
-
