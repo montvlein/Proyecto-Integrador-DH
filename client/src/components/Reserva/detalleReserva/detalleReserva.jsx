@@ -64,9 +64,8 @@ export default function DetalleReserva() {
           </div>
         </div>
         <div className={styles.horariosReserva}>
-          {' '}
-          {/* // ESTO NECESITO SABER SI SE HARDCODEA O ES NECESSARIO QUE SE ALIMENTE
-          DEL COMPONENTE HORARIO DE RESERVA */}
+
+         
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckIn}>
             Check in <span className={styles.dataReserva}>__/__/__</span>
