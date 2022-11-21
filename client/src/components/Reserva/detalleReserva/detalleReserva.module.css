@@ -44,10 +44,15 @@
    
 }
 
+.ubicacionReserva{
+    display: flex;
+    padding-left: 5px;
+    
+}
+
 .detalleUbicacion{  
     display: flex;
     flex-direction: column;
-    border: solid 3px red;
 }
 
 .calificaionEstrellas{
@@ -59,9 +64,7 @@
 
 .detallleNombre{
     align-self: flex-start;
-    padding: 0.625rem;
-    
-    
+    padding: 0.625rem; 
 }
 
  .detalleCategoria{
@@ -73,7 +76,7 @@
 
 .iconoGlobo{
     display: flex;
-    justify-content:fle;
+    justify-content:flex-start;
     padding-left: 10px;
     margin-top: 5px;
     font-size: 15px;

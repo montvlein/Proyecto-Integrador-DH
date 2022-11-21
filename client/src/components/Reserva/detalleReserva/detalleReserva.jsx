@@ -42,33 +42,26 @@ export default function DetalleReserva() {
     <section className={styles.sectionDetalle}>
       <div className={styles.detalleReserva}>
         <h3 className={styles.tituloReserva}>Detalle de reserva</h3>
-        <ImgProducto imagenes={producto.imagenes} />
-        {/* //ACA ME TRAJE EL
-        COMPONENTE IMGEN PRODUCTO, NECESITO SABER COMO TRAER UNA SOLA IMAGEN */}
+        <img src={producto.imagenes[0].url} />
         <p className={styles.detalleCategoria}>
           {producto.categoria.toUpperCase()}
         </p>
         <h5 className={styles.detallleNombre}>{producto.nombre}</h5>
-        {/* <div className={styles.calificacionEstrellas}>
+        <div className={styles.calificacionEstrellas}>
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
-        </div> */}{' '}
-        
+        </div>
         <div className={styles.detalleUbicacion}>
-          {/* <FontAwesomeIcon
-          icon={faLocationDot}
-          className={styles.iconUbi}
-        /> */}
-          <DatosUbicacionProducto
-            className={styles.detalleUbicacion}
-            ubicacion={producto.ciudad}
-          />{' '}
-          {/* // ACA ME TRAJE EL COMPONENTE DE UBICACION NECESITO SABER COMO CAMBIAR
-          EL FLEX DIRECTION, ME TOMA LA SECTION ORIGINAL DEL COMPONENTE */}
-          {/* <p className={styles.ubicacionReserva}>Aeroparque Jorge Newbery, Buenos Aires, Argentina</p> */}
+          <div className={styles.iconoGlobo}>
+            <FontAwesomeIcon icon={faLocationDot} className={styles.iconoUbi} />
+            
+              <p className={styles.ubicacionReserva}>
+                {producto.ciudad.nombre}, {producto.ciudad.provincia}, {producto.ciudad.pais}
+              </p>
+          </div>
         </div>
         <div className={styles.horariosReserva}>
           {' '}
@@ -91,4 +84,5 @@ export default function DetalleReserva() {
     </section>
   )
 }
+
 
