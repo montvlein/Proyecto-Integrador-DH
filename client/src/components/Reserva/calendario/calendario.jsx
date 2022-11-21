@@ -21,6 +21,7 @@ export default function HorarioReserva(){
       <section className={styles.contenedorPadre}>
       <div className={styles.tituloFechaReserva}>
           <h3>Selecciona tu fecha de reserva</h3>
+          <hr></hr>
       </div>
            <div className={styles.fechaContenedor}>
         <DateRange

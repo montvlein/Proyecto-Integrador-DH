@@ -6,6 +6,7 @@ export default function FormDatos() {
     <section className={styles.contenedorPadre}>
       <div>
         <h3>Completa tus datos</h3>
+        <hr></hr>
       </div>
       <div className={styles.contenedorFormulario}>
         <div className={styles.contenedorNP}>

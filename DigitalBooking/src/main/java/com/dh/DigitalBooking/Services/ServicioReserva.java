@@ -1,7 +1,7 @@
-package com.dh.DigitalBooking.Services.Roles;
+package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Models.Entities.Reserva;
-import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioReserva;
+import com.dh.DigitalBooking.Repository.ORM.iRepositorioReserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
