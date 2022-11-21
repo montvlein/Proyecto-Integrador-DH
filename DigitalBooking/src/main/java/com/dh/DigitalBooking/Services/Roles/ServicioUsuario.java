@@ -5,6 +5,7 @@ import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
+import com.dh.DigitalBooking.Services.ServicioMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,9 @@ public class ServicioUsuario implements UserDetailsService {
     private JWTUtil jwtUtil;
 
     @Autowired
+    private ServicioMail servicioMail;
+
+    @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
         this.repositorio = repositorio;
     }
@@ -38,7 +42,9 @@ public class ServicioUsuario implements UserDetailsService {
         String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
         usuario.setContrasenia(contraseniaEncriptada);
         repositorio.save(usuario);
-        return new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
+        JWT.Response token =new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
+        servicioMail.enviar(usuario.getEmail(), token.getToken() );
+        return token;
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{
