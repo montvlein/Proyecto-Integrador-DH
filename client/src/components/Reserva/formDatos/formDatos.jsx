@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../formDatos/formDatos.module.css";
 
-export default function FormDatos() {
+export default function FormDatos({usuario}) {
   return (
     <section className={styles.contenedorPadre}>
       <div>
@@ -14,14 +14,14 @@ export default function FormDatos() {
             <p>Nombre</p>
             <input
               type="text"
-              placeholder="Maigualida"
+              value={usuario.nombre}  
               name="nombre"
               disabled
             />
           </div>
           <div>
             <p>Apellido</p>
-            <input type="text" placeholder="Delgado" name="apellido" disabled />
+            <input type="text" value={usuario.apellido} name="apellido" disabled />
           </div>
         </div>
         <div className={styles.contenedorET}>
@@ -29,7 +29,7 @@ export default function FormDatos() {
             <p>Correo Electronico</p>
             <input
               type="email"
-              placeholder="Maigualida@Delgado.com"
+              value={usuario.email}
               name="email"
               disabled
             />
@@ -39,8 +39,8 @@ export default function FormDatos() {
             <input
               type="text"
               placeholder="Buenos Aires, Argentina"
-              name="email"
-              disabled
+              name="ciudad"
+              
             />
           </div>
         </div>
