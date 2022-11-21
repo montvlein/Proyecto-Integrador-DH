@@ -5,6 +5,7 @@ import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
+import com.dh.DigitalBooking.Services.ServicioMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +28,9 @@ public class ServicioUsuario implements UserDetailsService {
     private JWTUtil jwtUtil;
 
     @Autowired
+    private ServicioMail servicioMail;
+
+    @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
         this.repositorio = repositorio;
     }
@@ -38,7 +42,9 @@ public class ServicioUsuario implements UserDetailsService {
         String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
         usuario.setContrasenia(contraseniaEncriptada);
         repositorio.save(usuario);
-        return new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
+        JWT.Response token =new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
+        servicioMail.enviar(usuario.getEmail(), token.getToken() );
+        return token;
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{
@@ -58,7 +64,7 @@ public class ServicioUsuario implements UserDetailsService {
         return resultado;
     }
 
-    public Usuario actualizar(Usuario usuario) throws Exception{
+    public Usuario actualizar(UsuarioDTO usuario) throws Exception{
         Usuario user = null;
         if (repositorio.findById(usuario.getId()).isPresent()) {
             user = repositorio.findById(usuario.getId()).get();
@@ -67,11 +73,8 @@ public class ServicioUsuario implements UserDetailsService {
             user.setNombre(usuario.getNombre());
             user.setApellido(usuario.getApellido());
             user.setCiudad(usuario.getCiudad());
-            user.setContrasenia(usuario.getContrasenia());
             user.setEmail(usuario.getEmail());
-            user.setRol(usuario.getRol());
-            user.setReservas(usuario.getReservas());
-            guardar(user);
+            repositorio.save(user);
         }
         return user;
     }
@@ -129,5 +132,16 @@ public class ServicioUsuario implements UserDetailsService {
         Usuario usuarioPorMail = repositorio.findByEmail(email);
         if (usuarioPorMail != null) usuario = usuarioToDTO(usuarioPorMail);
         return usuario;
+    }
+
+    public boolean validarMail(String token) {
+        String email = jwtUtil.extraerEmail(token);
+        Usuario usuario = repositorio.findByEmail(email);
+        if (usuario != null) {
+            usuario.setVerificado(true);
+            repositorio.save(usuario);
+            return usuario.isVerificado();
+        }
+        return false;
     }
 }
