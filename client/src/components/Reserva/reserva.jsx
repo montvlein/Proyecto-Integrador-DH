@@ -40,7 +40,7 @@ export default function Reserva() {
             <HorarioReserva />
           </div>
            <div> 
-           <DetalleReserva />
+           <DetalleReserva producto={producto} />
            </div>
         </div>
         <PoliticasProducto />

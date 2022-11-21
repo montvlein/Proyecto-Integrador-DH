@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from '../detalleReserva/detalleReserva.module.css'
 import stylesArticlulo from '../../producto/producto'
-import DatosUbicacionProducto from '../../producto/datosubicacionPorducto'
 import { useState, useEffect } from 'react'
 import { DigitalBookingApi } from '../../../data/conexionAPI'
 import { useParams } from 'react-router-dom'
@@ -10,10 +9,7 @@ import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons'
 import ImgProducto from '../../producto/imgProducto'
 import { fromUnixTime } from 'date-fns'
 
-export default function DetalleReserva() {
-  const { idProducto } = useParams()
-  const [cargando, setEstaCargando] = useState(true)
-  const [producto, setProducto] = useState({})
+export default function DetalleReserva({producto}) {
   const backgroundImagen = (producto) => {
     return {
       backgroundPosition: 'center',
@@ -22,22 +18,7 @@ export default function DetalleReserva() {
       backgroundImage: `url(${producto.url[0]})`,
     }
   }
-  useEffect(() => {
-    DigitalBookingApi.auto.buscarPorID(idProducto).then((auto) => {
-      setProducto(auto)
-      setEstaCargando(false)
-    })
-  }, [])
 
-  if (cargando) {
-    return (
-      <article
-        className={`${stylesArticlulo.productoArticulo} d-flex justify-content-center`}
-      >
-        <div className="spinner-border m-5" roler="status"></div>
-      </article>
-    )
-  }
   return (
     <section className={styles.sectionDetalle}>
       <div className={styles.detalleReserva}>
