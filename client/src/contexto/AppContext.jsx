@@ -1,44 +1,46 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
-import listado from "../data/AUTOS.json";
 import { DigitalBookingApi } from "../data/conexionAPI";
+import { Busqueda } from "../modelos/criterioBusqueda";
+import { Reserva } from "../modelos/reserva";
+import { Usuario } from "../modelos/usuario";
 
 const Contexto = createContext();
 
 export function AppContext({ children }) {
-  // Reserva
 
   // usuario y sesion
-  const [token, isToken] = useState(localStorage.getItem("DigitalToken"))
-  const [sesionIniciada, setSesionIniciada] = useState(false);
-  const [usuario, setUsuario] = useState();
+  const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
+  const [usuario, setUsuario] = useState(new Usuario);
 
   useEffect(()=>{
     if (token) {
-      isToken(true)
-      usuario?null:setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
-      setSesionIniciada(true)
+      DigitalBookingApi.usuario.infoToken(token)
+      .then(usuario => {
+        iniciarSesion(usuario)
+      })
     }
-  },[token])
+  },[])
 
   function getUsuario() {
     return usuario;
   }
 
+  function iniciarSesion(usuario) {
+    setUsuario(usuario)
+  }
+
   function estaLaSesionIniciada() {
-    return sesionIniciada;
+    return usuario?.email?.length > 0;
   }
 
   function cerrarSesion() {
     localStorage.removeItem("DigitalToken")
-    isToken(false)
-    setUsuario({});
-    setSesionIniciada(false);
+    setUsuario(new Usuario);
   }
 
   // listado de productos
-  const [listaAutos, setListadoAutos] = useState(listado.autos)
-  const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
+  const [listaAutos, setListadoAutos] = useState([])
   const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
   const [criterioFiltro, setCriterioFiltro] = useState()
   useEffect(()=>{
@@ -51,16 +53,7 @@ export function AppContext({ children }) {
     return listaAutos
   }
 
-  function getAutosFiltrados() {
-    return autosFiltrados
-  }
-
-  function filtarAutos(criterio) {
-    let filtrados = listaAutos.filter( auto => auto.categoria === criterio)
-    setAutosFiltrados(filtrados)
-    setEstaFiltadoListadoAutos(true)
-    setCriterioFiltro(criterio)
-  }
+  // buscador
 
   function limpiarFiltro() {
     setAutosFiltrados(listaAutos)
@@ -75,21 +68,47 @@ export function AppContext({ children }) {
     return criterioFiltro
   }
 
+  // buscador por fecha
+  const [busqueda, setBusqueda] = useState(new Busqueda)
+
+  function setFechaInicioBusqueda(fecha){
+    busqueda.fechaInicio = fecha
+  }
+
+  function setFechaFinalBusqueda(fecha) {
+    busqueda.fechaFinal = fecha
+  }
+
+  function setCiudadBusqueda(ubicacion) {
+    busqueda.ubicacion = ubicacion
+  }
+
+  function setCategoriaBusqueda(categoria) {
+    busqueda.categoria = categoria
+  }
+
+  // reserva
+  const [reserva, setReserva] = useState(new Reserva)
+
   return (
     <Contexto.Provider
       value={{
         getUsuario,
-        setUsuario,
-        isToken,
-        setSesionIniciada,
+        iniciarSesion,
         estaLaSesionIniciada,
         cerrarSesion,
+
         getListaAutos,
-        getAutosFiltrados,
-        filtarAutos,
         getEstaFiltadoListadoAutos,
         getCriterioFiltro,
-        limpiarFiltro
+        limpiarFiltro,
+
+        setFechaInicioBusqueda,
+        setFechaFinalBusqueda,
+        setCiudadBusqueda,
+        busqueda,
+        setBusqueda
+
       }}
     >
       {children}

@@ -8,9 +8,11 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css fil
 import { format, startOfWeekYear } from "date-fns";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Contexto from "../../../contexto/AppContext";
 
 function FechaReserva() {
+  const { setFechaInicioBusqueda, setFechaFinalBusqueda } = useContext(Contexto)
     const [date, setDate] = useState([
         {
           startDate: new Date(),
@@ -18,7 +20,7 @@ function FechaReserva() {
           key: "selection",
         },
       ]);
-    
+
       const [openDate, setOpenDate] = useState(false);
 
 
@@ -26,14 +28,18 @@ function FechaReserva() {
     <div className={styles.rangoFecha}>
       <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">
         <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />{" "}
-        {`Desde ${format(date[0].startDate, "MM/dd/yyyy")}`}{" "}
+        {`Desde ${format(date[0].startDate, "dd/MM/yyyy")}`}{" "}
         <FontAwesomeIcon icon={faArrowRight} />{" "}
-        {`Hasta ${format(date[0].endDate, "MM/dd/yyyy")}`}
+        {`Hasta ${format(date[0].endDate, "dd/MM/yyyy")}`}
       </span>
       {openDate && (
         <DateRange
           editableDateInputs={true}
-          onChange={(item) => setDate([item.selection])}
+          onChange={(item) => {
+            setDate([item.selection])
+            setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"))
+            setFechaFinalBusqueda(format(date[0].endDate, "yyyy-MM-dd"))
+          }}
           moveRangeOnFirstSelection={false}
           ranges={date}
           className={styles.date}

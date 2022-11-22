@@ -23,7 +23,7 @@ align-items: center;
     margin: 5em;
 }
 
-h4{
+.divIconoCheck h4{
     color:var(--amarillo);
     font-size: 1.5em
 }

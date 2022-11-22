@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .fechaContenedor {
@@ -55,27 +56,18 @@
 
 }
 
-.fechaContenedorResponsive {
-    display: none;
-}
-
 
 @media screen and (max-width:760px) {
     .contenedorPadre {
         display: flex;
         flex-direction: column;
     }
-    .fechaContenedor {
-        display: none;
-    }
-
-    .fechaContenedorResponsive {
-        display: block;
-    }
 
     .contenedorBoton {
        display: flex;
-       flex-direction: row;
+       flex-direction: column;
+       padding-bottom: 10px;
+       width: 100%;
     }
 }
 

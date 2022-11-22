@@ -16,6 +16,7 @@ export default function HorarioReserva(){
         }
       ]);
 
+      const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
 
     return(
       <section className={styles.contenedorPadre}>
@@ -26,7 +27,7 @@ export default function HorarioReserva(){
            <div className={styles.fechaContenedor}>
         <DateRange
           editableDateInputs={true}
-          months={2}
+          months={months}
           onChange={(item) => setState([item.selection])}
           moveRangeOnFirstSelection={false}
           minDate={addDays(new Date(), -0)}
@@ -36,6 +37,7 @@ export default function HorarioReserva(){
           showMonthAndYearPickers={true}
           showDateDisplay={false}
           fixedHeight={true}
+          showOneCalendar
         />
        </div>
       </section>

@@ -1,13 +1,12 @@
 
-
 .botonNuevo {
-    width: 200px;
+    width: 100%;
     height: 40px;
     line-height: 40px;
     font-size: 18px;
     text-decoration: none;
-    color: var(--amarillo);
-    background-color: transparent;
+    color: #000;
+    background-color: rgb(255, 219, 153);
     border: 2px solid var(--amarillo);
     letter-spacing: 2px;
     text-align: center;
@@ -15,7 +14,8 @@
     transition: all 1s;
     overflow: hidden;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 400;
+
 }
 
 .botonNuevo span{
@@ -32,8 +32,8 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: var(--amarillo);
-    transition: all 1s;
+    background-color: var(--amarillo);
+    transition: all 0.7s;
     transform: skewX(35deg);
     z-index: 1;
     left: -50px;
@@ -42,8 +42,8 @@
   }
 
   .botonNuevo:hover {
-    color: #fff;
-    font-weight: 300;
+    color: #000;
+    font-weight: 400;
     
   }
 
@@ -51,6 +51,3 @@
     width: 150%;
   }
 
-  @media screen and (max-width:760px) {
-    .botonNuevo {width: 300px; }
-  }

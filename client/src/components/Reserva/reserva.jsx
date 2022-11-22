@@ -33,7 +33,7 @@ export default function Reserva() {
       </article>
     )}
   return (
-      <section className={`container`}>
+      <section className="container-md">
         <CabeceraProducto nombre={producto.nombre}  categoria={producto.categoria}/>
         <div className={styles.contenedorFormularioReserva}>
           <div>

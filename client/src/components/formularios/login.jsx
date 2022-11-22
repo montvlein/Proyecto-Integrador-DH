@@ -6,7 +6,7 @@ import { DigitalBookingApi } from "../../data/conexionAPI";
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { isToken } = useContext(Contexto)
+  const { iniciarSesion } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
 
   const handleSubmit = function (e) {
@@ -14,10 +14,12 @@ const Login = () => {
     let [email, contrasenia] = [e.target.elements.email.value, e.target.elements.password.value]
     DigitalBookingApi.usuario.login({email,contrasenia})
     .then( auth => {
-      setUsuario({nombre:"log", apellido: "iando"})
       localStorage.setItem("DigitalToken", auth.token )
-      isToken(true)
-      redirigir("/")
+      DigitalBookingApi.usuario.infoToken(auth.token)
+        .then(usuario => {
+          iniciarSesion(usuario)
+          redirigir("/")
+        })
       })
     .catch(e => {
       setInvalido(true)
