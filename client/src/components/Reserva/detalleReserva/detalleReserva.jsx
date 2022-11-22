@@ -28,6 +28,7 @@ export default function DetalleReserva({ producto }) {
           {producto.categoria.toUpperCase()}
         </p>
         <h5 className={styles.detallleNombre}>{producto.nombre}</h5>
+        <div className={styles.calificacionContainer}>
         <div className={styles.calificacionEstrellas}>
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
           <FontAwesomeIcon icon={faStar} className={styles.icon} />
@@ -45,6 +46,7 @@ export default function DetalleReserva({ producto }) {
             </p>
           </div>
         </div>
+        </div>
         <div className={styles.horariosReserva}>
         <div className={styles.reservaCheckIn}>
           <label for="start">Check in</label>
@@ -54,9 +56,9 @@ export default function DetalleReserva({ producto }) {
             type="date"
             id="start"
             name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
+            value="2022-11-24"
+            min="2022-11-24"
+            max="2023-12-31"
           />
           </div>
           <hr className={styles.lineaCheck}></hr>
@@ -66,9 +68,9 @@ export default function DetalleReserva({ producto }) {
             type="date"
             id="start"
             name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
+            value="2022-11-24"
+            min="2022-11-24"
+            max="2023-12-31"
           />
           </div>
           <hr className={styles.lineaCheck}></hr>

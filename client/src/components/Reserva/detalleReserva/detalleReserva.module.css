@@ -7,7 +7,7 @@
 .sectionDetalle{
     display: flex;
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
     
    
 }
@@ -29,7 +29,7 @@
 .tituloReserva{
     display: flex;
     margin-bottom: 0;
-    padding: 0.8rem;
+    padding: 1.25rem;
     font-size: 1.5em;
    
 }
@@ -47,13 +47,17 @@
 
 .ubicacionReserva{
     display: flex;
-    padding-left: 5px;
+    padding-left: 0.313rem;
     
 }
 
 .detalleUbicacion{  
     display: flex;
     flex-direction: column;
+}
+
+.calificacionContainer{
+    padding: 1.25rem;
 }
 
 .calificaionEstrellas{
@@ -65,43 +69,53 @@
 
 .detallleNombre{
     align-self: flex-start;
-    padding: 0.625rem; 
+    padding:1.25rem; 
 }
 
  .detalleCategoria{
     color: grey;
     font-weight: bold;
-    padding: 0.625rem;
+    padding: 1.25rem;
     margin-bottom: 0;
 }
 
 .iconoGlobo{
     display: flex;
     justify-content:flex-start;
-    padding-left: 10px;
-    margin-top: 5px;
-    font-size: 15px;
+    margin-top: 0.313rem;
+    font-size: 0.938rem;
     
 }
 
 .icon{
-    margin-left: 10px;
+    margin-right: 0.313rem;
     color: var(--amarillo);
 }
 
 .iconUbi{
-    margin-right: 5px;
+    margin-right: 0.313rem;
     color: var(--grisO);
 }
 
 .horariosReserva{
-    padding: 20px;
+    padding: 1.25rem;
     justify-content: space-around;
 }
 
 .reservaCheckIn, .reservaCheckOut{
     display: flex;
     justify-content: space-between;
+}
+
+.inputIn, .inputOut{
+    appearance: none;
+color: #1D1D1D;
+border:none;
+background:#FFF;
+padding: 4px;
+display: inline-block;
+visibility: visible;
+width: 140px;
 }
 
 .botonReservaContainer{
