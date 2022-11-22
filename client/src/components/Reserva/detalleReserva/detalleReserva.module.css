@@ -30,7 +30,7 @@
 .tituloReserva {
     margin-bottom: 0;
     font-size: 1.5em;
-    padding: 10px 0 10px 15px;
+    padding: 10px 0px 10px 5px;
     width: 100%;
 
 
@@ -204,6 +204,7 @@
 
     .contenedorDetalles {
         padding-left: 10px;
+        padding-top: 25px;
     }
 
 }

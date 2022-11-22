@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import ImgProducto from "../../producto/imgProducto";
 import { fromUnixTime } from "date-fns";
+import estilo from "./botonR.module.css"
 
 export default function DetalleReserva({ producto }) {
   const backgroundImagen = (producto) => {
@@ -84,7 +85,7 @@ export default function DetalleReserva({ producto }) {
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>
-            <button className={styles.botonReserva}>Confirmar Reserva</button>
+            <button className={estilo.botonNuevo}><span>Confirmar Reserva</span></button>
           </div>
           </div>
         </div>

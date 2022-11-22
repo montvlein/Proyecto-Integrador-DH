@@ -9,6 +9,7 @@ import estilo from "./boton.module.css"
 
 function BloqueReserva() {
   const [state, setState] = useState([]);
+  const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
 
   return (
     <section className={styles.contenedor}>
@@ -19,7 +20,7 @@ function BloqueReserva() {
         <div className={styles.fechaContenedor}>
           <DateRange
             editableDateInputs={false}
-            months={2}
+            months={months}
             rangeColors={["#ffc107"]}
             minDate={addDays(new Date(), -0)}
             direction="horizontal"
@@ -29,18 +30,6 @@ function BloqueReserva() {
           />
         </div>
 
-        <div className={styles.fechaContenedorResponsive}>
-          <DateRange
-            editableDateInputs={false}
-            months={1}
-            rangeColors={["#ffc107"]}
-            minDate={addDays(new Date(), -0)}
-            direction="horizontal"
-            showSelectionPreview={true}
-            showPreview={false}
-            fixedHeight={true}
-          />
-        </div>
 
         <div className={styles.contenedorBoton}>
           <h5>¡Inicia tu reserva ahora!</h5>

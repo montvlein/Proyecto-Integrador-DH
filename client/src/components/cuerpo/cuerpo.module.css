@@ -25,9 +25,10 @@ main{
 }
 
 .barraBusqueda {
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     color: white;
     background-color: var(--amarillo);
