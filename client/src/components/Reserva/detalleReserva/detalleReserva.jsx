@@ -1,13 +1,14 @@
-import React from 'react'
-import styles from '../detalleReserva/detalleReserva.module.css'
-import stylesArticlulo from '../../producto/producto'
-import { useState, useEffect } from 'react'
-import { DigitalBookingApi } from '../../../data/conexionAPI'
-import { useParams, useNavigate } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons'
-import ImgProducto from '../../producto/imgProducto'
-import { fromUnixTime } from 'date-fns'
+import React from "react";
+import styles from "../detalleReserva/detalleReserva.module.css";
+import stylesArticlulo from "../../producto/producto";
+import { useState, useEffect } from "react";
+import { DigitalBookingApi } from "../../../data/conexionAPI";
+import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import ImgProducto from "../../producto/imgProducto";
+import { fromUnixTime } from "date-fns";
+import estilo from "./botonR.module.css"
 
 export default function DetalleReserva({ producto }) {
   const backgroundImagen = (producto) => {
@@ -19,16 +20,10 @@ export default function DetalleReserva({ producto }) {
     };
   };
 
-  const redirigir = useNavigate();
-    const crearReserva = (e) => {
-      console.log(e.target)
-      redirigir("/exito")
-    }
-
-
   return (
     <section className={styles.sectionDetalle}>
       <div className={styles.detalleReserva}>
+
         <div className={styles.contenedorImagen}>
         <h3 className={styles.tituloReserva}>Detalle de reserva</h3>
           <img src={producto.imagenes[0].url} className={styles.imagenCard} />
@@ -90,7 +85,8 @@ export default function DetalleReserva({ producto }) {
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>
-            <button className={styles.botonReserva} onClick={crearReserva}>Confirmar Reserva</button>
+            <button className={estilo.botonNuevo}><span>Confirmar Reserva</span></button>
+          </div>
           </div>
         </div>
       </div>
