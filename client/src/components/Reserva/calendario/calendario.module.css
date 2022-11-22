@@ -9,7 +9,7 @@
 
 .contenedorPadre {
 padding-top: 20px;
-width: 55%;
+width: 100%;
 }
 
 
@@ -29,3 +29,11 @@ width: 55%;
     width: 100%;
     background-color: #FFF;
 }
+
+
+/*
+@media screen and (max-width:760px) { 
+    .contenedorPadre {
+        display:none
+    }
+}*/

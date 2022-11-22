@@ -5,9 +5,23 @@ margin: auto;
 box-sizing: border-box;
 }
 
+.contenedorPadre {
+    margin: 0px 244px 0px 244px;
+}
+
 .contenedorFormularioReserva {
     background-color: rgba(214, 214, 214, 0.342);
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+  
+    .contenedorPadre {
+        margin: 0px;
+    }
 }
