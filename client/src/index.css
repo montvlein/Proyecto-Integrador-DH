@@ -30,6 +30,10 @@
   background: linear-gradient(45deg, hsla(0,0%,100%,0) 46%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 54%) 50% 50%;
 }
 
+.loading_cursor {
+  cursor: wait;
+}
+
 @keyframes bgAnimation {
   0% {
       transform: translate3d(-30%, 0, 0);

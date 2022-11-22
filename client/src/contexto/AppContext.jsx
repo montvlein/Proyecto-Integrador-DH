@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { DigitalBookingApi } from "../data/conexionAPI";
 import { Busqueda } from "../modelos/criterioBusqueda";
 import { Reserva } from "../modelos/reserva";
+import { Usuario } from "../modelos/usuario";
 
 const Contexto = createContext();
 
@@ -10,8 +11,7 @@ export function AppContext({ children }) {
 
   // usuario y sesion
   const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
-  const [sesionIniciada, setSesionIniciada] = useState(false);
-  const [usuario, setUsuario] = useState();
+  const [usuario, setUsuario] = useState(new Usuario);
 
   useEffect(()=>{
     if (token) {
@@ -28,17 +28,15 @@ export function AppContext({ children }) {
 
   function iniciarSesion(usuario) {
     setUsuario(usuario)
-    setSesionIniciada(true)
   }
 
   function estaLaSesionIniciada() {
-    return sesionIniciada;
+    return usuario?.email?.length > 0;
   }
 
   function cerrarSesion() {
     localStorage.removeItem("DigitalToken")
-    setUsuario({});
-    setSesionIniciada(false);
+    setUsuario(new Usuario);
   }
 
   // listado de productos
@@ -90,7 +88,7 @@ export function AppContext({ children }) {
   }
 
   // reserva
-  const [reserva, setReserva] = useState(new Reserva())
+  const [reserva, setReserva] = useState(new Reserva)
 
   return (
     <Contexto.Provider
