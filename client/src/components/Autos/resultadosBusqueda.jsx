@@ -1,17 +1,27 @@
 import Card from "./card";
 import style from "./cards.module.css";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Filtro from "../Filtro/asideFiltro";
 import { DigitalBookingApi } from "../../data/conexionAPI";
 import { useSearchParams } from "react-router-dom";
+import { useContext } from "react";
+import Contexto from "../../contexto/AppContext";
+import { Busqueda } from "../../modelos/criterioBusqueda";
 
 const ResultadosBusqueda = () => {
+    const { setBusqueda } = useContext(Contexto)
+    const redirigir = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams()
     const [cargando, setEstaCargando] = useState(true);
     const [filtrados, setFiltrados] = useState([]);
 
     const parametros = Object.fromEntries([...searchParams])
+
+    function volver() {
+      setBusqueda(new Busqueda)
+      redirigir("/")
+    }
 
     useEffect(()=>{
         DigitalBookingApi.auto.filtrarPor(parametros)
@@ -28,7 +38,7 @@ const ResultadosBusqueda = () => {
           <div>
             <h3>Resultado de tu búsqueda</h3>
           </div>
-          <Link to={"/"}><button className="btn btn-warning">Volver</button></Link>
+          <button className="btn btn-warning" onClick={volver}>Volver</button>
         </div>
         <div className={`d-flex ${style.contenedorResultadoPadre}`}>
             <Filtro />

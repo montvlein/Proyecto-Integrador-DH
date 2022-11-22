@@ -67,9 +67,12 @@ class AutoEndPoint extends CRUD {
         let filtro = ""
         if (parametros.hasOwnProperty("categoria")) filtro = `categoria=${parametros.categoria}`
         if (parametros.hasOwnProperty("ciudad")) filtro = `ciudad=${parametros.ciudad}`
+        if (parametros.hasOwnProperty("fechaInicio") && parametros.hasOwnProperty("fechaFinal")) filtro = `fechaInicio=${parametros.fechaInicio}&fechaFinal=${parametros.fechaFinal}`
         if (parametros.hasOwnProperty("categoria") && parametros.hasOwnProperty("ciudad")) {
             filtro = `categoria=${parametros.categoria}&ciudad=${parametros.ciudad}`
         }
+        if (parametros.hasOwnProperty("fechaInicio") && parametros.hasOwnProperty("fechaFinal") && parametros.hasOwnProperty("ciudad")) filtro = `ciudad=${parametros.ciudad}&fechaInicio=${parametros.fechaInicio}&fechaFinal=${parametros.fechaFinal}`
+        if (parametros.hasOwnProperty("fechaInicio") && parametros.hasOwnProperty("fechaFinal") && parametros.hasOwnProperty("ciudad") && parametros.hasOwnProperty("categoria")) filtro = `categoria=${parametros.categoria}&ciudad=${parametros.ciudad}&fechaInicio=${parametros.fechaInicio}&fechaFinal=${parametros.fechaFinal}`
         return handleFetch(`${this.uri}/buscarPor?${filtro}`)
         .then(res => res.json())
         .catch(error => { throw(error) })
@@ -95,6 +98,12 @@ class UsuarioEndPoint extends CRUD {
 
     login(obj) {
         return handleFetch(`${this.uri}/autenticacion`, opciones(obj))
+        .then( res => res.json() )
+        .catch(error => { throw(error) })
+    }
+
+    infoToken(token) {
+        return handleFetch(`${this.uri}/tokenInfo?token=${token}`)
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
