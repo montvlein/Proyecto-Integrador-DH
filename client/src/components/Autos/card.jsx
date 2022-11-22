@@ -42,7 +42,7 @@ const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => 
               {precio} ARS / <span>Mensual</span>
             </p>
           </div>
-          <Link to={`producto/${id}`} className="btn btn-warning">
+          <Link to={`/producto/${id}`} className="btn btn-warning">
             ¡Alquilar ahora!
           </Link>
         </div>
