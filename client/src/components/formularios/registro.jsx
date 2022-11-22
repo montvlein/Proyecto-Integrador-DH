@@ -6,13 +6,14 @@ import { DigitalBookingApi } from "../../data/conexionAPI";
 
 const Registro = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion } = useContext(Contexto)
+  const { iniciarSesion, setEnEspera } = useContext(Contexto)
   const [esMenorQue5, setEsMenorQue5] = useState(false)
   const [sonDiferentes, setSonDiferentes] = useState(false)
   const [mailInvaldio, setMailInvalido] = useState(false)
   const [errorAlRegistrar, setErrorAlRegistrar ] = useState(false)
 
   function registrarUsuario(usuario) {
+    setEnEspera(true)
     DigitalBookingApi.usuario.crear(usuario)
     .then( respuestaUsuario => {
       if (respuestaUsuario.status == 201) {
@@ -23,6 +24,7 @@ const Registro = () => {
     .then( data => data.json() )
     .then( auth => {
         localStorage.setItem("DigitalToken", auth.token )
+        setEnEspera(false)
         redirigir("/")
       })
     .catch(e => {

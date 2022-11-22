@@ -9,6 +9,14 @@ const Contexto = createContext();
 
 export function AppContext({ children }) {
 
+  const [ enEspera, setEnEspera ] = useState(false)
+  const body = document.querySelector("html").classList
+
+  useEffect(()=>{
+    body.toggle("loading_cursor")
+    console.log(enEspera)
+  },[enEspera])
+
   // usuario y sesion
   const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
   const [usuario, setUsuario] = useState(new Usuario);
@@ -93,6 +101,8 @@ export function AppContext({ children }) {
   return (
     <Contexto.Provider
       value={{
+        setEnEspera,
+
         getUsuario,
         iniciarSesion,
         estaLaSesionIniciada,
