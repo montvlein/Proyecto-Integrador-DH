@@ -1,14 +1,19 @@
 import styles from "../cuerpo/cuerpo.module.css";
 import SearchBar from "../cuerpo/barraBusqueda/searchCiudad";
 import FechaReserva from "../cuerpo/barraBusqueda/fechaReserva";
-
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import Contexto from "../../contexto/AppContext";
 
 export default function Buscador() {
+  const redirigir = useNavigate()
+  const { setCiudadBusqueda, busqueda } = useContext(Contexto)
 
   function handlerSubmit(evento) {
     evento.preventDefault();
-    if (evento.target.buscadorCiudad.value.split(",").length > 1) {
-        redirigir(`buscar?ciudad=${evento.target.buscadorCiudad.value.split(",")[0]}`)
+    setCiudadBusqueda(evento.target.buscadorCiudad.value.split(",")[0])
+    if (busqueda.ubicacion && busqueda.fechaFinal && busqueda.fechaFinal) {
+        redirigir(`buscar?ciudad=${busqueda.ubicacion}&fechaInicio=${busqueda.fechaInicio}&fechaFinal=${busqueda.fechaFinal}`)
     }
   }
 
@@ -22,7 +27,7 @@ export default function Buscador() {
           <FechaReserva />
         </div>
         <div className={styles.botonNavBuscador}>
-            <button className={styles.botonBarra}>Buscar</button>
+            <button className={styles.botonBarra} >Buscar</button>
         </div>
       </div>
     </form>

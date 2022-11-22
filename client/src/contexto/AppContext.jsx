@@ -1,11 +1,12 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
 import { DigitalBookingApi } from "../data/conexionAPI";
+import { Busqueda } from "../modelos/criterioBusqueda";
+import { Reserva } from "../modelos/reserva";
 
 const Contexto = createContext();
 
 export function AppContext({ children }) {
-  // Reserva
 
   // usuario y sesion
   const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
@@ -42,7 +43,6 @@ export function AppContext({ children }) {
 
   // listado de productos
   const [listaAutos, setListadoAutos] = useState([])
-  const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
   const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
   const [criterioFiltro, setCriterioFiltro] = useState()
   useEffect(()=>{
@@ -55,16 +55,7 @@ export function AppContext({ children }) {
     return listaAutos
   }
 
-  function getAutosFiltrados() {
-    return autosFiltrados
-  }
-
-  function filtarAutos(criterio) {
-    let filtrados = listaAutos.filter( auto => auto.categoria === criterio)
-    setAutosFiltrados(filtrados)
-    setEstaFiltadoListadoAutos(true)
-    setCriterioFiltro(criterio)
-  }
+  // buscador
 
   function limpiarFiltro() {
     setAutosFiltrados(listaAutos)
@@ -79,6 +70,28 @@ export function AppContext({ children }) {
     return criterioFiltro
   }
 
+  // buscador por fecha
+  const [busqueda, setBusqueda] = useState(new Busqueda)
+
+  function setFechaInicioBusqueda(fecha){
+    busqueda.fechaInicio = fecha
+  }
+
+  function setFechaFinalBusqueda(fecha) {
+    busqueda.fechaFinal = fecha
+  }
+
+  function setCiudadBusqueda(ubicacion) {
+    busqueda.ubicacion = ubicacion
+  }
+
+  function setCategoriaBusqueda(categoria) {
+    busqueda.categoria = categoria
+  }
+
+  // reserva
+  const [reserva, setReserva] = useState(new Reserva())
+
   return (
     <Contexto.Provider
       value={{
@@ -86,12 +99,18 @@ export function AppContext({ children }) {
         iniciarSesion,
         estaLaSesionIniciada,
         cerrarSesion,
+
         getListaAutos,
-        getAutosFiltrados,
-        filtarAutos,
         getEstaFiltadoListadoAutos,
         getCriterioFiltro,
-        limpiarFiltro
+        limpiarFiltro,
+
+        setFechaInicioBusqueda,
+        setFechaFinalBusqueda,
+        setCiudadBusqueda,
+        busqueda,
+        setBusqueda
+
       }}
     >
       {children}
