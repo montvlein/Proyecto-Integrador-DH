@@ -98,6 +98,12 @@ class UsuarioEndPoint extends CRUD {
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
+
+    infoToken(token) {
+        return handleFetch(`${this.uri}/tokenInfo?token=${token}`)
+        .then( res => res.json() )
+        .catch(error => { throw(error) })
+    }
 }
 
 function opciones(informacion, metodo = "POST", tipo = "application/json") {
