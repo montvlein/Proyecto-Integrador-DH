@@ -3,7 +3,7 @@ import styles from '../detalleReserva/detalleReserva.module.css'
 import stylesArticlulo from '../../producto/producto'
 import { useState, useEffect } from 'react'
 import { DigitalBookingApi } from '../../../data/conexionAPI'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons'
 import ImgProducto from '../../producto/imgProducto'
@@ -18,6 +18,14 @@ export default function DetalleReserva({ producto }) {
       backgroundImage: `url(${producto.url[0]})`,
     }
   }
+
+  const redirigir = useNavigate();
+
+    const crearReserva = (e) => {
+      console.log(e.target)
+      redirigir("/exito")
+    }
+
 
   return (
     <section className={styles.sectionDetalle}>
@@ -73,7 +81,7 @@ export default function DetalleReserva({ producto }) {
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>
-            <button className={styles.botonReserva}>Confirmar Reserva</button>
+            <button className={styles.botonReserva} onClick={crearReserva}>Confirmar Reserva</button>
           </div>
         </div>
       </div>
