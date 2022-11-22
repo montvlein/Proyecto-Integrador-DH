@@ -8,20 +8,26 @@ export function AppContext({ children }) {
   // Reserva
 
   // usuario y sesion
-  const [token, isToken] = useState(localStorage.getItem("DigitalToken"))
+  const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [usuario, setUsuario] = useState();
 
   useEffect(()=>{
     if (token) {
-      isToken(true)
-      usuario?null:setUsuario({nombre:"test", apellido: "iando"}) // borrar esta linea. porque genera que el usuario siempre sea el mismo
-      setSesionIniciada(true)
+      DigitalBookingApi.usuario.infoToken(token)
+      .then(usuario => {
+        iniciarSesion(usuario)
+      })
     }
-  },[token])
+  },[])
 
   function getUsuario() {
     return usuario;
+  }
+
+  function iniciarSesion(usuario) {
+    setUsuario(usuario)
+    setSesionIniciada(true)
   }
 
   function estaLaSesionIniciada() {
@@ -30,7 +36,6 @@ export function AppContext({ children }) {
 
   function cerrarSesion() {
     localStorage.removeItem("DigitalToken")
-    isToken(false)
     setUsuario({});
     setSesionIniciada(false);
   }
@@ -78,9 +83,7 @@ export function AppContext({ children }) {
     <Contexto.Provider
       value={{
         getUsuario,
-        setUsuario,
-        isToken,
-        setSesionIniciada,
+        iniciarSesion,
         estaLaSesionIniciada,
         cerrarSesion,
         getListaAutos,
