@@ -41,6 +41,7 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
           showMonthAndYearPickers={true}
           showDateDisplay={false}
           fixedHeight={true}
+          disabledDates={[new Date(2022,11,25)]}
           />
             {fechaInicial(format(state[0].startDate, "dd/MM/yyyy"))}
             {fechaFinal(format(state[0].endDate, "dd/MM/yyyy"))}
