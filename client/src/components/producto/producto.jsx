@@ -22,6 +22,7 @@ export default function Producto() {
     setOpen(!isOpen);
   };
 
+
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(idProducto).then((auto) => {
       setProducto(auto);
@@ -32,7 +33,7 @@ export default function Producto() {
   if (cargando) {
     return(
       <article className={`${stylesArticlulo.productoArticulo} container`}>
-        <CabeceraProducto nombre={""} categoria={""} />
+        <CabeceraProducto nombre={""} categoria={""} yendo={"/"}/>
 
         <section className={`loading_background m-5`} style={{height:"500px"}}>
             <div className={`loading_animation`}></div>

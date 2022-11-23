@@ -10,7 +10,7 @@ import Contexto from "../../contexto/AppContext";
 import { Busqueda } from "../../modelos/criterioBusqueda";
 
 const ResultadosBusqueda = () => {
-    const { setBusqueda } = useContext(Contexto)
+    const {setBusqueda} = useContext(Contexto)
     const redirigir = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams()
     const [cargando, setEstaCargando] = useState(true);

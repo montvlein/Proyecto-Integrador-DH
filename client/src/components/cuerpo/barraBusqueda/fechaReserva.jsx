@@ -41,7 +41,6 @@ function FechaReserva() {
             setDate([item.selection])
             setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"))
             setFechaFinalBusqueda(format(date[0].endDate, "yyyy-MM-dd"))
-
           }}
           moveRangeOnFirstSelection={false}
           ranges={date}

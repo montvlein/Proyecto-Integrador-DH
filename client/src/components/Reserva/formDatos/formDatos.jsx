@@ -21,6 +21,7 @@ export default function FormDatos() {
               value={getUsuario()?.nombre}  
               name="nombre"
               disabled
+              readOnly
             />
           </div>
           <div>
@@ -36,6 +37,7 @@ export default function FormDatos() {
               value={getUsuario()?.email}
               name="email"
               disabled
+              readOnly
             />
           </div>
           <div>
@@ -45,6 +47,7 @@ export default function FormDatos() {
               value={getUsuario()?.ciudad?"Prueba":"Agrega tu ciudad"}
               placeholder="Buenos Aires, Argentina"
               name="ciudad"
+              readOnly
               
             />
           </div>

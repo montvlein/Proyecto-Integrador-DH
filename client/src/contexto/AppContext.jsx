@@ -7,6 +7,7 @@ import { Usuario } from "../modelos/usuario";
 
 const Contexto = createContext();
 
+
 export function AppContext({ children }) {
 
   const [ enEspera, setEnEspera ] = useState(false)
@@ -122,6 +123,7 @@ export function AppContext({ children }) {
     return sinUsuarioParaReserva
   }
 
+  
 
   return (
     <Contexto.Provider
@@ -150,6 +152,8 @@ export function AppContext({ children }) {
 
         getSinUsuarioParaReserva,
         setSinUsuarioParaReserva,
+
+   
 
       }}
     >

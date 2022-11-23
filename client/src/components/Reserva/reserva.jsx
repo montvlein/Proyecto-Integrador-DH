@@ -56,7 +56,7 @@ export default function Reserva() {
     )}
   return (
       <section className="container-md">
-        <CabeceraProducto nombre={producto.nombre}  categoria={producto.categoria}/>
+        <CabeceraProducto nombre={producto.nombre}  categoria={producto.categoria} yendo={`/producto/${idProducto}`}/>
         <div className={styles.contenedorFormularioReserva}>
           <div>
             <FormDatos/>

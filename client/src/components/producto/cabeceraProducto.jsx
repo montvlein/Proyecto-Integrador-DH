@@ -1,17 +1,21 @@
-import React from 'react'
+import { useState } from 'react'
 import styles from './cabeceraProducto.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 
-export default function CabeceraProducto({nombre, categoria}) {
+export default function CabeceraProducto({nombre, categoria, yendo}) {
+  const [url, setUrl] = useState(yendo)
+
+
+    
   return (
     <section className={styles.cabeceraProducto}>
       <div className={styles.divUnoSeccionCabeceraProducto}>
         <h3 className={styles.parrafoUno}>{categoria}</h3>
         <h2 className={styles.parrafoDos}>{nombre}</h2>
       </div>
-      <Link to="/"><div className={styles.iconIzquierda}>
+      <Link to={`${url}`}><div className={styles.iconIzquierda}>
         <FontAwesomeIcon
           icon={faAngleLeft}
         />

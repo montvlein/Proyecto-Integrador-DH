@@ -194,6 +194,10 @@ dl {
     color:#FFF;
 }
 
+.logo button {
+    background-color: transparent;
+    border: none;
+}
 
 @media screen and (max-width:760px) {
     .lema, .sesion {

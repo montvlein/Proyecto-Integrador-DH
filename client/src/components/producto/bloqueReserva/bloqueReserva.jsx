@@ -15,10 +15,6 @@ function BloqueReserva({producto}) {
   const redirigir = useNavigate();
 
   
- //const validacionInicioSesion = () => estaLaSesionIniciada() ? redirigir(`/producto/${producto.id}/reserva`) : () => {
-   //redirigir("/iniciarSesion")
-  //setSinUsuarioParaReserva(true) 
- //}
 
  function validacionInicioSesion() {
       if(estaLaSesionIniciada()) {

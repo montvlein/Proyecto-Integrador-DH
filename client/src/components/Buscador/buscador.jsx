@@ -15,6 +15,13 @@ export default function Buscador() {
     if (busqueda.ubicacion && busqueda.fechaFinal && busqueda.fechaFinal) {
         redirigir(`buscar?ciudad=${busqueda.ubicacion}&fechaInicio=${busqueda.fechaInicio}&fechaFinal=${busqueda.fechaFinal}`)
     }
+    else if (busqueda.fechaFinal && busqueda.fechaFinal) {
+      redirigir(`buscar?fechaInicio=${busqueda.fechaInicio}&fechaFinal=${busqueda.fechaFinal}`)
+  }
+
+  else if (busqueda.ubicacion) {
+    redirigir(`buscar?ciudad=${busqueda.ubicacion}`)
+}
   }
 
   return (
