@@ -8,11 +8,12 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, getSinUsuarioParaReserva } = useContext(Contexto)
+  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
 
 
   const handleSubmit = function (e) {
+    setEnEspera(true)
     e.preventDefault()
     let [email, contrasenia] = [e.target.elements.email.value, e.target.elements.password.value]
     DigitalBookingApi.usuario.login({email,contrasenia})
@@ -20,6 +21,7 @@ const Login = () => {
       localStorage.setItem("DigitalToken", auth.token )
       DigitalBookingApi.usuario.infoToken(auth.token)
         .then(usuario => {
+          setEnEspera(false)
           iniciarSesion(usuario)
           redirigir("/")
         })
