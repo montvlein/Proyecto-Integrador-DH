@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "../detalleReserva/detalleReserva.module.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import estilo from "./botonR.module.css"
 import Contexto from "../../../contexto/AppContext";
 
-export default function DetalleReserva({ producto }) {
+export default function DetalleReserva({ producto, reserva }) {
   const {getFechaInicialReserva, getFechaFinalReserva} = useContext(Contexto);
 
   const backgroundImagen = (producto) => {
@@ -17,6 +17,9 @@ export default function DetalleReserva({ producto }) {
       backgroundImage: `url(${producto.url[0]})`,
     };
   };
+
+  const [fechaInicial, setFechaInicial] = useState(reserva.fechaInicialReserva);
+  const [fechaFinal, setFechaFinal] = useState(reserva.fechaFinalReserva);
 
   return (
     <section className={styles.sectionDetalle}>
@@ -56,30 +59,20 @@ export default function DetalleReserva({ producto }) {
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckIn}>
             <label>Check in</label>
-            <input
-              className={styles.inputIn}
-              disabled
-              type="date"
-              id="start"
-              name="trip-start"
-              value={getFechaInicialReserva}
-              min="2018-01-01"
-              max="2018-12-31"
-            />
+            <p
+              className={styles.inputIn}>
+              {fechaInicial[1]}
+                {console.log(fechaInicial)}
+              </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckOut}>
             <label>Check out</label>
-            <input
+            <p
               className={styles.inputOut}
-              disabled
-              type="date"
-              id="start"
-              name="trip-start"
-              value={getFechaFinalReserva}
-              min="2018-01-01"
-              max="2018-12-31"
-            />
+            >
+            {fechaFinal}
+            </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>

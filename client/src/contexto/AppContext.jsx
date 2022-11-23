@@ -97,6 +97,7 @@ export function AppContext({ children }) {
 
   // reserva
   const [reserva, setReserva] = useState(new Reserva)
+  
 
   function setFechaInicialReserva(fechaInicial) {
     reserva.FechaInicialReserva = fechaInicial
@@ -146,7 +147,6 @@ export function AppContext({ children }) {
 
         setFechaInicialReserva,
         setFechaFinalReserva,
-        getFechaReservaFinal,
         getFechaReservaFinal,
 
         getSinUsuarioParaReserva,

@@ -2,14 +2,13 @@ import React from "react";
 import styles from "../calendario/calendario.module.css"
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { DateRange } from "react-date-range";
 import { addDays } from 'date-fns';
-import Contexto from "../../../contexto/AppContext";
 import { format } from "date-fns";
 
-export default function HorarioReserva(){
-    const {setFechaInicialReserva, setFechaFinalReserva} = useContext(Contexto);
+export default function HorarioReserva({fechaFinal, fechaInicial}){
+
     const [state, setState] = useState([
         {
           startDate: new Date(),
@@ -31,8 +30,8 @@ export default function HorarioReserva(){
           editableDateInputs={true}
           months={months}
           onChange={(item) => {setState([item.selection])
-            setFechaInicialReserva(format(state[0].startDate, "yyyy-MM-dd"))
-            setFechaFinalReserva(format(state[0].endDate, "yyyy-MM-dd"))
+            fechaInicial(format(state[0].startDate, "yyyy-MM-dd"))
+            fechaFinal(format(state[0].endDate, "yyyy-MM-dd"))
             console.log(state)
           }}
           moveRangeOnFirstSelection={false}

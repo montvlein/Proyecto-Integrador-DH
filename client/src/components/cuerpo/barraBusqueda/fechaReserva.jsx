@@ -10,6 +10,7 @@ import "react-date-range/dist/theme/default.css"; // theme css fil
 import { format, startOfWeekYear } from "date-fns";
 import { useContext, useState } from "react";
 import Contexto from "../../../contexto/AppContext";
+import { addDays } from "date-fns";
 
 function FechaReserva() {
   const { setFechaInicioBusqueda, setFechaFinalBusqueda } = useContext(Contexto)
@@ -35,6 +36,7 @@ function FechaReserva() {
       {openDate && (
         <DateRange
           editableDateInputs={true}
+          minDate={addDays(new Date(), -0)}
           onChange={(item) => {
             setDate([item.selection])
             setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"))
