@@ -14,7 +14,6 @@ export function AppContext({ children }) {
 
   useEffect(()=>{
     body.toggle("loading_cursor")
-    console.log(enEspera)
   },[enEspera])
 
   // usuario y sesion
