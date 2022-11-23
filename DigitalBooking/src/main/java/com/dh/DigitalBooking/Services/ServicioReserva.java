@@ -27,6 +27,10 @@ public class ServicioReserva {
         return buscado;
     }
 
+    public List<Reserva> buscarPorAutoId(Long id) throws Exception{
+        return repositorio.buscarPorAuto(id)
+    }
+
     public Reserva actualizar(Reserva reserva) throws Exception{
         Reserva res = buscarPorId(reserva.getId());
         if (res != null){
