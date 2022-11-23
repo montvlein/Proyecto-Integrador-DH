@@ -18,7 +18,7 @@ export default function FormDatos() {
             <p>Nombre</p>
             <input
               type="text"
-              value={getUsuario()?.nombre}  
+              value={getUsuario()?.nombre}
               name="nombre"
               disabled
               readOnly
@@ -44,11 +44,8 @@ export default function FormDatos() {
             <p>Ciudad</p>
             <input
               type="text"
-              value={getUsuario()?.ciudad?"Prueba":"Agrega tu ciudad"}
-              placeholder="Buenos Aires, Argentina"
+              placeholder="Agrega la ciudad donde vives"
               name="ciudad"
-              readOnly
-              
             />
           </div>
         </div>

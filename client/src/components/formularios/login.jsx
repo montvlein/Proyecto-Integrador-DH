@@ -8,7 +8,7 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva } = useContext(Contexto)
+  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
 
 
@@ -23,7 +23,8 @@ const Login = () => {
         .then(usuario => {
           setEnEspera(false)
           iniciarSesion(usuario)
-          redirigir("/")
+          getSinUsuarioParaReserva()?redirigir(getUltimaConsultaPreviaReservar()):redirigir("/")
+          setSinUsuarioParaReserva(false)
         })
       })
     .catch(e => {

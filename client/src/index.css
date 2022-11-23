@@ -34,6 +34,10 @@
   cursor: wait;
 }
 
+main {
+  min-height: calc(100vh - 130px);
+}
+
 @keyframes bgAnimation {
   0% {
       transform: translate3d(-30%, 0, 0);

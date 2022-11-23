@@ -30,7 +30,7 @@ function SearchBar() {
   if(cargando)
   {
 <div class="spinner-border text-warning" role="status">
-  <span class="visually-hidden">Loading...</span>
+  <span class="visually-hidden">Cargando...</span>
 </div>
   }
 
@@ -45,6 +45,7 @@ function SearchBar() {
           onChange={handlerFilter}
           id="buscadorInput"
           name="buscadorCiudad"
+          autoComplete="off"
         />
       </div>
 

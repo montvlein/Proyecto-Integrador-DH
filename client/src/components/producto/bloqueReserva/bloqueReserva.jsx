@@ -9,12 +9,14 @@ import estilo from "./boton.module.css"
 import Contexto from "../../../contexto/AppContext"
 
 function BloqueReserva({producto}) {
-  const [state, setState] = useState([]);
-  const {estaLaSesionIniciada, setSinUsuarioParaReserva} = useContext(Contexto);
+  const [fechasConReserva, setState] = useState([]);
+  const {estaLaSesionIniciada, setSinUsuarioParaReserva, setUltimaConsultaPreviaReservar } = useContext(Contexto);
   const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
   const redirigir = useNavigate();
 
-  
+  producto?.fechasConReserva && producto?.fechasConReserva.map(fecha => {
+    fechasConReserva.push(new Date(fecha.split("-")))
+  })
 
  function validacionInicioSesion() {
       if(estaLaSesionIniciada()) {
@@ -22,7 +24,8 @@ function BloqueReserva({producto}) {
       }
 
       else {
-        setSinUsuarioParaReserva(true) 
+        setSinUsuarioParaReserva(true)
+        setUltimaConsultaPreviaReservar(`/producto/${producto.id}/reserva`)
         redirigir("/iniciarSesion")
       }
  }
@@ -43,6 +46,7 @@ function BloqueReserva({producto}) {
             showSelectionPreview={true}
             showPreview={false}
             fixedHeight={true}
+            disabledDates={fechasConReserva}
           />
         </div>
 
