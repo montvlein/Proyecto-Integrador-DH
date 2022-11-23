@@ -11,7 +11,7 @@ import Contexto from "../../contexto/AppContext"
 import { Busqueda } from "../../modelos/criterioBusqueda";
 
 export default function Cabecera() {
-  const {setBusqueda} = useContext(Contexto)
+  const {setBusqueda, setSinUsuarioParaReserva} = useContext(Contexto)
   const redirigir = useNavigate()
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
@@ -20,12 +20,13 @@ export default function Cabecera() {
 
   function volver() {
     setBusqueda(new Busqueda)
+    setSinUsuarioParaReserva(false)
     redirigir("/")
   }
 
 
   return (
-    <div className={styles.contenedor}>
+    <header className={styles.contenedor}>
       <div className={styles.navWrap}>
         <div className={styles.logo}>
           <button onClick={volver} className="bi me-2">
@@ -41,6 +42,6 @@ export default function Cabecera() {
         </div>
         <MenuResponsive isOpen={isOpen} toggle={toggle} />
       </div>
-    </div>
+    </header>
   );
 }

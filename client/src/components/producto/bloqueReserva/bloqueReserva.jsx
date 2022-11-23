@@ -10,7 +10,7 @@ import Contexto from "../../../contexto/AppContext"
 
 function BloqueReserva({producto}) {
   const [fechasConReserva, setState] = useState([]);
-  const {estaLaSesionIniciada, setSinUsuarioParaReserva} = useContext(Contexto);
+  const {estaLaSesionIniciada, setSinUsuarioParaReserva, setUltimaConsultaPreviaReservar } = useContext(Contexto);
   const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
   const redirigir = useNavigate();
 
@@ -24,7 +24,8 @@ function BloqueReserva({producto}) {
       }
 
       else {
-        setSinUsuarioParaReserva(true) 
+        setSinUsuarioParaReserva(true)
+        setUltimaConsultaPreviaReservar(`/producto/${producto.id}/reserva`)
         redirigir("/iniciarSesion")
       }
  }

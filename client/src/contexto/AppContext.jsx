@@ -96,34 +96,36 @@ export function AppContext({ children }) {
   }
 
   // reserva
-  const [reserva, setReserva] = useState(new Reserva)
-  
+  // const [reserva, setReserva] = useState(new Reserva)
 
-  function setFechaInicialReserva(fechaInicial) {
-    reserva.FechaInicialReserva = fechaInicial
-    console.log(fechaInicial)
-  }
+  // function setFechaInicialReserva(fechaInicial) {
+  //   reserva.FechaInicialReserva = fechaInicial
+  //   console.log(fechaInicial)
+  // }
 
-  function setFechaFinalReserva(fechaFinal) {
-    reserva.FechaFinalReserva = fechaFinal
-  }
+  // function setFechaFinalReserva(fechaFinal) {
+  //   reserva.FechaFinalReserva = fechaFinal
+  // }
 
-  function getFechaReservaInicio() {
-    fechaInicial
+  // function getFechaReservaInicio() {
+  //   fechaInicial
 
-  }
+  // }
 
-  function getFechaReservaFinal() {
-    fechaFinal
-  }
+  // function getFechaReservaFinal() {
+  //   fechaFinal
+  // }
 
   const [sinUsuarioParaReserva, setSinUsuarioParaReserva] = useState(false);
+  const [ultimaConsultaPreviaReservar, setUltimaConsultaPreviaReservar] = useState()
 
   function getSinUsuarioParaReserva() {
     return sinUsuarioParaReserva
   }
 
-  
+  function getUltimaConsultaPreviaReservar() {
+    return ultimaConsultaPreviaReservar
+  }
 
   return (
     <Contexto.Provider
@@ -146,14 +148,14 @@ export function AppContext({ children }) {
         busqueda,
         setBusqueda,
 
-        setFechaInicialReserva,
-        setFechaFinalReserva,
-        getFechaReservaFinal,
+        // setFechaInicialReserva,
+        // setFechaFinalReserva,
+        // getFechaReservaFinal,
 
         getSinUsuarioParaReserva,
         setSinUsuarioParaReserva,
-
-   
+        setUltimaConsultaPreviaReservar,
+        getUltimaConsultaPreviaReservar
 
       }}
     >
