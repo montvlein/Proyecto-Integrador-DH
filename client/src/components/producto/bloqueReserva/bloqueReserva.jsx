@@ -15,9 +15,7 @@ function BloqueReserva({producto}) {
   const redirigir = useNavigate();
 
   producto?.fechasConReserva && producto?.fechasConReserva.map(fecha => {
-    console.log("Componente BloqueReserva - probando convertir fechas")
-    console.log("fecha de back: ",fecha, "fecha convertida a date: ", new Date(fecha))
-    fechasConReserva.push(new Date(fecha))
+    fechasConReserva.push(new Date(fecha.split("-")))
   })
 
  function validacionInicioSesion() {
