@@ -29,10 +29,8 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
         <DateRange
           editableDateInputs={true}
           months={months}
-          onChange={(item) => {setState([item.selection])
-            fechaInicial(format(state[0].startDate, "yyyy-MM-dd"))
-            fechaFinal(format(state[0].endDate, "yyyy-MM-dd"))
-            console.log(state)
+          onChange={(item) => {
+            setState([item.selection])
           }}
           moveRangeOnFirstSelection={false}
           minDate={addDays(new Date(), -0)}
@@ -45,6 +43,8 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
           fixedHeight={true}
           disabledDates={[new Date(2022,11,25)]}
           />
+            {fechaInicial(format(state[0].startDate, "dd/MM/yyyy"))}
+            {fechaFinal(format(state[0].endDate, "dd/MM/yyyy"))}
        </div>
       </section>
     )

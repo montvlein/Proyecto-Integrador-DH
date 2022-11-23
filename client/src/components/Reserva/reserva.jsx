@@ -17,12 +17,13 @@ export default function Reserva() {
   const { getUsuario } = useContext(Contexto)
   const [cargando, setEstaCargando] = useState(true);
   const [producto, setProducto] = useState({});
+  const [cliente, setCliente] = useState(getUsuario())
   const [reserva, setReserva] = useState({
     horaComienzoReserva: "", 
-    fechaInicialReserva: "",
-    fechaFinalReserva: "",
+    fechaInicialReserva: Date.now(),
+    fechaFinalReserva: Date.now(),
     auto: "",
-    cliente: getUsuario(),
+    cliente: cliente,
 
   });
 
@@ -30,12 +31,16 @@ export default function Reserva() {
       reserva.horaComienzoReserva = hora
   }
 
+  function setFechaInicialReserva(fechaI) {
+    reserva.fechaInicialReserva = fechaI
+  }
+
   function setFechaFinalReserva(fecha) {
     reserva.fechaFinalReserva = fecha
   }
 
-  function setFechaInicialReserva(fechaI) {
-    reserva.fechaInicialReserva = fechaI 
+  function getFechaInicialReserva() {
+    return reserva.fechaInicialReserva
   }
 
   useEffect(() => {
@@ -63,8 +68,8 @@ export default function Reserva() {
             <Calendario fechaInicial={setFechaInicialReserva} fechaFinal={setFechaFinalReserva} />
             <HorarioReserva horaReserva={setHoraComienzoReserva}/>
           </div>
-           <div> 
-           <DetalleReserva producto={producto} reserva={reserva}/>
+           <div>
+           <DetalleReserva producto={producto} reserva={reserva} fechaI={getFechaInicialReserva}/>
            </div>
         </div>
         <PoliticasProducto />
