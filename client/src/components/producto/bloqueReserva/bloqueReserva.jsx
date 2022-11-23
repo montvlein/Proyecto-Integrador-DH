@@ -9,12 +9,16 @@ import estilo from "./boton.module.css"
 import Contexto from "../../../contexto/AppContext"
 
 function BloqueReserva({producto}) {
-  const [state, setState] = useState([]);
+  const [fechasConReserva, setState] = useState([]);
   const {estaLaSesionIniciada, setSinUsuarioParaReserva} = useContext(Contexto);
   const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
   const redirigir = useNavigate();
 
-  
+  producto?.fechasConReserva && producto?.fechasConReserva.map(fecha => {
+    console.log("Componente BloqueReserva - probando convertir fechas")
+    console.log("fecha de back: ",fecha, "fecha convertida a date: ", new Date(fecha))
+    fechasConReserva.push(new Date(fecha))
+  })
 
  function validacionInicioSesion() {
       if(estaLaSesionIniciada()) {
@@ -43,6 +47,7 @@ function BloqueReserva({producto}) {
             showSelectionPreview={true}
             showPreview={false}
             fixedHeight={true}
+            disabledDates={fechasConReserva}
           />
         </div>
 
