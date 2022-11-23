@@ -2,10 +2,12 @@ package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
+import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,6 +22,9 @@ public class ServicioAuto {
 
     @Autowired
     ServicioCaracteristica caracteristica;
+
+    @Autowired
+    ServicioReserva reservas;
 
     @Autowired
     public void setRepositorio(iRepositorioAuto repositorio) {
@@ -76,6 +81,13 @@ public class ServicioAuto {
         autoEntregable.setPrecio(auto.getPrecio());
         autoEntregable.setCiudad(auto.getCiudad());
         autoEntregable.setCaracteristica(caracteristica.caracteristicasPorAuto(auto.getCaracteristicas()));
+        for (Reserva r : reservas.buscarPorAutoId(auto.getId())) {
+            LocalDate fechaOcupara = r.getFechaInicialReserva();
+            while (fechaOcupara.isBefore(r.getFechaFinalReserva().plusDays(1))) {
+                autoEntregable.getFechasConReserva().add(fechaOcupara);
+                fechaOcupara = fechaOcupara.plusDays(1);
+            }
+        }
         return autoEntregable;
     }
 

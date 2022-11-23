@@ -27,7 +27,7 @@ public class ServicioReserva {
         return buscado;
     }
 
-    public List<Reserva> buscarPorAutoId(Long id) throws Exception{
+    public List<Reserva> buscarPorAutoId(Long id) {
         return repositorio.buscarPorAuto(id);
     }
 

@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -22,4 +24,5 @@ public class AutoDTO {
     private float precio;
     private Ciudad ciudad;
     private CaracteristicaDTO caracteristica;
+    private List<LocalDate> fechasConReserva = new ArrayList<>();
 }

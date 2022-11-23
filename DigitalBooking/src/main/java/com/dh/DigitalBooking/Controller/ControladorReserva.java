@@ -45,9 +45,4 @@ public class ControladorReserva {
         return ResponseEntity.ok(servicio.buscarPorId(id));
     }
 
-    @Operation(summary = "Busca todas las reserva por id de un auto")
-    @GetMapping("/listarPorAuto/{id}")
-    public ResponseEntity<?> buscarPorAutoId(@PathVariable Long id) throws Exception{
-        return ResponseEntity.ok(servicio.buscarPorAutoId(id));
-    }
 }
