@@ -43,6 +43,7 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
           showMonthAndYearPickers={true}
           showDateDisplay={false}
           fixedHeight={true}
+          disabledDates={[new Date(2022,11,25)]}
           />
        </div>
       </section>
