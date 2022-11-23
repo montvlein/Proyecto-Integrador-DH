@@ -1,25 +1,9 @@
-import React from "react";
 import styles from "../detalleReserva/detalleReserva.module.css";
-import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import estilo from "./botonR.module.css"
-import Contexto from "../../../contexto/AppContext";
 
-export default function DetalleReserva({ producto, reserva }) {
-  const {getFechaInicialReserva, getFechaFinalReserva} = useContext(Contexto);
-
-  const backgroundImagen = (producto) => {
-    return {
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundImage: `url(${producto.url[0]})`,
-    };
-  };
-
-  const [fechaInicial, setFechaInicial] = useState(reserva.fechaInicialReserva);
-  const [fechaFinal, setFechaFinal] = useState(reserva.fechaFinalReserva);
+export default function DetalleReserva({ reserva }) {
 
   return (
     <section className={styles.sectionDetalle}>
@@ -27,15 +11,15 @@ export default function DetalleReserva({ producto, reserva }) {
 
         <div className={styles.contenedorImagen}>
         <h3 className={styles.tituloReserva}>Detalle de reserva</h3>
-          <img src={producto.imagenes[0].url} className={styles.imagenCard} />
+          <img src={reserva.auto.imagenes[0].url} className={styles.imagenCard} />
         </div>
 
         <div className={styles.contenedorDetalles}>
         <div className={styles.contenedorTituloEstrellas}>
           <p className={styles.detalleCategoria}>
-            {producto.categoria.toUpperCase()}
+            {reserva.auto.categoria.toUpperCase()}
           </p>
-          <h5 className={styles.detalleNombre}>{producto.nombre}</h5>
+          <h5 className={styles.detalleNombre}>{reserva.auto.nombre}</h5>
           <div className={styles.calificacionEstrellas}>
             <FontAwesomeIcon icon={faStar} className={styles.icon} />
             <FontAwesomeIcon icon={faStar} className={styles.icon} />
@@ -50,8 +34,8 @@ export default function DetalleReserva({ producto, reserva }) {
             <FontAwesomeIcon icon={faLocationDot} className={styles.iconoUbi} />
           </div>
           <p className={styles.ubicacionReserva}>
-            {producto.ciudad.nombre}, {producto.ciudad.provincia},{" "}
-            {producto.ciudad.pais}
+            {reserva.auto.ciudad.nombre}, {reserva.auto.ciudad.provincia},{" "}
+            {reserva.auto.ciudad.pais}
           </p>
         </div>
 
@@ -61,8 +45,7 @@ export default function DetalleReserva({ producto, reserva }) {
             <label>Check in</label>
             <p
               className={styles.inputIn}>
-              {fechaInicial[1]}
-                {console.log(fechaInicial)}
+              {reserva.fechaInicialReserva}
               </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
@@ -71,7 +54,7 @@ export default function DetalleReserva({ producto, reserva }) {
             <p
               className={styles.inputOut}
             >
-            {fechaFinal}
+            {reserva.getFechaFinalReserva}
             </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
