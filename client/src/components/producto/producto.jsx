@@ -31,8 +31,30 @@ export default function Producto() {
 
   if (cargando) {
     return(
-      <article className={`${stylesArticlulo.productoArticulo} d-flex justify-content-center`}>
-        <div className="spinner-border m-5" roler="status"></div>
+      <article className={`${stylesArticlulo.productoArticulo} container`}>
+        <CabeceraProducto nombre={""} categoria={""} />
+
+        <section className={`loading_background m-5`} style={{height:"500px"}}>
+            <div className={`loading_animation`}></div>
+        </section>
+
+        <section>
+          <h3>Caracteristicas</h3>
+          <hr></hr>
+          <div className='d-flex justify-content-center'>
+            <div className="spinner-border m-5" roler="status"></div>
+          </div>
+        </section>
+        <section>
+          <h3>Encontrá tu auto</h3>
+          <hr></hr>
+          <div className='d-flex justify-content-center'>
+            <div className="spinner-border m-5" roler="status"></div>
+          </div>
+        </section>
+        <BloqueReserva/>
+        <PoliticasProducto />
+        <Heroe></Heroe>
       </article>
     )
   }
