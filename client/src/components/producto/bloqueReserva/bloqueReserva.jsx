@@ -1,15 +1,35 @@
 import styles from "./bloqueReserva.module.css";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { DateRange, DefinedRange } from "react-date-range";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addDays } from "date-fns";
 import estilo from "./boton.module.css"
+import Contexto from "../../../contexto/AppContext"
 
-function BloqueReserva() {
+function BloqueReserva({producto}) {
   const [state, setState] = useState([]);
+  const {estaLaSesionIniciada, setSinUsuarioParaReserva} = useContext(Contexto);
   const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
+  const redirigir = useNavigate();
+
+  
+ //const validacionInicioSesion = () => estaLaSesionIniciada() ? redirigir(`/producto/${producto.id}/reserva`) : () => {
+   //redirigir("/iniciarSesion")
+  //setSinUsuarioParaReserva(true) 
+ //}
+
+ function validacionInicioSesion() {
+      if(estaLaSesionIniciada()) {
+        redirigir(`/producto/${producto.id}/reserva`)
+      }
+
+      else {
+        setSinUsuarioParaReserva(true) 
+        redirigir("/iniciarSesion")
+      }
+ }
 
   return (
     <section className={styles.contenedor}>
@@ -33,7 +53,7 @@ function BloqueReserva() {
 
         <div className={styles.contenedorBoton}>
           <h5>¡Inicia tu reserva ahora!</h5>
-          <Link to="reserva"><button className={estilo.botonNuevo}><span>Iniciar Reserva</span></button></Link>     
+          <button className={estilo.botonNuevo} onClick={validacionInicioSesion}><span>Iniciar Reserva</span></button>   
             
     
         </div>

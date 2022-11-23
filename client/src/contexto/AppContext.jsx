@@ -98,6 +98,31 @@ export function AppContext({ children }) {
   // reserva
   const [reserva, setReserva] = useState(new Reserva)
 
+  function setFechaInicialReserva(fechaInicial) {
+    reserva.FechaInicialReserva = fechaInicial
+    console.log(fechaInicial)
+  }
+
+  function setFechaFinalReserva(fechaFinal) {
+    reserva.FechaFinalReserva = fechaFinal
+  }
+
+  function getFechaReservaInicio() {
+    fechaInicial
+
+  }
+
+  function getFechaReservaFinal() {
+    fechaFinal
+  }
+
+  const [sinUsuarioParaReserva, setSinUsuarioParaReserva] = useState(false);
+
+  function getSinUsuarioParaReserva() {
+    return sinUsuarioParaReserva
+  }
+
+
   return (
     <Contexto.Provider
       value={{
@@ -117,7 +142,15 @@ export function AppContext({ children }) {
         setFechaFinalBusqueda,
         setCiudadBusqueda,
         busqueda,
-        setBusqueda
+        setBusqueda,
+
+        setFechaInicialReserva,
+        setFechaFinalReserva,
+        getFechaReservaFinal,
+        getFechaReservaFinal,
+
+        getSinUsuarioParaReserva,
+        setSinUsuarioParaReserva,
 
       }}
     >

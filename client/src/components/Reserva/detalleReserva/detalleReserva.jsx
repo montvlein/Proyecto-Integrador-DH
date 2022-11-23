@@ -1,16 +1,14 @@
 import React from "react";
 import styles from "../detalleReserva/detalleReserva.module.css";
-import stylesArticlulo from "../../producto/producto";
-import { useState, useEffect } from "react";
-import { DigitalBookingApi } from "../../../data/conexionAPI";
-import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import ImgProducto from "../../producto/imgProducto";
-import { fromUnixTime } from "date-fns";
 import estilo from "./botonR.module.css"
+import Contexto from "../../../contexto/AppContext";
 
 export default function DetalleReserva({ producto }) {
+  const {getFechaInicialReserva, getFechaFinalReserva} = useContext(Contexto);
+
   const backgroundImagen = (producto) => {
     return {
       backgroundPosition: "center",
@@ -57,28 +55,28 @@ export default function DetalleReserva({ producto }) {
         <div className={styles.horariosReserva}>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckIn}>
-            <label for="start">Check in</label>
+            <label>Check in</label>
             <input
               className={styles.inputIn}
               disabled
               type="date"
               id="start"
               name="trip-start"
-              value="2018-07-22"
+              value={getFechaInicialReserva}
               min="2018-01-01"
               max="2018-12-31"
             />
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.reservaCheckOut}>
-            <label for="start">Check out</label>
+            <label>Check out</label>
             <input
               className={styles.inputOut}
               disabled
               type="date"
               id="start"
               name="trip-start"
-              value="2018-07-22"
+              value={getFechaFinalReserva}
               min="2018-01-01"
               max="2018-12-31"
             />
