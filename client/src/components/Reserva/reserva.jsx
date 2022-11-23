@@ -6,48 +6,23 @@ import HorarioReserva from './horarioReserva/horarioReserva'
 import CabeceraProducto from '../producto/cabeceraProducto'
 import PoliticasProducto from '../producto/politicasProducto'
 import styles from "../Reserva/reservaContenedor.module.css"
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import stylesArticlulo from '../producto/producto'
 import { DigitalBookingApi } from '../../data/conexionAPI'
-import Contexto from "../../contexto/AppContext"
 
 export default function Reserva() {
   const { idProducto } = useParams();
-  const { getUsuario } = useContext(Contexto)
   const [cargando, setEstaCargando] = useState(true);
   const [producto, setProducto] = useState({});
-  const [cliente, setCliente] = useState(getUsuario())
-  const [reserva, setReserva] = useState({
-    horaComienzoReserva: "", 
-    fechaInicialReserva: Date.now(),
-    fechaFinalReserva: Date.now(),
-    auto: "",
-    cliente: cliente,
-
-  });
-
-  function setHoraComienzoReserva(hora) {
-      reserva.horaComienzoReserva = hora
-  }
-
-  function setFechaInicialReserva(fechaI) {
-    reserva.fechaInicialReserva = fechaI
-  }
-
-  function setFechaFinalReserva(fecha) {
-    reserva.fechaFinalReserva = fecha
-  }
-
-  function getFechaInicialReserva() {
-    return reserva.fechaInicialReserva
-  }
+  const [fechaInicio, setFechaInicio] = useState(Date.now())
+  const [fechaFinal, setFechaFinal] = useState(Date.now())
+  const [horaInicial, setHoraInicial] = useState("10:00")
 
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(idProducto).then((auto) => {
       setProducto(auto)
       setEstaCargando(false)
-      reserva.auto = auto
     })
   }, []);
 
@@ -65,11 +40,11 @@ export default function Reserva() {
         <div className={styles.contenedorFormularioReserva}>
           <div>
             <FormDatos/>
-            <Calendario fechaInicial={setFechaInicialReserva} fechaFinal={setFechaFinalReserva} />
-            <HorarioReserva horaReserva={setHoraComienzoReserva}/>
+            <Calendario fechaInicial={setFechaInicio} fechaFinal={setFechaFinal} />
+            <HorarioReserva setHoraInicial={setHoraInicial} hora={horaInicial}/>
           </div>
            <div>
-           <DetalleReserva producto={producto} reserva={reserva} fechaI={getFechaInicialReserva}/>
+           <DetalleReserva producto={producto} fechaInicio={fechaInicio} fechaFinal={fechaFinal} />
            </div>
         </div>
         <PoliticasProducto />

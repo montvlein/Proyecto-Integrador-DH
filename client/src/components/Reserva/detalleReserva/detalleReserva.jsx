@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import estilo from "./botonR.module.css"
 
-export default function DetalleReserva({ reserva }) {
+export default function DetalleReserva({ producto, fechaInicio, fechaFinal }) {
 
   return (
     <section className={styles.sectionDetalle}>
@@ -11,15 +11,15 @@ export default function DetalleReserva({ reserva }) {
 
         <div className={styles.contenedorImagen}>
         <h3 className={styles.tituloReserva}>Detalle de reserva</h3>
-          <img src={reserva.auto.imagenes[0].url} className={styles.imagenCard} />
+          <img src={producto.imagenes[0].url} className={styles.imagenCard} />
         </div>
 
         <div className={styles.contenedorDetalles}>
         <div className={styles.contenedorTituloEstrellas}>
           <p className={styles.detalleCategoria}>
-            {reserva.auto.categoria.toUpperCase()}
+            {producto.categoria.toUpperCase()}
           </p>
-          <h5 className={styles.detalleNombre}>{reserva.auto.nombre}</h5>
+          <h5 className={styles.detalleNombre}>{producto.nombre}</h5>
           <div className={styles.calificacionEstrellas}>
             <FontAwesomeIcon icon={faStar} className={styles.icon} />
             <FontAwesomeIcon icon={faStar} className={styles.icon} />
@@ -34,8 +34,8 @@ export default function DetalleReserva({ reserva }) {
             <FontAwesomeIcon icon={faLocationDot} className={styles.iconoUbi} />
           </div>
           <p className={styles.ubicacionReserva}>
-            {reserva.auto.ciudad.nombre}, {reserva.auto.ciudad.provincia},{" "}
-            {reserva.auto.ciudad.pais}
+            {producto.ciudad.nombre}, {producto.ciudad.provincia},{" "}
+            {producto.ciudad.pais}
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export default function DetalleReserva({ reserva }) {
             <label>Check in</label>
             <p
               className={styles.inputIn}>
-              {reserva.fechaInicialReserva}
+              {fechaInicio}
               </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
@@ -54,7 +54,7 @@ export default function DetalleReserva({ reserva }) {
             <p
               className={styles.inputOut}
             >
-            {reserva.getFechaFinalReserva}
+              {fechaFinal}
             </p>
           </div>
           <hr className={styles.lineaCheck}></hr>
