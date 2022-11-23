@@ -67,7 +67,7 @@ export default function Producto() {
       <GaleriaProducto isOpen={!isOpen} toggle={toggle} imagenes={producto.imagenes}/>
       <CaracteristicasProducto caracteristica={producto.caracteristica}/>
       <DescripcionProducto descripcion={producto.descripcion}/>
-      <BloqueReserva/>
+      <BloqueReserva producto={producto}/>
       <PoliticasProducto />
       <Heroe></Heroe>
     </article>

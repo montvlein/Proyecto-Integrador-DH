@@ -3,11 +3,14 @@ import { useContext, useState } from "react";
 import Contexto from "../../contexto/AppContext"
 import { Link, useNavigate } from "react-router-dom"
 import { DigitalBookingApi } from "../../data/conexionAPI";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, setEnEspera } = useContext(Contexto)
+  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
+
 
   const handleSubmit = function (e) {
     setEnEspera(true)
@@ -30,7 +33,11 @@ const Login = () => {
     return(
       <div className={styles.divContainer}>
 
-        {invalido?<p className="text-danger">Lamentablemente no ha podido iniciar sesi'on. Por favor, intente más tarde</p>:null}
+        {invalido?<p className={styles.textError}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
+        {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
+          icon={faCircleExclamation}
+        /></span>   Para iniciar una reserva debe estar iniciado</p> : null}
+
 
         <form className={styles.formularioContainer} onSubmit={handleSubmit} method="POST">
           <div className={styles.contenidoFormulario}>
