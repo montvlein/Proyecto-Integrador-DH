@@ -63,12 +63,12 @@ gap:10px;
 
 .caracteristicasDIV {
     display: flex;
-    justify-content: space-evenly;
     margin: .5rem;
 }
 
 .caracteristicasDIV p {
     margin: 0;
+    margin-left:5px
 }
 
 @media screen 

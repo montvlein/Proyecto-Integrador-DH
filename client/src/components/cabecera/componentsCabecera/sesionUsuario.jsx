@@ -21,7 +21,9 @@ function UsuarioIniciado() {
       <div className={styles.contenedorNombreSesion}>
         <dl>
           <dt className="px-2 text-white">Hola,</dt>
-          <dl className="nav-link px-2 text-white fw-bold">{getUsuario().nombre} {getUsuario().apellido}</dl>
+          <dl className="nav-link px-2 text-white fw-bold">
+          {getUsuario().nombre.charAt(0).toUpperCase() + getUsuario().nombre.slice(1)}{" "} 
+          {getUsuario().apellido.charAt(0).toUpperCase() + getUsuario().apellido.slice(1)}</dl>
         </dl>
       </div>
 
