@@ -19,9 +19,9 @@
 }
 
 .tituloCards {
-    justify-content: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
@@ -88,6 +88,16 @@
     object-fit: cover;
 }
 
+.botonVolver {
+    width: 5rem;
+    align-self: flex-end;
+    margin-bottom: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
 @media screen 
   and (min-width: 760px) 
   and (max-width: 1000px) {
@@ -108,6 +118,15 @@
     .mostrarResultadosFiltro {
         max-width: 80%;
     }
+
+    .botonVolver {
+        width: 2rem;
+        align-self: center;
+        margin-bottom: auto;
+        height: auto;
+        padding: 5px;
+        border-radius: 8px;
+    }
     
   }
 
@@ -115,6 +134,27 @@
     .contenedorResultadoPadre {
         flex-direction: column;
         width: 100%;
+    }
+
+    .botonVolver {
+        width: 2rem;
+        align-self: center;
+        margin-bottom: auto;
+        height: auto;
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+    .tituloCards {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-bottom: var(--amarillo) solid 1px;
+    
     }
     
   }
