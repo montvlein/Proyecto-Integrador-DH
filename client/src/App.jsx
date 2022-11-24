@@ -5,7 +5,7 @@ import Login from "./components/formularios/login";
 import Registro from "./components/formularios/registro";
 import Producto from "./components/producto/producto";
 import Exito from "./components/Exito/exito";
-import Reserva from "./components/Reserva/reserva";
+import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/iniciarSesion" element={<Login />} />
           <Route path="/crearCuenta" element={<Registro />} />
           <Route path="/producto/:idProducto" element={<Producto />} />
-          <Route path={`/producto/:idProducto/reserva`} element={<Reserva />} />
+          <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
           <Route path="*" element={<h2>Not Found</h2>} />
