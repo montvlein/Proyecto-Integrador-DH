@@ -7,6 +7,8 @@ export default function Recomendados() {
     const [cargando, setEstaCargando] = useState(true);
     const [recomendados, setRecomendados] = useState([]);
 
+    const prueba = window.matchMedia("((min-width: 760px)  and (max-width: 1000px))").matches ? "col-md-6" : "col-md-4";
+
     useEffect(() => {
         DigitalBookingApi.auto.recomendados()
         .then((autos) => {
@@ -41,7 +43,7 @@ export default function Recomendados() {
         </div>
         <div className="row gy-4">
           {recomendados.map((auto) => (
-            <div className="col-md-4" key={auto.id}>
+            <div className={prueba} key={auto.id}>
               <Card {...auto} />
             </div>
           ))}

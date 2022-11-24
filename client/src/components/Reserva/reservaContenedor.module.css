@@ -24,6 +24,11 @@ box-sizing: border-box;
     .contenedorPadre {
         margin: 0px;
     }
+
+    section {
+        margin:0px;
+        padding: 0px;
+    }
 }
 
 @media screen and (min-width: 1030) and (max-width: 1290px) {

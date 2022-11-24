@@ -20,7 +20,6 @@ align-items: center;
     padding: 10px;
     border-radius: 8px;
     background-color: white;
-    margin: 5em;
 }
 
 .divIconoCheck h4{
@@ -52,4 +51,14 @@ align-items: center;
    align-items: center;
     color: #4c4e52;
     font-weight: 500;
+}
+
+@media screen and (max-width:760px) { 
+    .divMadre {
+        width: 70%;
+    }
+
+    .texto {
+        text-align: center;
+    }
 }

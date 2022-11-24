@@ -20,7 +20,7 @@ export default function HorarioReserva({hora, setHoraInicial}){
                 <div className={styles.contenedorDesplegable}>
                     <p>Indica tu horario de retiro:</p>
                     <select defaultValue="Selecciona tu horario" className={styles.estiloSelect}
-                    onChange={(event) => setHoraInicial(event.target.value)} id="select">
+                    onChange={(event) => setHoraInicial(event.target.value)} id="select" required="true">
                         <option disabled hidden>Selecciona tu horario</option>
                         <option>09:00</option>
                         <option>09:30</option>

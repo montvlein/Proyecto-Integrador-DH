@@ -71,6 +71,27 @@ gap:10px;
     margin-left:5px
 }
 
+
+.cardDescripcion {
+    text-overflow:ellipsis;
+}
+
+
+.icon {
+    font-size: 1.5em;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    color: #FFF;
+    box-shadow: rgb(0 0 0/16%) px 1px 3px;
+    
+}
+
+.imagenAuto {
+    max-height: 300px;
+    object-fit: cover;
+}
+
 @media screen 
   and (min-width: 760px) 
   and (max-width: 1000px) {
