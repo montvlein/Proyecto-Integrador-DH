@@ -210,6 +210,9 @@ li {
 @media screen 
   and (min-width: 760px) 
   and (max-width: 1000px) {
+    .botonBarra {
+        width: 350px;
+    }
 
     .barraBusqueda { 
         flex-direction: column;

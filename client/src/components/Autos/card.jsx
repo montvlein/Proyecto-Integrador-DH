@@ -14,7 +14,7 @@ const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => 
   let portada = imagenes[0].url
   return (
     <section className="contenedorTodasLasCards">
-      <div className="card">
+      <div className="card Small shadow">
       <FontAwesomeIcon icon={faHeart} className={style.icon}/>
         <img src={portada} alt="auto" className={style.imagenAuto}/>
         

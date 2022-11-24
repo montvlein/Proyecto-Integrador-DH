@@ -2,7 +2,7 @@
 
 .destinoContenedor { 
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/Argentina.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/mardel.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     padding: 40px;
- 
+    background-position: bottom;
     
   }
   
