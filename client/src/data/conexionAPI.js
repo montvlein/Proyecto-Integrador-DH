@@ -104,7 +104,7 @@ class UsuarioEndPoint extends CRUD {
     }
 
     login(obj) {
-        return handleFetch(`${this.uri}/autenticacion`, opciones(obj))
+        return handleFetch(`${this.uri}/autenticacion`, opciones(obj, null))
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
