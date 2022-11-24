@@ -1,6 +1,7 @@
 .env
 /DigitalBooking/.env
 /client/.env
+/DigitalBooking/src/main/resources/application-prod.properties
 
 # Logs
 logs

@@ -29,6 +29,7 @@ const Registro = () => {
       })
     .catch(e => {
       setErrorAlRegistrar(true)
+      setEnEspera(false)
     })
   }
 

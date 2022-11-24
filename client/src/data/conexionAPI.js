@@ -21,8 +21,8 @@ class CRUD {
         .catch(error => { throw(error) })
     }
 
-    crear(obj, token) {
-        return handleFetch(`${this.uri}/nuevi`, opciones(obj, token))
+    crear(obj) {
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj))
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
@@ -98,13 +98,13 @@ class UsuarioEndPoint extends CRUD {
     }
 
     crear(obj) {
-        return handleFetch(`${this.uri}/nuevi`, opciones(obj, null))
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj, false))
         .then( res => res )
         .catch(error => { throw(error) })
     }
 
     login(obj) {
-        return handleFetch(`${this.uri}/autenticacion`, opciones(obj, null))
+        return handleFetch(`${this.uri}/autenticacion`, opciones(obj, false))
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
@@ -116,12 +116,12 @@ class UsuarioEndPoint extends CRUD {
     }
 }
 
-function opciones(informacion, token = localStorage.getItem("DigitalToken"), metodo = "POST", tipo = "application/json") {
+function opciones(informacion, isAuthRequired = true, metodo = "POST", tipo = "application/json") {
     const headerConAuth = {
         method: metodo,
         headers: {
           "Content-Type": tipo,
-          "Authorization": `Bearer ${token}`
+          "Authorization": `Bearer ${localStorage.getItem("DigitalToken")}`
         },
         body: JSON.stringify(informacion),
       };
@@ -132,7 +132,7 @@ function opciones(informacion, token = localStorage.getItem("DigitalToken"), met
         },
         body: JSON.stringify(informacion),
       };
-    return token?headerConAuth:headerSinAuth
+    return isAuthRequired?headerConAuth:headerSinAuth
   };
 
 function handleFetch(request, settings) {

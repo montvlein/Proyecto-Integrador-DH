@@ -8,9 +8,4 @@ services:
       - ./app.jar:/app.jar
     ports:
       - "8080:8080"
-    entrypoint: ["java", "-jar", "/app.jar", "-Pprod"]
-    environment:
-      - EMAILUSER=value
-      - EMAILPASS=value
-      - CUENTAENVIO=value
-      - SECRET=value
+    entrypoint: ["java", "-jar", "/app.jar"]

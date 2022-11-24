@@ -29,6 +29,7 @@ const Login = () => {
       })
     .catch(e => {
       setInvalido(true)
+      setEnEspera(false)
     })
   }
     return(
