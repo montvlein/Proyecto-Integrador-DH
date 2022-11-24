@@ -66,7 +66,7 @@ export default function Categorias() {
           <h3>Elige tu categoria</h3>
         </div>
         <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          <p>Selecciona entre las opciones de nuestra increíble flota</p>
         </div>
       </div>
 
