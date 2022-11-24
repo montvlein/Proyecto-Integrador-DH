@@ -134,6 +134,7 @@
     .contenedorResultadoPadre {
         flex-direction: column;
         width: 100%;
+        padding: 0px 20px 20px 10px;
     }
 
     .botonVolver {
@@ -148,13 +149,22 @@
     .tituloCards {
         gap: 10px;
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
         margin-top: 20px;
         margin-bottom: 20px;
         padding: 20px;
         border-bottom: var(--amarillo) solid 1px;
     
+    }
+
+    .tituloCards  h3 {
+        font-size: 1.3em;
+        margin-bottom: 0px;
+    }
+
+    .divtitulo {
+        display: flex;
+        align-items: center;
     }
     
   }

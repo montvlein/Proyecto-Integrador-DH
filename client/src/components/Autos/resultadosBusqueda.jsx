@@ -40,7 +40,7 @@ const ResultadosBusqueda = () => {
           <button className={`btn btn-warning ${style.botonVolver}`} onClick={volver}><FontAwesomeIcon
           icon={faAngleLeft}
         /></button>
-          <div>
+          <div className={style.divtitulo}>
             <h3>Resultado de tu búsqueda</h3>
           </div>
         </div>
