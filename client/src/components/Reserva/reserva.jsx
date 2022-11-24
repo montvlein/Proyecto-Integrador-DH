@@ -40,7 +40,7 @@ export default function Reserva() {
         <div className={styles.contenedorFormularioReserva}>
           <div>
             <FormDatos/>
-            <Calendario fechaInicial={setFechaInicio} fechaFinal={setFechaFinal} />
+            <Calendario fechaInicial={setFechaInicio} fechaFinal={setFechaFinal} producto={producto} />
             <HorarioReserva setHoraInicial={setHoraInicial} hora={horaInicial}/>
           </div>
            <div>
