@@ -5,7 +5,7 @@
 .heroeContenedor {
     height: 300px;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/sunset.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/sunset.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     display: flex;

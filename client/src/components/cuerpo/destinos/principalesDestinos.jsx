@@ -1,6 +1,4 @@
 import styles from './destinos.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function Destinos() {
 
