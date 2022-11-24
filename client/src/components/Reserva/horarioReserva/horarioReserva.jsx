@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../horarioReserva/horarioReserva.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
