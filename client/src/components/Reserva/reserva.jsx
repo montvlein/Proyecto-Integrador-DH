@@ -6,13 +6,14 @@ import CabeceraProducto from '../producto/cabeceraProducto'
 import PoliticasProducto from '../producto/politicasProducto'
 import styles from "../Reserva/reservaContenedor.module.css"
 import { useState, useEffect, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import stylesArticlulo from '../producto/producto'
 import { DigitalBookingApi } from '../../data/conexionAPI'
 import { Reserva } from '../../modelos/reserva'
 import Contexto from '../../contexto/AppContext'
 
 export default function ReservaComponent() {
+  const redirigir = useNavigate()
   const { getUsuario, setUbicacionUsuario, estaLaSesionIniciada } = useContext(Contexto)
   const { idProducto } = useParams();
   const [cargando, setEstaCargando] = useState(true);
@@ -33,7 +34,12 @@ export default function ReservaComponent() {
     setUbicacionUsuario(evento.target.elements.ciudad.value)
     let cliente = getUsuario()
     let reserva = new Reserva(horaInicial, fechaInicio, fechaFinal, producto, cliente)
-    estaLaSesionIniciada()?console.log(reserva):alert("NO TENDRIAS QUE ESTAR VIENDO VIENDO ESTO... NECESITAS ESTAR LOGEADO PARA RESERVAR")
+    console.log(reserva)
+    DigitalBookingApi.reserva.crear(reserva)
+    .then(resultado => console.log(resultado)) // esto todavia no anda. El formato de la hora, creo que esta mal.
+    .catch(error => ()=>{
+      console.error(error)
+      alert("No se pudo crear la reserva...")})
   }
 
   if (cargando) {

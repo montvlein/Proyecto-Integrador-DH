@@ -5,6 +5,7 @@ class DigitalBookingAPI {
         this.ciudad = new CiudadEndPoint(basepath)
         this.auto = new AutoEndPoint(basepath)
         this.usuario = new UsuarioEndPoint(basepath)
+        this.reserva = new ReservaEndPoint(basepath)
     }
 
 }
@@ -20,8 +21,8 @@ class CRUD {
         .catch(error => { throw(error) })
     }
 
-    crear(obj) {
-        return handleFetch(`${this.uri}/nuevi`, opciones(obj))
+    crear(obj, token) {
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj, token))
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
@@ -53,6 +54,12 @@ class CategoriaEndPoint extends CRUD {
 
 class CiudadEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/ciudad") {
+        super(basepath, categoriaUri)
+    }
+}
+
+class ReservaEndPoint extends CRUD {
+    constructor(basepath, categoriaUri="api/v1/reserva") {
         super(basepath, categoriaUri)
     }
 }
@@ -109,14 +116,23 @@ class UsuarioEndPoint extends CRUD {
     }
 }
 
-function opciones(informacion, metodo = "POST", tipo = "application/json") {
-    return {
-      method: metodo,
-      headers: {
-        "Content-Type": tipo,
-      },
-      body: JSON.stringify(informacion),
-    };
+function opciones(informacion, token = localStorage.getItem("DigitalToken"), metodo = "POST", tipo = "application/json") {
+    const headerConAuth = {
+        method: metodo,
+        headers: {
+          "Content-Type": tipo,
+          "Authentication": `Bearer ${token}`
+        },
+        body: JSON.stringify(informacion),
+      };
+    const headerSinAuth = {
+        method: metodo,
+        headers: {
+          "Content-Type": tipo,
+        },
+        body: JSON.stringify(informacion),
+      };
+    return token?headerConAuth:headerSinAuth
   };
 
 function handleFetch(request, settings) {
