@@ -59,7 +59,7 @@ export default function DetalleReserva({ producto, fechaInicio, fechaFinal }) {
           </div>
           <hr className={styles.lineaCheck}></hr>
           <div className={styles.botonReservaContainer}>
-            <button className={estilo.botonNuevo}><span>Confirmar Reserva</span></button>
+            <button className={estilo.botonNuevo} type="submit"><span>Confirmar Reserva</span></button>
           </div>
           </div>
         </div>

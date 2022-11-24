@@ -26,7 +26,13 @@ export default function FormDatos() {
           </div>
           <div>
             <p>Apellido</p>
-            <input type="text" value={getUsuario()?.apellido} name="apellido" disabled />
+            <input
+              type="text"
+              value={getUsuario()?.apellido}
+              name="apellido"
+              disabled
+              readOnly
+            />
           </div>
         </div>
         <div className={styles.contenedorET}>
@@ -46,6 +52,7 @@ export default function FormDatos() {
               type="text"
               placeholder="Agrega la ciudad donde vives"
               name="ciudad"
+              required
             />
           </div>
         </div>

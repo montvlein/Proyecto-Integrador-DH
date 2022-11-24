@@ -34,6 +34,10 @@ export function AppContext({ children }) {
     return usuario;
   }
 
+  function setUbicacionUsuario(lugar) {
+    usuario.ciudad = lugar
+  }
+
   function iniciarSesion(usuario) {
     setUsuario(usuario)
   }
@@ -95,27 +99,6 @@ export function AppContext({ children }) {
     busqueda.categoria = categoria
   }
 
-  // reserva
-  // const [reserva, setReserva] = useState(new Reserva)
-
-  // function setFechaInicialReserva(fechaInicial) {
-  //   reserva.FechaInicialReserva = fechaInicial
-  //   console.log(fechaInicial)
-  // }
-
-  // function setFechaFinalReserva(fechaFinal) {
-  //   reserva.FechaFinalReserva = fechaFinal
-  // }
-
-  // function getFechaReservaInicio() {
-  //   fechaInicial
-
-  // }
-
-  // function getFechaReservaFinal() {
-  //   fechaFinal
-  // }
-
   const [sinUsuarioParaReserva, setSinUsuarioParaReserva] = useState(false);
   const [ultimaConsultaPreviaReservar, setUltimaConsultaPreviaReservar] = useState()
 
@@ -136,6 +119,7 @@ export function AppContext({ children }) {
         iniciarSesion,
         estaLaSesionIniciada,
         cerrarSesion,
+        setUbicacionUsuario,
 
         getListaAutos,
         getEstaFiltadoListadoAutos,
