@@ -98,13 +98,13 @@ class UsuarioEndPoint extends CRUD {
     }
 
     crear(obj) {
-        return handleFetch(`${this.uri}/nuevi`, opciones(obj))
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj, null))
         .then( res => res )
         .catch(error => { throw(error) })
     }
 
     login(obj) {
-        return handleFetch(`${this.uri}/autenticacion`, opciones(obj))
+        return handleFetch(`${this.uri}/autenticacion`, opciones(obj, null))
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
