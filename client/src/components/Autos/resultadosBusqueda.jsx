@@ -8,6 +8,8 @@ import { useSearchParams } from "react-router-dom";
 import { useContext } from "react";
 import Contexto from "../../contexto/AppContext";
 import { Busqueda } from "../../modelos/criterioBusqueda";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 const ResultadosBusqueda = () => {
     const {setBusqueda} = useContext(Contexto)
@@ -35,10 +37,12 @@ const ResultadosBusqueda = () => {
     return (
       <div className={`container ${style.contenedorPadre}`}>
         <div className={style.tituloCards}>
+          <button className={`btn btn-warning ${style.botonVolver}`} onClick={volver}><FontAwesomeIcon
+          icon={faAngleLeft}
+        /></button>
           <div>
             <h3>Resultado de tu búsqueda</h3>
           </div>
-          <button className="btn btn-warning" onClick={volver}>Volver</button>
         </div>
         <div className={`d-flex ${style.contenedorResultadoPadre}`}>
             <Filtro />
