@@ -49,15 +49,15 @@
 }
 
 .mostrarResultadosFiltro {
- max-width: 80%;
+
  padding-bottom: 20px;
  display: flex;
-flex-wrap: wrap;
-gap:10px;
+ flex-wrap: wrap;
+ gap:10px;
 }
 
 .contenedorCard {
-    max-width: 354px;
+    max-width: 350px;
     
 }
 
@@ -71,10 +71,6 @@ gap:10px;
     margin-left:5px
 }
 
-
-.cardDescripcion {
-    text-overflow:ellipsis;
-}
 
 
 .icon {
@@ -104,18 +100,13 @@ gap:10px;
         display: none;
     }
 
-    .contenedorResultadoPadre {
-        flex-direction: column;
-        justify-content: center;
-    }
-
     .contenedorCard {
-        max-width: 250px;
+        max-width: 270px;
         
     }
 
-    .contenedorPadre {
-        height: 95vh;
+    .mostrarResultadosFiltro {
+        max-width: 80%;
     }
     
   }
