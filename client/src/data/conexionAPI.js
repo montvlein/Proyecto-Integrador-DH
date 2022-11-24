@@ -98,7 +98,7 @@ class UsuarioEndPoint extends CRUD {
     }
 
     crear(obj) {
-        return handleFetch(`${this.uri}/nuevi`, opciones(obj))
+        return handleFetch(`${this.uri}/nuevi`, opciones(obj, null))
         .then( res => res )
         .catch(error => { throw(error) })
     }
