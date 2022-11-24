@@ -40,7 +40,7 @@ function SearchBar() {
 
         <input
           type="search"
-          placeholder="¿A donde quieres ir?"
+          placeholder="¿A dónde quieres ir?"
           className={styles.headerSearchInput}
           onChange={handlerFilter}
           id="buscadorInput"

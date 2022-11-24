@@ -37,7 +37,7 @@ const Login = () => {
         {invalido?<p className={styles.textError}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
         {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
           icon={faCircleExclamation}
-        /></span>   Para iniciar una reserva debe estar iniciado</p> : null}
+        /></span>   Para iniciar una reserva necesitas estar logueado</p> : null}
 
 
         <form className={styles.formularioContainer} onSubmit={handleSubmit} method="POST">

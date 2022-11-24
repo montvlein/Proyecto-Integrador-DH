@@ -8,13 +8,12 @@ export default function Heroe() {
       <div className={styles.contenidoPadre}>
         <div className={styles.contenido}>
         <h2>
-          Disfruta la primavera, <br />
+          Disfruta el verano, <br />
           disfruta el camino.
         </h2>
         <p className={styles.descripcion}>
           {" "}
-          Busca alquiler de autos baratos en Argentina. <br/>Con una flota diversa de
-          19.000 vehículos. <br></br><span>Digital Booking</span> los tiene.
+          Servicio de alquiler de autos en Argentina. <br/>Más de 300 vehículos por todo el país te están esperando. <br></br>
         </p>
     
         </div>

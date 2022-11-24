@@ -32,7 +32,7 @@ function BloqueReserva({producto}) {
 
   return (
     <section className={styles.contenedor}>
-      <h3 className={styles.titulo}>Elegi la fecha de tu viaje</h3>
+      <h3 className={styles.titulo}>Reservá tu viaje</h3>
       <hr />
       <div className={styles.contenedorPadre}>
         
