@@ -9,7 +9,6 @@ import { useState, useEffect, useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import stylesArticlulo from '../producto/producto'
 import { DigitalBookingApi } from '../../data/conexionAPI'
-import { Reserva } from '../../modelos/reserva'
 import Contexto from '../../contexto/AppContext'
 
 export default function ReservaComponent() {
@@ -33,10 +32,15 @@ export default function ReservaComponent() {
     evento.preventDefault()
     setUbicacionUsuario(evento.target.elements.ciudad.value)
     let cliente = getUsuario()
-    let reserva = new Reserva(horaInicial, fechaInicio, fechaFinal, producto, cliente)
-    console.log(reserva)
+     let reserva = {
+      "horaComienzoReserva": horaInicial,
+      "fechaInicialReserva": fechaInicio,
+      "fechaFinalReserva": fechaFinal,
+      "auto": {"id":producto.id},
+      "cliente": cliente
+    }
     DigitalBookingApi.reserva.crear(reserva)
-    .then(resultado => console.log(resultado)) // esto todavia no anda. El formato de la hora, creo que esta mal.
+    .then(resultado => redirigir("/exito"))
     .catch(error => ()=>{
       console.error(error)
       alert("No se pudo crear la reserva...")})

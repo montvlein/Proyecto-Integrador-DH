@@ -121,7 +121,7 @@ function opciones(informacion, token = localStorage.getItem("DigitalToken"), met
         method: metodo,
         headers: {
           "Content-Type": tipo,
-          "Authentication": `Bearer ${token}`
+          "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify(informacion),
       };

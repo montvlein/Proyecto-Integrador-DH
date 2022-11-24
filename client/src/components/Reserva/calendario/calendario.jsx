@@ -47,8 +47,8 @@ export default function HorarioReserva({fechaFinal, fechaInicial, producto}){
           fixedHeight={true}
           disabledDates={fechasConReserva}
           />
-            {fechaInicial(format(state[0].startDate, "dd/MM/yyyy"))}
-            {fechaFinal(format(state[0].endDate, "dd/MM/yyyy"))}
+            {fechaInicial(format(state[0].startDate, "yyyy-MM-dd"))}
+            {fechaFinal(format(state[0].endDate, "yyyy-MM-dd"))}
        </div>
       </section>
     )
