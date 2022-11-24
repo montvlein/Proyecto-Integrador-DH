@@ -50,7 +50,7 @@ export default function ReservaComponent() {
         <form className={styles.contenedorFormularioReserva} onSubmit={generarReserva}>
           <div>
             <FormDatos/>
-            <Calendario fechaInicial={setFechaInicio} fechaFinal={setFechaFinal} />
+            <Calendario fechaInicial={setFechaInicio} fechaFinal={setFechaFinal} producto={producto} />
             <HorarioReserva setHoraInicial={setHoraInicial} hora={horaInicial}/>
           </div>
            <div>

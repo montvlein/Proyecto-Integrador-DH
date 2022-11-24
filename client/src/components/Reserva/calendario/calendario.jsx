@@ -7,8 +7,8 @@ import { DateRange } from "react-date-range";
 import { addDays } from 'date-fns';
 import { format } from "date-fns";
 
-export default function HorarioReserva({fechaFinal, fechaInicial}){
-
+export default function HorarioReserva({fechaFinal, fechaInicial, producto}){
+    const [fechasConReserva, setfechasConReserva] = useState([]);
     const [state, setState] = useState([
         {
           startDate: new Date(),
@@ -16,8 +16,12 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
           key: "selection",
         }
       ]);
+    const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
 
-      const months = window.matchMedia("(max-width: 760px)").matches ? 1 : 2;
+
+      producto?.fechasConReserva && producto?.fechasConReserva.map(fecha => {
+        fechasConReserva.push(new Date(fecha.split("-")))
+      })
 
     return(
       <section className={styles.contenedorPadre}>
@@ -41,7 +45,7 @@ export default function HorarioReserva({fechaFinal, fechaInicial}){
           showMonthAndYearPickers={true}
           showDateDisplay={false}
           fixedHeight={true}
-          disabledDates={[new Date(2022,11,25)]}
+          disabledDates={fechasConReserva}
           />
             {fechaInicial(format(state[0].startDate, "dd/MM/yyyy"))}
             {fechaFinal(format(state[0].endDate, "dd/MM/yyyy"))}
