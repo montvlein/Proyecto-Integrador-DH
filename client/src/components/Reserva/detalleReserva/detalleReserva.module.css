@@ -7,7 +7,7 @@
 .sectionDetalle {
     display: flex;
     width: 100%;
-    padding-top: 75px;
+    padding-top: 85px;
 
 
 
@@ -113,14 +113,14 @@
 .reservaCheckOut {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem;
+    padding: 0.5rem;
     align-items: center;
 }
 
 .botonReservaContainer {
     display: flex;
     justify-content: center;
-    padding: 0.6rem;
+    padding: 2rem 1.5rem 1rem 1.5rem;
 
 }
 
@@ -139,6 +139,8 @@
     border: none;
     background-color: transparent;
     font-size: 1em;
+    margin-bottom: 0px;
+    
 }
 
 .reservaCheckIn label,
@@ -150,7 +152,7 @@
 
     .sectionDetalle {
         margin: auto;
-        padding-top: 30px;
+        padding-top: 40px;
     }
 
     .detalleReserva {
@@ -205,6 +207,10 @@
     .contenedorDetalles {
         padding-left: 10px;
         padding-top: 25px;
+    }
+
+    .tituloReserva {
+
     }
 
 }

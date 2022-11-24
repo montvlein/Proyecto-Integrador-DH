@@ -3,17 +3,21 @@ import {
   faPerson,
   faGauge,
   faGasPump,
-  faGear
+  faGear,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import style from "./cards.module.css";
+
 
 const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => {
   let portada = imagenes[0].url
   return (
     <section className="contenedorTodasLasCards">
       <div className="card">
-        <img src={portada} alt="autito" />
+      <FontAwesomeIcon icon={faHeart} className={style.icon}/>
+        <img src={portada} alt="auto" className={style.imagenAuto}/>
+        
         <div className="card-body">
           <h4 className="card-title">{nombre} <span className="h6">{caracteristica.modelo}</span></h4>
           <div className={style.caracteristicas}>
@@ -34,7 +38,9 @@ const Card = ({ id, nombre, imagenes, descripcion, precio, caracteristica }) => 
               <p>{caracteristica.caja}</p>
             </div>
           </div>
-          <p className="card-text text-secondary">{descripcion}</p>
+          
+          <div className={style.contenedorDescripcion}><p className={`${style.cardDescripcion}card-text text-secondary`}>{descripcion}</p>
+          </div>
         </div>
         <div className="card-footer d-flex justify-content-between align-items-center">
           <div className={style.contenedorPrecio}>
