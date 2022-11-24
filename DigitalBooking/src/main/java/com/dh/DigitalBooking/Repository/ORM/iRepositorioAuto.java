@@ -26,8 +26,8 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
             on auto.id = reserva.auto.id
             where reserva.auto.id is null
             or reserva.auto.id is not null
-            and reserva.fechaInicialReserva > ?1
-            and reserva.fechaFinalReserva < ?2""")
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
     List<Auto> buscarAutoPorFecha(LocalDate fecha_inicio, LocalDate fecha_final);
 
     @Query("""
@@ -37,8 +37,8 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
             where auto.ciudad.provincia = ?3
             and reserva.auto.id is null
             or reserva.auto.id is not null
-            and reserva.fechaInicialReserva > ?1
-            and reserva.fechaFinalReserva < ?2""")
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
     List<Auto> buscarAutoPorFecha_Ciudad(LocalDate fecha_inicio, LocalDate fecha_final, String provincia );
 
     @Query("""
@@ -48,8 +48,8 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
             where auto.categoria.titulo = ?3
             and reserva.auto.id is null
             or reserva.auto.id is not null
-            and reserva.fechaInicialReserva > ?1
-            and reserva.fechaFinalReserva < ?2""")
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
     List<Auto> buscarAutoPorFecha_Categoria(LocalDate fecha_inicio, LocalDate fecha_final, String categoria );
 
     @Query("""
@@ -60,7 +60,7 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
             and auto.categoria.titulo = ?4
             and reserva.auto.id is null
             or reserva.auto.id is not null
-            and reserva.fechaInicialReserva > ?1
-            and reserva.fechaFinalReserva < ?2""")
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
     List<Auto> buscarAutoPorFecha_Ciudad_Categoria(LocalDate fecha_inicio, LocalDate fecha_final, String provincia, String Categoria );
 }
