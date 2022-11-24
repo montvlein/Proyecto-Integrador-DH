@@ -2,7 +2,7 @@
 
 .destinoContenedor { 
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/mardel.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/mardel.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -39,7 +39,7 @@
   
   
   .cardDestino1 { 
-    background-image:url(../../../assets/cardBariloche.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardBariloche.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     width: 12rem;
@@ -53,7 +53,7 @@
 
   
   .cardDestino2 {  
-    background-image:url(../../../assets/cardCordoba.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardCordoba.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     width: 12rem;
@@ -67,7 +67,7 @@
 }
   
   .cardDestino3 { 
-    background-image:url(../../../assets/cardMendoza.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardMendoza.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     width: 12rem;

@@ -3,7 +3,7 @@
 
 .heroeContenedor {
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.158),rgba(0, 0, 0, 0.315)), url("../../../assets/beach3.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.158),rgba(0, 0, 0, 0.315)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/beach3.jpg");
     height: 600px;
     background-repeat: no-repeat;
     background-size: cover;

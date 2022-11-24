@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./cabecera.module.css";
-import logo from "../../assets/logo.png";
-import logoYellow from "../../assets/logoDigitalBookingYellow.png";
 import Sesion from "../cabecera/componentsCabecera/sesionMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -31,7 +29,7 @@ export default function Cabecera() {
       <div className={styles.navWrap}>
         <div className={styles.logo}>
           <button onClick={volver} className="bi me-2">
-            <img src={logoYellow} />
+            <img src="https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/logoDigitalBookingYellow.png" />
           </button>
           <p className={styles.lema}>Disfruta el camino</p>
         </div>
