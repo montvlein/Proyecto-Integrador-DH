@@ -17,14 +17,12 @@
   }
   
   .contenidoFormulario {
-    padding-left: 12%;
-    padding-right: 12%;
+    padding: 5%;
   }
   
   .tituloFormulario {
     text-align: center;
     color: var(--grisO);
-    margin-bottom: 1em;
     font-size: 3.5rem;
     font-weight: 700;
     font-family: Roboto,Madefor,HelveticaNeueW01-Thin,HelveticaNeueW02-Thin,HelveticaNeueW10-35Thin,sans-serif;
@@ -61,6 +59,12 @@
 
   .textError span {
     font-size: 1.5em;
+  }
+
+  .separador {
+    border: solid 1px var(--amarillo);
+    margin: 4rem;
+    width: 1px;
   }
 
   @media screen 

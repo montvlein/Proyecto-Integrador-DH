@@ -49,71 +49,102 @@ const Registro = () => {
     <form className={styles.formularioContainer} autoComplete="off" onSubmit={enviarRegistro} method="POST">
         <div className={styles.contenidoFormulario}>
           <h3 className={styles.tituloFormulario}>Crear cuenta</h3>
-
-          <div className="row">
-            <div className="form-group col-6">
-              <label>Nombre</label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputEmail"
-                placeholder="Micaela"
-                name="nombre"
-                required
-              />
-            </div>
-            <div className="form-group col-6">
-              <label>Apellido</label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputPassword"
-                placeholder="Barbero"
-                name="apellido"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="form-group mt-3">
-            <label>Correo electrónico</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="usuario@digitalhouse.com.ar"
-              name="email"
-              required
-            />
-          </div>
-          { mailInvaldio? <p className="text-danger m-1">correo invalido</p>:null }
-          <div className="form-group mt-3">
-            <label>Contraseña</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="*********"
-              name="password"
-              required
-            />
-            <label>Confirmar contraseña</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="*********"
-              name="confirmacion"
-              required
-            />
-            { esMenorQue5?<p className="text-danger m-1">La contraseña debe tener más de 6 caracteres</p>:null }
-            { sonDiferentes?<p className="text-danger m-1">Las contraseñas no coinciden</p>:null }
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className={styles.botonFormulario}>
-              Crear cuenta
-            </button>
-          </div>
           <p className="text-center mt-2">
             ¿Ya tienes una cuenta? <Link to="/iniciarSesion">Iniciar sesión</Link>
           </p>
+
+          <div className="d-flex">
+
+            <div>
+
+              <div className="row">
+                <div className="form-group col-6">
+                  <label>Nombre</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="inputEmail"
+                    placeholder="Micaela"
+                    name="nombre"
+                    required
+                  />
+                </div>
+                <div className="form-group col-6">
+                  <label>Apellido</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="inputPassword"
+                    placeholder="Barbero"
+                    name="apellido"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-group mt-3">
+                <label>Correo electrónico</label>
+                <input
+                  type="email"
+                  className="form-control mt-1"
+                  placeholder="usuario@digitalhouse.com.ar"
+                  name="email"
+                  required
+                />
+              </div>
+              { mailInvaldio? <p className="text-danger m-1">correo invalido</p>:null }
+              <div className="form-group mt-3">
+                <label>Contraseña</label>
+                <input
+                  type="password"
+                  className="form-control mt-1"
+                  placeholder="*********"
+                  name="password"
+                  required
+                />
+                <label>Confirmar contraseña</label>
+                <input
+                  type="password"
+                  className="form-control mt-1"
+                  placeholder="*********"
+                  name="confirmacion"
+                  required
+                />
+                { esMenorQue5?<p className="text-danger m-1">La contraseña debe tener más de 6 caracteres</p>:null }
+                { sonDiferentes?<p className="text-danger m-1">Las contraseñas no coinciden</p>:null }
+              </div>
+              <div className="d-grid gap-2 mt-3">
+                <button type="submit" className={styles.botonFormulario}>
+                  Crear cuenta
+                </button>
+              </div>
+
+            </div>
+
+            <div className={styles.separador}></div>
+
+            <div>
+
+                <script src="https://accounts.google.com/gsi/client" async defer></script>
+                <div id="g_id_onload"
+                    data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                    data-login_uri="https://your.domain/your_login_endpoint"
+                    data-auto_prompt="false">
+                </div>
+                <button>boton</button>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-size="large"
+                    data-theme="outline"
+                    data-text="sign_in_with"
+                    data-shape="rectangular"
+                    data-logo_alignment="left">
+                </div>
+
+            </div>
+
+          </div>
+
         </div>
       </form>
     </div>
