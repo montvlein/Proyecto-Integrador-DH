@@ -1,4 +1,6 @@
 @import url('styles/colores.css');
+@import url('styles/tipografias.css');
+
 * {
   margin:0;
   padding: 0;
