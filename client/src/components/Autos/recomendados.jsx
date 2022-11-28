@@ -8,7 +8,6 @@ export default function Recomendados() {
   const [recomendados, setRecomendados] = useState([]);
 
   var recomendadosArray = Array.from(new Set(recomendados));
-  console.log(recomendadosArray)
 
   useEffect(() => {
     DigitalBookingApi.auto.recomendados().then((autos) => {
