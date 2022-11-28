@@ -24,28 +24,23 @@ function FechaReserva() {
     },
   ]);
 
+  const [estaSeleccionado, setEstaSeleccionado] = useState(false)
   const [openDate, setOpenDate] = useState(false);
   const [CheckIn, setCheckIn] = useState("Check in");
   const [CheckOut, setCheckOut] = useState("Check out");
-
-
-
 
   return (
     <div className={styles.rangoFecha}>
       <div className={styles.headerSearchText}>
             <span onClick={() => setOpenDate(!openDate)}>
         <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />{" "}
-        {`Desde ${format(date[0].startDate, "dd/MM/yyyy")}`}{" "} - {" "}
-        {`Hasta ${format(date[0].endDate, "dd/MM/yyyy")}`}
+        {`Desde ${estaSeleccionado?format(date[0].startDate, "dd/MM/yyyy"):CheckIn}`}{" "} - {" "}
+        {`Hasta ${estaSeleccionado?format(date[0].endDate, "dd/MM/yyyy"):CheckOut}`}
        </span>
-       <FontAwesomeIcon icon={faXmark} className={styles.cierreIcon} 
+       <FontAwesomeIcon icon={faXmark} className={styles.cierreIcon}
         onClick={() => setOpenDate(!openDate)}
        />
       </div>
-
- 
-
 
       {openDate && (
         <DateRange
@@ -55,11 +50,11 @@ function FechaReserva() {
             setDate([item.selection]);
             setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"));
             setFechaFinalBusqueda(format(date[0].endDate, "yyyy-MM-dd"));
+            setEstaSeleccionado(true)
              }}
           moveRangeOnFirstSelection={false}
           ranges={date}
           className={styles.date}
-         
         />
       )}
     </div>
