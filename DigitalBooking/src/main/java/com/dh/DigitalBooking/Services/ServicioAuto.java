@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service("ServicioAuto")
 public class ServicioAuto {
@@ -99,16 +97,22 @@ public class ServicioAuto {
         return listadoDeAutos;
     }
 
-    public List<AutoDTO> random() {
+    public HashSet<AutoDTO> random() {
         Random random = new Random();
-        List<AutoDTO> recomendados = new ArrayList<>();
+        HashSet<AutoDTO> recomendados = new HashSet<>();
         Long num;
         int autosEnDB = listar().size();
-        if (autosEnDB > 0) {
-            for (int i=0; i <6; i++) {
-                num = random.nextLong(1, autosEnDB);
-                recomendados.add(buscarPorId(num));
+
+        while (autosEnDB > 0 && recomendados.size() < 7) {
+            num = random.nextLong(1, autosEnDB);
+            boolean noExisteEnRecomendados = true;
+            Iterator<AutoDTO> it = recomendados.iterator();
+            while (it.hasNext()) {
+                if (it.next().getId() == num) {
+                    noExisteEnRecomendados = false;
+                }
             }
+            if (noExisteEnRecomendados) recomendados.add(buscarPorId(num));
         }
         return recomendados;
     }
