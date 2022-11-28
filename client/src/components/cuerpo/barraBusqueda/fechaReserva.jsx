@@ -38,8 +38,11 @@ function FechaReserva() {
         {` ${estaSeleccionado?format(date[0].endDate, "dd/MM/yyyy"):CheckOut}`}
        </span>
        {estaSeleccionado?<FontAwesomeIcon icon={faXmark} className={styles.cierreIcon}
-        onClick={() => setOpenDate(!openDate)
-           }
+        onClick={() => {
+          setOpenDate(false)
+          setEstaSeleccionado(false)
+          }
+        }
        />:null}
       </div>
 

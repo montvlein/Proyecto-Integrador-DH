@@ -73,13 +73,14 @@ export default function Destinos() {
         <div className={styles.contenedorImagen}>
           {destinos.map((item, index) => {
             return (
-              <><p className={styles.atraccionesDestino2}>{destinos[indexActual].nombreDestino}</p>
+              <div key={index}>
+              <p className={styles.atraccionesDestino2}>{destinos[indexActual].nombreDestino}</p>
                 <img
                   src={destinos[indexActual].url}
                   className={styles.imagen}
                   key={index}
                 ></img>
-              </>
+              </div>
             );
           })}
         </div>
