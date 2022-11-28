@@ -16,7 +16,8 @@
   
     
   }
-  
+
+
   .contenidoPadre {
     display: flex;
     justify-content: center;
@@ -135,6 +136,7 @@
     text-align: center;
     font-family: 'Poppins', sans-serif;
     width: 100%;
+
   }
 
 .icon{
@@ -144,12 +146,87 @@
 
 
 
+/* DESTINOS RESPONSIVE CON CARRUSEL*/
+
+.destinoContenedor2 {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/mardel.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 20px;
+  padding: 40px;
+  background-position: bottom;
+  overflow: hidden;
+  margin-top: 10px;
+  gap: 10px;
+  display: none;
+}
+
+.contenedorImagen {
+  transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
+.imagen {
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 8px;
+}
+
+.contenedorIconos{
+  display: flex;
+  gap: 5px;
+}
+
+.iconos {
+  color: white;
+  font-size: 0.7em;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.atraccionesDestino2 {
+  align-content: center;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: rgba(129, 129, 129, 0.301);
+  padding: 10px;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.contenedorFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 
 @media screen and (max-width:760px) { 
   .contenidoPadre {
     gap:3em;
   }
 
+  .destinoContenedor {
+    display: none;
+  }
+
+  .destinoContenedor2 {
+    display: block;
+  }
 
 }
 

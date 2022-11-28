@@ -8,7 +8,6 @@ export default function Recomendados() {
   const [recomendados, setRecomendados] = useState([]);
 
   var recomendadosArray = Array.from(new Set(recomendados));
-  console.log(recomendadosArray)
 
   useEffect(() => {
     DigitalBookingApi.auto.recomendados().then((autos) => {
@@ -45,7 +44,7 @@ export default function Recomendados() {
         <div className={styles.contenedorCards}>
           {recomendadosArray.map((auto) => {
             if (recomendadosArray.length = 6) {
-            return <div>
+            return <div key={auto.id}>
               <Card2 {...auto} />
             </div>}
           })}

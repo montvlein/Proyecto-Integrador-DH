@@ -314,6 +314,7 @@ dl {
         animation: 2s anim-saludo ease-out;
         text-transform: uppercase;
         letter-spacing: 3px;
+        transition: 5s all;
     }
 
     @keyframes anim-saludo {
