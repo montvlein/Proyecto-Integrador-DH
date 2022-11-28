@@ -3,6 +3,7 @@ import styles from "./formularios.module.css";
 import Contexto from "../../contexto/AppContext";
 import { Link, useNavigate } from "react-router-dom"
 import { DigitalBookingApi } from "../../data/conexionAPI";
+import GoogleOauth from "./googleOauth";
 
 const Registro = () => {
   const redirigir = useNavigate()
@@ -45,6 +46,7 @@ const Registro = () => {
   }
   return (
     <div className={styles.divContainer}>
+     <GoogleOauth/>
     { errorAlRegistrar?<p className="text-danger m-1">Lamentablemente no ha podido registrarse. Por favor intente ma's tarde</p>:null }
     <form className={styles.formularioContainer} autoComplete="off" onSubmit={enviarRegistro} method="POST">
         <div className={styles.contenidoFormulario}>

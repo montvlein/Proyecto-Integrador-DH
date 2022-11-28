@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { DigitalBookingApi } from "../../data/conexionAPI";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import GoogleOauth from "./googleOauth";
 
 const Login = () => {
   const redirigir = useNavigate()
@@ -34,7 +35,7 @@ const Login = () => {
   }
     return(
       <div className={styles.divContainer}>
-
+        <GoogleOauth/>
         {invalido?<p className={styles.textError}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
         {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
           icon={faCircleExclamation}
