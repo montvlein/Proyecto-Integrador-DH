@@ -49,13 +49,6 @@ const Registro = () => {
     <form className={styles.formularioContainer} autoComplete="off" onSubmit={enviarRegistro} method="POST">
         <div className={styles.contenidoFormulario}>
           <h3 className={styles.tituloFormulario}>Crear cuenta</h3>
-          <p className="text-center mt-2">
-            ¿Ya tienes una cuenta? <Link to="/iniciarSesion">Iniciar sesión</Link>
-          </p>
-
-          <div className="d-flex">
-
-            <div>
 
               <div className="row">
                 <div className="form-group col-6">
@@ -119,31 +112,9 @@ const Registro = () => {
                 </button>
               </div>
 
-            </div>
-
-            <div className={styles.separador}></div>
-
-            <div>
-
-                <script src="https://accounts.google.com/gsi/client" async defer></script>
-                <div id="g_id_onload"
-                    data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                    data-login_uri="https://your.domain/your_login_endpoint"
-                    data-auto_prompt="false">
-                </div>
-                <button>boton</button>
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-size="large"
-                    data-theme="outline"
-                    data-text="sign_in_with"
-                    data-shape="rectangular"
-                    data-logo_alignment="left">
-                </div>
-
-            </div>
-
-          </div>
+              <p className="text-center mt-2">
+                ¿Ya tienes una cuenta? <Link to="/iniciarSesion">Iniciar sesión</Link>
+              </p>
 
         </div>
       </form>
