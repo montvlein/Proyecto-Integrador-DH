@@ -34,12 +34,13 @@ function FechaReserva() {
       <div className={styles.headerSearchText}>
             <span onClick={() => setOpenDate(!openDate)}>
         <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />{" "}
-        {`Desde ${estaSeleccionado?format(date[0].startDate, "dd/MM/yyyy"):CheckIn}`}{" "} - {" "}
-        {`Hasta ${estaSeleccionado?format(date[0].endDate, "dd/MM/yyyy"):CheckOut}`}
+        {` ${estaSeleccionado?format(date[0].startDate, "dd/MM/yyyy"):CheckIn}`}{" "} - {" "}
+        {` ${estaSeleccionado?format(date[0].endDate, "dd/MM/yyyy"):CheckOut}`}
        </span>
-       <FontAwesomeIcon icon={faXmark} className={styles.cierreIcon}
-        onClick={() => setOpenDate(!openDate)}
-       />
+       {estaSeleccionado?<FontAwesomeIcon icon={faXmark} className={styles.cierreIcon}
+        onClick={() => setOpenDate(!openDate)
+           }
+       />:null}
       </div>
 
       {openDate && (
