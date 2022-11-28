@@ -1,6 +1,12 @@
 import { useEffect } from "react"
+import { DigitalBookingApi } from "../../data/conexionAPI"
+import { useContext } from "react";
+import Contexto from "../../contexto/AppContext"
+import { useNavigate } from "react-router-dom"
 
 export default function GoogleOauth() {
+  const redirigir = useNavigate()
+  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
 
   const client_id = import.meta.env.VITE_CLIENT_ID
 
@@ -20,22 +26,24 @@ export default function GoogleOauth() {
     try {
       setTimeout(()=>{
         cargandoDatos(client_id)
-      }, 3000)
+      }, 1500)
     } catch (error) {
       console.error("error al cargar libreria: ", error)
     }
   }, [])
 
   function handleCredentialResponse(response) {
-    const respuesta = fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${response.credential}`)
-    respuesta.then(data => {
-      return data.json()
-    }).then(payload => {
-      console.log(payload, payload.given_name, payload.family_name, payload.email)
-      let nombre = payload.given_name
-      let apellido = payload.family_name
-      let email = payload.email
-      accion({ nombre, apellido, email })
+    DigitalBookingApi.usuario.googleOauth(response.credential)
+    .then(respuesta => {
+          setEnEspera(false)
+          iniciarSesion(respuesta.usuario)
+          localStorage.setItem("DigitalToken", respuesta.token )
+          getSinUsuarioParaReserva()?redirigir(getUltimaConsultaPreviaReservar()):redirigir("/")
+          setSinUsuarioParaReserva(false)
+        })
+    .catch(e => {
+      alert("error al intentar cargar el usuario")
+      setEnEspera(false)
     })
   }
 
@@ -44,11 +52,11 @@ export default function GoogleOauth() {
       client_id: client_id,
       callback: handleCredentialResponse
     });
-    google.accounts.id.renderButton(
-      document.getElementById("buttonDiv"),
-      { theme: "outline", size: "large" }
-    );
-    // google.accounts.id.prompt()
+    // google.accounts.id.renderButton(
+    //   document.getElementById("buttonDiv"),
+    //   { theme: "outline", size: "large" }
+    // );
+    google.accounts.id.prompt()
 }
 
     return(
