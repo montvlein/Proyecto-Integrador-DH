@@ -1,4 +1,5 @@
 import Card from "./card";
+import Card2 from "./Prueba/card2"
 import style from "./cards.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -47,12 +48,12 @@ const ResultadosBusqueda = () => {
         <div className={`d-flex ${style.contenedorResultadoPadre}`}>
             <Filtro />
             <section className={`${style.mostrarResultadosFiltro}`}>
-                {filtrados.length == 0 ? (
+                {filtrados.length == 0? (
                     <div className={`${style.vp90}`}><p className="m-5">No es encontraron resultados</p></div>
                 ) : (
                     filtrados.map((auto) => (
                     <div className={style.contenedorCard} key={auto.id}>
-                        <Card {...auto} />
+                        <Card2 {...auto} />
                     </div>
                     ))
                 )}

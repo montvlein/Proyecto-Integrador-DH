@@ -3,6 +3,7 @@ import styles from "../cuerpo.module.css";
 import {
   faCalendarDays,
   faArrowRight,
+  faXmark
 } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
@@ -13,38 +14,52 @@ import Contexto from "../../../contexto/AppContext";
 import { addDays } from "date-fns";
 
 function FechaReserva() {
-  const { setFechaInicioBusqueda, setFechaFinalBusqueda } = useContext(Contexto)
-    const [date, setDate] = useState([
-        {
-          startDate: new Date(),
-          endDate: new Date(),
-          key: "selection",
-        },
-      ]);
+  const { setFechaInicioBusqueda, setFechaFinalBusqueda } =
+    useContext(Contexto);
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
 
-      const [openDate, setOpenDate] = useState(false);
+  const [openDate, setOpenDate] = useState(false);
+  const [CheckIn, setCheckIn] = useState("Check in");
+  const [CheckOut, setCheckOut] = useState("Check out");
+
+
 
 
   return (
     <div className={styles.rangoFecha}>
-      <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">
+      <div className={styles.headerSearchText}>
+            <span onClick={() => setOpenDate(!openDate)}>
         <FontAwesomeIcon icon={faCalendarDays} className={styles.headerIcon} />{" "}
-        {`Desde ${format(date[0].startDate, "dd/MM/yyyy")}`}{" "}
-        <FontAwesomeIcon icon={faArrowRight} />{" "}
+        {`Desde ${format(date[0].startDate, "dd/MM/yyyy")}`}{" "} - {" "}
         {`Hasta ${format(date[0].endDate, "dd/MM/yyyy")}`}
-      </span>
+       </span>
+       <FontAwesomeIcon icon={faXmark} className={styles.cierreIcon} 
+        onClick={() => setOpenDate(!openDate)}
+       />
+      </div>
+
+ 
+
+
       {openDate && (
         <DateRange
           editableDateInputs={true}
           minDate={addDays(new Date(), -0)}
           onChange={(item) => {
-            setDate([item.selection])
-            setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"))
-            setFechaFinalBusqueda(format(date[0].endDate, "yyyy-MM-dd"))
-          }}
+            setDate([item.selection]);
+            setFechaInicioBusqueda(format(date[0].startDate, "yyyy-MM-dd"));
+            setFechaFinalBusqueda(format(date[0].endDate, "yyyy-MM-dd"));
+             }}
           moveRangeOnFirstSelection={false}
           ranges={date}
           className={styles.date}
+         
         />
       )}
     </div>

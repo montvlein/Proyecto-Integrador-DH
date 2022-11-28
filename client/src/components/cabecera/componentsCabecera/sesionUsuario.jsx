@@ -10,18 +10,17 @@ function UsuarioIniciado() {
 
   return (
     <div className={styles.padreSesion}>
-      <div>
+
         <div className={styles.iconoSesion}>
           <h6>
             {getUsuario().nombre.charAt(0).toUpperCase()}{getUsuario().apellido.charAt(0).toUpperCase()}
             </h6>
         </div>
-      </div>
 
       <div className={styles.contenedorNombreSesion}>
         <dl>
-          <dt className="px-2 text-white">Hola,</dt>
-          <dl className="nav-link px-2 text-white fw-bold">
+          <dt className={styles.saludo}>Hola,</dt>
+          <dl className={styles.nombreUsuario}>
           {getUsuario().nombre.charAt(0).toUpperCase() + getUsuario().nombre.slice(1)}{" "} 
           {getUsuario().apellido.charAt(0).toUpperCase() + getUsuario().apellido.slice(1)}</dl>
         </dl>
@@ -31,6 +30,11 @@ function UsuarioIniciado() {
         <FontAwesomeIcon icon={faXmark} onClick={cerrarSesion}></FontAwesomeIcon>
       </div>
     </div>
+
+
+
+
+
   );
 }
 

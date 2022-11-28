@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin-right: 0px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.contenedorPadreCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #edf1f7;
+    border-radius: 16px;
+    max-width: 350px;
+    padding: 10px;
+    box-shadow: rgb(0 0 0/16%) 1px 1px 3px;
+    margin-right: 0px;
+
+}
+
+.contenedorImagen{
+    max-width: 350px;
+    
+}
+
+.imagenCard {
+    height: 100%; 
+    width: 100%; 
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.contenedorInformacion {
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+.contenedorInformacion h6 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color:gray;
+    margin-bottom: 0;
+    font-size: 0.8em;
+}
+
+.contenedorTituloAño {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+   }
+
+.contenedorTituloAño h3 {
+    max-height: 34px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+   
+
+.contenedorTituloAño h5 {
+    border: var(--amarillo) 2px solid;
+    border-style:dashed;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 5px;
+    
+
+
+}
+
+.caracteristicasPadre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+.caracteristicasDIV {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.caracteristicasDIV p {
+    font-size: 0.8em;
+}
+
+.icons {
+    color: var(--amarillo);
+    padding-right: 5px;
+}
+
+.contenedorFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.iconLike {
+    color: var(--amarillo);
+    padding: 8px;
+    border-radius: 12px;
+    border: var(--amarillo) 1px solid;
+    margin-right: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+    
+}
+
+.contenedorBoton {
+    display: flex;
+}
+
+.contenedorBoton button {
+    background-color: var(--amarillo);
+    border-radius: 8px;
+    font-size: 0.9em;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.textoFooter {
+    font-size: 1em;
+}
+
+.textoFooter span {
+    font-size: 0.8em;
+}
+
+.divisor {
+    margin: 0.5em;
+}

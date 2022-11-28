@@ -13,6 +13,7 @@
     align-items: center;
     padding: 40px;
     background-position: bottom;
+  
     
   }
   
@@ -20,20 +21,63 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     gap: 09em;
     margin-top: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding: 0px;
+  }
+
+
+  
+  .contenidoPadre::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.contenidoPadre::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.contenidoPadre::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.contenidoPadre::-webkit-scrollbar {
+  width: 8px;     
+  height: 8px;    
+
+}
+
+  .heroeContenedor {
+    width: 100%;
   }
   
   .tituloHeroe { 
     font-size: 2em;
     color: #FFF;
-    text-align: center;
+    text-align: left;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
+
+}
+
+.tituloHeroe h2 {
+  margin: 0px;
+}
+
+.tituloHeroe p {
+  font-size: 0.6em;
+  font-weight: 200;
 
 }
   
@@ -42,8 +86,8 @@
     background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardBariloche.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     align-content: center;
     display: flex;
@@ -56,8 +100,8 @@
     background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardCordoba.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     border-radius: 5px;
     align-content: center;
@@ -70,8 +114,8 @@
     background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardMendoza.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -97,6 +141,8 @@
     padding-right: 3px; 
     color: var(--amarillo);
 }
+
+
 
 
 @media screen and (max-width:760px) { 

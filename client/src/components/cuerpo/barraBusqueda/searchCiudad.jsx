@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import styles from "../cuerpo.module.css";
 import { useState, useEffect, useContext } from "react";
-import { DigitalBookingApi } from "../../../data/conexionAPI"
+import { DigitalBookingApi } from "../../../data/conexionAPI";
 
 function SearchBar() {
   const [cargando, setEstaCargando] = useState(true);
@@ -27,17 +27,15 @@ function SearchBar() {
     }
   };
 
-  if(cargando)
-  {
-<div class="spinner-border text-warning" role="status">
-  <span class="visually-hidden">Cargando...</span>
-</div>
+  if (cargando) {
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>;
   }
 
   return (
     <div className={styles.prueba3}>
       <div className={styles.headerSearchItem}>
-
         <input
           type="search"
           placeholder="¿A dónde quieres ir?"
@@ -51,11 +49,15 @@ function SearchBar() {
 
       <ul className={styles.dataResult} id="listaCiudades">
         {filterData.map((value) => (
-          <div className={styles.prueba} key={value.id} onClick={(e)=>{
-            let input = document.querySelector("#buscadorInput")
-            input.value = value.nombre + ", Argentina"
-            setFilterData([]);
-          }}>
+          <div
+            className={styles.prueba}
+            key={value.id}
+            onClick={(e) => {
+              let input = document.querySelector("#buscadorInput");
+              input.value = value.nombre + ", Argentina";
+              setFilterData([]);
+            }}
+          >
             <div className={styles.prueba2}>
               <FontAwesomeIcon
                 icon={faLocationDot}
@@ -63,7 +65,8 @@ function SearchBar() {
               />
             </div>
             <li className={styles.dataItem} key={value.nombre}>
-              <p className={styles.ciudad}>{value.nombre}</p> <span class="fw-bold">Argentina</span>
+              <p className={styles.ciudad}>{value.nombre}</p>{" "}
+              <span class="fw-bold">Argentina</span>
             </li>
           </div>
         ))}
