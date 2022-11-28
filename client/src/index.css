@@ -36,6 +36,10 @@
   cursor: wait;
 }
 
+#credential_picker_container {
+  top: 70px !important;
+}
+
 main {
   min-height: calc(100vh - 130px);
 }
