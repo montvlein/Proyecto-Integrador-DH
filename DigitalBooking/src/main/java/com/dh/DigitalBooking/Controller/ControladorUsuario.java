@@ -4,6 +4,7 @@ import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
+import com.dh.DigitalBooking.Models.Entities.Roles.googleAuthResponse;
 import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -105,6 +106,13 @@ public class ControladorUsuario {
             return ResponseEntity.ok().body("Validacion exitosa");
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("googleauth")
+    @Operation(summary = "devuelve usuario y token")
+    public ResponseEntity<?> googleAuth(@RequestParam String token) throws Exception {
+        googleAuthResponse respuesta = servicio.validarGoogleCredential(token);
+        return ResponseEntity.ok(respuesta);
     }
 
 }
