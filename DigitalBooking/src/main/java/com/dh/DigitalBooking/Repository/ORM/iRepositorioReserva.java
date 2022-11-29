@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface iRepositorioReserva extends JpaRepository<Reserva,Long> {
 
-    @Query("select r from Reserva r where r.auto.id = ?1")
-    List<Reserva> buscarPorAuto(Long id);
+    List<Reserva> findByAutoId(Long id);
+
+    List<Reserva> findByClienteId(Long id);
 }

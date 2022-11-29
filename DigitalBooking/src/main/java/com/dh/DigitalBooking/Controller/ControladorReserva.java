@@ -45,4 +45,9 @@ public class ControladorReserva {
         return ResponseEntity.ok(servicio.buscarPorId(id));
     }
 
+    @Operation(summary = "Busca una reserva por id de usuario")
+    @GetMapping("/buscarPorUsuario/{id}")
+    public ResponseEntity<?> buscarPorIdUsuario(@PathVariable Long id) throws Exception{
+        return ResponseEntity.ok(servicio.buscarPorUsuarioId(id));
+    }
 }

@@ -28,7 +28,11 @@ public class ServicioReserva {
     }
 
     public List<Reserva> buscarPorAutoId(Long id) {
-        return repositorio.buscarPorAuto(id);
+        return repositorio.findByAutoId(id);
+    }
+
+    public List<Reserva> buscarPorUsuarioId(Long id) {
+        return repositorio.findByClienteId(id);
     }
 
     public Reserva actualizar(Reserva reserva) throws Exception{
