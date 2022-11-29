@@ -8,6 +8,7 @@ import Exito from "./components/Exito/exito";
 import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
+import CategoriasNuevas from "./components/Categorias/categoriasNuevas";
 
 function App() {
   return (

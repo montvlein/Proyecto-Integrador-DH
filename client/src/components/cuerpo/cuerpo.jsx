@@ -4,13 +4,14 @@ import Recomendados from "../Autos/recomendados";
 import Destinos from "./destinos/principalesDestinos";
 import Buscador from "../Buscador/buscador";
 import { Fragment } from "react";
+import CategoriasNuevas from "../Categorias/categoriasNuevas";
 
 const Index = () => {
   return (
     <Fragment>
       <Heroe />
       <Buscador/>
-      <Categorias />
+      <CategoriasNuevas />
       <Recomendados />
       <Destinos/>
     </Fragment>
