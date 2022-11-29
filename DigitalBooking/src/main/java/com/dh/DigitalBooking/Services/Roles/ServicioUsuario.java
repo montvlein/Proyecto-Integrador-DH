@@ -99,6 +99,9 @@ public class ServicioUsuario implements UserDetailsService {
         user.setEmail(usuario.getEmail());
         user.setVerificado(usuario.isVerificado());
         user.setCiudad(usuario.getCiudad());
+        if (usuario.getRol().getNombre().equals("ROLE_ADMIN")) {
+            user.setEsAdmin(true);
+        }
         return user;
     }
 

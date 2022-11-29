@@ -12,5 +12,6 @@ public class UsuarioDTO {
     private String email;
     private String ciudad;
     private boolean verificado;
+    private boolean esAdmin = false;
 
 }
