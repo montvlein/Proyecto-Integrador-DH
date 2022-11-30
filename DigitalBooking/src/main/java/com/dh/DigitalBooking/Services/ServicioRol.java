@@ -1,4 +1,4 @@
-package com.dh.DigitalBooking.Services.Roles;
+package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioRol;

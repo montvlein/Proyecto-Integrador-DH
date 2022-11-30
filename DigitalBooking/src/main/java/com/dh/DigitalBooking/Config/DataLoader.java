@@ -2,7 +2,7 @@ package com.dh.DigitalBooking.Config;
 
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
-import com.dh.DigitalBooking.Services.Roles.ServicioRol;
+import com.dh.DigitalBooking.Services.ServicioRol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

@@ -1,4 +1,4 @@
-package com.dh.DigitalBooking.Services.Roles;
+package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
@@ -6,12 +6,10 @@ import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
-import com.dh.DigitalBooking.Services.ServicioMail;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.User;
@@ -113,7 +111,7 @@ public class ServicioUsuario implements UserDetailsService {
         return repositorio.findAll();
     }
 
-    private UsuarioDTO usuarioToDTO(Usuario usuario) {
+    protected UsuarioDTO usuarioToDTO(Usuario usuario) {
         UsuarioDTO user = new UsuarioDTO();
         user.setId(usuario.getId());
         user.setNombre(usuario.getNombre());
