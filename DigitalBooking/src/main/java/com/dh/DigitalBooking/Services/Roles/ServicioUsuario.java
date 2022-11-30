@@ -4,9 +4,16 @@ import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
+import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
 import com.dh.DigitalBooking.Services.ServicioMail;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.gson.GsonFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -39,12 +47,26 @@ public class ServicioUsuario implements UserDetailsService {
         usuario.setRol(rol.buscarPorId(2l));
         usuario.setVerificado(false);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
-        usuario.setContrasenia(contraseniaEncriptada);
+        if (usuario.getContrasenia() != null) {
+            String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
+            usuario.setContrasenia(contraseniaEncriptada);
+        }
         repositorio.save(usuario);
         JWT.Response token =new JWT.Response(jwtUtil.generarToken(loadUserByEmail(usuario.getEmail())));
         servicioMail.enviar(usuario.getEmail(), token.getToken() );
         return token;
+    }
+
+    public Usuario guardarUsuario(Usuario usuario) throws Exception {
+        usuario.setRol(rol.buscarPorId(2l));
+        usuario.setVerificado(false);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (usuario.getContrasenia() != null) {
+            String contraseniaEncriptada = passwordEncoder.encode(usuario.getContrasenia());
+            usuario.setContrasenia(contraseniaEncriptada);
+        }
+        usuario = repositorio.save(usuario);
+        return usuario;
     }
 
     public UsuarioDTO buscarPorId(Long id) throws Exception{
@@ -146,5 +168,41 @@ public class ServicioUsuario implements UserDetailsService {
             return usuario.isVerificado();
         }
         return false;
+    }
+
+    @Value("${googleAuth.cliente_id}")
+    private String CLIENTE_ID;
+    public UsuarioDTO validarGoogleCredential(googleAuth.Resquest token) throws Exception {
+
+        GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())
+                .setAudience(Collections.singletonList(CLIENTE_ID)).build();
+        GoogleIdToken idToken = verifier.verify(token.credential());
+
+        String emailPayload = null;
+        String apellidoPayload = null;
+        String nombrePaykoad = null;
+
+        if (idToken != null) {
+            GoogleIdToken.Payload payload = idToken.getPayload();
+            emailPayload = payload.getEmail();
+            apellidoPayload = (String) payload.get("family_name");
+            nombrePaykoad = (String) payload.get("given_name");
+        }
+
+        UsuarioDTO usuarioEnRepositorio = null;
+
+        if (emailPayload != null) {
+            usuarioEnRepositorio = buscarPorEmail(emailPayload);
+        }
+
+        if (usuarioEnRepositorio != null) return usuarioEnRepositorio;
+
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.setNombre(nombrePaykoad);
+        nuevoUsuario.setApellido(apellidoPayload);
+        nuevoUsuario.setEmail(emailPayload);
+        nuevoUsuario = guardarUsuario(nuevoUsuario);
+        usuarioEnRepositorio = buscarPorEmail(nuevoUsuario.getEmail());
+        return usuarioEnRepositorio;
     }
 }

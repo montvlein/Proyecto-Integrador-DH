@@ -116,16 +116,9 @@ class UsuarioEndPoint extends CRUD {
     }
 
     googleOauth(token) {
-        console.log("ESTO ES UN SIMULACRO, HAY QUE CAMBIARLO POR EL API")
-        const respuesta = fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${token}`)
-        return respuesta.then(data => {
-            return data.json()
-        }).then(payload => {
-            let nombre = payload.given_name
-            let apellido = payload.family_name
-            let email = payload.email
-            return { usuario: {nombre, apellido, email}, token:null }
-        })
+        return handleFetch(`${this.uri}/googleauth`, opciones(token, false))
+        .then( res => res.json() )
+        .catch(error => { throw(error) })
     }
 }
 
