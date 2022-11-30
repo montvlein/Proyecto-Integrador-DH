@@ -8,6 +8,7 @@ import Exito from "./components/Exito/exito";
 import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
+import ProductoExitoso from "./components/administrador/productoExitoso/productoExitoso";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
+          <Route path={`/productoExitoso`} element={<ProductoExitoso />} />
           <Route path="*" element={<h2>Not Found</h2>} />
         </Routes>
       </main>
