@@ -4,7 +4,8 @@ import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
-import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
+import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
+import com.dh.DigitalBooking.Services.ServicioUsuario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,13 @@ public class ControladorUsuario {
             return ResponseEntity.ok().body("Validacion exitosa");
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("googleauth")
+    @Operation(summary = "dado una credencial de google, devuelve usuario y token")
+    public ResponseEntity<?> googleAuth(@RequestBody googleAuth.Resquest credential) throws Exception {
+        UsuarioDTO respuesta = servicio.validarGoogleCredential(credential);
+        return ResponseEntity.ok(respuesta);
     }
 
 }

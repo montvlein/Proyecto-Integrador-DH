@@ -1,5 +1,5 @@
 package com.dh.DigitalBooking.Config;
-import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
+import com.dh.DigitalBooking.Services.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

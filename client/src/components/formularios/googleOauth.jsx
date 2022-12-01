@@ -33,11 +33,10 @@ export default function GoogleOauth() {
   }, [])
 
   function handleCredentialResponse(response) {
-    DigitalBookingApi.usuario.googleOauth(response.credential)
-    .then(respuesta => {
+    DigitalBookingApi.usuario.googleOauth(response)
+    .then(usuario => {
           setEnEspera(false)
-          iniciarSesion(respuesta.usuario)
-          localStorage.setItem("DigitalToken", respuesta.token )
+          iniciarSesion(usuario)
           getSinUsuarioParaReserva()?redirigir(getUltimaConsultaPreviaReservar()):redirigir("/")
           setSinUsuarioParaReserva(false)
         })
