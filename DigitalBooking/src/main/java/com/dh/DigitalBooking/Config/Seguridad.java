@@ -60,6 +60,7 @@ public class Seguridad {
                 .antMatchers(HttpMethod.GET, "/api/v1/usuario/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/auto/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/categoria/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/caracteristica/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/ciudad/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/reserva/**").permitAll()
                 .anyRequest()
