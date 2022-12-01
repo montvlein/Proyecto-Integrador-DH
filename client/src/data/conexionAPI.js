@@ -6,6 +6,7 @@ class DigitalBookingAPI {
         this.auto = new AutoEndPoint(basepath)
         this.usuario = new UsuarioEndPoint(basepath)
         this.reserva = new ReservaEndPoint(basepath)
+        this.caracteristica = new CaracteristicasEndPoint(basepath)
     }
 
 }
@@ -58,6 +59,12 @@ class CiudadEndPoint extends CRUD {
     }
 }
 
+class CaracteristicasEndPoint extends CRUD {
+    constructor(basepath, caracteristicaUri="api/v1/caracteristica") {
+        super(basepath, caracteristicaUri)
+    }
+}
+
 class ReservaEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/reserva") {
         super(basepath, categoriaUri)
@@ -65,10 +72,10 @@ class ReservaEndPoint extends CRUD {
 }
 
 class AutoEndPoint extends CRUD {
-
     constructor(basepath, categoriaUri="api/v1/auto") {
         super(basepath, categoriaUri)
     }
+
 
     filtrarPor(parametros) {
         let filtro = ""
@@ -123,6 +130,7 @@ class UsuarioEndPoint extends CRUD {
 }
 
 function opciones(informacion, isAuthRequired = true, metodo = "POST", tipo = "application/json") {
+    console.log(localStorage.getItem("DigitalToken"))
     const headerConAuth = {
         method: metodo,
         headers: {

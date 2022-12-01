@@ -1,0 +1,52 @@
+
+
+.contenedorPadre {
+    display: flex;
+    box-shadow: rgb(0 0 0/16%) 1px 1px 3px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #FFF;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    gap: 5px;
+}
+
+.titulo {
+    font-size: 1.5em;
+    padding: 15px 0px 0px 0px;
+}
+
+.label {
+    padding: 0px 0px 5px 0px;
+}
+
+.headerIcon {
+    font-size: 2em;
+    color: var(--amarillo);
+}
+
+.contenedorBotonAgregar {
+    padding-left: 5px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    font-size: 0.8em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgb(0 0 0/16%) 1px 1px 3px;
+
+}
+
+.input::placeholder {
+    padding: 5px;
+}

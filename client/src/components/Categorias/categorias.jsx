@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import styles from "./categorias.module.css";
 import Contexto from "../../contexto/AppContext";
 import { DigitalBookingApi } from "../../data/conexionAPI";
+
 import { Link } from "react-router-dom";
 
 export default function Categorias() {
