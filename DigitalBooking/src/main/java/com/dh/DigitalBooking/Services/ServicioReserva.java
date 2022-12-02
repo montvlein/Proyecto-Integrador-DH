@@ -72,6 +72,8 @@ public class ServicioReserva {
         dto.setFechaInicialReserva(reserva.getFechaInicialReserva());
         dto.setFechaFinalReserva(reserva.getFechaFinalReserva());
         dto.setAutoId(reserva.getAuto().getId());
+        dto.setAutoNombre(reserva.getAuto().getNombre());
+        dto.setAutoCategoria(reserva.getAuto().getCategoria().getTitulo());
         dto.setClienteId(reserva.getCliente().getId());
         return dto;
     }
