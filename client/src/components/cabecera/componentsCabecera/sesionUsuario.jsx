@@ -9,6 +9,7 @@ function UsuarioIniciado() {
   const { cerrarSesion } = useContext(Contexto)
 
   return (
+    <section>
     <div className={styles.padreSesion}>
 
         <div className={styles.iconoSesion}>
@@ -30,6 +31,8 @@ function UsuarioIniciado() {
         <FontAwesomeIcon icon={faXmark} onClick={cerrarSesion}></FontAwesomeIcon>
       </div>
     </div>
+
+</section>
 
 
 

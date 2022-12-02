@@ -10,6 +10,7 @@
     height: 100%;
     padding: 30px;
     gap: 5px;
+    margin: 5px;
 }
 
 .titulo {
@@ -24,6 +25,13 @@
 .headerIcon {
     font-size: 2em;
     color: var(--amarillo);
+    cursor: pointer;
+}
+
+.headerIconX {
+    font-size: 2em;
+    color: gray;
+    cursor: pointer;
 }
 
 .contenedorBotonAgregar {
@@ -50,3 +58,4 @@
 .input::placeholder {
     padding: 5px;
 }
+

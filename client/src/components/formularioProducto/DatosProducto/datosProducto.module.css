@@ -34,6 +34,11 @@
 
 }
 
+.input option {
+    border-bottom: var(--amarillo) 1px solid;
+    
+}
+
 .textarea {
     font-size: 0.8em;
     padding: 5px;

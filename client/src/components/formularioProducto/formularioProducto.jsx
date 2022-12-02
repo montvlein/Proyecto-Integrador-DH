@@ -7,10 +7,7 @@ import styles from "./formularioProducto.module.css";
 
 export default function FormularioCreacionProducto() {
 
-  const agregarOtroAtributo = () => {
-    return <AgregarAtributos/>
-  }
-  
+
 
   return (
     <>
@@ -19,7 +16,7 @@ export default function FormularioCreacionProducto() {
         <div className={styles.contenedorPadre}>
           <h3 className={styles.titulo}>Crear auto</h3>
           <DatosProducto></DatosProducto>
-          <AgregarAtributos></AgregarAtributos>
+          <AgregarAtributos/>
           <CrearPoliticasProducto></CrearPoliticasProducto>
           <CargarImagenes></CargarImagenes>
           <div className={styles.botonReservaContainer}>

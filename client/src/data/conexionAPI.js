@@ -163,4 +163,4 @@ function handleError(response) {
     return response
 }
 
-export const DigitalBookingApi = new DigitalBookingAPI("http://ec2-3-145-208-193.us-east-2.compute.amazonaws.com/")
+export const DigitalBookingApi = new DigitalBookingAPI()
