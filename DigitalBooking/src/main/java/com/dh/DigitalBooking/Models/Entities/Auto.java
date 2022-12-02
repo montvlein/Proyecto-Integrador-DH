@@ -1,5 +1,6 @@
 package com.dh.DigitalBooking.Models.Entities;
 
+import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,5 +44,9 @@ public class Auto {
     @OneToMany(mappedBy = "auto")
     @JsonIgnore
     private Set<Reserva> reservas;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "favoritos",fetch = FetchType.LAZY)
+    private Set<Usuario> usuarios;
 
 }
