@@ -110,9 +110,11 @@ const Registro = () => {
                 { sonDiferentes?<p className="text-danger m-1">Las contraseñas no coinciden</p>:null }
               </div>
               <div className="d-grid gap-2 mt-3">
-                <button type="submit" className={styles.botonFormulario}>
-                  Crear cuenta
-                </button>
+              {enEspera?
+              <button className={styles.botonFormularioDisabled} disabled>
+                <div className="spinner-border spinner-btn-disable" roler="status"></div>
+              </button>:
+              <button type="submit" className={styles.botonFormulario}>Crear cuenta</button>}
               </div>
 
               <p className="text-center mt-2">
