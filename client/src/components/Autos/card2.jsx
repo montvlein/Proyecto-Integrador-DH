@@ -40,7 +40,7 @@ const Card2 = ({ id, nombre, imagenes, precio, caracteristica, categoria }) => {
           </div>
           <div className={styles.caracteristicasDIV}>
             <FontAwesomeIcon icon={faGasPump} className={styles.icons} />
-            <p>{caracteristica.tipoMotor}</p>
+            <p>{caracteristica.motor}</p>
           </div>
           <div className={styles.caracteristicasDIV}>
             <FontAwesomeIcon icon={faGear} className={styles.icons} />

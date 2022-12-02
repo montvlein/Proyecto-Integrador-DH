@@ -1,12 +1,14 @@
 package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
+import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
+import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -36,6 +38,9 @@ public class ServicioUsuario implements UserDetailsService {
 
     @Autowired
     private ServicioMail servicioMail;
+
+    @Autowired
+    private iRepositorioAuto repositorioAuto;
 
     @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
@@ -178,21 +183,23 @@ public class ServicioUsuario implements UserDetailsService {
 
     @Value("${googleAuth.cliente_id}")
     private String CLIENTE_ID;
-    public UsuarioDTO validarGoogleCredential(googleAuth.Resquest token) throws Exception {
+    public googleAuth.Response validarGoogleCredential(googleAuth.Resquest token) throws Exception {
 
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())
                 .setAudience(Collections.singletonList(CLIENTE_ID)).build();
         GoogleIdToken idToken = verifier.verify(token.credential());
 
-        String emailPayload = null;
-        String apellidoPayload = null;
-        String nombrePaykoad = null;
+        String emailPayload;
+        String apellidoPayload;
+        String nombrePaykoad;
 
-        if (idToken != null) {
+        try {
             GoogleIdToken.Payload payload = idToken.getPayload();
             emailPayload = payload.getEmail();
             apellidoPayload = (String) payload.get("family_name");
             nombrePaykoad = (String) payload.get("given_name");
+        } catch (Exception e) {
+            throw new Exception("Google Oauth Token Invalido: " + e.getMessage());
         }
 
         UsuarioDTO usuarioEnRepositorio = null;
@@ -201,7 +208,7 @@ public class ServicioUsuario implements UserDetailsService {
             usuarioEnRepositorio = buscarPorEmail(emailPayload);
         }
 
-        if (usuarioEnRepositorio != null) return usuarioEnRepositorio;
+        if (usuarioEnRepositorio != null) return new googleAuth.Response(usuarioEnRepositorio, jwtUtil.generarToken(emailPayload));
 
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombre(nombrePaykoad);
@@ -209,6 +216,24 @@ public class ServicioUsuario implements UserDetailsService {
         nuevoUsuario.setEmail(emailPayload);
         nuevoUsuario = guardarUsuario(nuevoUsuario);
         usuarioEnRepositorio = buscarPorEmail(nuevoUsuario.getEmail());
-        return usuarioEnRepositorio;
+        return new googleAuth.Response(usuarioEnRepositorio, jwtUtil.generarToken(emailPayload));
+    }
+
+    public void agregarFavorito(Long usuarioId, Long autoId) {
+        Optional<Usuario> usuario = repositorio.findById(usuarioId);
+        Optional<Auto> auto = repositorioAuto.findById(autoId);
+        if (usuario.isPresent() && auto.isPresent()) {
+            usuario.get().agregarFavorito(auto.get());
+            repositorio.save(usuario.get());
+        }
+    }
+
+    public void eliminarFavorito(Long usuarioId, Long autoId) {
+        Optional<Usuario> usuario = repositorio.findById(usuarioId);
+        Optional<Auto> auto = repositorioAuto.findById(autoId);
+        if (usuario.isPresent() && auto.isPresent()) {
+            usuario.get().eliminarFavorito(auto.get());
+            repositorio.save(usuario.get());
+        }
     }
 }

@@ -121,8 +121,23 @@ public class ControladorUsuario {
     @PostMapping("googleauth")
     @Operation(summary = "dado una credencial de google, devuelve usuario y token")
     public ResponseEntity<?> googleAuth(@RequestBody googleAuth.Resquest credential) throws Exception {
-        UsuarioDTO respuesta = servicio.validarGoogleCredential(credential);
+        googleAuth.Response respuesta = servicio.validarGoogleCredential(credential);
         return ResponseEntity.ok(respuesta);
     }
 
+    @Operation(summary = "busca el auto, y si existe lo agrega a favoritos del usuario que se pasa por ID")
+    @PostMapping("agregarFavorito")
+    public ResponseEntity<?> agregarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.agregarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
+
+    @Operation(summary = "busca el auto, y si existe lo remueve de favoritos del usuario que se pasa por ID")
+    @PostMapping("eliminarFavorito")
+    public ResponseEntity<?> eliminarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.eliminarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
 }

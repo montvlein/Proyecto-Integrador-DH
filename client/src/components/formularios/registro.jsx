@@ -7,7 +7,8 @@ import GoogleOauth from "./googleOauth";
 
 const Registro = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, setEnEspera } = useContext(Contexto)
+  const { iniciarSesion } = useContext(Contexto)
+  const [enEspera, setEnEspera] = useState(false)
   const [esMenorQue5, setEsMenorQue5] = useState(false)
   const [sonDiferentes, setSonDiferentes] = useState(false)
   const [mailInvaldio, setMailInvalido] = useState(false)
@@ -45,8 +46,8 @@ const Registro = () => {
     }
   }
   return (
-    <div className={styles.divContainer}>
-     <GoogleOauth/>
+    <div className={enEspera?`${styles.divContainer} loading_cursor`:`${styles.divContainer}`}>
+     <GoogleOauth setEnEspera={setEnEspera}/>
     { errorAlRegistrar?<p className="text-danger m-1">Lamentablemente no ha podido registrarse. Por favor intente ma's tarde</p>:null }
     <form className={styles.formularioContainer} autoComplete="off" onSubmit={enviarRegistro} method="POST">
         <div className={styles.contenidoFormulario}>
@@ -109,9 +110,11 @@ const Registro = () => {
                 { sonDiferentes?<p className="text-danger m-1">Las contraseñas no coinciden</p>:null }
               </div>
               <div className="d-grid gap-2 mt-3">
-                <button type="submit" className={styles.botonFormulario}>
-                  Crear cuenta
-                </button>
+              {enEspera?
+              <button className={styles.botonFormularioDisabled} disabled>
+                <div className="spinner-border spinner-btn-disable" roler="status"></div>
+              </button>:
+              <button type="submit" className={styles.botonFormulario}>Crear cuenta</button>}
               </div>
 
               <p className="text-center mt-2">

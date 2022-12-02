@@ -2,24 +2,17 @@ import React, { useState, createContext } from "react";
 import { useEffect } from "react";
 import { DigitalBookingApi } from "../data/conexionAPI";
 import { Busqueda } from "../modelos/criterioBusqueda";
-import { Reserva } from "../modelos/reserva";
-import { Usuario } from "../modelos/usuario";
 
 const Contexto = createContext();
 
 
 export function AppContext({ children }) {
 
-  const [ enEspera, setEnEspera ] = useState(false)
   const body = document.querySelector("html").classList
-
-  useEffect(()=>{
-    body.toggle("loading_cursor")
-  },[enEspera])
 
   // usuario y sesion
   const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
-  const [usuario, setUsuario] = useState(new Usuario);
+  const [usuario, setUsuario] = useState({});
 
   useEffect(()=>{
     if (token) {
@@ -48,7 +41,7 @@ export function AppContext({ children }) {
 
   function cerrarSesion() {
     localStorage.removeItem("DigitalToken")
-    setUsuario(new Usuario);
+    setUsuario({});
   }
 
   // listado de productos
@@ -113,7 +106,6 @@ export function AppContext({ children }) {
   return (
     <Contexto.Provider
       value={{
-        setEnEspera,
 
         getUsuario,
         iniciarSesion,

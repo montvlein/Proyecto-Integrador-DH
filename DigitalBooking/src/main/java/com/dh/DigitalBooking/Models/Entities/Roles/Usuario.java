@@ -1,11 +1,13 @@
 package com.dh.DigitalBooking.Models.Entities.Roles;
 
+import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -33,4 +35,20 @@ public class Usuario {
     @OneToMany(mappedBy = "cliente")
     @JsonIgnore
     private Set<Reserva> reservas;
+
+    @ManyToMany
+    @JoinTable(
+            name = "auto_favorito_usuario",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "auto_id")
+    )
+    private Set<Auto> favoritos = new HashSet<>();
+
+    public void agregarFavorito(Auto auto) {
+        favoritos.add(auto);
+    }
+
+    public void eliminarFavorito(Auto auto) {
+        favoritos.remove(auto);
+    }
 }

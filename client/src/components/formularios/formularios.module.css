@@ -41,6 +41,13 @@
     padding: 0.5rem;
   }
 
+  .botonFormularioDisabled {
+    background-color: #d0b04f;
+    border-radius: 8px;
+    border-color: var(--grisC);
+    padding: 0.5rem;
+  }
+
   .error {
     background-color: pink;
     border-radius: 8px;

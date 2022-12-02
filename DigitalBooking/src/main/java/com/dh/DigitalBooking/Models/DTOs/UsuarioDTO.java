@@ -14,4 +14,10 @@ public class UsuarioDTO {
     private boolean verificado;
     private boolean esAdmin = false;
 
+    @Getter @Setter
+    public static class Favorito {
+        private String token;
+        private Long autoId;
+    }
+
 }

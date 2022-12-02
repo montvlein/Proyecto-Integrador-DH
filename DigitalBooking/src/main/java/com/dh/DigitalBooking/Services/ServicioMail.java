@@ -106,7 +106,7 @@ public class ServicioMail {
                                     margin: 1rem;
                                     '
                                 target='_blank'
-                                href='http://ec2-3-145-208-193.us-east-2.compute.amazonaws.com/api/v1/usuario/auth?token=
+                                href='https://api.monkeydbooking.com.ar/api/v1/usuario/auth?token=
                                 """ + codigo + """
                                '>Validar email</a>
                            </div>
