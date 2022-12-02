@@ -20,9 +20,6 @@ public class ServicioAuto {
     ServicioImagen imagen;
 
     @Autowired
-    ServicioCaracteristica caracteristica;
-
-    @Autowired
     ServicioReserva reservas;
 
     @Autowired
