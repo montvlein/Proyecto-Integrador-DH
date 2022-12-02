@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Services;
 import com.dh.DigitalBooking.Config.JWTUtil;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
+import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
@@ -12,6 +13,8 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,9 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ServicioUsuario implements UserDetailsService {
@@ -139,7 +140,7 @@ public class ServicioUsuario implements UserDetailsService {
         if (usuario != null) {
             return new User(usuario.getEmail(),
                     usuario.getContrasenia(),
-                    new ArrayList<>());
+                    getAuthorities(usuario));
         } else {
             throw new UsernameNotFoundException("No se encontro usuario con mail: " + email);
         }
@@ -147,6 +148,13 @@ public class ServicioUsuario implements UserDetailsService {
 
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         return  loadUserByUsername(email);
+    }
+
+    public Set<? extends GrantedAuthority> getAuthorities(Usuario usuario) {
+        Rol rol = usuario.getRol();
+        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(rol.getNombre()));
+        return authorities;
     }
 
     public UsuarioDTO tokenInfo(String token) {

@@ -63,6 +63,7 @@ public class Seguridad {
                 .antMatchers(HttpMethod.GET, "/api/v1/caracteristica/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/ciudad/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/reserva/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/ciudad/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
