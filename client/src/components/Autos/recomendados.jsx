@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { DigitalBookingApi } from "../../data/conexionAPI";
-import Card2 from "./Prueba/card2";
+import Card2 from "./card2";
 import styles from "./estilosCard.module.css";
 
 export default function Recomendados() {
