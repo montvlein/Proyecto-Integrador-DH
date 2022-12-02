@@ -9,9 +9,9 @@ import GoogleOauth from "./googleOauth";
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
+  const { iniciarSesion, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
-
+  const [enEspera, setEnEspera] = useState(false)
 
   const handleSubmit = function (e) {
     setEnEspera(true)
@@ -34,8 +34,8 @@ const Login = () => {
     })
   }
     return(
-      <div className={styles.divContainer}>
-        <GoogleOauth/>
+      <div className={enEspera?`${styles.divContainer} loading_cursor`:`${styles.divContainer}`}>
+        <GoogleOauth setEnEspera={setEnEspera}/>
         {invalido?<p className={styles.textError}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
         {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
           icon={faCircleExclamation}
@@ -64,9 +64,12 @@ const Login = () => {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className={styles.botonFormulario}>
-                Ingresar
-              </button>
+              {enEspera?
+              <button className={styles.botonFormularioDisabled} disabled>
+                <div className="spinner-border spinner-btn-disable" roler="status"></div>
+              </button>:
+              <button type="submit" className={styles.botonFormulario}>Ingresar</button>}
+
             </div>
             <p className="text-center mt-2">
                 ¿Aún no tenes cuenta? <Link to="/crearCuenta">Registrate</Link>

@@ -4,9 +4,9 @@ import { useContext } from "react";
 import Contexto from "../../contexto/AppContext"
 import { useNavigate } from "react-router-dom"
 
-export default function GoogleOauth() {
+export default function GoogleOauth({setEnEspera}) {
   const redirigir = useNavigate()
-  const { iniciarSesion, setEnEspera, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
+  const { iniciarSesion, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
 
   const client_id = import.meta.env.VITE_CLIENT_ID
 
