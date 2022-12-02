@@ -67,6 +67,16 @@ public class ControladorUsuario {
         return ResponseEntity.ok(usuarioEnDB);
     }
 
+    @Operation(summary = "Actualiza un usuario con los datos pasados por el cuerpo de la request")
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarCiudad(@RequestBody UsuarioDTO usuario) throws Exception{
+        ResponseEntity<?> response = ResponseEntity.notFound().build();
+        if (usuario.getId() != null && servicio.buscarPorId(usuario.getId()) != null){
+            response = ResponseEntity.ok(servicio.actualizar(usuario));
+        }
+        return response;
+    }
+
     @PostMapping("autenticacion")
     @Operation(summary = "Devuelve un token")
     public ResponseEntity<?> login(@RequestBody JWT.Request request) throws Exception {
@@ -99,7 +109,7 @@ public class ControladorUsuario {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("auth")
+    @GetMapping("validarMail")
     @Operation(summary = "valida el mail del usuario")
     public ResponseEntity<?> validarMail(@RequestParam String token) throws Exception {
         if (servicio.validarMail(token)) {

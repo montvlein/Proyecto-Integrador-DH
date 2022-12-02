@@ -66,7 +66,7 @@ public class ServicioReserva {
     }
 
     public ReservaDTO reservaToDTO(Reserva reserva) {
-        ReservaDTO dto = null;
+        ReservaDTO dto = new ReservaDTO();
         dto.setId(reserva.getId());
         dto.setHoraComienzoReserva(reserva.getHoraComienzoReserva());
         dto.setFechaInicialReserva(reserva.getFechaInicialReserva());
