@@ -5,6 +5,7 @@ import Login from "./components/formularios/login";
 import Registro from "./components/formularios/registro";
 import Producto from "./components/producto/producto";
 import Exito from "./components/Exito/exito";
+import NotFound from "./components/NotFound/notFound";
 import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
@@ -23,7 +24,7 @@ function App() {
           <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
-          <Route path="*" element={<h2>Not Found</h2>} />
+          <Route path="*" element={<NotFound/>} />
           <Route path={`/crearProducto`} element={<FormularioCreacionProducto/>}/>
         </Routes>
       </main>
