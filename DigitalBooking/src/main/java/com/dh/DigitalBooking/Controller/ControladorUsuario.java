@@ -121,7 +121,7 @@ public class ControladorUsuario {
     @PostMapping("googleauth")
     @Operation(summary = "dado una credencial de google, devuelve usuario y token")
     public ResponseEntity<?> googleAuth(@RequestBody googleAuth.Resquest credential) throws Exception {
-        UsuarioDTO respuesta = servicio.validarGoogleCredential(credential);
+        googleAuth.Response respuesta = servicio.validarGoogleCredential(credential);
         return ResponseEntity.ok(respuesta);
     }
 

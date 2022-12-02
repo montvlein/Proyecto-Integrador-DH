@@ -183,21 +183,23 @@ public class ServicioUsuario implements UserDetailsService {
 
     @Value("${googleAuth.cliente_id}")
     private String CLIENTE_ID;
-    public UsuarioDTO validarGoogleCredential(googleAuth.Resquest token) throws Exception {
+    public googleAuth.Response validarGoogleCredential(googleAuth.Resquest token) throws Exception {
 
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())
                 .setAudience(Collections.singletonList(CLIENTE_ID)).build();
         GoogleIdToken idToken = verifier.verify(token.credential());
 
-        String emailPayload = null;
-        String apellidoPayload = null;
-        String nombrePaykoad = null;
+        String emailPayload;
+        String apellidoPayload;
+        String nombrePaykoad;
 
-        if (idToken != null) {
+        try {
             GoogleIdToken.Payload payload = idToken.getPayload();
             emailPayload = payload.getEmail();
             apellidoPayload = (String) payload.get("family_name");
             nombrePaykoad = (String) payload.get("given_name");
+        } catch (Exception e) {
+            throw new Exception("Google Oauth Token Invalido: " + e.getMessage());
         }
 
         UsuarioDTO usuarioEnRepositorio = null;
@@ -206,7 +208,7 @@ public class ServicioUsuario implements UserDetailsService {
             usuarioEnRepositorio = buscarPorEmail(emailPayload);
         }
 
-        if (usuarioEnRepositorio != null) return usuarioEnRepositorio;
+        if (usuarioEnRepositorio != null) return new googleAuth.Response(usuarioEnRepositorio, jwtUtil.generarToken(emailPayload));
 
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombre(nombrePaykoad);
@@ -214,7 +216,7 @@ public class ServicioUsuario implements UserDetailsService {
         nuevoUsuario.setEmail(emailPayload);
         nuevoUsuario = guardarUsuario(nuevoUsuario);
         usuarioEnRepositorio = buscarPorEmail(nuevoUsuario.getEmail());
-        return usuarioEnRepositorio;
+        return new googleAuth.Response(usuarioEnRepositorio, jwtUtil.generarToken(emailPayload));
     }
 
     public void agregarFavorito(Long usuarioId, Long autoId) {

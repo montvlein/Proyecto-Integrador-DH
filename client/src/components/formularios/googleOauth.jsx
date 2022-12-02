@@ -34,9 +34,11 @@ export default function GoogleOauth({setEnEspera}) {
 
   function handleCredentialResponse(response) {
     DigitalBookingApi.usuario.googleOauth(response)
-    .then(usuario => {
+    .then(respuesta => {
+          console.log(respuesta)
           setEnEspera(false)
-          iniciarSesion(usuario)
+          iniciarSesion(respuesta.usuario)
+          localStorage.setItem("DigitalToken", respuesta.token)
           getSinUsuarioParaReserva()?redirigir(getUltimaConsultaPreviaReservar()):redirigir("/")
           setSinUsuarioParaReserva(false)
         })
