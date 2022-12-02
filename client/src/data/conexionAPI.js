@@ -130,7 +130,6 @@ class UsuarioEndPoint extends CRUD {
 }
 
 function opciones(informacion, isAuthRequired = true, metodo = "POST", tipo = "application/json") {
-    console.log(localStorage.getItem("DigitalToken"))
     const headerConAuth = {
         method: metodo,
         headers: {
