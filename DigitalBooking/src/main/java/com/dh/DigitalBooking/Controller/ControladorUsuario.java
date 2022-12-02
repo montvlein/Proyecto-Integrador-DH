@@ -125,4 +125,19 @@ public class ControladorUsuario {
         return ResponseEntity.ok(respuesta);
     }
 
+    @Operation(summary = "busca el auto, y si existe lo agrega a favoritos del usuario que se pasa por ID")
+    @PostMapping("agregarFavorito")
+    public ResponseEntity<?> agregarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.agregarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
+
+    @Operation(summary = "busca el auto, y si existe lo remueve de favoritos del usuario que se pasa por ID")
+    @PostMapping("eliminarFavorito")
+    public ResponseEntity<?> eliminarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.eliminarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
 }

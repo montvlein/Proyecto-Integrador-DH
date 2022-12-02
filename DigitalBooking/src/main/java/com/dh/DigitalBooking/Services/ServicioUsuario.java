@@ -1,12 +1,14 @@
 package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
+import com.dh.DigitalBooking.Models.Entities.Auto;
 import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Rol;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
 import com.dh.DigitalBooking.Repository.ORM.Roles.iRepositorioUsuario;
+import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -36,6 +38,9 @@ public class ServicioUsuario implements UserDetailsService {
 
     @Autowired
     private ServicioMail servicioMail;
+
+    @Autowired
+    private iRepositorioAuto repositorioAuto;
 
     @Autowired
     public void setRepositorio(iRepositorioUsuario repositorio){
@@ -210,5 +215,23 @@ public class ServicioUsuario implements UserDetailsService {
         nuevoUsuario = guardarUsuario(nuevoUsuario);
         usuarioEnRepositorio = buscarPorEmail(nuevoUsuario.getEmail());
         return usuarioEnRepositorio;
+    }
+
+    public void agregarFavorito(Long usuarioId, Long autoId) {
+        Optional<Usuario> usuario = repositorio.findById(usuarioId);
+        Optional<Auto> auto = repositorioAuto.findById(autoId);
+        if (usuario.isPresent() && auto.isPresent()) {
+            usuario.get().agregarFavorito(auto.get());
+            repositorio.save(usuario.get());
+        }
+    }
+
+    public void eliminarFavorito(Long usuarioId, Long autoId) {
+        Optional<Usuario> usuario = repositorio.findById(usuarioId);
+        Optional<Auto> auto = repositorioAuto.findById(autoId);
+        if (usuario.isPresent() && auto.isPresent()) {
+            usuario.get().eliminarFavorito(auto.get());
+            repositorio.save(usuario.get());
+        }
     }
 }
