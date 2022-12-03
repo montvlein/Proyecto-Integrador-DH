@@ -69,6 +69,12 @@ class ReservaEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/reserva") {
         super(basepath, categoriaUri)
     }
+
+    buscarPorIdUsuario(id){
+        return handleFetch(`${this.uri}/buscarPorUsuario/${id}`)
+        .then(res => res.json())
+        .catch(error => { throw(error) })
+    }
 }
 
 class AutoEndPoint extends CRUD {

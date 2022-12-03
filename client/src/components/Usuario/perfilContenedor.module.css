@@ -3,22 +3,21 @@
     flex-direction: row;
     margin-top: 2em;
     gap:1em;
+    margin: 0 auto;
 }
 
 .aside{
-    gap: 2.2em;
+    gap: 0.5em;
     align-items: center;
     background-color: var(--grisC);
     padding: 3em;
-    border-radius: 8px;
-    margin: 0 auto;
-    
+    height: calc(100vh - 130px);
 }
 
 .iconoSesion {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,22 +25,6 @@
     margin-right: 10px;
     position: relative;
     background: var(--grisO);
-    font-size: 5em;
+    font-size: 4em;
     color: var(--amarillo)
-}
-
-
-.perfilContenedor{
-    display: flex;
-    margin-top: 2px;
-    flex-direction: column;
-    align-self: flex-end;
-    align-content: flex-start;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
-    border-radius: 8px;
-    background-color: #FFF;
-    padding: 20px;
-    width: 20%;
-    height:550px;
-    margin-left: 20px;
 }
