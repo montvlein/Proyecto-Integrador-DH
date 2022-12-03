@@ -1,16 +1,19 @@
+import MisReservas from "./misReservas/misReservas";
+import styles from "./perfilContenedor.module.css";
+
 export default function Perfil() {
-    return (
-        <section>
-            <h3>Hola soy un perfil</h3>
-            <aside>
-                Soy el menú perfil 
-            </aside>
-
-            <MisReservas/>
-        </section>
-
-// COMPONENTE MENÚ (CON MI PERFIL, FOTO, Y LAS OPCIONES)
-        // COMPONENTE MIS RESERVAS
-         
-    )
+  return (
+    <section className={styles.contenedorPadre}>
+        <aside className={`d-flex flex-column justify-content-between ${styles.aside}`}>
+          <div className={styles.iconoSesion}>
+                MB
+        </div>
+          <h3>Hola, Micaela</h3>
+            <p>Mis Reservas</p>
+            <p>Favoritos</p>
+            <p>Mis Datos</p>
+        </aside>
+      <MisReservas />
+    </section>
+  );
 }
