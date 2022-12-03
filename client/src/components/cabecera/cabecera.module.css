@@ -272,6 +272,14 @@ dl {
     padding-right: 10px;
 }
 
+.administrador {
+    color: #FFF;
+    margin: 0;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-width:760px) {
     .lema, .sesion {
         display:none;
