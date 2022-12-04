@@ -47,6 +47,7 @@
 .padreSesion
  {
     display:flex;
+    align-items: center;
  }
 
 /* Menu Hamburguesa Responsive */
@@ -278,6 +279,43 @@ dl {
     padding: 0 1em;
     display: flex;
     align-items: center;
+}
+
+.navmenu {
+    position: relative;
+    text-align: right;
+}
+
+details.navmenu > summary {
+    list-style: url("https://img.icons8.com/office/16/null/menu-2.png") inside;
+    width: 14px;
+}
+
+details.navmenu[open] > summary {
+    list-style: disclosure-open inside;
+    color: inherit;
+}
+
+.navitems {
+    background-color: var(--grisHeader);
+    top:35px;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    margin: 0;
+    padding: 0 1em;
+}
+
+.navlink {
+    text-decoration: none;
+    color: var(--amarillo);
+    padding: .5em 0;
+    font-size: .8em;
+}
+
+
+.navlink:hover {
+    color: var(--grisC);
 }
 
 @media screen and (max-width:760px) {

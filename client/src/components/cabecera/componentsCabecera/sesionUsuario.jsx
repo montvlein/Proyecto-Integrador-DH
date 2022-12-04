@@ -1,8 +1,10 @@
 import styles from "../cabecera.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Contexto from "../../../contexto/AppContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom"
 
 function UsuarioIniciado() {
   const { getUsuario } = useContext(Contexto);
@@ -40,6 +42,15 @@ function UsuarioIniciado() {
             icon={faXmark}
             onClick={cerrarSesion}
           ></FontAwesomeIcon>
+
+          <details className={styles.navmenu}>
+          <summary> </summary>
+          { getUsuario().esAdmin?
+            <MenuAdmin/>:
+            <MenuUsuario/>
+          }
+          </details>
+
         </div>
       </div>
     </section>
@@ -47,3 +58,22 @@ function UsuarioIniciado() {
 }
 
 export default UsuarioIniciado;
+
+function MenuAdmin() {
+  return(
+    <ul className={styles.navitems}>
+      <li><Link className={styles.navlink}>Cargar producto</Link></li>
+      <li><Link className={styles.navlink}>Mi perfil</Link></li>
+    </ul>
+  )
+}
+
+function MenuUsuario() {
+  return(
+  <ul className={styles.navitems}>
+    <li><Link className={styles.navlink}>Mis reservas</Link></li>
+    <li><Link className={styles.navlink}>Favoritos</Link></li>
+    <li><Link className={styles.navlink}>Mi perfil</Link></li>
+  </ul>
+  )
+}
