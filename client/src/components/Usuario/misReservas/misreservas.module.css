@@ -1,3 +1,20 @@
+.contenedorTitulos{
+    background-color: var(--amarillo);
+    width: 100%;
+    height: fit-content;
+}
+
+.tituloMisReservas{
+    margin-top: 1em;
+    padding-left: 0.5em;
+}
+
+.subtituloMisReservas{
+    margin-top: 1em;
+    padding-left: 1em;
+    font-size: 1em;
+}
+
 .contenedor{
     display: flex;
     margin-top: 0.313px;

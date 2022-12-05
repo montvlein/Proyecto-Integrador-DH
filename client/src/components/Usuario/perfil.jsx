@@ -12,7 +12,7 @@ export default function Perfil() {
           <div className={styles.iconoSesion}>
           {/* {getUsuario().nombre[0]}{getUsuario().apellido[0]} */}
         </div>
-          <h3>Hola, {getUsuario().nombre}</h3>
+          <h3>Hola, {getUsuario().nombre}👋</h3>
             <p>Mis Reservas</p>
             <p>Favoritos</p>
             <p>Mis Datos</p>

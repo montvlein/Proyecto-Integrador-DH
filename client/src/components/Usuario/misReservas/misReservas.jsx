@@ -13,9 +13,11 @@ export default function MisReservas({ idUsuario }) {
 
   return (
     <section>
-      <h3>Mis Reservas</h3>
+    <div className={styles.contenedorTitulos}>
+      <h3 className={styles.tituloMisReservas}>Mis Reservas</h3>
+      </div>
       <section>
-        <h4>Reservas activas</h4>
+        <h4 className={styles.subtituloMisReservas}>Reservas activas</h4>
         {misReservas.map((reserva) => {
             <pre>{reserva}</pre>
         })}

@@ -148,6 +148,9 @@
     
 }
 
+.linkTo{
+    text-decoration: none;
+}
 
 .cerrarSesion {
     color: #FFF;
