@@ -19,7 +19,6 @@ const Registro = () => {
     DigitalBookingApi.usuario.crear(usuario)
     .then( respuestaUsuario => {
       if (respuestaUsuario.status == 201) {
-        iniciarSesion(usuario)
         return respuestaUsuario
       }
     })
@@ -27,7 +26,11 @@ const Registro = () => {
     .then( auth => {
         localStorage.setItem("DigitalToken", auth.token )
         setEnEspera(false)
-        redirigir("/")
+        DigitalBookingApi.usuario.infoToken(auth.token)
+        .then(usuario => {
+          iniciarSesion(usuario)
+          redirigir("/")
+        })
       })
     .catch(e => {
       setErrorAlRegistrar(true)

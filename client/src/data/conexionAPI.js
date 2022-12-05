@@ -130,13 +130,11 @@ class UsuarioEndPoint extends CRUD {
 
     agregarFavorito(fav) {
         return handleFetch(`${this.uri}/agregarFavorito`, opciones(fav, false))
-        .then( res => res.json() )
         .catch(error => { throw(error) })
     }
 
     eliminarFavorito(fav) {
         return handleFetch(`${this.uri}/eliminarFavorito`, opciones(fav, false))
-        .then( res => res.json() )
         .catch(error => { throw(error) })
     }
 }
