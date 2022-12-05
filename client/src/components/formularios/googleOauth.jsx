@@ -35,7 +35,6 @@ export default function GoogleOauth({setEnEspera}) {
   function handleCredentialResponse(response) {
     DigitalBookingApi.usuario.googleOauth(response)
     .then(respuesta => {
-          console.log(respuesta)
           setEnEspera(false)
           iniciarSesion(respuesta.usuario)
           localStorage.setItem("DigitalToken", respuesta.token)
