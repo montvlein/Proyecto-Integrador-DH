@@ -2,7 +2,7 @@ import MisReservas from "./misReservas/misReservas";
 import styles from "./perfilContenedor.module.css";
 import Contexto from "./../../contexto/AppContext";
 import { useContext } from "react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Perfil() {
     const { getUsuario } = useContext(Contexto)
@@ -17,7 +17,7 @@ export default function Perfil() {
           {getUsuario().apellido[0]}
         </div>
         <h3>{getUsuario().nombre}</h3>
-        <p>Mis Reservas</p>
+        <Link to={"reservas"}>Mis Reservas</Link>
         <p>Favoritos</p>
         <p>Mis Datos</p>
       </aside>
