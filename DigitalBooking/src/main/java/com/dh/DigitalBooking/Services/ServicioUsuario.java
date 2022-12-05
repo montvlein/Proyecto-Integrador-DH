@@ -128,6 +128,9 @@ public class ServicioUsuario implements UserDetailsService {
         if (usuario.getRol().getNombre().equals("ROLE_ADMIN")) {
             user.setEsAdmin(true);
         }
+        for (Auto auto : usuario.getFavoritos()){
+            user.agregarFavorito(auto.getId());
+        }
         return user;
     }
 

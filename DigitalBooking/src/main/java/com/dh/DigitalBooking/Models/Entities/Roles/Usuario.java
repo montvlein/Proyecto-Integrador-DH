@@ -13,7 +13,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-//@DiscriminatorColumn(name="reservas", discriminatorType = DiscriminatorType.INTEGER)
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 

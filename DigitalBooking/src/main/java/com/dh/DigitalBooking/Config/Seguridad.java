@@ -56,8 +56,6 @@ public class Seguridad {
         http.headers().frameOptions().sameOrigin().and().cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/v1/usuario/agregarFavorito").hasRole("USER")
-                .antMatchers(HttpMethod.POST, "/api/v1/usuario/eliminarFavorito").hasRole("USER")
                 .antMatchers(HttpMethod.POST, "/api/v1/usuario/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/usuario/validarMail", "/api/v1/usuario/tokenInfo").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/auto/**").permitAll()
