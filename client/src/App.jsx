@@ -11,8 +11,13 @@ import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 import FormularioCreacionProducto from "./components/formularioProducto/formularioProducto";
+import MisReservas from "./components/Usuario/misReservas/misReservas";
+import { useContext } from "react";
+import Contexto from "./contexto/AppContext";
 
 function App() {
+  const { getUsuario } = useContext(Contexto)
+
   return (
     <>
       <Cabecera />
@@ -28,6 +33,10 @@ function App() {
           <Route path="*" element={<NotFound/>} />
           <Route path={`/crearProducto`} element={<FormularioCreacionProducto/>}/>
           <Route path={`/miperfil`} element={<Perfil/>}/>
+          { getUsuario().id?
+          <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>:
+          null
+          }
         </Routes>
       </main>
       <Footer />
