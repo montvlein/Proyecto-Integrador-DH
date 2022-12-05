@@ -26,7 +26,7 @@ export default function ImgProducto({imagenes, toggle}) {
           </div>
         </div>
           { imagenes.map((img, index)=>
-            <div className={styles[`item${index}`]} style={backgroundImagen(index)} key={img.id}>
+            <div className={`${index===0?styles.item0:""} ${styles.itemGrid}`} style={backgroundImagen(index)} key={img.id}>
               &nbsp;
             </div>
           )}
