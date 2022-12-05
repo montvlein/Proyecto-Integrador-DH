@@ -71,7 +71,12 @@ class ReservaEndPoint extends CRUD {
     }
 
     buscarPorIdUsuario(id){
-        return handleFetch(`${this.uri}/buscarPorUsuario/${id}`)
+        return handleFetch(`${this.uri}/buscarPorUsuario/${id}`, {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${localStorage.getItem("DigitalToken")}`
+            }
+          })
         .then(res => res.json())
         .catch(error => { throw(error) })
     }
@@ -136,7 +141,6 @@ class UsuarioEndPoint extends CRUD {
 }
 
 function opciones(informacion, isAuthRequired = true, metodo = "POST", tipo = "application/json") {
-    console.log(localStorage.getItem("DigitalToken"))
     const headerConAuth = {
         method: metodo,
         headers: {
