@@ -18,7 +18,6 @@ export default function ImgProducto({imagenes, toggle}) {
   return (
     <>
       <section>
-      
         <div className={styles.angryGrid}>
         <div className={styles.compartirLikeImgProd}>
           <div className={styles.iconoContenedor}>
@@ -26,21 +25,11 @@ export default function ImgProducto({imagenes, toggle}) {
             <FontAwesomeIcon icon={faHeart} className={styles.icon}/>
           </div>
         </div>
-          <div className={styles.item0} style={backgroundImagen(0)}>
-            &nbsp;
-          </div>
-          <div className={styles.item1} style={backgroundImagen(1)}>
-            &nbsp;
-          </div>
-          <div className={styles.item2} style={backgroundImagen(2)}>
-            &nbsp;
-          </div>
-          <div className={styles.item3} style={backgroundImagen(3)}>
-            &nbsp;
-          </div>
-          <div className={styles.item4} style={backgroundImagen(0)}>
-            &nbsp;
-          </div>
+          { imagenes.map((img, index)=>
+            <div className={styles[`item${index}`]} style={backgroundImagen(index)} key={img.id}>
+              &nbsp;
+            </div>
+          )}
           <div className={styles.verMas} onClick={toggle}>
             <p>Ver más</p>
           </div>
