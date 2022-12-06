@@ -64,8 +64,8 @@ export default UsuarioIniciado;
 function MenuAdmin() {
   return(
     <ul className={styles.navitems}>
-      <li><Link className={styles.navlink}>Cargar producto</Link></li>
-      <li><Link className={styles.navlink}>Mi perfil</Link></li>
+      <li><Link className={styles.navlink} to="/miperfil/crearProducto">Cargar producto</Link></li>
+      <li><Link className={styles.navlink} to="/miperfil/">Perfil administrador</Link></li>
     </ul>
   )
 }
@@ -73,9 +73,8 @@ function MenuAdmin() {
 function MenuUsuario() {
   return(
   <ul className={styles.navitems}>
-    <li><Link className={styles.navlink}>Mis reservas</Link></li>
-    <li><Link className={styles.navlink}>Favoritos</Link></li>
-    <li><Link className={styles.navlink}>Mi perfil</Link></li>
+    <li><Link className={styles.navlink} to="/miperfil/reservas">Mis reservas</Link></li>
+    <li><Link className={styles.navlink} to="/miperfil/favoritos">Favoritos</Link></li>
   </ul>
   )
 }

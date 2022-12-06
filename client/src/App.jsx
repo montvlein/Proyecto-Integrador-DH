@@ -32,12 +32,11 @@ function App() {
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
           <Route path="*" element={<NotFound/>} />
-          <Route path={`/crearProducto`} element={<FormularioCreacionProducto/>}/>
           <Route path={`/productoExitoso`} element={<ProductoExitoso />} />
           <Route path={`/miperfil`} element={<Perfil/>}/>
-          { getUsuario().id?
-          <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>:
-          null
+          { getUsuario().esAdmin?
+          <Route path={`/miperfil/crearProducto`} element={<FormularioCreacionProducto/>}/>:
+          <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>
           }
         </Routes>
       </main>
