@@ -8,8 +8,6 @@ const Contexto = createContext();
 
 export function AppContext({ children }) {
 
-  const body = document.querySelector("html").classList
-
   // usuario y sesion
   const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
   const [usuario, setUsuario] = useState({});
@@ -88,10 +86,6 @@ export function AppContext({ children }) {
     busqueda.ubicacion = ubicacion
   }
 
-  function setCategoriaBusqueda(categoria) {
-    busqueda.categoria = categoria
-  }
-
   const [sinUsuarioParaReserva, setSinUsuarioParaReserva] = useState(false);
   const [ultimaConsultaPreviaReservar, setUltimaConsultaPreviaReservar] = useState()
 
@@ -123,10 +117,6 @@ export function AppContext({ children }) {
         setCiudadBusqueda,
         busqueda,
         setBusqueda,
-
-        // setFechaInicialReserva,
-        // setFechaFinalReserva,
-        // getFechaReservaFinal,
 
         getSinUsuarioParaReserva,
         setSinUsuarioParaReserva,
