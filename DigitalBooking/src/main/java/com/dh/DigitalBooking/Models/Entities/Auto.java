@@ -18,7 +18,7 @@ public class Auto {
     private Long id;
     private String nombre;
     private String descripcion;
-    private boolean disponibleParaAlquilar;
+    private String direccion;
     private float precio;
 
     @OneToMany(mappedBy = "auto")

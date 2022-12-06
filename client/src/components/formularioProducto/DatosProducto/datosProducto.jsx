@@ -59,6 +59,17 @@ export default function AtributosProducto() {
           </div>
 
           <div className={styles.div}>
+            <label className={styles.label}>Direccion</label>
+            <input
+              type="text"
+              name="direccion"
+              className={styles.input}
+              placeholder="Calle Falsa 123"
+              required
+            />
+          </div>
+
+          <div className={styles.div}>
             <label className={styles.label}>Ciudad</label>
             <select className={styles.input} name="ciudadID" required>
               <option disabled hidden selected>

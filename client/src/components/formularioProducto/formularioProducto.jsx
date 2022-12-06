@@ -4,6 +4,7 @@ import CabeceraCrearProducto from "./CabeceraCrearProducto/cabeceraCrearProducto
 import CargarImagenes from "./CargarImagenes/cargarImagenes";
 import DatosProducto from "./DatosProducto/datosProducto";
 import styles from "./formularioProducto.module.css";
+import { DigitalBookingApi } from "../../data/conexionAPI";
 
 export default function FormularioCreacionProducto() {
 
@@ -14,6 +15,7 @@ export default function FormularioCreacionProducto() {
     const precio = evento.target.elements.precio.value
     const categoriaId = evento.target.elements.categoriaID.value
     const ciudadId = evento.target.elements.ciudadID.value
+    const direccion = evento.target.elements.direccion.value
     const modeloId = {"id": evento.target.elements.modelo.value}
     const puertasId = {"id": evento.target.elements.puertas.value}
     const consumoId = {"id": evento.target.elements.consumo.value}
@@ -30,9 +32,11 @@ export default function FormularioCreacionProducto() {
       "ciudad": {
         "id": ciudadId
       },
+      "direccion":direccion,
       "caracteristicas": caracteristicas
     }
-    console.log(autoNuevo)
+    DigitalBookingApi.auto.crear(autoNuevo)
+    .then(resp => console.log(resp))
   }
 
   return (
