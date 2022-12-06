@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +24,10 @@ public class AutoDTO {
     private boolean disponibleParaAlquilar;
     private float precio;
     private Ciudad ciudad;
-    private CaracteristicaDTO caracteristica;
+    private HashMap<String, String> caracteristica = new HashMap<>();
     private List<LocalDate> fechasConReserva = new ArrayList<>();
+
+    public void agregarCaracteristica(String nombre, String valor) {
+        caracteristica.put(nombre, valor);
+    }
 }

@@ -1,10 +1,15 @@
 package com.dh.DigitalBooking.Services;
 
+import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
+import com.dh.DigitalBooking.Models.DTOs.ReservaDTO;
+import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Reserva;
+import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioReserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,8 +36,8 @@ public class ServicioReserva {
         return repositorio.findByAutoId(id);
     }
 
-    public List<Reserva> buscarPorUsuarioId(Long id) {
-        return repositorio.findByClienteId(id);
+    public List<ReservaDTO> buscarPorUsuarioId(Long id) {
+        return reservaToDTO(repositorio.findByClienteId(id));
     }
 
     public Reserva actualizar(Reserva reserva) throws Exception{
@@ -58,5 +63,26 @@ public class ServicioReserva {
 
     public List<Reserva> listar(){
         return repositorio.findAll();
+    }
+
+    public ReservaDTO reservaToDTO(Reserva reserva) {
+        ReservaDTO dto = new ReservaDTO();
+        dto.setId(reserva.getId());
+        dto.setHoraComienzoReserva(reserva.getHoraComienzoReserva());
+        dto.setFechaInicialReserva(reserva.getFechaInicialReserva());
+        dto.setFechaFinalReserva(reserva.getFechaFinalReserva());
+        dto.setAutoId(reserva.getAuto().getId());
+        dto.setAutoNombre(reserva.getAuto().getNombre());
+        dto.setAutoCategoria(reserva.getAuto().getCategoria().getTitulo());
+        dto.setClienteId(reserva.getCliente().getId());
+        return dto;
+    }
+
+    private List<ReservaDTO> reservaToDTO(List<Reserva> listado) {
+        List<ReservaDTO> listadoDeAutos = new ArrayList<>();
+        for (Reserva reserva : listado){
+            listadoDeAutos.add(reservaToDTO(reserva));
+        }
+        return listadoDeAutos;
     }
 }

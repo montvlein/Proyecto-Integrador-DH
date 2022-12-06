@@ -6,6 +6,7 @@ class DigitalBookingAPI {
         this.auto = new AutoEndPoint(basepath)
         this.usuario = new UsuarioEndPoint(basepath)
         this.reserva = new ReservaEndPoint(basepath)
+        this.caracteristica = new CaracteristicasEndPoint(basepath)
     }
 
 }
@@ -58,6 +59,12 @@ class CiudadEndPoint extends CRUD {
     }
 }
 
+class CaracteristicasEndPoint extends CRUD {
+    constructor(basepath, caracteristicaUri="api/v1/caracteristica") {
+        super(basepath, caracteristicaUri)
+    }
+}
+
 class ReservaEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/reserva") {
         super(basepath, categoriaUri)
@@ -65,10 +72,10 @@ class ReservaEndPoint extends CRUD {
 }
 
 class AutoEndPoint extends CRUD {
-
     constructor(basepath, categoriaUri="api/v1/auto") {
         super(basepath, categoriaUri)
     }
+
 
     filtrarPor(parametros) {
         let filtro = ""
@@ -116,16 +123,19 @@ class UsuarioEndPoint extends CRUD {
     }
 
     googleOauth(token) {
-        console.log("ESTO ES UN SIMULACRO, HAY QUE CAMBIARLO POR EL API")
-        const respuesta = fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${token}`)
-        return respuesta.then(data => {
-            return data.json()
-        }).then(payload => {
-            let nombre = payload.given_name
-            let apellido = payload.family_name
-            let email = payload.email
-            return { usuario: {nombre, apellido, email}, token:null }
-        })
+        return handleFetch(`${this.uri}/googleauth`, opciones(token, false))
+        .then( res => res.json() )
+        .catch(error => { throw(error) })
+    }
+
+    agregarFavorito(fav) {
+        return handleFetch(`${this.uri}/agregarFavorito`, opciones(fav, false))
+        .catch(error => { throw(error) })
+    }
+
+    eliminarFavorito(fav) {
+        return handleFetch(`${this.uri}/eliminarFavorito`, opciones(fav, false))
+        .catch(error => { throw(error) })
     }
 }
 

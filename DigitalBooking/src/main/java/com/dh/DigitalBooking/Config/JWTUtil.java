@@ -39,9 +39,9 @@ public class JWTUtil {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 
-    public String generarToken(String infoUsuario) {
+    public String generarToken(String mailUsuario) {
         Map<String, Object> claims = new HashMap<>();
-        return crearToken(claims, infoUsuario);
+        return crearToken(claims, mailUsuario);
     }
 
     public String generarToken(UserDetails infoUsuario) {
@@ -53,7 +53,6 @@ public class JWTUtil {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(usuario)
-//                .setPayload(usuario)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*10))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)

@@ -106,7 +106,7 @@ public class ServicioMail {
                                     margin: 1rem;
                                     '
                                 target='_blank'
-                                href='http://localhost:8080/api/v1/usuario/auth?token=
+                                href='https://api.monkeydbooking.com.ar/api/v1/usuario/auth?token=
                                 """ + codigo + """
                                '>Validar email</a>
                            </div>

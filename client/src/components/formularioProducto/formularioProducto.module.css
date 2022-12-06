@@ -1,0 +1,78 @@
+.titulo {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.contenedorPadre {
+    padding:10px;
+    background-color: rgba(214, 214, 214, 0.342);
+    height: 100%;
+    width: 100%;
+
+}
+
+.botonReservaContainer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+
+}
+
+.botonNuevo {
+    width: 350px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #000;
+    background-color: rgb(255, 219, 153);
+    border: 2px solid var(--amarillo);
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 400;
+
+}
+
+.botonNuevo span{
+    position: relative;
+    text-decoration: none;
+    z-index: 2;
+  }
+
+
+  .botonNuevo:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--amarillo);
+    transition: all 0.7s;
+    transform: skewX(35deg);
+    z-index: 1;
+    left: -50px;
+    
+   
+  }
+
+  .botonNuevo:hover {
+    color: #000;
+    font-weight: 400;
+    
+  }
+
+  .botonNuevo:hover:after{
+    width: 150%;
+  }
+
+  .tituloSegundario {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 15px 0px 10px 0;
+  }
