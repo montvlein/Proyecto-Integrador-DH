@@ -4,7 +4,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Contexto from "../../../contexto/AppContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function UsuarioIniciado() {
   const { getUsuario } = useContext(Contexto);
@@ -18,12 +18,14 @@ function UsuarioIniciado() {
           null
         }
 
+        <Link to={`/miperfil`} className={styles.linkTo}>
         <div className={styles.iconoSesion}>
           <h6>
             {getUsuario().nombre.charAt(0).toUpperCase()}
             {getUsuario().apellido.charAt(0).toUpperCase()}
           </h6>
         </div>
+      </Link>
 
         <div className={styles.contenedorNombreSesion}>
           <dl>

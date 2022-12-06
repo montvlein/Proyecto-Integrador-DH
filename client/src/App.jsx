@@ -5,12 +5,19 @@ import Login from "./components/formularios/login";
 import Registro from "./components/formularios/registro";
 import Producto from "./components/producto/producto";
 import Exito from "./components/Exito/exito";
+import NotFound from "./components/NotFound/notFound";
+import Perfil from "./components/Usuario/perfil";
 import ReservaComponent from "./components/Reserva/reserva";
 import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 import FormularioCreacionProducto from "./components/formularioProducto/formularioProducto";
+import MisReservas from "./components/Usuario/misReservas/misReservas";
+import { useContext } from "react";
+import Contexto from "./contexto/AppContext";
 
 function App() {
+  const { getUsuario } = useContext(Contexto)
+
   return (
     <>
       <Cabecera />
@@ -23,9 +30,13 @@ function App() {
           <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
-          <Route path={`/productoExitoso`} element={<ProductoExitoso />} />
-          <Route path="*" element={<h2>Not Found</h2>} />
+          <Route path="*" element={<NotFound/>} />
           <Route path={`/crearProducto`} element={<FormularioCreacionProducto/>}/>
+          <Route path={`/miperfil`} element={<Perfil/>}/>
+          { getUsuario().id?
+          <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>:
+          null
+          }
         </Routes>
       </main>
       <Footer />

@@ -1,0 +1,66 @@
+.contenedorTitulos{
+    background-color: var(--amarillo);
+    width: 100%;
+    height: fit-content;
+}
+
+.tituloMisReservas{
+    margin-top: 1em;
+    padding-left: 0.5em;
+}
+
+.subtituloMisReservas{
+    margin-top: 1em;
+    padding-left: 1em;
+    font-size: 1em;
+}
+
+.contenedor{
+    display: flex;
+    margin-top: 0.313px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
+    border-radius: 8px;
+    background-color: #FFF;
+    padding: 20px;
+}
+
+.info{
+    margin-left: 2em;
+    margin-right: 7em;
+}
+
+.tituloAuto{
+    font-size: 2em;
+    font-weight: bold;    
+}
+
+.subtituloAuto{
+    font-size: 1em;
+    color: var(--grisO);
+    margin-bottom: 1em;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    background-color: var(--amarillo);
+    border-radius: 8px;
+    border-color: var(--amarillo);
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.contenedorImagen {
+    height: 100%;
+}
+
+.imagenCard {
+    object-fit: cover;
+    width: 300px;
+    border-radius: 10px;
+}

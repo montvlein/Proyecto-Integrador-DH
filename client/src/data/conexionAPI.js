@@ -69,6 +69,17 @@ class ReservaEndPoint extends CRUD {
     constructor(basepath, categoriaUri="api/v1/reserva") {
         super(basepath, categoriaUri)
     }
+
+    buscarPorIdUsuario(id){
+        return handleFetch(`${this.uri}/buscarPorUsuario/${id}`, {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${localStorage.getItem("DigitalToken")}`
+            }
+          })
+        .then(res => res.json())
+        .catch(error => { throw(error) })
+    }
 }
 
 class AutoEndPoint extends CRUD {
