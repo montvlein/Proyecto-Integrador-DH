@@ -14,6 +14,7 @@ import FormularioCreacionProducto from "./components/formularioProducto/formular
 import MisReservas from "./components/Usuario/misReservas/misReservas";
 import { useContext } from "react";
 import Contexto from "./contexto/AppContext";
+import ProductoExitoso from "./components/administrador/productoExitoso/productoExitoso";
 
 function App() {
   const { getUsuario } = useContext(Contexto)
