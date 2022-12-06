@@ -1,5 +1,5 @@
 import CrearPoliticasProducto from "./PoliticasProducto/politicasProducto";
-import AgregarAtributos from "./AgregarAtributos/atributosProducto";
+import AgregarAtributos from "./AgregarAtributos/agregarAtributo2";
 import CabeceraCrearProducto from "./CabeceraCrearProducto/cabeceraCrearProducto.module";
 import CargarImagenes from "./CargarImagenes/cargarImagenes";
 import DatosProducto from "./DatosProducto/datosProducto";
