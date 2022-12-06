@@ -4,6 +4,7 @@ import Destinos from "./destinos/principalesDestinos";
 import Buscador from "../Buscador/buscador";
 import { Fragment } from "react";
 import Categorias from "../Categorias/categoriasNuevas";
+import styles from "./cuerpo.module.css"
 
 const Index = () => {
   return (
@@ -11,7 +12,7 @@ const Index = () => {
       <Heroe />
       <Buscador/>
       <Categorias />
-      <Recomendados />
+      <Recomendados/>
       <Destinos/>
     </Fragment>
   );

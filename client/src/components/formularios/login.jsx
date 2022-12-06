@@ -71,7 +71,7 @@ const Login = () => {
               <button type="submit" className={styles.botonFormulario}>Ingresar</button>}
 
             </div>
-            <p className="text-center mt-2">
+            <p className={`${styles.textoCuenta} text-center mt-3`}>
                 ¿Aún no tenes cuenta? <Link to="/crearCuenta">Registrate</Link>
             </p>
           </div>

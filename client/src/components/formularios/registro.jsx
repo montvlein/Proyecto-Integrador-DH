@@ -117,7 +117,7 @@ const Registro = () => {
               <button type="submit" className={styles.botonFormulario}>Crear cuenta</button>}
               </div>
 
-              <p className="text-center mt-2">
+              <p className={`${styles.textoCuenta} text-center mt-3`}>
                 ¿Ya tienes una cuenta? <Link to="/iniciarSesion">Iniciar sesión</Link>
               </p>
 

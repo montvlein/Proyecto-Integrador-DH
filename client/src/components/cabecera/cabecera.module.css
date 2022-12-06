@@ -276,9 +276,12 @@ dl {
 .administrador {
     color: #FFF;
     margin: 0;
-    padding: 0 1em;
+    margin: 0 1em;
+    padding: 0 1em ;
     display: flex;
     align-items: center;
+    border-right: var(--grisC) 2px solid;
+    height: 40px;
 }
 
 .navmenu {
@@ -317,6 +320,7 @@ details.navmenu[open] > summary {
 .navlink:hover {
     color: var(--grisC);
 }
+
 
 @media screen and (max-width:760px) {
     .lema, .sesion {

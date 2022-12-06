@@ -33,7 +33,7 @@ export default function Recomendados() {
   }
 
   return (
-    <section>
+    <section className={styles.contenedorRecomendados}>
       <div className="container">
         <div>
           <h3>Recomendaciones</h3>

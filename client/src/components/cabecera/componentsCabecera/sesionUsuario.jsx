@@ -14,7 +14,7 @@ function UsuarioIniciado() {
     <section>
       <div className={styles.padreSesion}>
         { getUsuario().esAdmin?
-          <p className={styles.administrador}>Administrador</p>:
+          <><p className={styles.administrador}>Administrador</p> <hr className={styles.pruebaLinea}></hr></>:
           null
         }
 

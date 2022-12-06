@@ -22,7 +22,7 @@ export default function Categorias() {
       <section className={styles.contenedorPadre}>
         <div className={styles.tituloCategorias}>
           <div>
-            <h3>Elige tu categoria</h3>
+            <h3 className={styles.tituloSegundario}>Encuentra tu auto por categoria</h3>
           </div>
           <div>
             <p>Selecciona entre las opciones de nuestra increíble flota</p>

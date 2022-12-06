@@ -11,6 +11,10 @@
 
 }
 
+.contenedorRecomendados {
+  margin-top: 50px;
+}
+
 @media screen 
   and (min-width: 760px) 
   and (max-width: 1000px) {

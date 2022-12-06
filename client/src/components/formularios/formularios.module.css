@@ -23,13 +23,13 @@
   .tituloFormulario {
     text-align: center;
     color: var(--grisO);
-    font-size: 3.5rem;
+    font-size: 1.5em;
     font-weight: 700;
     font-family: Roboto,Madefor,HelveticaNeueW01-Thin,HelveticaNeueW02-Thin,HelveticaNeueW10-35Thin,sans-serif;
   }
   
   label {
-    font-size: 14px;
+    font-size: 0.8em;
     font-weight: 600;
     color: rgb(34, 34, 34);
   }
@@ -72,6 +72,10 @@
     border: solid 1px var(--amarillo);
     margin: 4rem;
     width: 1px;
+  }
+
+  .textoCuenta{
+    font-size: 0.8em;
   }
 
   @media screen 

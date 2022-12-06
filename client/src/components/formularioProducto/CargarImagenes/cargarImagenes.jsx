@@ -7,25 +7,34 @@ export default function CargarImagenes() {
   const [listaImagenes, setListaImagenes] = useState([])
 
 
-  const agregarImagen = event => {
-    setListaImagenes(listaImagenes.concat(
-    <div className={styles.contenedorPadre} id="agregarImagen">
+  const agregarImagen = (index) => {
+  setListaImagenes(listaImagenes => [...listaImagenes,
+    <div className={styles.contenedorPadre} key={index}>
     <div className={styles.div}>
-          <input type="text"  name="nombreProducto" className={styles.input} placeholder="Https://"/>
+          <input type="text"  name="atributo" className={styles.input} placeholder="Https://"/>
         </div>
         <div className={styles.contenedorBotonAgregar}>
         <FontAwesomeIcon icon={faSquareXmark} className={styles.headerIconX} onClick={eliminarImagen}/>
       </div>
-    </div>)
-    )
+    </div>]
+    
+  )
+  console.log(listaImagenes)
   }
 
 
-  const eliminarImagen = event => {
-    const nuevaLista = listaImagenes.filter(
-    (listaImagenes, index) => listaImagenes.index != index
-    );
-      setListaImagenes(nuevaLista)
+
+  const eliminarImagen = () => {
+   
+  
+      let nuevaLista = listaImagenes.filter((imagen, i) => imagen == i)
+      setListaImagenes(listaImagenes)
+      
+      
+    // const nuevaLista = listaImagenes.filter(
+    // (listaImagenes, index) => listaImagenes != index
+    // );
+    //   setListaImagenes(nuevaLista)
   }
 
    return (
@@ -33,7 +42,7 @@ export default function CargarImagenes() {
         <h3 className={styles.titulo}>Cargar imagenes</h3>
       <div className={styles.contenedorPadre}>
       <div className={styles.div}>
-            <input type="text"  name="nombreProducto" className={styles.input} placeholder="Https://"/>
+            <input type="text"  name="atributo" className={styles.input} placeholder="Https://"/>
           </div>
           <div className={styles.contenedorBotonAgregar}>
           <FontAwesomeIcon icon={faSquarePlus} className={styles.headerIcon} 
