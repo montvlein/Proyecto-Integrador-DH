@@ -11,7 +11,7 @@ import {
 export default function Filtro() {
   return(
     <aside className={style.aside}>
-      <h4>Filtros <FontAwesomeIcon icon={faCaretDown} className={style.icons} /></h4>
+      <h4>Filtros</h4>
       <details>
         <summary className={style.summary}><FontAwesomeIcon icon={faLocationDot} className={style.icons} /> Ciudad</summary>
         <ul>
@@ -19,13 +19,13 @@ export default function Filtro() {
         </ul>
       </details>
       <details>
-        <summary><FontAwesomeIcon icon={faCar} className={style.icons} /> Categoria</summary>
+        <summary className={style.summary}><FontAwesomeIcon icon={faCar} className={style.icons} /> Categoria</summary>
         <ul>
           <li>criterio desplegable</li>
         </ul>
       </details>
       <details>
-        <summary><FontAwesomeIcon icon={faCalendar} className={style.icons} /> Fecha</summary>
+        <summary className={style.summary}><FontAwesomeIcon icon={faCalendar} className={style.icons} /> Fecha</summary>
         <ul>
           <li>criterio desplegable</li>
         </ul>

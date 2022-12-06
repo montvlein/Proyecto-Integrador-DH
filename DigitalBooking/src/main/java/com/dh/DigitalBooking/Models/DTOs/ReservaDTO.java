@@ -15,5 +15,7 @@ public class ReservaDTO {
     private LocalDate fechaInicialReserva;
     private LocalDate fechaFinalReserva;
     private Long autoId;
+    private String autoNombre;
+    private String autoCategoria;
     private Long clienteId;
 }

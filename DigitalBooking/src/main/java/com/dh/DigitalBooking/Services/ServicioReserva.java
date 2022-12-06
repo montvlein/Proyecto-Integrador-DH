@@ -66,12 +66,14 @@ public class ServicioReserva {
     }
 
     public ReservaDTO reservaToDTO(Reserva reserva) {
-        ReservaDTO dto = null;
+        ReservaDTO dto = new ReservaDTO();
         dto.setId(reserva.getId());
         dto.setHoraComienzoReserva(reserva.getHoraComienzoReserva());
         dto.setFechaInicialReserva(reserva.getFechaInicialReserva());
         dto.setFechaFinalReserva(reserva.getFechaFinalReserva());
         dto.setAutoId(reserva.getAuto().getId());
+        dto.setAutoNombre(reserva.getAuto().getNombre());
+        dto.setAutoCategoria(reserva.getAuto().getCategoria().getTitulo());
         dto.setClienteId(reserva.getCliente().getId());
         return dto;
     }

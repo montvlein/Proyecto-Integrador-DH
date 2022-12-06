@@ -2,6 +2,7 @@ package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
+import com.dh.DigitalBooking.Models.Entities.Caracteristica;
 import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,6 @@ public class ServicioAuto {
 
     @Autowired
     ServicioImagen imagen;
-
-    @Autowired
-    ServicioCaracteristica caracteristica;
 
     @Autowired
     ServicioReserva reservas;
@@ -75,10 +73,11 @@ public class ServicioAuto {
         autoEntregable.setImagenes(imagen.imagenesPorAuto(auto.getId()));
         autoEntregable.setCategoria(auto.getCategoria().getTitulo());
         autoEntregable.setDescripcion(auto.getDescripcion());
-        autoEntregable.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
         autoEntregable.setPrecio(auto.getPrecio());
         autoEntregable.setCiudad(auto.getCiudad());
-        autoEntregable.setCaracteristica(caracteristica.caracteristicasPorAuto(auto.getCaracteristicas()));
+        for (Caracteristica c : auto.getCaracteristicas()) {
+            autoEntregable.agregarCaracteristica(c.getNombre(), c.getDescripcion());
+        }
         for (Reserva r : reservas.buscarPorAutoId(auto.getId())) {
             LocalDate fechaOcupara = r.getFechaInicialReserva();
             while (fechaOcupara.isBefore(r.getFechaFinalReserva().plusDays(1))) {

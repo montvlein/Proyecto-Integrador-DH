@@ -10,7 +10,7 @@
 
 }
 
-summary {
+.summary {
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 }
@@ -19,7 +19,7 @@ summary {
   color: var(--amarillo);
 }
 
-summary::marker {
+.summary::marker {
   content: '';
 }
 

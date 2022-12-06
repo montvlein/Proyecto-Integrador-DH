@@ -138,6 +138,16 @@ class UsuarioEndPoint extends CRUD {
         .then( res => res.json() )
         .catch(error => { throw(error) })
     }
+
+    agregarFavorito(fav) {
+        return handleFetch(`${this.uri}/agregarFavorito`, opciones(fav, false))
+        .catch(error => { throw(error) })
+    }
+
+    eliminarFavorito(fav) {
+        return handleFetch(`${this.uri}/eliminarFavorito`, opciones(fav, false))
+        .catch(error => { throw(error) })
+    }
 }
 
 function opciones(informacion, isAuthRequired = true, metodo = "POST", tipo = "application/json") {
@@ -173,4 +183,4 @@ function handleError(response) {
     return response
 }
 
-export const DigitalBookingApi = new DigitalBookingAPI("https://api.monkeydbooking.com.ar/")
+export const DigitalBookingApi = new DigitalBookingAPI()

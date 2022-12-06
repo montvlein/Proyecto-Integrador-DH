@@ -26,8 +26,8 @@ export default function AtributosProducto() {
 
           <div className={styles.div}>
             <label className={styles.label}>Categoria</label>
-            <select className={styles.input} defaultValue="Elije tu categoria">
-            <option disabled hidden>Elige tu categoria</option>
+            <select className={styles.input} defaultValue="Elige la categoria">
+            <option disabled hidden>Elige la categoria</option>
             {categorias.map((categorias, indexCategorias) => (
               <option key={indexCategorias}>{categorias.titulo}</option>
             ))}

@@ -39,9 +39,9 @@ public class JWTUtil {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 
-    public String generarToken(String infoUsuario) {
+    public String generarToken(String mailUsuario) {
         Map<String, Object> claims = new HashMap<>();
-        return crearToken(claims, infoUsuario);
+        return crearToken(claims, mailUsuario);
     }
 
     public String generarToken(UserDetails infoUsuario) {

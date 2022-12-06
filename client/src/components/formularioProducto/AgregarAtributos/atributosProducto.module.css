@@ -6,6 +6,8 @@
     border-radius: 5px;
     box-shadow: rgb(0 0 0/16%) 1px 1px 3px;
     height: 100%;
+    gap: 5px;
+    margin-top:10px;
 }
 
 
@@ -26,7 +28,7 @@
 
 .div2 {
     width: 100%;
-    padding-left: 10px;
+
 }
 
 .input {
@@ -48,6 +50,12 @@
 .headerIcon {
     font-size: 2em;
     color: var(--amarillo);
+    cursor: pointer;
+}
+
+.headerIconEliminar {
+    font-size: 2em;
+    color: gray;
     cursor: pointer;
 }
 

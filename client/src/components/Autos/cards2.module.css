@@ -102,9 +102,6 @@ p {
 
 .iconLike {
     color: var(--amarillo);
-    padding: 8px;
-    border-radius: 12px;
-    border: var(--amarillo) 1px solid;
     margin-right: 5px;
     font-size: 0.8em;
     cursor: pointer;
@@ -113,6 +110,7 @@ p {
 
 .contenedorBoton {
     display: flex;
+    align-items: center;
 }
 
 .contenedorBoton button {

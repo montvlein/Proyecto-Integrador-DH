@@ -32,8 +32,13 @@
   background: linear-gradient(45deg, hsla(0,0%,100%,0) 46%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 54%) 50% 50%;
 }
 
-.loading_cursor {
+.loading_cursor:hover {
   cursor: wait;
+}
+
+.spinner-btn-disable{
+  width: 1rem;
+  height: 1rem;
 }
 
 #credential_picker_container {

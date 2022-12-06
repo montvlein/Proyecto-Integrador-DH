@@ -1,5 +1,8 @@
 package com.dh.DigitalBooking.Models.DTOs;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,5 +16,16 @@ public class UsuarioDTO {
     private String ciudad;
     private boolean verificado;
     private boolean esAdmin = false;
+    private Set<Long> favoritos = new HashSet<>();
+
+    public void agregarFavorito(Long autoId) {
+        favoritos.add(autoId);
+    }
+
+    @Getter @Setter
+    public static class Favorito {
+        private String token;
+        private Long autoId;
+    }
 
 }

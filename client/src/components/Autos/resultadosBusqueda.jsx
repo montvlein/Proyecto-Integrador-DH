@@ -1,5 +1,4 @@
-import Card from "./card";
-import Card2 from "./Prueba/card2"
+import Card2 from "./card2"
 import style from "./cards.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
