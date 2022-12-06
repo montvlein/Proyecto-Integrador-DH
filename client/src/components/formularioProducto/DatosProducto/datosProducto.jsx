@@ -1,9 +1,7 @@
-
 import styles from "../DatosProducto/datosProducto.module.css";
 import BuscadorCiudad from "./ciudad"
-import Contexto from "../../../contexto/AppContext";
 import { DigitalBookingApi } from "../../../data/conexionAPI";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function AtributosProducto() {
@@ -35,7 +33,7 @@ export default function AtributosProducto() {
           </div>
         </div>
 
-        <div div className={styles.contenedor2}>
+        <div className={styles.contenedor2}>
           <div className={styles.div}>
             <label className={styles.label}>Dirección</label>
             <input type="text"  name="direccion" className={styles.input} placeholder="Dirección"/>
