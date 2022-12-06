@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ciudad.module.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { DigitalBookingApi } from "../../../data/conexionAPI";
 
 function BuscadorCiudad() {
@@ -33,6 +33,8 @@ function BuscadorCiudad() {
     </div>;
   }
 
+  const [ciudad, setCiudad] = useState("")
+
   return (
     <div className={styles.prueba3}>
       <div className={styles.headerSearchItem}>
@@ -45,6 +47,9 @@ function BuscadorCiudad() {
           name="buscadorCiudad"
           autoComplete="off"
         />
+        <label for="buscadorInput">
+          {ciudad}
+        </label>
       </div>
 
       <ul className={styles.dataResult} id="listaCiudades">
@@ -54,7 +59,8 @@ function BuscadorCiudad() {
             key={value.id}
             onClick={(e) => {
               let input = document.querySelector("#buscadorInput");
-              input.value = value.nombre + ", Argentina";
+              input.value = value.id
+              setCiudad(value.nombre + ", Argentina")
               setFilterData([]);
             }}
           >
@@ -65,8 +71,7 @@ function BuscadorCiudad() {
               />
             </div>
             <li className={styles.dataItem} key={value.nombre}>
-              <p className={styles.ciudad}>{value.nombre}, <span class="fw-bold">Argentina</span></p>
-              
+              <p className={styles.ciudad}>{value.nombre}, <span className="fw-bold">Argentina</span></p>
             </li>
           </div>
         ))}

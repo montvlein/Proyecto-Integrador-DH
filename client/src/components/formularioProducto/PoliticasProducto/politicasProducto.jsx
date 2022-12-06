@@ -8,19 +8,16 @@ export default function CrearPoliticasProducto() {
     <h3 className={styles.titulo}>Políticas de producto</h3>
       <div className={styles.contenedorPadre}>
         <div className={styles.divPoliticas}>
-            <h5>Normas</h5>
-          <label className={styles.label}>Descripción</label>
-          <textarea name="descripcion" placeholder="Escribir aquí" className={styles.input}/>
+          <label className={styles.label}>Normas</label>
+          <textarea name="normas" placeholder="Escribir aquí" className={styles.input}/>
         </div>
         <div className={styles.divPoliticas}>
-        <h5>Seguridad</h5>
-          <label className={styles.label}>Descripción</label>
-          <textarea name="descripcion" placeholder="Escribir aquí" className={styles.input}/>
+          <label className={styles.label}>Seguridad</label>
+          <textarea name="seguridad" placeholder="Escribir aquí" className={styles.input}/>
         </div>
         <div className={styles.divPoliticas}>
-        <h5>Políticas de cancelación</h5>
-          <label className={styles.label}>Descripción</label>
-          <textarea name="descripcion" placeholder="Escribir aquí" className={styles.input}/>
+          <label className={styles.label}>Políticas de cancelación</label>
+          <textarea name="politicas" placeholder="Escribir aquí" className={styles.input}/>
         </div>
       </div>
     </section>

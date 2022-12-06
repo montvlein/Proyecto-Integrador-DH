@@ -58,9 +58,9 @@ function AtributosHardcode({ nombre, descripcion, icono }) {
 
       <div className={styles.div2}>
         <label className={styles.label}>Descripcion</label>
-        <select className={styles.input}>
-        <option disabled hidden>Elige una opcion</option>
-          { descripcion.map((desc, index) => <option key={index}>{desc.descripcion}</option>)}
+        <select className={styles.input} name={nombre}>
+        <option disabled hidden selected>Elige una opcion</option>
+          { descripcion.map((desc, index) => <option key={index} value={desc.id}>{desc.descripcion}</option>)}
         </select>
       </div>
 

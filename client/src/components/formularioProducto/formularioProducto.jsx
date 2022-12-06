@@ -7,24 +7,50 @@ import styles from "./formularioProducto.module.css";
 
 export default function FormularioCreacionProducto() {
 
-
+  function crearProducto(evento) {
+    evento.preventDefault()
+    const modelo = evento.target.elements.nombreProducto.value
+    const descripcion = evento.target.elements.descripcion.value
+    const precio = evento.target.elements.precio.value
+    const categoriaId = evento.target.elements.categoriaID.value
+    const ciudadId = evento.target.elements.ciudadID.value
+    const modeloId = {"id": evento.target.elements.modelo.value}
+    const puertasId = {"id": evento.target.elements.puertas.value}
+    const consumoId = {"id": evento.target.elements.consumo.value}
+    const motorId = {"id": evento.target.elements.motor.value}
+    const cajaId = {"id": evento.target.elements.caja.value}
+    const caracteristicas = [modeloId, consumoId, puertasId, motorId, cajaId]
+    let autoNuevo = {
+      "nombre":modelo,
+      "descripcion" : descripcion,
+      "precio": precio,
+      "categoria":{
+        "id": categoriaId
+      },
+      "ciudad": {
+        "id": ciudadId
+      },
+      "caracteristicas": caracteristicas
+    }
+    console.log(autoNuevo)
+  }
 
   return (
     <>
-      <CabeceraCrearProducto></CabeceraCrearProducto>
+      <CabeceraCrearProducto/>
       <section className="container-md">
-        <div className={styles.contenedorPadre}>
+        <form className={styles.contenedorPadre} onSubmit={crearProducto}>
           <h3 className={styles.titulo}>Crear auto</h3>
-          <DatosProducto></DatosProducto>
+          <DatosProducto/>
           <AgregarAtributos/>
-          <CrearPoliticasProducto></CrearPoliticasProducto>
-          <CargarImagenes></CargarImagenes>
+          <CrearPoliticasProducto/>
+          <CargarImagenes/>
           <div className={styles.botonReservaContainer}>
             <button className={styles.botonNuevo} type="submit">
               <span>Crear</span>
             </button>
           </div>
-        </div>
+        </form>
       </section>
     </>
   );
