@@ -3,54 +3,66 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus, faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-export default function CargarImagenes() {
-  const [listaImagenes, setListaImagenes] = useState([])
+export default function CargarImagenes({cantImagenes, setCantImagenes}) {
+  const [listaImagenes, setListaImagenes] = useState([""])
 
-
-  const agregarImagen = (index) => {
-  setListaImagenes(listaImagenes => [...listaImagenes,
-    <div className={styles.contenedorPadre} key={index}>
-    <div className={styles.div}>
-          <input type="text"  name={`imagen${index}`} className={styles.input} placeholder="Https://"/>
-        </div>
-        <div className={styles.contenedorBotonAgregar}>
-        <FontAwesomeIcon icon={faSquareXmark} className={styles.headerIconX} onClick={eliminarImagen}/>
-      </div>
-    </div>]
-    
-  )
-  console.log(listaImagenes)
+  const agregarImagen = () => {
+    setListaImagenes([...listaImagenes, ""])
+    let cant = cantImagenes + 1
+    setCantImagenes(cant)
   }
 
+  const eliminarImagen = (index) => {
+    const elementoEliminado = listaImagenes.filter((valor, i) => {
+        return i != index;
+      });
+      setListaImagenes(elementoEliminado);
+      let cant = cantImagenes - 1
+    setCantImagenes(cant)
+  }
 
-
-  const eliminarImagen = () => {
-   
-  
-      let nuevaLista = listaImagenes.filter((imagen, i) => imagen == i)
-      setListaImagenes(listaImagenes)
-      
-      
-    // const nuevaLista = listaImagenes.filter(
-    // (listaImagenes, index) => listaImagenes != index
-    // );
-    //   setListaImagenes(nuevaLista)
+  function setValor(e, index) {
+    e.preventDefault()
+    setListaImagenes(s => {
+        const newArr = s.slice()
+        newArr[index] = e.target.value
+        return newArr
+    })
   }
 
    return (
     <section>
         <h3 className={styles.titulo}>Cargar imagenes</h3>
-      <div className={styles.contenedorPadre}>
-      <div className={styles.div}>
-            <input type="text"  name="imagen" className={styles.input} placeholder="Https://"/>
-          </div>
-          <div className={styles.contenedorBotonAgregar}>
-          <FontAwesomeIcon icon={faSquarePlus} className={styles.headerIcon} 
-            onClick={agregarImagen}
-          />
+            {listaImagenes.map((valor, index) =>
+        <div className={styles.contenedorPadre} key={index}>
+            <div className={styles.div}>
+                <input
+                onChange={(e)=>setValor(e, index)}
+                type="text"
+                name={`imagen${index}`}
+                className={styles.input}
+                placeholder="Https://"
+                value={valor}
+                />
+            </div>
+            <div className={styles.contenedorBotonAgregar}>
+            {index == 0 ? (
+                <FontAwesomeIcon
+                icon={faSquarePlus}
+                className={styles.headerIcon}
+                onClick={() => agregarImagen()}
+              />
+
+          ):(
+              <FontAwesomeIcon
+                icon={faSquareXmark}
+                className={styles.headerIconEliminar}
+                onClick={() => eliminarImagen(index)}
+              />
+          )}
+            </div>
         </div>
-      </div>
-      {listaImagenes}
+            )}
     </section>
    )
 }

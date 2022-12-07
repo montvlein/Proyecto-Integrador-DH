@@ -1,7 +1,7 @@
 import CrearPoliticasProducto from "./PoliticasProducto/politicasProducto";
 import AgregarAtributos from "./AgregarAtributos/agregarAtributo3";
 import CabeceraCrearProducto from "./CabeceraCrearProducto/cabeceraCrearProducto.module";
-import CargarImagenes from "./CargarImagenes/cargarImagenes2";
+import CargarImagenes from "./CargarImagenes/cargarImagenes";
 import DatosProducto from "./DatosProducto/datosProducto";
 import styles from "./formularioProducto.module.css";
 import { DigitalBookingApi } from "../../data/conexionAPI";
