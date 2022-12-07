@@ -47,7 +47,7 @@
     justify-content: center;
 }
 
-button{
+.buttonReserva{
     background-color: var(--amarillo);
     border-radius: 8px;
     border-color: var(--amarillo);

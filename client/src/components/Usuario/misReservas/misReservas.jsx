@@ -65,7 +65,7 @@ function CardReserva({horaComienzoReserva, fechaInicialReserva, fechaFinalReserv
       <hr />
       <p>Total dias reservado: {diasReserva}</p>
       <p>Precio: ${calcularPrecio()}</p>
-      <button>Imprimir</button>
+      <button className={styles.buttonReserva}>Imprimir</button>
     </article>
   )
 }
