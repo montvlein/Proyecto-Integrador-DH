@@ -82,13 +82,18 @@
     .card img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        transition: none;
     }
 
     .card:hover {
-        width: 9em;
-        transition: 900ms;
+        transition: none;
     }
+
+    .card:hover img{
+        transform: none;
+    }
+    
   
     .cardTitulo {
         text-align: center;
