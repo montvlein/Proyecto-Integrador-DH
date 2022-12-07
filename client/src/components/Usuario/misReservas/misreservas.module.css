@@ -1,9 +1,36 @@
+/* CONTENEDOR GENERAL */
 .contenedorTitulos{
     background-color: var(--amarillo);
     width: 100%;
     height: fit-content;
 }
 
+.contenedorImagen{
+    display: flex;
+    max-width: 200px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px)
+}
+
+.imagen {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px)
+}
+
+.icono{
+    position: absolute;
+    font-size: 4em;
+    color: var(--amarillo);
+}
+
+/*TITULOS DE LA PÁGINA */
 .tituloMisReservas{
     margin-top: 1em;
     padding-left: 0.5em;
@@ -29,9 +56,31 @@
     margin-right: 7em;
 }
 
+/* AUTOS MAP*/
+
+.contenedorTodosLosDatos{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    margin-left: 1em;
+}
+
+.precio{
+    background-color: var(--grisC);
+    border-radius: 8px;
+    padding: 0.3em;
+}
+
+.contenedorDatosAutos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
 .tituloAuto{
-    font-size: 2em;
-    font-weight: bold;    
+    font-size: 1.5em;
+    font-weight: bold;
+    align-self: flex-start;
 }
 
 .subtituloAuto{
@@ -51,16 +100,34 @@
     background-color: var(--amarillo);
     border-radius: 8px;
     border-color: var(--amarillo);
-    padding: 0.5rem;
-    width: 100%;
+    padding: 0.3rem;
+    width: 25%;
+    align-self:flex-start;
 }
 
-.contenedorImagen {
-    height: 100%;
+.contenedorFecha{
+    display: flex;
+    flex-direction: column;
 }
 
-.imagenCard {
-    object-fit: cover;
-    width: 300px;
-    border-radius: 10px;
+.contenedorFecha p{
+    font-weight: 400;
 }
+
+.flexTodosLosDatos{
+    display: flex;
+    flex-direction: column;
+}
+
+.barraDivisora{
+    border-left: 1.5px solid;
+    color: var(--amarillo);
+}
+
+.tituloYBoton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* RESPONSIVE */

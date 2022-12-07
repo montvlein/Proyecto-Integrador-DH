@@ -1,13 +1,13 @@
 .section{
-    height: 80vh;
+    height: 75vh;
 }
 
 .titulo{
-    font-size: 6em;
+    font-size: 5em;
 }
 
 .texto{
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -59,6 +59,20 @@
     align-items: center;
     color: #4c4e52;
     font-weight: 500;
+}
+
+.botonNotlogged{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em
+}
+
+.contenedorIconoTitulo{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+
 }
     
 @media screen and (max-width:760px) { 

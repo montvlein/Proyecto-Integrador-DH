@@ -1,27 +1,28 @@
 import React from "react";
 import styles from "./notFound.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceSurprise } from "@fortawesome/free-solid-svg-icons";
+import { faFaceSadTear } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-export default function notFound() {
+export default function NotLoggeado() {
   return (
     <section className={styles.section}>
       <div className={styles.contenedor}>
       <div className={styles.divContenedor}>
           <div className={styles.divContenedorHijo}>
-
-          <div className={styles.contenedorIconoTitulo}>
-            <h4 className={styles.titulo}> ¡Ups! </h4>
             <div className={styles.divIconoCheck}>
-              <FontAwesomeIcon icon={faFaceSurprise} />{" "}
+              <FontAwesomeIcon icon={faFaceSadTear} />{" "}
             </div>
-          </div>
+            <p className={styles.texto}>Parece que no estás loggeado. <br></br>Probá iniciando sesión o registrándote</p>
+            <div className={styles.botonNotlogged}>
 
-            <p className={styles.texto}>La página que estás buscando no existe</p>
             <Link to="/" className={styles.divBotonOk}>
-              Volver al home
+              Iniciar Sesión
             </Link>
+            <Link to="/crearCuenta" className={styles.divBotonOk}>
+              Registrarse
+            </Link>
+            </div>
             </div>
           </div>
         </div>
