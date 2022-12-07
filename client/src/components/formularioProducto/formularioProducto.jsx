@@ -1,16 +1,20 @@
 import CrearPoliticasProducto from "./PoliticasProducto/politicasProducto";
 import AgregarAtributos from "./AgregarAtributos/agregarAtributo3";
 import CabeceraCrearProducto from "./CabeceraCrearProducto/cabeceraCrearProducto.module";
-import CargarImagenes from "./CargarImagenes/cargarImagenes";
+import CargarImagenes from "./CargarImagenes/cargarImagenes2";
 import DatosProducto from "./DatosProducto/datosProducto";
 import styles from "./formularioProducto.module.css";
 import { DigitalBookingApi } from "../../data/conexionAPI";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 export default function FormularioCreacionProducto() {
+  const redirigir = useNavigate()
+  const [cantImagenes, setCantImagenes] = useState(0)
 
   function crearProducto(evento) {
     evento.preventDefault()
-    const modelo = evento.target.elements.nombreProducto.value
+    const modelo =  evento.target.elements.nombreProducto.value
     const descripcion = evento.target.elements.descripcion.value
     const precio = evento.target.elements.precio.value
     const categoriaId = evento.target.elements.categoriaID.value
@@ -35,8 +39,20 @@ export default function FormularioCreacionProducto() {
       "direccion":direccion,
       "caracteristicas": caracteristicas
     }
+
     DigitalBookingApi.auto.crear(autoNuevo)
-    .then(resp => console.log(resp))
+    .then(auto => {
+      for (let index = 0; index <= cantImagenes; index++) {
+        const pos = `imagen${index}`
+        const imagen = {
+          "titulo": `Modelo ${modelo}`,
+          "url": evento.target.elements[pos].value,
+          "auto": {"id": auto.id}
+        }
+        DigitalBookingApi.imagen.crear(imagen)
+      }
+      redirigir("/productoExitoso")
+    })
   }
 
   return (
@@ -48,7 +64,7 @@ export default function FormularioCreacionProducto() {
           <DatosProducto/>
           <AgregarAtributos/>
           <CrearPoliticasProducto/>
-          <CargarImagenes/>
+          <CargarImagenes setCantImagenes={setCantImagenes} cantImagenes={cantImagenes} />
           <div className={styles.botonReservaContainer}>
             <button className={styles.botonNuevo} type="submit">
               <span>Crear</span>

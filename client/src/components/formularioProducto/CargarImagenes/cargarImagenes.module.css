@@ -34,6 +34,12 @@
     cursor: pointer;
 }
 
+.headerIconEliminar {
+    font-size: 2em;
+    color: gray;
+    cursor: pointer;
+}
+
 .contenedorBotonAgregar {
     padding-left: 5px;
     display: flex;

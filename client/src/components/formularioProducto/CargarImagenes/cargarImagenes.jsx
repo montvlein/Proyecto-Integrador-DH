@@ -11,7 +11,7 @@ export default function CargarImagenes() {
   setListaImagenes(listaImagenes => [...listaImagenes,
     <div className={styles.contenedorPadre} key={index}>
     <div className={styles.div}>
-          <input type="text"  name="atributo" className={styles.input} placeholder="Https://"/>
+          <input type="text"  name={`imagen${index}`} className={styles.input} placeholder="Https://"/>
         </div>
         <div className={styles.contenedorBotonAgregar}>
         <FontAwesomeIcon icon={faSquareXmark} className={styles.headerIconX} onClick={eliminarImagen}/>
@@ -42,7 +42,7 @@ export default function CargarImagenes() {
         <h3 className={styles.titulo}>Cargar imagenes</h3>
       <div className={styles.contenedorPadre}>
       <div className={styles.div}>
-            <input type="text"  name="atributo" className={styles.input} placeholder="Https://"/>
+            <input type="text"  name="imagen" className={styles.input} placeholder="Https://"/>
           </div>
           <div className={styles.contenedorBotonAgregar}>
           <FontAwesomeIcon icon={faSquarePlus} className={styles.headerIcon} 

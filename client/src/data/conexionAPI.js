@@ -7,6 +7,7 @@ class DigitalBookingAPI {
         this.usuario = new UsuarioEndPoint(basepath)
         this.reserva = new ReservaEndPoint(basepath)
         this.caracteristica = new CaracteristicasEndPoint(basepath)
+        this.imagen = new ImagenEndPoint(basepath)
     }
 
 }
@@ -61,6 +62,12 @@ class CiudadEndPoint extends CRUD {
 
 class CaracteristicasEndPoint extends CRUD {
     constructor(basepath, caracteristicaUri="api/v1/caracteristica") {
+        super(basepath, caracteristicaUri)
+    }
+}
+
+class ImagenEndPoint extends CRUD {
+    constructor(basepath, caracteristicaUri="api/v1/imagen") {
         super(basepath, caracteristicaUri)
     }
 }
