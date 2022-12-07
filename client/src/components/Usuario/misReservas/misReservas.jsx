@@ -15,6 +15,7 @@ export default function MisReservas({ idUsuario }) {
     });
   }, []);
 
+
   return (
     <section>
       <div className={styles.contenedorTitulos}>

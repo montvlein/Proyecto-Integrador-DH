@@ -27,3 +27,8 @@
     font-size: 4em;
     color: var(--amarillo)
 }
+
+.botonesMenu{
+    text-decoration: none;
+    color: var(--grisO)
+}
