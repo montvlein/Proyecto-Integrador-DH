@@ -4,7 +4,7 @@
     height: 70px;
     background-color: rgba(0, 0, 0, 0.863);
     width: 100%;
-    z-index: 999;
+    z-index: 1200;
     position: sticky;
     top:0;
     display: flex;

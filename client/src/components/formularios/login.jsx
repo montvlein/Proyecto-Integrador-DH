@@ -36,10 +36,10 @@ const Login = () => {
     return(
       <div className={enEspera?`${styles.divContainer} loading_cursor`:`${styles.divContainer}`}>
         <GoogleOauth setEnEspera={setEnEspera}/>
-        {invalido?<p className={styles.textError}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
+        {invalido?<p className={styles.textError2}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
         {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
           icon={faCircleExclamation}
-        /></span>   Para iniciar una reserva necesitas estar logueado</p> : null}
+        /></span>  Para iniciar una reserva necesitas estar logueado</p> : null}
 
 
         <form className={styles.formularioContainer} onSubmit={handleSubmit} method="POST">
