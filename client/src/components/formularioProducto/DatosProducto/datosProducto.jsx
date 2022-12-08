@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function AtributosProducto() {
   const [categorias, setCategorias] = useState([]);
   const [ciudades, setCiudades] = useState([]);
+  const [estaVacio, setEstaVacio] = useState(false);
 
   useEffect(() => {
     DigitalBookingApi.categoria.listar().then((categorias) => {
@@ -16,6 +17,9 @@ export default function AtributosProducto() {
     });
   }, []);
 
+
+
+
   return (
     <section>
       <div className={styles.contenedorPadre}>
@@ -25,7 +29,7 @@ export default function AtributosProducto() {
             <input
               type="text"
               name="nombreProducto"
-              className={styles.input}
+              className={estaVacio? styles.requerido : styles.input}
               placeholder="Chevrolet Onix"
               required
             />
@@ -53,18 +57,7 @@ export default function AtributosProducto() {
               type="number"
               name="precio"
               className={styles.input}
-              placeholder="5000"
-              required
-            />
-          </div>
-
-          <div className={styles.div}>
-            <label className={styles.label}>Direccion</label>
-            <input
-              type="text"
-              name="direccion"
-              className={styles.input}
-              placeholder="Calle Falsa 123"
+              placeholder="Agrega el precio incluyendo la moneda"
               required
             />
           </div>
@@ -76,16 +69,28 @@ export default function AtributosProducto() {
                 Elije una ciudad
               </option>
               {ciudades.map((ciudad, index) => (
-                <option key={index} value={ciudad.id}>
+                <option key={index} value={ciudad.id} className={styles.opcion}>
                   {ciudad.nombre}
+                  <hr></hr>
                 </option>
               ))}
             </select>
           </div>
         </div>
 
+         <div className={styles.divDireccion}>
+            <label className={styles.label}>Dirección</label>
+            <input
+              type="text"
+              name="direccion"
+              className={styles.input}
+              placeholder="Escriba su dirección aqui"
+              required
+            />
+          </div>
+
         <div className={styles.divDescripcion}>
-          <label className={styles.label}>Descripcion</label>
+          <label className={styles.label}>Descripción</label>
           <textarea
             name="descripcion"
             placeholder="Escribir aquí"

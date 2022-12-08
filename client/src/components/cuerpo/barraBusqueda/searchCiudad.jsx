@@ -33,18 +33,26 @@ function SearchBar() {
     </div>;
   }
 
+  const icono = "A donde quieres ir"
+  const icono2 = "&#xf3c5;"
+
   return (
     <div className={styles.prueba3}>
       <div className={styles.headerSearchItem}>
+      <FontAwesomeIcon
+                icon={faLocationDot}
+                className={styles.formIcon}
+              />
         <input
           type="search"
-          placeholder="¿A dónde quieres ir?"
+          placeholder="     ¿A donde quieres ir?"
           className={styles.headerSearchInput}
           onChange={handlerFilter}
           id="buscadorInput"
           name="buscadorCiudad"
           autoComplete="off"
-        />
+        >
+        </input>
       </div>
 
       <ul className={styles.dataResult} id="listaCiudades">

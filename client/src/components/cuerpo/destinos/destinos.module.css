@@ -153,10 +153,10 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/mardel.jpg");
   background-size:cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment:fixed;
   margin-top: 20px;
   padding: 40px;
-  background-position: bottom;
+  background-position: top;
   overflow: hidden;
   margin-top: 10px;
   gap: 10px;

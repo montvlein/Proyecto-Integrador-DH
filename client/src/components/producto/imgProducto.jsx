@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./imgProducto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShareNodes, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import ImageSlider from "./galeriaProducto/slider";
 
 export default function ImgProducto({ imagenes, toggle }) {
@@ -21,7 +21,6 @@ export default function ImgProducto({ imagenes, toggle }) {
 
           <div className={styles.compartirLikeImgProd}>
             <div className={styles.iconoContenedor}>
-              <FontAwesomeIcon icon={faShareNodes} className={styles.icon} />
               <FontAwesomeIcon icon={faHeart} className={styles.icon} />
             </div>
           </div>

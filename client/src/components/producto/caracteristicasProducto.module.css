@@ -11,6 +11,10 @@
     padding: 20px;
 }
 
+.tituloDescripcionProd {
+    font-size: 1.5em;
+}
+
 .caracteristicas {
     display: grid;
     justify-content: center;
