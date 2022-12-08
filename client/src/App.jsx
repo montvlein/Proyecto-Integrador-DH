@@ -12,9 +12,10 @@ import { Route, Routes } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 import FormularioCreacionProducto from "./components/formularioProducto/formularioProducto";
 import MisReservas from "./components/Usuario/misReservas/misReservas";
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import Contexto from "./contexto/AppContext";
 import ProductoExitoso from "./components/administrador/productoExitoso/productoExitoso";
+import Favoritos from "./components/Usuario/favoritos/favoritos";
 
 function App() {
   const { getUsuario } = useContext(Contexto)
@@ -36,7 +37,10 @@ function App() {
           <Route path={`/miperfil`} element={<Perfil/>}/>
           { getUsuario().esAdmin?
           <Route path={`/miperfil/crearProducto`} element={<FormularioCreacionProducto/>}/>:
+          (<Fragment>
           <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>
+          <Route path={`/miperfil/favoritos`} element={<Favoritos />}/>
+          </Fragment>)
           }
         </Routes>
       </main>

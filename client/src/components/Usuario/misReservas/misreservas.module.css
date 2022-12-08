@@ -32,7 +32,6 @@
 
 /*TITULOS DE LA PÁGINA */
 .tituloMisReservas{
-    margin-top: 1em;
     padding-left: 0.5em;
 }
 
@@ -49,6 +48,13 @@
     border-radius: 8px;
     background-color: #FFF;
     padding: 20px;
+}
+
+.contenedorFavoritos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 1em;
 }
 
 .info{

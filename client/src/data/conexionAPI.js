@@ -190,4 +190,4 @@ function handleError(response) {
     return response
 }
 
-export const DigitalBookingApi = new DigitalBookingAPI()
+export const DigitalBookingApi = new DigitalBookingAPI("https://api.monkeydbooking.com.ar/")
