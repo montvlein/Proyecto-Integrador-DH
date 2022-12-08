@@ -2,7 +2,8 @@ import styles from "./misreservas.module.css";
 import { useEffect, useState } from "react";
 import { DigitalBookingApi } from "../../../data/conexionAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faSadTear } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function MisReservas({ idUsuario }) {
   const [misReservas, setMisReservas] = useState([]);
@@ -21,6 +22,8 @@ export default function MisReservas({ idUsuario }) {
       <div className={styles.contenedorTitulos}>
         <h3 className={styles.tituloMisReservas}>Mis Reservas</h3>
       </div>
+        <p className={styles.info}>Acá podrás encontrar todas tus reservas.</p>
+        <br></br>
       <section>
 
         {cargando ? (
@@ -30,7 +33,17 @@ export default function MisReservas({ idUsuario }) {
         ) : ( misReservas.length > 0 ?
           misReservas.map((datosReserva) => (
             <CardReserva {...datosReserva} key={datosReserva.id} />
-          )): <h4 className={styles.subtituloMisReservas}>No has realizado reservas</h4>
+          )): 
+
+          <section className={styles.sinReservaContenedor}>
+          <div className={styles.divPadre}>
+          <FontAwesomeIcon icon={faSadTear} className={styles.divIconoCheck}></FontAwesomeIcon>
+          <h4 className={styles.subtituloMisReservas}>Aún no has efectuado ninguna reserva</h4>            
+          <Link to="/" className={styles.divBotonOk}>
+              Volver al home
+            </Link>
+          </div>
+          </section>
         )}
       </section>
     </section>
