@@ -5,6 +5,8 @@ import {
   faGasPump,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
+
 import { Link } from "react-router-dom";
 import styles from "./cards2.module.css";
 import { useState, useContext, useEffect } from "react";
@@ -81,7 +83,7 @@ const Card2 = ({ id, nombre, imagenes, precio, caracteristica, categoria }) => {
         </div>
         <hr className={styles.divisor}></hr>
         <div className={styles.contenedorFooter}>
-          <p className={styles.textoFooter}> {precio} / <span>Diario</span></p>
+          <p className={styles.textoFooter}> {precio} ARS / <span>Diario</span></p>
           <div className={styles.contenedorBoton}>
           <img src={corazon} onClick={like} className={styles.iconLike}/>
           <Link to={`/producto/${id}`}><button className={styles.boton}>Alquilar ahora</button></Link>

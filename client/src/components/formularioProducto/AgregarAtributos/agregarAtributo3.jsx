@@ -5,7 +5,7 @@ import {
   faGauge,
   faGasPump,
   faGear,
-  faCalendar,
+  faCar,
 } from "@fortawesome/free-solid-svg-icons";
 import { DigitalBookingApi } from "../../../data/conexionAPI";
 import { useEffect, useState } from "react";
@@ -34,7 +34,7 @@ export default function AgregarAtributos() {
     if (nombre === "consumo" ) return faGauge
     if (nombre === "motor" ) return faGasPump
     if (nombre === "caja" ) return faGear
-    if (nombre === "modelo" ) return faCalendar
+    if (nombre === "modelo" ) return faCar
   }
 
   return (
@@ -53,7 +53,7 @@ function AtributosHardcode({ nombre, descripcion, icono }) {
     <div className={styles.contenedorFormulario}>
       <div className={styles.div1}>
         <label className={styles.label}>Nombre del Atributo</label>
-        <input type="text" value={nombre} disabled/>
+        <input type="text" value={nombre} className={styles.input} disabled/>
       </div>
 
       <div className={styles.div2}>
@@ -66,7 +66,7 @@ function AtributosHardcode({ nombre, descripcion, icono }) {
 
       <div className={styles.div2}>
         <label className={styles.label}>Icono</label>
-            <FontAwesomeIcon icon={icono} />
+            <div className={styles.input}><FontAwesomeIcon icon={icono} className={styles.icono}/></div>
       </div>
     </div>
   );

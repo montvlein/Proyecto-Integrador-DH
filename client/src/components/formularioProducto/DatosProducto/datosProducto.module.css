@@ -17,7 +17,7 @@
 }
 
 
-.div, .divDescripcion {
+.div, .divDescripcion, .divDireccion {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -34,9 +34,25 @@
 
 }
 
+.input:required:focus, .textarea:required:focus {
+    border: 1px solid var(--amarillo);
+    outline: none;
+  }
+
 .input option {
     border-bottom: var(--amarillo) 1px solid;
     
+}
+
+
+
+.requerido {
+    font-size: 0.8em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(179, 1, 1, 0.336);
+    border: red 1px solid;
 }
 
 .textarea {
@@ -47,6 +63,7 @@
     box-shadow: rgb(0 0 0/16%) 1px 1px 3px;
     height: 100px;
 }
+
 
 .label {
     margin: 0;
@@ -67,11 +84,20 @@
 }
 
 .divDescripcion {
-    grid-row-start: 2;
-    grid-column-start: 1;
-    grid-row-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
     grid-column-end: 3;
+    grid-column-start: 1;
 }
+
+.divDireccion {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-end: 3;
+    grid-column-start: 1;
+}
+
+
 
 @media screen and (max-width:760px) { 
     .contenedorPadre { 

@@ -23,11 +23,12 @@ function FechaReserva() {
       key: "selection",
     },
   ]);
-
+  
   const [estaSeleccionado, setEstaSeleccionado] = useState(false)
   const [openDate, setOpenDate] = useState(false);
   const [CheckIn, setCheckIn] = useState("Check in");
   const [CheckOut, setCheckOut] = useState("Check out");
+
 
   return (
     <div className={styles.rangoFecha}>
@@ -49,6 +50,7 @@ function FechaReserva() {
       {openDate && (
         <DateRange
           editableDateInputs={true}
+          direction="horizontal"
           minDate={addDays(new Date(), -0)}
           onChange={(item) => {
             setDate([item.selection]);

@@ -28,6 +28,8 @@ export default function ReservaComponent() {
     })
   }, []);
 
+  const container = window.matchMedia("(max-width: 760px)").matches ? "" : "container-md";
+
   function generarReserva(evento) {
     evento.preventDefault()
     setUbicacionUsuario(evento.target.elements.ciudad.value)
@@ -55,7 +57,7 @@ export default function ReservaComponent() {
       </article>
     )}
   return (
-      <section className="container-md">
+      <section className={container}>
         <CabeceraProducto nombre={producto.nombre}  categoria={producto.categoria} yendo={`/producto/${idProducto}`}/>
         <form className={styles.contenedorFormularioReserva} onSubmit={generarReserva}>
           <div>
