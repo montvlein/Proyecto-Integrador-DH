@@ -22,16 +22,15 @@ export default function MisReservas({ idUsuario }) {
         <h3 className={styles.tituloMisReservas}>Mis Reservas</h3>
       </div>
       <section>
-        <h4 className={styles.subtituloMisReservas}>Reservas activas</h4>
 
         {cargando ? (
           <section className="d-flex justify-content-center w-100">
             <div className="spinner-border m-5" roler="status"></div>
           </section>
-        ) : (
+        ) : ( misReservas.length > 0 ?
           misReservas.map((datosReserva) => (
             <CardReserva {...datosReserva} key={datosReserva.id} />
-          ))
+          )): <h4 className={styles.subtituloMisReservas}>No has realizado reservas</h4>
         )}
       </section>
     </section>

@@ -1,6 +1,5 @@
 import styles from "../cabecera.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Contexto from "../../../contexto/AppContext";
 import { useContext } from "react";
@@ -18,14 +17,12 @@ function UsuarioIniciado() {
           null
         }
 
-        <Link to={`/miperfil`} className={styles.linkTo}>
         <div className={styles.iconoSesion}>
           <h6>
             {getUsuario().nombre.charAt(0).toUpperCase()}
             {getUsuario().apellido.charAt(0).toUpperCase()}
           </h6>
         </div>
-      </Link>
 
         <div className={styles.contenedorNombreSesion}>
           <dl>
@@ -65,7 +62,6 @@ function MenuAdmin() {
   return(
     <ul className={styles.navitems}>
       <li><Link className={styles.navlink} to="/miperfil/crearProducto">Cargar producto</Link></li>
-      <li><Link className={styles.navlink} to="/miperfil/">Perfil administrador</Link></li>
     </ul>
   )
 }
