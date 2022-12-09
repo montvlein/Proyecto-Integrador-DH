@@ -26,6 +26,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/index.html" element={<Index />} />
           <Route path="/iniciarSesion" element={<Login />} />
           <Route path="/crearCuenta" element={<Registro />} />
           <Route path="/producto/:idProducto" element={<Producto />} />
