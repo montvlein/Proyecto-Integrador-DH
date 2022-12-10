@@ -24,7 +24,7 @@ export default function MisReservas({ idUsuario }) {
       </div>
         <p className={styles.info}>Acá podrás encontrar todas tus reservas.</p>
         <br></br>
-      <section>
+      <section className="d-flex justify-content-center align-items-center">
 
         {cargando ? (
           <section className="d-flex justify-content-center w-100">
