@@ -2,7 +2,6 @@ import Card2 from "./card2"
 import style from "./cards.module.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Filtro from "../Filtro/asideFiltro";
 import { DigitalBookingApi } from "../../data/conexionAPI";
 import { useSearchParams } from "react-router-dom";
 import { useContext } from "react";
@@ -45,7 +44,6 @@ const ResultadosBusqueda = () => {
           </div>
         </div>
         <div className={`d-flex ${style.contenedorResultadoPadre}`}>
-            <Filtro />
             <section className={`${style.mostrarResultadosFiltro}`}>
                 {filtrados.length == 0? (
                     <div className={`${style.vp90}`}><p className="m-5">No es encontraron resultados</p></div>
@@ -70,7 +68,6 @@ const ResultadosBusqueda = () => {
         </div>
       </div>
       <div className="d-flex">
-        <Filtro />
         <section className="d-flex justify-content-center w-100">
           <div className="spinner-border m-5" roler="status"></div>
         </section>

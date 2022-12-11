@@ -54,6 +54,7 @@
  display: flex;
  flex-wrap: wrap;
  gap:10px;
+ justify-content: center;
 }
 
 .contenedorCard {
@@ -117,6 +118,7 @@
 
     .mostrarResultadosFiltro {
         max-width: 80%;
+        justify-content: center;
     }
 
     .botonVolver {
@@ -134,7 +136,7 @@
     .contenedorResultadoPadre {
         flex-direction: column;
         width: 100%;
-        padding: 0px 20px 20px 10px;
+        padding: 0px 10px 20px 10px;
     }
 
     .botonVolver {
