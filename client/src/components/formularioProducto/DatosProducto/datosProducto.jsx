@@ -70,7 +70,7 @@ export default function AtributosProducto() {
               </option>
               {ciudades.map((ciudad, index) => (
                 <option key={index} value={ciudad.id} className={styles.opcion}>
-                  {ciudad.nombre}
+                  {ciudad.nombre}, {ciudad.provincia}
                   <hr></hr>
                 </option>
               ))}
