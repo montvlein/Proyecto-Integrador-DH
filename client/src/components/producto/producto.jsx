@@ -64,7 +64,7 @@ export default function Producto() {
     <article className={`${stylesArticlulo.productoArticulo} container`}>
       <CabeceraProducto nombre={producto.nombre} categoria={producto.categoria} />
       <DatosUbicacionProducto ubicacion={producto.ciudad}/>
-      <ImgProducto isOpen={isOpen} toggle={toggle} imagenes={producto.imagenes}/>
+      <ImgProducto isOpen={isOpen} toggle={toggle} imagenes={producto.imagenes} id={producto.id}/>
       <GaleriaProducto isOpen={!isOpen} toggle={toggle} imagenes={producto.imagenes}/>
       <CaracteristicasProducto caracteristica={producto.caracteristica}/>
       <DescripcionProducto descripcion={producto.descripcion}/>

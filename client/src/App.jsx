@@ -30,18 +30,20 @@ function App() {
           <Route path="/iniciarSesion" element={<Login />} />
           <Route path="/crearCuenta" element={<Registro />} />
           <Route path="/producto/:idProducto" element={<Producto />} />
-          <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
           <Route path={`/buscar`} element={<ResultadosBusqueda />} />
           <Route path={`/exito`} element={<Exito />} />
           <Route path="*" element={<NotFound/>} />
           <Route path={`/productoExitoso`} element={<ProductoExitoso />} />
           <Route path={`/miperfil`} element={<Perfil/>}/>
-          { getUsuario().esAdmin?
-          <Route path={`/miperfil/crearProducto`} element={<FormularioCreacionProducto/>}/>:
+          {
+            getUsuario().id?
+            getUsuario().esAdmin?
+            <Route path={`/miperfil/crearProducto`} element={<FormularioCreacionProducto/>}/>:
           (<Fragment>
-          <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>
-          <Route path={`/miperfil/favoritos`} element={<Favoritos />}/>
-          </Fragment>)
+            <Route path={`/miperfil/reservas`} element={<MisReservas idUsuario={getUsuario().id}/>}/>
+            <Route path={`/miperfil/favoritos`} element={<Favoritos />}/>
+            <Route path={`/producto/:idProducto/reserva`} element={<ReservaComponent />} />
+          </Fragment>):null
           }
         </Routes>
       </main>
