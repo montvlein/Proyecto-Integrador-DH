@@ -8,17 +8,22 @@ import Exito from "./components/Exito/exito";
 import NotFound from "./components/NotFound/notFound";
 import Perfil from "./components/Usuario/perfil";
 import ReservaComponent from "./components/Reserva/reserva";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import ResultadosBusqueda from "./components/Autos/resultadosBusqueda";
 import FormularioCreacionProducto from "./components/formularioProducto/formularioProducto";
 import MisReservas from "./components/Usuario/misReservas/misReservas";
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import Contexto from "./contexto/AppContext";
 import ProductoExitoso from "./components/administrador/productoExitoso/productoExitoso";
 import Favoritos from "./components/Usuario/favoritos/favoritos";
 
 function App() {
   const { getUsuario } = useContext(Contexto)
+  const { pathname } = useLocation()
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, [pathname])
 
   return (
     <>
