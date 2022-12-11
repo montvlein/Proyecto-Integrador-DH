@@ -38,7 +38,7 @@ export default function MisReservas({ idUsuario }) {
           <section className={styles.sinReservaContenedor}>
           <div className={styles.divPadre}>
           <FontAwesomeIcon icon={faSadTear} className={styles.divIconoCheck}></FontAwesomeIcon>
-          <h4 className={styles.subtituloMisReservas}>Aún no has efectuado ninguna reserva</h4>            
+          <h4 className={styles.subtituloMisReservas}>Aún no has efectuado ninguna reserva</h4>
           <Link to="/" className={styles.divBotonOk}>
               Volver al home
             </Link>
@@ -60,10 +60,10 @@ function CardReserva({
   id,
 }) {
   const [auto, setAuto] = useState({});
-  const diasReserva =
+  let diasReserva =
     (new Date(fechaFinalReserva) - new Date(fechaInicialReserva)) /
     (1000 * 60 * 60 * 24);
-
+  diasReserva = diasReserva<1?1:diasReserva
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(autoId).then((autoInfo) => {
       setAuto(autoInfo);
@@ -73,6 +73,11 @@ function CardReserva({
   function calcularPrecio() {
     return auto.precio * diasReserva;
   }
+  const precio = calcularPrecio()
+  let horaInicio = horaComienzoReserva.split(":")
+  horaInicio = `${horaInicio[0]}:${horaInicio[1]}`
+  const horarioEntrega = diasReserva<1?"22:00":"10:00"
+
   return (
     <article className={styles.contenedor}>
       <div className={styles.contenedorImagen}>
@@ -99,20 +104,20 @@ function CardReserva({
         <div className={styles.contenedorTodosLosDatos}>
           <div className={styles.contenedorFecha}>
             <p>Lo recoges en: {auto?.ciudad?.nombre}</p>
-            <p>Hora inicio: {horaComienzoReserva}</p>
+            <p>Hora inicio: {horaInicio}</p>
             <p>Fecha inicio: {fechaInicialReserva}</p>
           </div>
 
           <div className={styles.barraDivisora}></div>
           <div className={styles.contenedorFecha}>
-            <p>Horario de entrega: 10 pm</p>
+            <p>Horario de entrega: {horarioEntrega}</p>
             <p>Fecha de entrega: {fechaFinalReserva}</p>
           </div>
 
           <div className={styles.barraDivisora}></div>
           <div className={styles.contenedorFecha}>
             <p>Total dias reservado: {diasReserva}</p>
-            <p className={styles.precio}>Precio: ${calcularPrecio()}</p>
+            <p className={styles.precio}>Precio: ${precio}</p>
             </div>
           </div>
         </div>

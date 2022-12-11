@@ -46,8 +46,6 @@ export default function HorarioReserva({hora, setHoraInicial}){
                         <option>20:30</option>
                         <option>21:00</option>
                         <option>21:30</option>
-                        <option>22:00</option>
-                        <option>22:30</option>
                     </select>
                 </div>
                 </div>
