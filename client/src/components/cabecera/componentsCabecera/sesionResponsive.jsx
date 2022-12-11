@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import RedesSociales from "../../footer/redesSociales";
 
 function SesionResponsive({ toggle }) {
+  const { getUsuario } = useContext(Contexto);
   const { estaLaSesionIniciada } = useContext(Contexto);
   const { cerrarSesion } = useContext(Contexto);
 
@@ -28,6 +29,12 @@ function SesionResponsive({ toggle }) {
           <UsuarioIniciado />
         </div>
 
+        <div className={styles.contenedorBotones}>
+        { getUsuario().esAdmin?
+          <button className={styles.botonMenuResponsive}><Link className={styles.navlink} to="/miperfil/crearProducto">Cargar producto</Link></button>:
+          <button className={styles.botonMenuResponsive}><Link className={styles.navlink} to="/miperfil/reservas">Mis reservas</Link></button>
+        }
+        </div>
 
         <div className={styles.cerrarSesion}>
           <p>

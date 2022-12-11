@@ -13,10 +13,11 @@ function UsuarioIniciado() {
     <section>
       <div className={styles.padreSesion}>
         { getUsuario().esAdmin?
-          <><p className={styles.administrador}>Administrador</p> <hr className={styles.pruebaLinea}></hr></>:
+          <p className={styles.administrador}>Administrador</p>:
           null
         }
 
+        <div className={styles.contenedorNombre}>
         <div className={styles.iconoSesion}>
           <h6>
             {getUsuario().nombre.charAt(0).toUpperCase()}
@@ -34,6 +35,7 @@ function UsuarioIniciado() {
                 getUsuario().apellido.slice(1)}
             </dl>
           </dl>
+        </div>
         </div>
 
         <div className={styles.iconoCerrar}>
