@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { DigitalBookingApi } from "../../data/conexionAPI";
 import Card2 from "./card2";
+import CargandoAuto from "./cargandoAuto";
 import styles from "./estilosCard.module.css";
 
 export default function Recomendados() {
@@ -25,8 +26,13 @@ export default function Recomendados() {
             <hr></hr>
           </div>
         </div>
-        <div className="row gy-4 d-flex justify-content-center">
-          <div className="spinner-border m-5" roler="status"></div>
+        <div className={styles.contenedorCards}>
+          <CargandoAuto/>
+          <CargandoAuto/>
+          <CargandoAuto/>
+          <CargandoAuto/>
+          <CargandoAuto/>
+          <CargandoAuto/>
         </div>
       </section>
     );
