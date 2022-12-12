@@ -335,8 +335,24 @@ details.navmenu[open] > summary {
     font-size: 1.2em;
     cursor: pointer;
     background-color: var(--amarillo);
-    color: #000;
-;    
+    color: #000;  
+
+}
+
+.botonMenuResponsiveFavoritos {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid var(--amarillo);
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #FFF;  
+}
+
+.botonesUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contenedorBotones {

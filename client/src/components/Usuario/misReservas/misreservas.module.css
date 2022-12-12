@@ -1,4 +1,13 @@
 /* CONTENEDOR GENERAL */
+
+.contenedorPadre {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
 .contenedorTitulos{
     background-color: var(--amarillo);
     width: 100%;

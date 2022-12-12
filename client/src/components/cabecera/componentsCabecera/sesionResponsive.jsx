@@ -32,7 +32,10 @@ function SesionResponsive({ toggle }) {
         <div className={styles.contenedorBotones}>
         { getUsuario().esAdmin?
           <button className={styles.botonMenuResponsive}><Link className={styles.navlink} to="/miperfil/crearProducto">Cargar producto</Link></button>:
+          <div className={styles.botonesUsuario}>
           <button className={styles.botonMenuResponsive}><Link className={styles.navlink} to="/miperfil/reservas">Mis reservas</Link></button>
+          <button className={styles.botonMenuResponsiveFavoritos}><Link className={styles.navlink} to="/miperfil/favoritos">Favoritos</Link></button>
+          </div>
         }
         </div>
 

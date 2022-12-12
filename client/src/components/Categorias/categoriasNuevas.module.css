@@ -64,9 +64,10 @@
 
 @media screen and (max-width:760px) { 
     .categoriaContenedor {
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: 3em;
+        display: grid;
+        grid-template-columns: 1.5fr 1.5fr;
+        padding: 10px;
+
     }
   
     .card {
@@ -87,16 +88,17 @@
     }
 
     .card:hover {
-        transition: none;
+        width: 100%;
     }
 
-    .card:hover img{
-        transform: none;
-    }
-    
   
     .cardTitulo {
         text-align: center;
+        font-size: 0.8em;
+    }
+
+    .tituloCategorias {
+        padding: 20px;
     }
 
   }

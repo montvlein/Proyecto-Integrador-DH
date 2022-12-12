@@ -16,33 +16,36 @@ export default function MisReservas({ idUsuario }) {
     });
   }, []);
 
-
   return (
     <section>
       <div className={styles.contenedorTitulos}>
         <h3 className={styles.tituloMisReservas}>Mis Reservas</h3>
       </div>
-        <p className={styles.info}>Acá podrás encontrar todas tus reservas.</p>
-        <br></br>
+      <p className={styles.info}>Acá podrás encontrar todas tus reservas.</p>
+      <br></br>
       <section className="d-flex justify-content-center align-items-center">
-
         {cargando ? (
           <section className="d-flex justify-content-center w-100">
             <div className="spinner-border m-5" roler="status"></div>
           </section>
-        ) : ( misReservas.length > 0 ?
+        ) : misReservas.length > 0 ? (
           misReservas.map((datosReserva) => (
             <CardReserva {...datosReserva} key={datosReserva.id} />
-          )): 
-
+          ))
+        ) : (
           <section className={styles.sinReservaContenedor}>
-          <div className={styles.divPadre}>
-          <FontAwesomeIcon icon={faSadTear} className={styles.divIconoCheck}></FontAwesomeIcon>
-          <h4 className={styles.subtituloMisReservas}>Aún no has efectuado ninguna reserva</h4>
-          <Link to="/" className={styles.divBotonOk}>
-              Volver al home
-            </Link>
-          </div>
+            <div className={styles.divPadre}>
+              <FontAwesomeIcon
+                icon={faSadTear}
+                className={styles.divIconoCheck}
+              ></FontAwesomeIcon>
+              <h4 className={styles.subtituloMisReservas}>
+                Aún no has efectuado ninguna reserva
+              </h4>
+              <Link to="/" className={styles.divBotonOk}>
+                Volver al home
+              </Link>
+            </div>
           </section>
         )}
       </section>
@@ -63,7 +66,7 @@ function CardReserva({
   let diasReserva =
     (new Date(fechaFinalReserva) - new Date(fechaInicialReserva)) /
     (1000 * 60 * 60 * 24);
-  diasReserva = diasReserva<1?1:diasReserva
+  diasReserva = diasReserva < 1 ? 1 : diasReserva;
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(autoId).then((autoInfo) => {
       setAuto(autoInfo);
@@ -73,13 +76,14 @@ function CardReserva({
   function calcularPrecio() {
     return auto.precio * diasReserva;
   }
-  const precio = calcularPrecio()
-  let horaInicio = horaComienzoReserva.split(":")
-  horaInicio = `${horaInicio[0]}:${horaInicio[1]}`
-  const horarioEntrega = diasReserva<1?"22:00":"10:00"
+  const precio = calcularPrecio();
+  let horaInicio = horaComienzoReserva.split(":");
+  horaInicio = `${horaInicio[0]}:${horaInicio[1]}`;
+  const horarioEntrega = diasReserva < 1 ? "22:00" : "10:00";
 
   return (
-    <article className={styles.contenedor}>
+    <article className={styles.contenedorPadre}>
+    <div className={styles.contenedor}>
       <div className={styles.contenedorImagen}>
         <img
           src="https://images.pexels.com/photos/1197095/pexels-photo-1197095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -97,7 +101,7 @@ function CardReserva({
             <p className={styles.tituloAuto}>{autoNombre}</p>
             <p className={styles.subtituloAuto}>{autoCategoria}</p>
           </div>
-            <button className={styles.buttonReserva}>Imprimir</button>
+          <button className={styles.buttonReserva}>Imprimir</button>
         </div>
 
         <div className={styles.barraDivisora}></div>
@@ -118,9 +122,10 @@ function CardReserva({
           <div className={styles.contenedorFecha}>
             <p>Total dias reservado: {diasReserva}</p>
             <p className={styles.precio}>Precio: ${precio}</p>
-            </div>
           </div>
         </div>
+      </div>
+      </div>
     </article>
   );
 }

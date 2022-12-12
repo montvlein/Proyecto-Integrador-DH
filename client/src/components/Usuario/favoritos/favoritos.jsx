@@ -16,15 +16,22 @@ export default function Favoritos() {
 
 
   return (
+
+    
+    
     <section>
       <div className={styles.contenedorTitulos}>
         <h3 className={styles.tituloMisReservas}>Favoritos</h3>
       </div>
       <section className={styles.contenedorFavoritos}>
 
-        { favoritos.length > 0 || !cargando ?
-            favoritos.map(id => <Favorito id={id} />):
-            <h4 className={styles.subtituloMisReservas}>No tines favoritos</h4>
+        { cargando? (
+          <section className="d-flex justify-content-center w-100">
+            <div className="spinner-border m-5" roler="status"></div>
+          </section>
+        ) : favoritos.length > 0 ?
+            (favoritos.map(id => <Favorito id={id} />)) :(
+                 <h4 className={styles.subtituloMisReservas}>No tines favoritos</h4>)
         }
       </section>
     </section>

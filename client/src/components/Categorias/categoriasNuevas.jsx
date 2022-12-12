@@ -24,7 +24,7 @@ export default function Categorias() {
           <div>
             <h3 className={styles.tituloSegundario}>Encuentra tu auto por categoria</h3>
           </div>
-          <div>
+          <div className={styles.descripcionTitulo}>
             <p>Selecciona entre las opciones de nuestra increíble flota</p>
           </div>
         </div>
