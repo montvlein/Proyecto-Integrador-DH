@@ -9,6 +9,7 @@ function UsuarioIniciado() {
   const { getUsuario } = useContext(Contexto);
   const { cerrarSesion } = useContext(Contexto);
 
+
   return (
     <section>
       <div className={styles.padreSesion}>

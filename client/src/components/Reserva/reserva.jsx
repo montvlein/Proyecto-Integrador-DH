@@ -29,6 +29,7 @@ export default function ReservaComponent() {
   }, []);
 
   const container = window.matchMedia("(max-width: 760px)").matches ? "" : "container-md";
+  
 
   function generarReserva(evento) {
     evento.preventDefault()

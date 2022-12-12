@@ -4,7 +4,7 @@
     gap: 1em;
     align-items: center;
     justify-content: center;
-    padding: 1em;
+    padding: 0em 1em 1em 1em;
 }
 /* CONTENEDOR GENERAL */
 
@@ -64,8 +64,7 @@
 }
 
 .info{
-    margin-left: 2em;
-    margin-right: 7em;
+   padding: 1em 0em 0em 2em;
 }
 
 /* AUTOS MAP*/
@@ -191,7 +190,7 @@
     margin: .2em;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width:760px)  {
     .contenedor {
         flex-direction: column;
         align-items: center;
@@ -225,3 +224,40 @@
         display: unset;
     }
 }
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1024px) {  
+    .contenedor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contenedorTodosLosDatos {
+        flex-direction: column;
+    }
+
+    .btnCancelarTop {
+        display: none;
+    }
+
+    .btnCancelarBottom {
+        display: unset;
+    }
+
+    .contenedorTodosLosDatos {
+        gap:.5em;
+    }
+
+    .flexTodosLosDatos{
+        width: 100%;
+    }
+
+    .contenedorImagen {
+        max-width: 100%;
+    }
+
+    .hrReserva{
+        display: unset;
+    }
+  }

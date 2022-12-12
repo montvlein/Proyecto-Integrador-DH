@@ -210,7 +210,7 @@
 }
 
 .iconMenu {
-    color: #FFF;
+    color:  var(--amarillo);
     background-color: transparent;
     padding: 10px;
     border-radius: 10px;
