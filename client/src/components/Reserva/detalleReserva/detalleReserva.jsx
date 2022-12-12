@@ -4,6 +4,15 @@ import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import estilo from "./botonR.module.css"
 
 export default function DetalleReserva({ producto, fechaInicio, fechaFinal }) {
+  let diasReserva =
+    (new Date(fechaFinal) - new Date(fechaInicio)) /
+    (1000 * 60 * 60 * 24);
+  diasReserva = diasReserva < 1 ? 1 : diasReserva;
+  function calcularPrecio() {
+    return producto.precio * diasReserva;
+  }
+
+  const precio = calcularPrecio();
 
   return (
     <section className={styles.sectionDetalle}>
@@ -55,6 +64,15 @@ export default function DetalleReserva({ producto, fechaInicio, fechaFinal }) {
               className={styles.inputOut}
             >
               {fechaFinal}
+            </p>
+          </div>
+          <hr className={styles.lineaCheck}></hr>
+          <div className={styles.reservaCheckOut}>
+            <label>Precio final</label>
+            <p
+              className={styles.inputOut}
+            >
+             $ {precio}
             </p>
           </div>
           <hr className={styles.lineaCheck}></hr>

@@ -2,6 +2,7 @@ import styles from "../misReservas/misreservas.module.css";
 import { useEffect, useState } from "react";
 import { DigitalBookingApi } from "../../../data/conexionAPI";
 import Card2 from "../../Autos/card2";
+import CargandoAuto from "../../Autos/cargandoAuto";
 
 export default function Favoritos() {
   const [favoritos, setFavoritos] = useState([]);
@@ -17,8 +18,6 @@ export default function Favoritos() {
 
   return (
 
-    
-    
     <section>
       <div className={styles.contenedorTitulos}>
         <h3 className={styles.tituloMisReservas}>Favoritos</h3>
@@ -48,5 +47,5 @@ function Favorito({id}) {
 
     return auto != "" ?
     (<Card2 {...auto} />):
-    (<div>auto</div>)
+    (<CargandoAuto/>)
 }
