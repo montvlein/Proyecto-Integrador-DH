@@ -1,0 +1,92 @@
+.section{
+    height: 75vh;
+}
+
+.titulo{
+    font-size: 5em;
+}
+
+.texto{
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.contenedor {
+    height: inherit;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.divContenedor {
+    width: 50%;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+    
+.divIconoCheck h4{
+    color:var(--amarillo);
+    font-size: 1.5em;
+}
+
+.divContenedorHijo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em;  
+    gap: 1em;
+}
+    
+.divIconoCheck{
+    color:var(--amarillo);
+    font-size: 5em;
+}
+    
+.divBotonOk {
+    width: 200px;
+    background-color: var(--amarillo);
+    border: 0;
+    border-radius: 5px;
+    height: 2em;
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4c4e52;
+    font-weight: 500;
+}
+
+.botonNotlogged{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em
+}
+
+.contenedorIconoTitulo{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+
+}
+    
+@media screen and (max-width:760px) { 
+    .divContenedor {
+        width: 70%;
+    }
+    
+    .titulo{
+    font-size: 3em;
+    }
+
+    .texto {
+        text-align: center;
+        word-wrap: normal;
+        font-size: 1em;
+    }
+}

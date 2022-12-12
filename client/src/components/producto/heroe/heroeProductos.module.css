@@ -5,14 +5,14 @@
 .heroeContenedor {
     height: 300px;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/sunset.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/sunset.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     background-attachment: fixed;
-
+    margin-bottom: 0;
 }
 
 
@@ -37,6 +37,11 @@
 
 }
 
+.nombreTestimonio {
+ color: white;
+ align-self: end;
+}
+
 .contenido h2 {
     font-size: 2em;
     color: #FFF;
@@ -49,10 +54,10 @@
     font-size: 1em;
     color: #FFF;
     line-height: 30px;
-    padding-bottom: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     word-wrap: break-word;
+    margin-bottom: 0;
 }
 
 .icon{

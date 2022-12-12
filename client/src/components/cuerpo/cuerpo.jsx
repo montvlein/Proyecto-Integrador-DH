@@ -1,18 +1,20 @@
 import Heroe from "./heroe/heroe";
-import Categorias from "../Categorias/categorias";
 import Recomendados from "../Autos/recomendados";
 import Destinos from "./destinos/principalesDestinos";
 import Buscador from "../Buscador/buscador";
+import { Fragment } from "react";
+import Categorias from "../Categorias/categoriasNuevas";
+import styles from "./cuerpo.module.css"
 
 const Index = () => {
   return (
-    <main>
+    <Fragment>
       <Heroe />
       <Buscador/>
       <Categorias />
-      <Recomendados />
-      <Destinos></Destinos>
-    </main>
+      <Recomendados/>
+      <Destinos/>
+    </Fragment>
   );
 };
 

@@ -2,13 +2,14 @@ package com.dh.DigitalBooking.Services;
 
 import com.dh.DigitalBooking.Models.DTOs.AutoDTO;
 import com.dh.DigitalBooking.Models.Entities.Auto;
+import com.dh.DigitalBooking.Models.Entities.Caracteristica;
+import com.dh.DigitalBooking.Models.Entities.Reserva;
 import com.dh.DigitalBooking.Repository.ORM.iRepositorioAuto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service("ServicioAuto")
 public class ServicioAuto {
@@ -19,7 +20,7 @@ public class ServicioAuto {
     ServicioImagen imagen;
 
     @Autowired
-    ServicioCaracteristica caracteristica;
+    ServicioReserva reservas;
 
     @Autowired
     public void setRepositorio(iRepositorioAuto repositorio) {
@@ -65,33 +66,29 @@ public class ServicioAuto {
         return autoToDTO(repositorio.findAll());
     }
 
-    public List<AutoDTO> buscarAutoPorCategoria(String parametro) {
-        return autoToDTO(repositorio.buscarAutoPorCategoria(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPorCiudad(String parametro) {
-        return  autoToDTO(repositorio.buscarAutoPorCiudad(parametro));
-    }
-
-    public List<AutoDTO> buscarAutoPor(String tituloCategoria, String nombreProvincia) {
-        return  autoToDTO(repositorio.buscarAutoPor(tituloCategoria, nombreProvincia));
-    }
-
-    private AutoDTO autoToDTO(Auto auto) {
+    protected AutoDTO autoToDTO(Auto auto) {
         AutoDTO autoEntregable = new AutoDTO();
         autoEntregable.setId(auto.getId());
         autoEntregable.setNombre(auto.getNombre());
         autoEntregable.setImagenes(imagen.imagenesPorAuto(auto.getId()));
         autoEntregable.setCategoria(auto.getCategoria().getTitulo());
         autoEntregable.setDescripcion(auto.getDescripcion());
-        autoEntregable.setDisponibleParaAlquilar(auto.isDisponibleParaAlquilar());
         autoEntregable.setPrecio(auto.getPrecio());
         autoEntregable.setCiudad(auto.getCiudad());
-        autoEntregable.setCaracteristica(caracteristica.caracteristicasPorAuto(auto.getCaracteristicas()));
+        for (Caracteristica c : auto.getCaracteristicas()) {
+            autoEntregable.agregarCaracteristica(c.getNombre(), c.getDescripcion());
+        }
+        for (Reserva r : reservas.buscarPorAutoId(auto.getId())) {
+            LocalDate fechaOcupara = r.getFechaInicialReserva();
+            while (fechaOcupara.isBefore(r.getFechaFinalReserva().plusDays(1))) {
+                autoEntregable.getFechasConReserva().add(fechaOcupara);
+                fechaOcupara = fechaOcupara.plusDays(1);
+            }
+        }
         return autoEntregable;
     }
 
-    private List<AutoDTO> autoToDTO(List<Auto> listado) {
+    protected List<AutoDTO> autoToDTO(List<Auto> listado) {
         List<AutoDTO> listadoDeAutos = new ArrayList<>();
         for (Auto auto : listado){
             listadoDeAutos.add(autoToDTO(auto));
@@ -99,16 +96,22 @@ public class ServicioAuto {
         return listadoDeAutos;
     }
 
-    public List<AutoDTO> random() {
+    public HashSet<AutoDTO> random() {
         Random random = new Random();
-        List<AutoDTO> recomendados = new ArrayList<>();
+        HashSet<AutoDTO> recomendados = new HashSet<>();
         Long num;
         int autosEnDB = listar().size();
-        if (autosEnDB > 0) {
-            for (int i=0; i <6; i++) {
-                num = random.nextLong(1, autosEnDB);
-                recomendados.add(buscarPorId(num));
+
+        while (autosEnDB > 0 && recomendados.size() < 7) {
+            num = random.nextLong(1, autosEnDB);
+            boolean noExisteEnRecomendados = true;
+            Iterator<AutoDTO> it = recomendados.iterator();
+            while (it.hasNext()) {
+                if (it.next().getId() == num) {
+                    noExisteEnRecomendados = false;
+                }
             }
+            if (noExisteEnRecomendados) recomendados.add(buscarPorId(num));
         }
         return recomendados;
     }

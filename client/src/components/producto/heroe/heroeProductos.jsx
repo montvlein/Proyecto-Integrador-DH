@@ -16,10 +16,10 @@ export default function Heroe() {
           <FontAwesomeIcon icon={faStar} className={styles.icon}/>
         </div>
         <p className={styles.descripcion}>
-          El viaje estuvo perfecto, y no tuve problemas con la reserva.
-          Digital Booking la mejor empresa para reservar tu auto.
-          <br></br>- Usuario134 
+          "No tuve ningún inconveniente para usar el servicio.
+          Recomiendo Digital Booking para reservar tu auto de manera fácil y rápida"
         </p>
+        <span className={styles.nombreTestimonio}>- Leandro Mauro</span>
         </div>
       </div>
     </section>

@@ -4,12 +4,12 @@
     height: 70px;
     background-color: rgba(0, 0, 0, 0.863);
     width: 100%;
-    z-index: 999;
+    z-index: 1200;
     position: sticky;
     top:0;
     display: flex;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1em 2em;
     text-decoration: none;
     
 }
@@ -17,6 +17,7 @@
 .lema {
     color: #FFF;
     margin: 0px;
+    width: 100%;
 }
 
 
@@ -44,11 +45,13 @@
     padding:0
 }
 
-.padreSesion
+.padreSesion, .contenedorNombre
  {
     display:flex;
+    align-items: center;
  }
 
+ 
 /* Menu Hamburguesa Responsive */
 
 .menuHamburguesa{
@@ -63,13 +66,15 @@
     display: block;
 }
 
-.menuIcon p {
-    margin-left: 10px;
-
+.opcionMenu {
+    margin-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: lighter;
 }
 
 .menuContenedor {
-    position:fixed;
+    position:absolute;
     z-index: 999;
     width: 100%;
     height: 100vh;
@@ -80,6 +85,11 @@
     top:0;
     
     
+}
+
+.divisor {
+    background-color: transparent;
+    margin:10px;
 }
 
 .iconoCierre {
@@ -100,18 +110,37 @@
     height: 80vh;
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
 }
 
-.contenedorListaMenu p {
-    margin-bottom:0px;
+
+.divUsuarioIniciado {
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+    padding: 10px;
+    width: 100%;
+
+   
 }
+
+.iconoCierre2 {
+    width: 100%;
+    color: #FFF;
+    font-size: 25px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+}
+
 
 .menuLista {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: left;
     justify-content: center;
     text-decoration: none;
     cursor: pointer;
@@ -120,14 +149,27 @@
     font-size: 1em;
     margin:0px;
     padding:0px
+    
 }
 
+.linkTo{
+    text-decoration: none;
+}
 
 .cerrarSesion {
     color: #FFF;
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
     text-align: end;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.cerrarSesion p{
     border-bottom: var(--amarillo) 1px solid;
     padding: 10px;
 }
@@ -135,19 +177,17 @@
 .menuContenedor span{
     color: var(--amarillo);
     cursor: pointer;
+    letter-spacing: 3px;
 }
 
-.menuIcon:hover {
-    background-color: var(--amarillo);
-    color: #000;
-}
 
-.menuIcon {
+
+.divOpcionMenu {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 5px;
+    padding: 10px 10px 10px 20px;
     /*margin-top: 20px;*/
     
 }
@@ -160,6 +200,27 @@
     justify-content: flex-end;
     margin-top: 15px;
 }
+
+.redesPosicionamiento {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+ 
+
+}
+
+.iconMenu {
+    color:  var(--amarillo);
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.divOpcionMenu:hover > .iconMenu {
+    background-color: var(--amarillo);
+    color: #000;
+}
+
 
 /* Componente de Inicio de Sesion*/
 .iconoSesion {
@@ -194,12 +255,126 @@ dl {
     color:#FFF;
 }
 
+.logo button {
+    background-color: transparent;
+    border: none;
+}
+
+
+.saludo {
+    font-size: bold;
+    font-size: 1em;
+    color:#FFF;
+
+}
+
+.nombreUsuario {
+    font-weight: 500;
+    font-size: 1em;
+    color:#FFF;
+
+}
+
+.contenedorNombreSesion {
+    padding-right: 10px;
+}
+
+.administrador {
+    color: #FFF;
+    margin: 0 1em;
+    padding: 0 1em ;
+    display: flex;
+    align-items: center;
+    border-right: var(--grisC) 2px solid;
+    height: 40px;
+}
+
+.navmenu {
+    position: relative;
+    text-align: right;
+}
+
+details.navmenu > summary {
+    list-style: url("https://img.icons8.com/office/16/null/menu-2.png") inside;
+    width: 14px;
+}
+
+details.navmenu[open] > summary {
+    list-style: disclosure-open inside;
+    color: inherit;
+}
+
+.navitems {
+    background-color: var(--grisHeader);
+    top:35px;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    margin: 0;
+    padding: 0 1em;
+}
+
+.navlink {
+    text-decoration: none;
+    color: var(--amarillo);
+    padding: .5em 0;
+    font-size: .8em;
+}
+
+
+.navlink:hover {
+    color: var(--grisC);
+}
+
+/*BOTONES PARA CREAR PRODUCTO*/
+.botonMenuResponsive {
+    background-color: transparent;
+    padding: 5px 8px 5px 8px;
+    border: 1px solid var(--amarillo);
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: var(--amarillo);
+    color: #000;  
+
+}
+
+.botonMenuResponsiveFavoritos {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid var(--amarillo);
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #FFF;  
+}
+
+.botonesUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contenedorBotones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+}
 
 @media screen and (max-width:760px) {
     .lema, .sesion {
         display:none;
     }
-    
+
+    .contenedorNombreSesion {
+        padding-right: 20px;
+    }
+
+    .saludo, .nombreUsuario {
+        font-size: 1.3em;
+    }
+
     .menuHamburguesa {
         display: block;
         color: #FFF;
@@ -217,17 +392,79 @@ dl {
         display: none;
     }
     
+    .padreSesion {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    .contenedorNombre {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+        padding: 10px;
+
+    }
+
     .contenedorNombreSesion {
-        color: #FFF;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1em;
+        padding: 0px;
+    }
+
+    .administrador {
+        border-right: 0px;
+        margin: 5px 0px 0px 0px;
+        padding: 8px;
+        border: 1px solid var(--amarillo);
+        border-radius: 30px;
+
+    }
+
+    .iconoSesion {
+        margin-right: 0px;
+        margin-bottom: 10px;
+        padding: 23px;
+     }
+
+     .iconoSesion h6 {
+        font-size: 1.3em;
+     }
+    
+    .nombreUsuario {
+        font-weight: 400;
+       
     }
 
     .padreSesion {
-        margin: 0;
-        padding: 0;
-
+        padding: 20px;
+        margin-top: 20px;
     }
+    
+    .saludo {
+        text-align: right;
+        animation: 2s anim-saludo ease-out;
+        transition: 5s all;
+    }
+
+    @keyframes anim-saludo {
+        0% {
+          opacity: 0;
+          transform: translateY(80%);
+        }
+        20% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+
+    
 
 
 }

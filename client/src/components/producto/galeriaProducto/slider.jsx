@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./galeriaProducto.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
+import Destinos from "../../cuerpo/destinos/principalesDestinos";
 
 function ImageSlider({ slides, toggle }) {
   const [indexActual, setIndexActual] = useState(0);
+  
+  const carruselScrollInfinito = () => {
+    if (indexActual === slides.length-1) {
+      return setIndexActual(0)
+    }
+    return setIndexActual(indexActual+1)
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {carruselScrollInfinito()}, 3000)
+    return () => clearInterval(interval)
+  })
+
+
 
   const estiloImagen = {
     width: "100%",
@@ -13,7 +28,10 @@ function ImageSlider({ slides, toggle }) {
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundImage: `url(${slides[indexActual].url})`,
+    transition: "1s cubic-bezier(0.39, 0.575, 0.565, 1)",
   };
+
+
 
   const imagenPequenia = (index) => {
     return {
@@ -22,7 +40,9 @@ function ImageSlider({ slides, toggle }) {
     borderRadius: "10px",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    backgroundImage: `url(${slides[index].url})`}
+    backgroundImage: `url(${slides[index].url})`,
+    transition: "1s cubic-bezier(0.39, 0.575, 0.565, 1)",
+    }
 
   };
 
@@ -41,6 +61,8 @@ function ImageSlider({ slides, toggle }) {
   const irASlide = (slidesIndex) => {
     setIndexActual(slidesIndex);
   };
+
+
 
   return (
     <div className={styles.imagenContenedor}>

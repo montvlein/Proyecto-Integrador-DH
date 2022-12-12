@@ -1,5 +1,5 @@
 .contenedorPadre {
-    height: 100vh;
+    min-height: calc(100vh - 130px);
     display: flex;
     align-items: center;
     background-color: rgba(29, 29, 29, 0.87);

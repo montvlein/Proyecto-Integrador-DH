@@ -3,6 +3,7 @@ package com.dh.DigitalBooking.Config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -13,9 +14,10 @@ import java.util.Map;
 @Component
 public class JWTUtil {
 
-    private String SECRET_KEY = "contrasenia_a_eleccion";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
-    public String extraerNombre(String token) {
+    public String extraerEmail(String token) {
         return extractClaimUsername(token);
     }
 
@@ -37,9 +39,9 @@ public class JWTUtil {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
 
-    public String generarToken(String infoUsuario) {
+    public String generarToken(String mailUsuario) {
         Map<String, Object> claims = new HashMap<>();
-        return crearToken(claims, infoUsuario);
+        return crearToken(claims, mailUsuario);
     }
 
     public String generarToken(UserDetails infoUsuario) {
@@ -51,7 +53,6 @@ public class JWTUtil {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(usuario)
-//                .setPayload(usuario)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*10))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
@@ -59,12 +60,12 @@ public class JWTUtil {
     }
 
     public Boolean validarToken(String token, String infoUsuario) {
-        final String nombreUsuario = extraerNombre(token);
+        final String nombreUsuario = extraerEmail(token);
         return (nombreUsuario.equals(infoUsuario) && !isTokenExpired(token));
     }
 
     public Boolean validarToken(String token, UserDetails infoUsuario) {
-        final String nombreUsuario = extraerNombre(token);
+        final String nombreUsuario = extraerEmail(token);
         return (nombreUsuario.equals(infoUsuario.getUsername()) && !isTokenExpired(token));
     }
 

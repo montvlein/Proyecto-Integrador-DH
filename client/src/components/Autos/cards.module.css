@@ -19,9 +19,9 @@
 }
 
 .tituloCards {
-    justify-content: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
@@ -49,27 +49,55 @@
 }
 
 .mostrarResultadosFiltro {
- max-width: 80%;
+
  padding-bottom: 20px;
  display: flex;
-flex-wrap: wrap;
-gap:10px;
+ flex-wrap: wrap;
+ gap:10px;
+ justify-content: center;
 }
 
 .contenedorCard {
-    max-width: 354px;
+    max-width: 350px;
     
 }
 
 .caracteristicasDIV {
     display: flex;
-    justify-content: space-evenly;
     margin: .5rem;
 }
 
 .caracteristicasDIV p {
     margin: 0;
+    margin-left:5px
 }
+
+
+
+.icon {
+    font-size: 1.5em;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    color: #FFF;
+    box-shadow: rgb(0 0 0/16%) px 1px 3px;
+    
+}
+
+.imagenAuto {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.botonVolver {
+    width: 5rem;
+    align-self: flex-end;
+    margin-bottom: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 
 @media screen 
   and (min-width: 760px) 
@@ -83,18 +111,23 @@ gap:10px;
         display: none;
     }
 
-    .contenedorResultadoPadre {
-        flex-direction: column;
-        justify-content: center;
-    }
-
     .contenedorCard {
-        max-width: 250px;
+        max-width: 270px;
         
     }
 
-    .contenedorPadre {
-        height: 95vh;
+    .mostrarResultadosFiltro {
+        max-width: 80%;
+        justify-content: center;
+    }
+
+    .botonVolver {
+        width: 2rem;
+        align-self: center;
+        margin-bottom: auto;
+        height: auto;
+        padding: 5px;
+        border-radius: 8px;
     }
     
   }
@@ -103,6 +136,37 @@ gap:10px;
     .contenedorResultadoPadre {
         flex-direction: column;
         width: 100%;
+        padding: 0px 10px 20px 10px;
+    }
+
+    .botonVolver {
+        width: 2rem;
+        align-self: center;
+        margin-bottom: auto;
+        height: auto;
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+    .tituloCards {
+        gap: 10px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-bottom: var(--amarillo) solid 1px;
+    
+    }
+
+    .tituloCards  h3 {
+        font-size: 1.3em;
+        margin-bottom: 0px;
+    }
+
+    .divtitulo {
+        display: flex;
+        align-items: center;
     }
     
   }

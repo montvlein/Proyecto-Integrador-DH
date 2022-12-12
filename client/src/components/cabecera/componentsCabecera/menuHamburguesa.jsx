@@ -7,7 +7,7 @@ import SesionResponsive from "./sesionResponsive"
 function MenuResponsive({ isOpen, toggle }) {
   return (
     <div className={isOpen ? styles.menuPadreMostrar : styles.menuPadre }>
-      <SesionResponsive toggle={toggle}/>
+      <SesionResponsive toggle={toggle} isOpen={isOpen}/>
     </div>
   );
 }

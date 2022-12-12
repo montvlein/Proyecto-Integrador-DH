@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.contenedorCopyright}>
-        <p>©2021 Digital Booking</p>
+        <p>©2022 Digital Booking</p>
       </div>
       <div><RedesSociales/></div>
     </footer>

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.*;
 import java.util.List;
 
 @Repository
@@ -17,5 +18,49 @@ public interface iRepositorioAuto extends JpaRepository<Auto, Long> {
     List<Auto> buscarAutoPorCiudad(String parametro);
 
     @Query("select a from Auto a where a.categoria.titulo = ?1 and a.ciudad.provincia = ?2")
-    List<Auto> buscarAutoPor(String categoria, String ciudad);
+    List<Auto> buscarAutoPorCategoria_Ciudad(String categoria, String ciudad);
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
+    List<Auto> buscarAutoPorFecha(LocalDate fecha_inicio, LocalDate fecha_final);
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where auto.ciudad.provincia = ?3
+            and reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
+    List<Auto> buscarAutoPorFecha_Ciudad(LocalDate fecha_inicio, LocalDate fecha_final, String provincia );
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where auto.categoria.titulo = ?3
+            and reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
+    List<Auto> buscarAutoPorFecha_Categoria(LocalDate fecha_inicio, LocalDate fecha_final, String categoria );
+
+    @Query("""
+            select auto from Auto auto
+            left join Reserva reserva
+            on auto.id = reserva.auto.id
+            where auto.ciudad.provincia = ?3
+            and auto.categoria.titulo = ?4
+            and reserva.auto.id is null
+            or reserva.auto.id is not null
+            and reserva.fechaInicialReserva not between ?1 and ?2
+            and reserva.fechaFinalReserva not between ?1 and ?2""")
+    List<Auto> buscarAutoPorFecha_Ciudad_Categoria(LocalDate fecha_inicio, LocalDate fecha_final, String provincia, String Categoria );
 }

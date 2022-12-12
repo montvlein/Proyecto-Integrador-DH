@@ -1,7 +1,7 @@
 package com.dh.DigitalBooking.Controller;
 
 import com.dh.DigitalBooking.Models.Entities.Reserva;
-import com.dh.DigitalBooking.Services.Roles.ServicioReserva;
+import com.dh.DigitalBooking.Services.ServicioReserva;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +43,11 @@ public class ControladorReserva {
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Long id) throws Exception{
         return ResponseEntity.ok(servicio.buscarPorId(id));
+    }
+
+    @Operation(summary = "Busca una reserva por id de usuario")
+    @GetMapping("/buscarPorUsuario/{id}")
+    public ResponseEntity<?> buscarPorIdUsuario(@PathVariable Long id) throws Exception{
+        return ResponseEntity.ok(servicio.buscarPorUsuarioId(id));
     }
 }

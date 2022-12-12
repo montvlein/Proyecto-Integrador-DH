@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../formDatos/formDatos.module.css";
+import Contexto from "../../../contexto/AppContext"
+import { useContext, useState } from "react";
 
 export default function FormDatos() {
+  const { getUsuario } = useContext(Contexto)
+
   return (
     <section className={styles.contenedorPadre}>
       <div>
         <h3>Completa tus datos</h3>
+        <hr></hr>
       </div>
       <div className={styles.contenedorFormulario}>
         <div className={styles.contenedorNP}>
@@ -13,14 +18,21 @@ export default function FormDatos() {
             <p>Nombre</p>
             <input
               type="text"
-              placeholder="Maigualida"
+              value={getUsuario()?.nombre}
               name="nombre"
               disabled
+              readOnly
             />
           </div>
           <div>
             <p>Apellido</p>
-            <input type="text" placeholder="Delgado" name="apellido" disabled />
+            <input
+              type="text"
+              value={getUsuario()?.apellido}
+              name="apellido"
+              disabled
+              readOnly
+            />
           </div>
         </div>
         <div className={styles.contenedorET}>
@@ -28,18 +40,19 @@ export default function FormDatos() {
             <p>Correo Electronico</p>
             <input
               type="email"
-              placeholder="Maigualida@Delgado.com"
+              value={getUsuario()?.email}
               name="email"
               disabled
+              readOnly
             />
           </div>
           <div>
             <p>Ciudad</p>
             <input
               type="text"
-              placeholder="Buenos Aires, Argentina"
-              name="email"
-              disabled
+              placeholder="Agrega la ciudad donde vives"
+              name="ciudad"
+              required
             />
           </div>
         </div>

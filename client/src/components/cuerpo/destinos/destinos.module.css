@@ -2,7 +2,7 @@
 
 .destinoContenedor { 
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url(../../../assets/Argentina.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/mardel.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,37 +12,83 @@
     justify-content: center;
     align-items: center;
     padding: 40px;
+    background-position: bottom;
+  
     
   }
-  
+
+
   .contenidoPadre {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     gap: 09em;
     margin-top: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding: 0px;
+  }
+
+
+  
+  .contenidoPadre::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.contenidoPadre::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.contenidoPadre::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.contenidoPadre::-webkit-scrollbar {
+  width: 8px;     
+  height: 8px;    
+
+}
+
+  .heroeContenedor {
+    width: 100%;
   }
   
   .tituloHeroe { 
     font-size: 2em;
     color: #FFF;
-    text-align: center;
+    text-align: left;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
+
+}
+
+.tituloHeroe h2 {
+  margin: 0px;
+}
+
+.tituloHeroe p {
+  font-size: 0.6em;
+  font-weight: 200;
 
 }
   
   
   .cardDestino1 { 
-    background-image:url(../../../assets/cardBariloche.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardBariloche.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     align-content: center;
     display: flex;
@@ -52,11 +98,11 @@
 
   
   .cardDestino2 {  
-    background-image:url(../../../assets/cardCordoba.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardCordoba.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     border-radius: 5px;
     align-content: center;
@@ -66,11 +112,11 @@
 }
   
   .cardDestino3 { 
-    background-image:url(../../../assets/cardMendoza.jpg);
+    background-image:url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/cardMendoza.jpg");
     background-size:cover;
     background-repeat: no-repeat;
-    width: 12rem;
-    height: 12.5rem;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -90,6 +136,7 @@
     text-align: center;
     font-family: 'Poppins', sans-serif;
     width: 100%;
+
   }
 
 .icon{
@@ -98,11 +145,88 @@
 }
 
 
+
+/* DESTINOS RESPONSIVE CON CARRUSEL*/
+
+.destinoContenedor2 {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.664)), url("https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/mardel.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  margin-top: 20px;
+  padding: 40px;
+  background-position: top;
+  overflow: hidden;
+  margin-top: 10px;
+  gap: 10px;
+  display: none;
+}
+
+.contenedorImagen {
+  transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
+.imagen {
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 8px;
+}
+
+.contenedorIconos{
+  display: flex;
+  gap: 5px;
+}
+
+.iconos {
+  color: white;
+  font-size: 0.7em;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.atraccionesDestino2 {
+  align-content: center;
+  font-size: 0.8em;
+  font-weight: 300;
+  background: rgba(129, 129, 129, 0.301);
+  padding: 10px;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.contenedorFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media screen and (max-width:760px) { 
   .contenidoPadre {
     gap:3em;
   }
 
+  .destinoContenedor {
+    display: none;
+  }
+
+  .destinoContenedor2 {
+    display: block;
+  }
 
 }
 

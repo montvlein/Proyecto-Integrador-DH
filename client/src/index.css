@@ -1,4 +1,6 @@
 @import url('styles/colores.css');
+@import url('styles/tipografias.css');
+
 * {
   margin:0;
   padding: 0;
@@ -28,6 +30,28 @@
   margin-left: -100%;
   animation: bgAnimation 1.2s linear infinite;
   background: linear-gradient(45deg, hsla(0,0%,100%,0) 46%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 54%) 50% 50%;
+}
+
+.cargandoAutoEspacio {
+  height: 485px;
+  width: 350px;
+}
+
+.loading_cursor:hover {
+  cursor: wait;
+}
+
+.spinner-btn-disable{
+  width: 1rem;
+  height: 1rem;
+}
+
+#credential_picker_container {
+  top: 70px !important;
+}
+
+main {
+  min-height: calc(100vh - 130px);
 }
 
 @keyframes bgAnimation {

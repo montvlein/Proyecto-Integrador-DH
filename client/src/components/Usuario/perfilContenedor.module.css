@@ -1,0 +1,34 @@
+.contenedorPadre{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    margin: 0 auto;
+}
+
+.aside{
+    gap: 0.5em;
+    align-items: center;
+    background-color: var(--grisC);
+    padding: 3em;
+    height: calc(100vh - 130px);
+}
+
+.iconoSesion {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin-right: 10px;
+    position: relative;
+    background: var(--grisO);
+    font-size: 4em;
+    color: var(--amarillo)
+}
+
+.botonesMenu{
+    text-decoration: none;
+    color: var(--grisO)
+}

@@ -1,0 +1,263 @@
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 0em 1em 1em 1em;
+}
+/* CONTENEDOR GENERAL */
+
+.contenedorPadre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
+    padding: 20px;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.contenedorTitulos{
+    background-color: var(--amarillo);
+    width: 100%;
+    height: fit-content;
+}
+
+.contenedorImagen{
+    display: flex;
+    max-width: 200px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px)
+}
+
+.imagen {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px)
+}
+
+.icono{
+    position: absolute;
+    font-size: 4em;
+    color: var(--amarillo);
+}
+
+/*TITULOS DE LA PÁGINA */
+.tituloMisReservas{
+    padding-left: 0.5em;
+    height: 2em;
+    padding-top: 0.5em;
+}
+
+.contenedorFavoritos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 1em;
+}
+
+.info{
+   padding: 1em 0em 0em 2em;
+}
+
+/* AUTOS MAP*/
+
+.contenedorTodosLosDatos{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+}
+
+.precio{
+    background-color: var(--amarillo);
+    border-radius: 8px;
+    padding: 0.3em;
+    text-align: center;
+}
+
+.contenedorDatosAutos{
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloAuto{
+    font-size: 1.5em;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.subtituloAuto{
+    font-size: 1em;
+    color: var(--grisO);
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonReserva{
+    background-color: var(--amarillo);
+    border-radius: 8px;
+    border-color: var(--amarillo);
+    padding: 0.3rem;
+    width: 25%;
+    align-self:flex-start;
+}
+
+.contenedorFecha{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedorFecha p{
+    font-weight: 400;
+}
+
+.flexTodosLosDatos{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.barraDivisora{
+    border-left: 1.5px solid;
+    color: var(--amarillo);
+}
+
+.tituloYBoton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SIN RESERVA */
+.sinReservaContenedor{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+
+.divPadre {
+    height: inherit;
+    background-color: white;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divIconoCheck{
+    color:var(--amarillo);
+    font-size: 3em;}
+
+.divBotonOk {
+    width: 200px;
+    background-color: var(--amarillo);
+    border: 0;
+    border-radius: 5px;
+    height: 2em;
+    font-size: 1rem;
+    text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    color: #4c4e52;
+    font-weight: 500;
+}
+
+.btnCancelarBottom {
+    display: none;
+}
+
+.hrReserva{
+    display: none;
+    margin: .2em;
+}
+
+@media screen and (max-width:760px)  {
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedorTodosLosDatos {
+        flex-direction: column;
+    }
+
+    .btnCancelarTop {
+        display: none;
+    }
+
+    .btnCancelarBottom {
+        display: unset;
+    }
+
+    .contenedorTodosLosDatos {
+        gap:.5em;
+    }
+
+    .flexTodosLosDatos{
+        width: 100%;
+    }
+
+    .contenedorImagen {
+        max-width: 100%;
+    }
+
+    .hrReserva{
+        display: unset;
+    }
+}
+
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1024px) {  
+    .contenedor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contenedorTodosLosDatos {
+        flex-direction: column;
+    }
+
+    .btnCancelarTop {
+        display: none;
+    }
+
+    .btnCancelarBottom {
+        display: unset;
+    }
+
+    .contenedorTodosLosDatos {
+        gap:.5em;
+    }
+
+    .flexTodosLosDatos{
+        width: 100%;
+    }
+
+    .contenedorImagen {
+        max-width: 100%;
+    }
+
+    .hrReserva{
+        display: unset;
+    }
+  }

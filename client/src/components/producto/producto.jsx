@@ -22,6 +22,7 @@ export default function Producto() {
     setOpen(!isOpen);
   };
 
+
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(idProducto).then((auto) => {
       setProducto(auto);
@@ -31,8 +32,30 @@ export default function Producto() {
 
   if (cargando) {
     return(
-      <article className={`${stylesArticlulo.productoArticulo} d-flex justify-content-center`}>
-        <div className="spinner-border m-5" roler="status"></div>
+      <article className={`${stylesArticlulo.productoArticulo} container`}>
+        <CabeceraProducto nombre={""} categoria={""} yendo={"/"}/>
+
+        <section className={`loading_background m-5`} style={{height:"500px"}}>
+            <div className={`loading_animation`}></div>
+        </section>
+
+        <section>
+          <h3>Caracteristicas</h3>
+          <hr></hr>
+          <div className='d-flex justify-content-center'>
+            <div className="spinner-border m-5" roler="status"></div>
+          </div>
+        </section>
+        <section>
+          <h3>Encontrá tu auto</h3>
+          <hr></hr>
+          <div className='d-flex justify-content-center'>
+            <div className="spinner-border m-5" roler="status"></div>
+          </div>
+        </section>
+        <BloqueReserva/>
+        <PoliticasProducto />
+        <Heroe></Heroe>
       </article>
     )
   }
@@ -41,11 +64,11 @@ export default function Producto() {
     <article className={`${stylesArticlulo.productoArticulo} container`}>
       <CabeceraProducto nombre={producto.nombre} categoria={producto.categoria} />
       <DatosUbicacionProducto ubicacion={producto.ciudad}/>
-      <ImgProducto isOpen={isOpen} toggle={toggle} imagenes={producto.imagenes}/>
+      <ImgProducto isOpen={isOpen} toggle={toggle} imagenes={producto.imagenes} id={producto.id}/>
       <GaleriaProducto isOpen={!isOpen} toggle={toggle} imagenes={producto.imagenes}/>
       <CaracteristicasProducto caracteristica={producto.caracteristica}/>
       <DescripcionProducto descripcion={producto.descripcion}/>
-      <BloqueReserva/>
+      <BloqueReserva producto={producto}/>
       <PoliticasProducto />
       <Heroe></Heroe>
     </article>

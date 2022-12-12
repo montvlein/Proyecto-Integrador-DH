@@ -7,8 +7,9 @@ footer {
     align-items: center;
     padding: 10px;
     text-decoration: none;
-    position: sticky;
+    position: unset;
     bottom: 0;
+    z-index: 999;
 
 }
 
@@ -29,6 +30,4 @@ footer {
     align-items: center;
 
 }
-
-
 

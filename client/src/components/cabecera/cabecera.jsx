@@ -1,26 +1,36 @@
 import React from "react";
 import styles from "./cabecera.module.css";
-import logo from "../../assets/logo.png";
 import Sesion from "../cabecera/componentsCabecera/sesionMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import MenuResponsive from "./componentsCabecera/menuHamburguesa";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Contexto from "../../contexto/AppContext"
+import { Busqueda } from "../../modelos/criterioBusqueda";
 
 export default function Cabecera() {
+  const {setBusqueda, setSinUsuarioParaReserva} = useContext(Contexto)
+  const redirigir = useNavigate()
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!isOpen);
   };
 
+  function volver() {
+    setBusqueda(new Busqueda)
+    setSinUsuarioParaReserva(false)
+    redirigir("/")
+  }
+
+
   return (
-    <div className={styles.contenedor}>
+    <header className={styles.contenedor}>
       <div className={styles.navWrap}>
         <div className={styles.logo}>
-          <Link to="/" className="bi me-2">
-            <img src={logo} />
-          </Link>
+          <button onClick={volver} className="bi me-2">
+            <img src="https://0521ptc3n1db-g2-cliente.s3.us-east-2.amazonaws.com/imagenes/assets/logoDigitalBookingYellow.png" />
+          </button>
           <p className={styles.lema}>Disfruta el camino</p>
         </div>
         <div className={styles.sesion}>
@@ -31,6 +41,6 @@ export default function Cabecera() {
         </div>
         <MenuResponsive isOpen={isOpen} toggle={toggle} />
       </div>
-    </div>
+    </header>
   );
 }

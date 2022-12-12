@@ -1,59 +1,49 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
-import listado from "../data/AUTOS.json";
 import { DigitalBookingApi } from "../data/conexionAPI";
+import { Busqueda } from "../modelos/criterioBusqueda";
 
 const Contexto = createContext();
+
 
 export function AppContext({ children }) {
 
   // usuario y sesion
-  const [listaUsuarios, setListaUsuarios] = useState([]);
-  const [sesionIniciada, setSesionIniciada] = useState(false);
-  const [usuario, setUsuario] = useState();
+  const [token, setToken] = useState(localStorage.getItem("DigitalToken"))
+  const [usuario, setUsuario] = useState({});
+
+  useEffect(()=>{
+    if (token) {
+      DigitalBookingApi.usuario.infoToken(token)
+      .then(usuario => {
+        iniciarSesion(usuario)
+      })
+    }
+  },[])
+
   function getUsuario() {
     return usuario;
   }
-  function getUsuarioPorMail(mail) {
-    return getListaUsuarios().find((usuario) => usuario.mail === mail);
+
+  function setUbicacionUsuario(lugar) {
+    usuario.ciudad = lugar
   }
-  function validarUsuario(mail, pass) {
-    let usuarioIngresando = getUsuarioPorMail(mail);
-    return usuarioIngresando?.pass === pass;
+
+  function iniciarSesion(usuario) {
+    setUsuario(usuario)
   }
-  function getListaUsuarios() {
-    return listaUsuarios;
-  }
+
   function estaLaSesionIniciada() {
-    return sesionIniciada;
-  }
-
-  function registrarUsuario(usuario) {
-    // getListaUsuarios().push(usuario);
-    DigitalBookingApi.usuario.crear(usuario)
-    .then( respuestaUsuario => {
-      if (respuestaUsuario.status == 201) {
-        setUsuario(usuario);
-        setSesionIniciada(respuestaUsuario.ok);
-      }
-      return respuestaUsuario
-    })
-  }
-
-  function iniciarSesion(mail) {
-    let usuario = getUsuarioPorMail(mail);
-    setUsuario(usuario);
-    setSesionIniciada(true);
+    return usuario?.email?.length > 0;
   }
 
   function cerrarSesion() {
+    localStorage.removeItem("DigitalToken")
     setUsuario({});
-    setSesionIniciada(false);
   }
 
   // listado de productos
-  const [listaAutos, setListadoAutos] = useState(listado.autos)
-  const [autosFiltrados, setAutosFiltrados] = useState(listaAutos)
+  const [listaAutos, setListadoAutos] = useState([])
   const [estaFiltadoListadoAutos, setEstaFiltadoListadoAutos] = useState(false)
   const [criterioFiltro, setCriterioFiltro] = useState()
   useEffect(()=>{
@@ -66,16 +56,7 @@ export function AppContext({ children }) {
     return listaAutos
   }
 
-  function getAutosFiltrados() {
-    return autosFiltrados
-  }
-
-  function filtarAutos(criterio) {
-    let filtrados = listaAutos.filter( auto => auto.categoria === criterio)
-    setAutosFiltrados(filtrados)
-    setEstaFiltadoListadoAutos(true)
-    setCriterioFiltro(criterio)
-  }
+  // buscador
 
   function limpiarFiltro() {
     setAutosFiltrados(listaAutos)
@@ -90,21 +71,58 @@ export function AppContext({ children }) {
     return criterioFiltro
   }
 
+  // buscador por fecha
+  const [busqueda, setBusqueda] = useState(new Busqueda)
+
+  function setFechaInicioBusqueda(fecha){
+    busqueda.fechaInicio = fecha
+  }
+
+  function setFechaFinalBusqueda(fecha) {
+    busqueda.fechaFinal = fecha
+  }
+
+  function setCiudadBusqueda(ubicacion) {
+    busqueda.ubicacion = ubicacion
+  }
+
+  const [sinUsuarioParaReserva, setSinUsuarioParaReserva] = useState(false);
+  const [ultimaConsultaPreviaReservar, setUltimaConsultaPreviaReservar] = useState()
+
+  function getSinUsuarioParaReserva() {
+    return sinUsuarioParaReserva
+  }
+
+  function getUltimaConsultaPreviaReservar() {
+    return ultimaConsultaPreviaReservar
+  }
+
   return (
     <Contexto.Provider
       value={{
+
         getUsuario,
-        estaLaSesionIniciada,
         iniciarSesion,
+        estaLaSesionIniciada,
         cerrarSesion,
-        registrarUsuario,
-        validarUsuario,
+        setUbicacionUsuario,
+
         getListaAutos,
-        getAutosFiltrados,
-        filtarAutos,
         getEstaFiltadoListadoAutos,
         getCriterioFiltro,
-        limpiarFiltro
+        limpiarFiltro,
+
+        setFechaInicioBusqueda,
+        setFechaFinalBusqueda,
+        setCiudadBusqueda,
+        busqueda,
+        setBusqueda,
+
+        getSinUsuarioParaReserva,
+        setSinUsuarioParaReserva,
+        setUltimaConsultaPreviaReservar,
+        getUltimaConsultaPreviaReservar
+
       }}
     >
       {children}

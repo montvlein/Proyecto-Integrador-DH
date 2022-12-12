@@ -2,44 +2,47 @@ import styles from "./formularios.module.css";
 import { useContext, useState } from "react";
 import Contexto from "../../contexto/AppContext"
 import { Link, useNavigate } from "react-router-dom"
+import { DigitalBookingApi } from "../../data/conexionAPI";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import GoogleOauth from "./googleOauth";
 
 const Login = () => {
   const redirigir = useNavigate()
-  const { iniciarSesion, validarUsuario } = useContext(Contexto)
+  const { iniciarSesion, getSinUsuarioParaReserva, setSinUsuarioParaReserva, getUltimaConsultaPreviaReservar } = useContext(Contexto)
   const [invalido, setInvalido] = useState(false)
+  const [enEspera, setEnEspera] = useState(false)
 
   const handleSubmit = function (e) {
+    setEnEspera(true)
     e.preventDefault()
-    let [mail, pass] = [e.target.elements.email.value, e.target.elements.password.value]
-    if (validarUsuario(mail, pass)) {
-      iniciarSesion(mail)
-      redirigir("/")
-    } else {
+    let [email, contrasenia] = [e.target.elements.email.value, e.target.elements.password.value]
+    DigitalBookingApi.usuario.login({email,contrasenia})
+    .then( auth => {
+      localStorage.setItem("DigitalToken", auth.token )
+      DigitalBookingApi.usuario.infoToken(auth.token)
+        .then(usuario => {
+          setEnEspera(false)
+          iniciarSesion(usuario)
+          getSinUsuarioParaReserva()?redirigir(getUltimaConsultaPreviaReservar()):redirigir("/")
+          setSinUsuarioParaReserva(false)
+        })
+      })
+    .catch(e => {
       setInvalido(true)
-    }
+      setEnEspera(false)
+    })
   }
-
-  if (invalido) {
     return(
-      <div className={styles.divContainer}>
-        <Formulario ingresar={handleSubmit}/>
-        <Errores/>
-      </div>
-    )
-  }
+      <div className={enEspera?`${styles.divContainer} loading_cursor`:`${styles.divContainer}`}>
+        <GoogleOauth setEnEspera={setEnEspera}/>
+        {invalido?<p className={styles.textError2}>Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde</p>:null}
+        {getSinUsuarioParaReserva() ? <p className={styles.textError}><span><FontAwesomeIcon
+          icon={faCircleExclamation}
+        /></span>  Para iniciar una reserva necesitas estar logueado</p> : null}
 
-    return(
-      <div className={styles.divContainer}>
-        <Formulario ingresar={handleSubmit}/>
-      </div>
-    )
-  }
 
-export default Login;
-
-function Formulario({ingresar}) {
-  return(
-    <form className={styles.formularioContainer} onSubmit={ingresar} method="POST">
+        <form className={styles.formularioContainer} onSubmit={handleSubmit} method="POST">
           <div className={styles.contenidoFormulario}>
             <h3 className={styles.tituloFormulario}>Iniciar Sesión</h3>
             <div className="form-group mt-3">
@@ -61,22 +64,20 @@ function Formulario({ingresar}) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className={styles.botonFormulario}>
-                Ingresar
-              </button>
+              {enEspera?
+              <button className={styles.botonFormularioDisabled} disabled>
+                <div className="spinner-border spinner-btn-disable" roler="status"></div>
+              </button>:
+              <button type="submit" className={styles.botonFormulario}>Ingresar</button>}
+
             </div>
-            <p className="text-center mt-2">
+            <p className={`${styles.textoCuenta} text-center mt-3`}>
                 ¿Aún no tenes cuenta? <Link to="/crearCuenta">Registrate</Link>
             </p>
           </div>
-    </form>
-  )
-}
+        </form>
+      </div>
+    )
+  }
 
-function Errores() {
-  return(
-    <ul className={styles.error}>
-        <li >Por favor vuelva a intentarlo, sus credenciales son inválidas</li>
-    </ul>
-  )
-}
+export default Login;

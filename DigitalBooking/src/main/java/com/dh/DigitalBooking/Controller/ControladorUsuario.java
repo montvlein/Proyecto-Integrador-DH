@@ -1,10 +1,11 @@
 package com.dh.DigitalBooking.Controller;
 
 import com.dh.DigitalBooking.Config.JWTUtil;
-import com.dh.DigitalBooking.Models.Entities.Roles.Auth;
+import com.dh.DigitalBooking.Models.Entities.Roles.JWT;
 import com.dh.DigitalBooking.Models.DTOs.UsuarioDTO;
 import com.dh.DigitalBooking.Models.Entities.Roles.Usuario;
-import com.dh.DigitalBooking.Services.Roles.ServicioUsuario;
+import com.dh.DigitalBooking.Models.Entities.Roles.googleAuth;
+import com.dh.DigitalBooking.Services.ServicioUsuario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,7 @@ public class ControladorUsuario {
 
     @Operation(summary = "Borra un usuario x id")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminarPorId(@PathVariable Long id) throws Exception{
-//        if (servicio.buscarPorId(id) == null ) throw new NotFoundException("No existe usuario con esa ID para eliminar");
+    public ResponseEntity<?> eliminarPorId(@PathVariable Long id) throws Exception {
         if (servicio.buscarPorId(id) == null ) return ResponseEntity.badRequest().body("No existe usuario con esa ID para eliminar");
         servicio.eliminarPorId(id);
         return ResponseEntity.noContent().build();
@@ -67,9 +67,19 @@ public class ControladorUsuario {
         return ResponseEntity.ok(usuarioEnDB);
     }
 
+    @Operation(summary = "Actualiza un usuario con los datos pasados por el cuerpo de la request")
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editarCiudad(@RequestBody UsuarioDTO usuario) throws Exception{
+        ResponseEntity<?> response = ResponseEntity.notFound().build();
+        if (usuario.getId() != null && servicio.buscarPorId(usuario.getId()) != null){
+            response = ResponseEntity.ok(servicio.actualizar(usuario));
+        }
+        return response;
+    }
+
     @PostMapping("autenticacion")
     @Operation(summary = "Devuelve un token")
-    public ResponseEntity<?> login(@RequestBody Auth.Request request) throws Exception {
+    public ResponseEntity<?> login(@RequestBody JWT.Request request) throws Exception {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -84,11 +94,50 @@ public class ControladorUsuario {
 
         try {
             final UserDetails user = servicio.loadUserByEmail(request.getEmail());
-            final String jwt = jwtUtil.generarToken(user);
-            return ResponseEntity.ok(new Auth.Response(jwt));
+            final String token = jwtUtil.generarToken(user);
+            return ResponseEntity.ok(new JWT.Response(token));
         } catch (UsernameNotFoundException e) {
           throw new Exception("Usuario no encontrado", e);
         }
     }
 
+    @GetMapping("tokenInfo")
+    @Operation(summary = "Devuelve la informacion del usuario")
+    public ResponseEntity<?> tokenInfo(@RequestParam String token) throws Exception {
+        UsuarioDTO usuario = servicio.tokenInfo(token);
+        if (usuario != null) return ResponseEntity.ok(usuario);
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("validarMail")
+    @Operation(summary = "valida el mail del usuario")
+    public ResponseEntity<?> validarMail(@RequestParam String token) throws Exception {
+        if (servicio.validarMail(token)) {
+            return ResponseEntity.ok().body("Validacion exitosa");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("googleauth")
+    @Operation(summary = "dado una credencial de google, devuelve usuario y token")
+    public ResponseEntity<?> googleAuth(@RequestBody googleAuth.Resquest credential) throws Exception {
+        googleAuth.Response respuesta = servicio.validarGoogleCredential(credential);
+        return ResponseEntity.ok(respuesta);
+    }
+
+    @Operation(summary = "busca el auto, y si existe lo agrega a favoritos del usuario que se pasa por ID")
+    @PostMapping("agregarFavorito")
+    public ResponseEntity<?> agregarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.agregarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
+
+    @Operation(summary = "busca el auto, y si existe lo remueve de favoritos del usuario que se pasa por ID")
+    @PostMapping("eliminarFavorito")
+    public ResponseEntity<?> eliminarAutoFavorito(@RequestBody UsuarioDTO.Favorito favorito ) {
+        UsuarioDTO usuarioDTO = servicio.tokenInfo(favorito.getToken());
+        servicio.eliminarFavorito(usuarioDTO.getId(), favorito.getAutoId());
+        return ResponseEntity.ok().build();
+    }
 }

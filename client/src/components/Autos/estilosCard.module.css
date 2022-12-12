@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.tituloCards {
-    justify-content: center;
+
+.contenedorCards {
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-bottom: var(--amarillo) solid 1px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    
+
 }
 
-.tituloCards h3 {
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    /*color: #fff;*/
-    
+.contenedorRecomendados {
+  margin-top: 50px;
 }
 
-.tituloCards span {
-    font-size: 0.4em;
-    font-weight: lighter;
-    color: var(--grisC);
-    
+@media screen 
+  and (min-width: 760px) 
+  and (max-width: 1000px) {
+    .contenedorCards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        justify-content: center;
+
+    }
+  }
+
+
+
+    @media screen and (min-width: 1030) and (max-width: 1290px) { 
+        .contenedorCards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            justify-content: center;
+    }
 }
