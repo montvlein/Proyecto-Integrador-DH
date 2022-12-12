@@ -42,7 +42,7 @@ class CRUD {
     }
 
     borrarPorID(id) {
-        return handleFetch(`${this.uri}/${id}`, { method:'DELETE' })
+        return handleFetch(`${this.uri}/${id}`, opciones(null, true, 'DELETE'))
         .then( res => res )
         .catch(error => { throw(error) })
     }

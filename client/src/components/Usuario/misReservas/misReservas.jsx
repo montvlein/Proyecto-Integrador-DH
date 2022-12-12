@@ -11,6 +11,7 @@ export default function MisReservas({ idUsuario }) {
 
   useEffect(() => {
     DigitalBookingApi.reserva.buscarPorIdUsuario(idUsuario).then((reserva) => {
+      console.log(reserva)
       setMisReservas(reserva);
       setCargando(false);
     });
@@ -30,7 +31,7 @@ export default function MisReservas({ idUsuario }) {
           </section>
         ) : misReservas.length > 0 ? (
           misReservas.map((datosReserva) => (
-            <CardReserva {...datosReserva} key={datosReserva.id} />
+            <CardReserva {...datosReserva} key={datosReserva.id} setReservas={setMisReservas} reservas={misReservas}/>
           ))
         ) : (
           <section className={styles.sinReservaContenedor}>
@@ -61,6 +62,8 @@ function CardReserva({
   autoCategoria,
   autoId,
   id,
+  setReservas,
+  reservas
 }) {
   const [auto, setAuto] = useState({});
   const [portada, setPortada] = useState("https://images.pexels.com/photos/1197095/pexels-photo-1197095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
@@ -83,6 +86,14 @@ function CardReserva({
   horaInicio = `${horaInicio[0]}:${horaInicio[1]}`;
   const horarioEntrega = diasReserva < 1 ? "22:00" : "10:00";
 
+  function borrarReserva() {
+    DigitalBookingApi.reserva.borrarPorID(id)
+    .then(res => {
+      let reservasActuales = reservas.filter(miReserva => miReserva.id != id)
+      setReservas(reservasActuales)
+    })
+  }
+
   return (
     <article className={styles.contenedorPadre}>
       <div className={styles.contenedorImagen}>
@@ -98,7 +109,7 @@ function CardReserva({
             <p className={styles.tituloAuto}>{autoNombre}</p>
             <p className={styles.subtituloAuto}>{autoCategoria}</p>
           </div>
-          <button className={`btn btn-outline-danger ${styles.btnCancelarTop}`}>Cancelar</button>
+          <button className={`btn btn-outline-danger ${styles.btnCancelarTop}`} onClick={borrarReserva}>Cancelar</button>
         </div>
 
         <hr className={`${styles.barraDivisora} ${styles.hrReserva}`} />
