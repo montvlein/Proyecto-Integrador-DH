@@ -23,7 +23,7 @@ export default function MisReservas({ idUsuario }) {
       </div>
       <p className={styles.info}>Acá podrás encontrar todas tus reservas.</p>
       <br></br>
-      <section className="d-flex justify-content-center align-items-center">
+      <section className={styles.contenedor}>
         {cargando ? (
           <section className="d-flex justify-content-center w-100">
             <div className="spinner-border m-5" roler="status"></div>
@@ -63,6 +63,7 @@ function CardReserva({
   id,
 }) {
   const [auto, setAuto] = useState({});
+  const [portada, setPortada] = useState("https://images.pexels.com/photos/1197095/pexels-photo-1197095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
   let diasReserva =
     (new Date(fechaFinalReserva) - new Date(fechaInicialReserva)) /
     (1000 * 60 * 60 * 24);
@@ -70,6 +71,7 @@ function CardReserva({
   useEffect(() => {
     DigitalBookingApi.auto.buscarPorID(autoId).then((autoInfo) => {
       setAuto(autoInfo);
+      setPortada(auto.imagenes[0].url)
     });
   }, []);
 
@@ -83,16 +85,11 @@ function CardReserva({
 
   return (
     <article className={styles.contenedorPadre}>
-    <div className={styles.contenedor}>
       <div className={styles.contenedorImagen}>
         <img
-          src="https://images.pexels.com/photos/1197095/pexels-photo-1197095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={auto.imagenes?auto.imagenes[0].url:"https://images.pexels.com/photos/1197095/pexels-photo-1197095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
           className={styles.imagen}
         ></img>
-        <FontAwesomeIcon
-          icon={faCalendar}
-          className={styles.icono}
-        ></FontAwesomeIcon>
       </div>
 
       <div className={styles.flexTodosLosDatos}>
@@ -101,10 +98,12 @@ function CardReserva({
             <p className={styles.tituloAuto}>{autoNombre}</p>
             <p className={styles.subtituloAuto}>{autoCategoria}</p>
           </div>
-          <button className={styles.buttonReserva}>Imprimir</button>
+          <button className={`btn btn-outline-danger ${styles.btnCancelarTop}`}>Cancelar</button>
         </div>
 
+        <hr className={`${styles.barraDivisora} ${styles.hrReserva}`} />
         <div className={styles.barraDivisora}></div>
+
         <div className={styles.contenedorTodosLosDatos}>
           <div className={styles.contenedorFecha}>
             <p>Lo recoges en: {auto?.ciudad?.nombre}</p>
@@ -112,19 +111,24 @@ function CardReserva({
             <p>Fecha inicio: {fechaInicialReserva}</p>
           </div>
 
+          <hr className={`${styles.barraDivisora} ${styles.hrReserva}`} />
           <div className={styles.barraDivisora}></div>
           <div className={styles.contenedorFecha}>
             <p>Horario de entrega: {horarioEntrega}</p>
             <p>Fecha de entrega: {fechaFinalReserva}</p>
           </div>
 
+          <hr className={`${styles.barraDivisora} ${styles.hrReserva}`} />
           <div className={styles.barraDivisora}></div>
           <div className={styles.contenedorFecha}>
             <p>Total dias reservado: {diasReserva}</p>
             <p className={styles.precio}>Precio: ${precio}</p>
           </div>
         </div>
-      </div>
+
+        <hr className={`${styles.barraDivisora} ${styles.hrReserva}`} />
+        <button className={`btn btn-outline-danger ${styles.btnCancelarBottom}`}>Cancelar</button>
+
       </div>
     </article>
   );

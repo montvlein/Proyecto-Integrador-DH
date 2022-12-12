@@ -1,11 +1,21 @@
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
 /* CONTENEDOR GENERAL */
 
 .contenedorPadre {
     display: flex;
     flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    gap: 10px;
+    gap: 1em;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
+    padding: 20px;
+    border-radius: 8px;
+    justify-content: center;
 }
 
 .contenedorTitulos{
@@ -46,22 +56,6 @@
     padding-top: 0.5em;
 }
 
-.subtituloMisReservas{
-    margin-top: 1em;
-    padding-left: 1em;
-    font-size: 1em;
-}
-
-.contenedor{
-    display: flex;
-    margin-top: 0.313px;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 3px;
-    border-radius: 8px;
-    background-color: #FFF;
-    padding: 20px;
-    width: fit-content;
-}
-
 .contenedorFavoritos{
     display: flex;
     flex-wrap: wrap;
@@ -80,19 +74,18 @@
     display: flex;
     flex-direction: row;
     gap: 1.5em;
-    margin-left: 1em;
 }
 
 .precio{
-    background-color: var(--grisC);
+    background-color: var(--amarillo);
     border-radius: 8px;
     padding: 0.3em;
+    text-align: center;
 }
 
 .contenedorDatosAutos{
     display: flex;
     flex-direction: column;
-    margin-left: 1em;
 }
 
 .tituloAuto{
@@ -104,7 +97,6 @@
 .subtituloAuto{
     font-size: 1em;
     color: var(--grisO);
-    margin-bottom: 1em;
 }
 
 .botones{
@@ -135,6 +127,7 @@
 .flexTodosLosDatos{
     display: flex;
     flex-direction: column;
+    gap: .5em;
 }
 
 .barraDivisora{
@@ -146,6 +139,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* SIN RESERVA */
@@ -188,6 +182,46 @@
     font-weight: 500;
 }
 
+.btnCancelarBottom {
+    display: none;
+}
 
+.hrReserva{
+    display: none;
+    margin: .2em;
+}
 
-/* RESPONSIVE */
+@media screen and (max-width: 700px) {
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedorTodosLosDatos {
+        flex-direction: column;
+    }
+
+    .btnCancelarTop {
+        display: none;
+    }
+
+    .btnCancelarBottom {
+        display: unset;
+    }
+
+    .contenedorTodosLosDatos {
+        gap:.5em;
+    }
+
+    .flexTodosLosDatos{
+        width: 100%;
+    }
+
+    .contenedorImagen {
+        max-width: 100%;
+    }
+
+    .hrReserva{
+        display: unset;
+    }
+}
