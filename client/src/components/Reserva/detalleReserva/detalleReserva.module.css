@@ -204,9 +204,6 @@
         padding-top: 25px;
     }
 
-    .tituloReserva {
-
-    }
 
 }
 
@@ -233,6 +230,24 @@
 .contenedorTituloEstrellas {
     padding: 10px;
 }
+
+}
+
+
+@media only screen   
+and (min-device-width : 1280px) { 
+    .detalleReserva { 
+        padding: 10px;
+    }
+
+    .imagenCard { 
+        width: 350px;
+    }
+
+    .botonReservaContainer {
+        padding: 2.9rem 1.5rem 1rem 1.5rem;
+
+    }
 
 
 }

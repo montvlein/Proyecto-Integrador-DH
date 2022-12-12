@@ -39,3 +39,12 @@ and (max-device-width : 1024px)   {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media only screen   
+and (min-device-width : 1280px) {
+    .contenedorFormularioReserva {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}  
