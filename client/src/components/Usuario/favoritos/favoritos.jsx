@@ -30,7 +30,7 @@ export default function Favoritos() {
           </section>
         ) : favoritos.length > 0 ?
             (favoritos.map(id => <Favorito id={id} />)) :(
-                 <h4 className={styles.subtituloMisReservas}>No tines favoritos</h4>)
+                 <h4 className={styles.subtituloMisReservas}>No tienes favoritos</h4>)
         }
       </section>
     </section>

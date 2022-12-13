@@ -39,6 +39,7 @@ main{
     border-color: lightgrey;
     border-radius: 5px;
     font-size: 1em;
+    z-index: 5;
 }
 
 /* Barra de rango de fecha*/
